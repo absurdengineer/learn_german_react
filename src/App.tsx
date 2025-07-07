@@ -1,15 +1,15 @@
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-import Layout from './components/Layout.jsx';
 import { AppProvider } from './context/AppContext.jsx';
-import Settings from './pages/Settings.jsx';
-import Vocabulary from './pages/Vocabulary';
-import Writing from './pages/Writing.jsx';
+import Layout from './presentation/components/Layout';
 import Grammar from './presentation/pages/Grammar';
 import Home from './presentation/pages/Home';
 import Progress from './presentation/pages/Progress';
+import Settings from './presentation/pages/Settings';
 import Speaking from './presentation/pages/Speaking';
 import StudyPlan from './presentation/pages/StudyPlan';
 import Tests from './presentation/pages/Tests';
+import Vocabulary from './presentation/pages/Vocabulary';
+import Writing from './presentation/pages/Writing';
 
 function App() {
   return (

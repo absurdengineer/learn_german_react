@@ -1,14 +1,14 @@
 <!-- Use this file to provide workspace-specific custom instructions to Copilot. For more details, visit https://code.visualstudio.com/docs/copilot/copilot-customization#_use-a-githubcopilotinstructionsmd-file -->
 
-# German A1 Learning PWA - Copilot Instructions
+# DeutschMeister - German A1 Learning PWA - Copilot Instructions
 
 ## Project Overview
-This is a React Progressive Web App (PWA) for German A1 language learning with a focus on certification preparation. The app uses the 80-20 rule to maximize learning efficiency.
+DeutschMeister is a React Progressive Web App (PWA) for German A1 language learning with a focus on certification preparation. The app uses the 80-20 rule to maximize learning efficiency and provides an engaging, interactive learning experience.
 
 ## Tech Stack
 - React 18 with TypeScript
 - Vite for build tooling
-- Material-UI (MUI) for responsive design
+- Tailwind CSS for responsive design
 - React Router for navigation
 - Vite PWA plugin for offline capabilities
 - Local Storage for progress tracking
@@ -33,7 +33,7 @@ This is a React Progressive Web App (PWA) for German A1 language learning with a
 ## Code Style Guidelines
 - Use TypeScript with strict type checking
 - Functional components with hooks
-- Material-UI components and styling system
+- Tailwind CSS for styling and responsive design
 - ESLint and Prettier for code formatting
 - Descriptive component and file naming
 - Comprehensive error handling
@@ -75,4 +75,4 @@ This is a React Progressive Web App (PWA) for German A1 language learning with a
 - E2E tests for critical paths
 - Performance testing for PWA features
 
-Please help generate code that follows these patterns and creates an engaging, effective German learning experience!
+Please help generate code that follows these patterns and creates an engaging, effective German learning experience with DeutschMeister!

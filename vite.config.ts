@@ -10,9 +10,9 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],
       manifest: {
-        name: 'German A1 Learning App',
-        short_name: 'GermanA1',
-        description: 'Interactive German A1 language learning with certification focus',
+        name: 'DeutschMeister - German A1 Learning',
+        short_name: 'DeutschMeister',
+        description: 'Master German A1 with interactive lessons, vocabulary, and certification prep',
         theme_color: '#1976d2',
         background_color: '#ffffff',
         display: 'standalone',
@@ -50,7 +50,7 @@ export default defineConfig({
       }
     })
   ],
-  base: '/learn_german_react/', // For GitHub Pages deployment
+  base: '/', // Changed from '/learn_german_react/' to run at root
   build: {
     outDir: 'dist',
     sourcemap: true

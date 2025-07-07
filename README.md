@@ -1,69 +1,115 @@
-# React + TypeScript + Vite
+# DeutschMeister 🇩🇪
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern Progressive Web App (PWA) for German A1 language learning with certification preparation focus.
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Interactive Learning**: Vocabulary practice, grammar exercises, and speaking practice
+- **Certification Focus**: A1 exam preparation with practice tests
+- **Progress Tracking**: Detailed analytics and milestone tracking
+- **Offline Support**: PWA capabilities for learning anywhere
+- **Modern UI**: Clean, responsive design with Tailwind CSS
+- **Mobile-First**: Optimized for mobile learning experience
 
-## Expanding the ESLint configuration
+## 🚀 Quick Start
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+```bash
+# Install dependencies
+npm install
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+# Start development server
+npm run dev
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+# Build for production
+npm run build
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Preview production build
+npm run preview
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🛠️ Tech Stack
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- **React 18** with TypeScript
+- **Vite** for fast development and building
+- **Tailwind CSS** for modern, responsive styling
+- **React Router** for navigation
+- **Vite PWA** for offline capabilities
+- **Clean Architecture** with DDD patterns
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 📱 PWA Features
+
+- Installable on mobile devices
+- Offline functionality
+- Background sync
+- Push notifications (coming soon)
+
+## 🏗️ Architecture
+
+The app follows Clean Architecture principles:
+
+- **Domain Layer**: Business logic and entities
+- **Application Layer**: Use cases and business rules
+- **Infrastructure Layer**: Data persistence and external services
+- **Presentation Layer**: React components and UI logic
+
+## 🎯 Learning Approach
+
+Based on the 80-20 rule for maximum efficiency:
+- 500 essential A1 vocabulary words
+- 6 core grammar topics
+- Practical conversation scenarios
+- Spaced repetition for retention
+
+## 📚 Content Structure
+
+- **Daily Study Plans**: 30-day structured learning path
+- **Vocabulary Practice**: Interactive flashcards with audio
+- **Grammar Lessons**: Step-by-step explanations and exercises
+- **Speaking Practice**: Recording and pronunciation feedback
+- **Writing Exercises**: Guided composition practice
+- **Practice Tests**: Full A1 exam simulation
+
+## 🔧 Development
+
+### Project Structure
 ```
+src/
+├── domain/          # Business logic and entities
+├── application/     # Use cases and business rules
+├── infrastructure/  # Data persistence and external services
+├── presentation/    # React components and UI
+├── hooks/          # Custom React hooks
+├── context/        # React context providers
+├── data/           # Static data and constants
+├── types/          # TypeScript type definitions
+└── utils/          # Helper functions
+```
+
+### Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+- `npm run deploy` - Build and deploy to GitHub Pages
+
+### Code Style
+
+The project follows these patterns:
+- TypeScript with strict type checking
+- Functional components with hooks
+- Clean Architecture with DDD principles
+- Tailwind CSS for styling
+- Mobile-first responsive design
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+---
+
+**DeutschMeister** - Master German A1 with confidence! 🚀
