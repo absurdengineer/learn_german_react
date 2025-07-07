@@ -50,7 +50,7 @@ export default defineConfig({
       }
     })
   ],
-  base: '/', // Changed from '/learn_german_react/' to run at root
+  base: '/',
   build: {
     outDir: 'dist',
     sourcemap: true
