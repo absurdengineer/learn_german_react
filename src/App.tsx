@@ -15,7 +15,7 @@ import Writing from './presentation/pages/Writing';
 function App() {
   return (
     <AppProvider>
-      <Router>
+      <Router basename="/learn_german_react">
         <Layout>
           <Routes>
             <Route path="/" element={<Home />} />
