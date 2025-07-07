@@ -14,7 +14,7 @@ The project includes a GitHub Actions workflow that automatically deploys your a
 **Steps:**
 1. Push your code to the `main` branch of your GitHub repository
 2. GitHub Actions will automatically build and deploy your app
-3. Your app will be available at: `https://yourusername.github.io/`
+3. Your app will be available at: `https://absurdengineer.github.io/learn_german_react/`
 
 **Enable GitHub Pages:**
 1. Go to your repository settings on GitHub
@@ -22,8 +22,6 @@ The project includes a GitHub Actions workflow that automatically deploys your a
 3. Under "Source", select "Deploy from a branch"
 4. Choose `gh-pages` branch and `/ (root)` folder
 5. Save the settings
-
-**Note:** For the app to work at the root domain (`yourusername.github.io`), your repository must be named `yourusername.github.io` (replace `yourusername` with your actual GitHub username).
 
 ### Method 2: Manual Deployment
 
@@ -45,7 +43,7 @@ This will:
 ## Configuration Details
 
 ### Vite Configuration
-- **Base URL**: Automatically set to `/learn_german_react/` in production
+- **Base URL**: Set to `/learn_german_react/` for GitHub Pages
 - **PWA**: Configured for offline functionality
 - **Build Output**: `dist` folder
 
@@ -53,6 +51,12 @@ This will:
 - **Trigger**: Runs on push to `main` branch
 - **Node Version**: 18.x
 - **Auto-Deploy**: Uses `peaceiris/actions-gh-pages@v3`
+- **Build Process**: The `dist` folder is built during CI/CD (not committed to git)
+
+### Important Notes
+- The `dist` folder is in `.gitignore` - this is correct and intentional
+- GitHub Actions builds the project fresh on each deployment
+- No need to commit built files to your repository
 
 ## PWA Features
 
@@ -69,12 +73,14 @@ Your app will work as a Progressive Web App with:
 1. **404 Error**: Make sure the base URL matches your repository name
 2. **Assets Not Loading**: Check that all relative paths are correct
 3. **PWA Not Working**: Ensure HTTPS is enabled (GitHub Pages provides this)
+4. **Deployment Fails**: The `dist` folder should NOT be committed to git - it's built during CI/CD
 
 ### Debug Steps:
 
 1. **Check Build**: Run `npm run build` locally to ensure no build errors
 2. **Check Preview**: Run `npm run preview` to test the built app locally
 3. **Check GitHub Actions**: Visit the "Actions" tab in your repository to see deployment status
+4. **Check Repository Settings**: Ensure GitHub Pages is set to deploy from `gh-pages` branch
 
 ## Custom Domain (Optional)
 
@@ -82,7 +88,7 @@ If you want to use a custom domain:
 
 1. Add your domain to the `cname` field in `.github/workflows/deploy.yml`
 2. Configure DNS settings with your domain provider
-3. Add a CNAME record pointing to `yourusername.github.io`
+3. Add a CNAME record pointing to `absurdengineer.github.io`
 
 ## Repository Structure
 
@@ -99,15 +105,4 @@ learn_german_react/
 ## Live URL
 
 After deployment, your DeutschMeister app will be available at:
-
-**Option 1 - Root Domain (Recommended):**
-If your repository is named `yourusername.github.io`:
-`https://yourusername.github.io/`
-
-**Option 2 - Project Repository:**
-If your repository has a different name like `learn_german_react`:
-`https://yourusername.github.io/learn_german_react/`
-
-Replace `yourusername` with your actual GitHub username.
-
-**Important:** For the app to work at the root domain, your repository must be named exactly `yourusername.github.io`
+`https://absurdengineer.github.io/learn_german_react/`

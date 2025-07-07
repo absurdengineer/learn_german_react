@@ -17,8 +17,8 @@ export default defineConfig({
         background_color: '#ffffff',
         display: 'standalone',
         orientation: 'portrait',
-        scope: '/',
-        start_url: '/',
+        scope: '/learn_german_react/',
+        start_url: '/learn_german_react/',
         icons: [
           {
             src: 'pwa-192x192.png',
@@ -50,7 +50,7 @@ export default defineConfig({
       }
     })
   ],
-  base: '/',
+  base: '/learn_german_react/',
   build: {
     outDir: 'dist',
     sourcemap: true
