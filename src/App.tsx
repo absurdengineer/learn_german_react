@@ -1,4 +1,5 @@
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import PWAInstallPrompt from './components/PWAInstallPrompt';
 import { AppProvider } from './context/AppContext.jsx';
 import Layout from './presentation/components/Layout';
 import Articles from './presentation/pages/Articles';
@@ -30,6 +31,7 @@ function App() {
             <Route path="/settings" element={<Settings />} />
           </Routes>
         </Layout>
+        <PWAInstallPrompt />
       </Router>
     </AppProvider>
   );

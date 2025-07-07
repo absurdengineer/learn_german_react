@@ -1,0 +1,8 @@
+<svg width="192" height="192" viewBox="0 0 192 192" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="192" height="192" rx="24" fill="#1976d2"/>
+  <path d="M48 72H144V120H48V72Z" fill="white"/>
+  <path d="M64 88H80V104H64V88Z" fill="#1976d2"/>
+  <path d="M96 88H128V96H96V88Z" fill="#1976d2"/>
+  <path d="M96 104H128V112H96V104Z" fill="#1976d2"/>
+  <text x="96" y="140" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="16" font-weight="bold">DeutschMeister</text>
+</svg>
