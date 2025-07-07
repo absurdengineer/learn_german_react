@@ -1,31 +1,49 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
-    A1_VOCABULARY,
-    A1_VOCABULARY_BY_CATEGORY,
-    getRandomVocabulary,
-    getVocabularyByCategory,
-    searchVocabulary
-} from '../../data/vocabulary';
+  A1_VOCABULARY_WORDS,
+  getRandomVocabularyWords,
+  getVocabularyWordsByCategory,
+  searchVocabularyWords
+} from '../../data';
 import { VocabularyWord } from '../../domain/entities/Vocabulary';
-import VocabularyPractice from '../components/VocabularyPractice';
+import SessionResults from '../components/SessionResults';
+import VocabularySession from '../components/VocabularySession';
+
+interface SessionResult {
+  totalQuestions: number;
+  correctAnswers: number;
+  wrongAnswers: number;
+  timeSpent: number;
+  wordsStudied: VocabularyWord[];
+  mistakes: Array<{
+    word: VocabularyWord;
+    userAnswer: string;
+    correctAnswer: string;
+  }>;
+}
 
 const Vocabulary: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState<'all' | keyof typeof A1_VOCABULARY_BY_CATEGORY>('all');
-  const [filteredWords, setFilteredWords] = useState<VocabularyWord[]>(A1_VOCABULARY);
+  const [selectedCategory, setSelectedCategory] = useState<'all' | string>('all');
+  const [filteredWords, setFilteredWords] = useState<VocabularyWord[]>(A1_VOCABULARY_WORDS);
   const [selectedWord, setSelectedWord] = useState<VocabularyWord | null>(null);
   const [dialogOpen, setDialogOpen] = useState(false);
-  const [practiceMode, setPracticeMode] = useState(false);
+  const [sessionMode, setSessionMode] = useState<'browse' | 'session' | 'results'>('browse');
+  const [sessionType, setSessionType] = useState<'flashcards' | 'translation' | 'multiple-choice'>('flashcards');
+  const [sessionWords, setSessionWords] = useState<VocabularyWord[]>([]);
+  const [sessionResults, setSessionResults] = useState<SessionResult | null>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     let words: VocabularyWord[] = [];
     
     if (searchTerm.trim()) {
-      words = searchVocabulary(searchTerm);
+      words = searchVocabularyWords(searchTerm);
     } else if (selectedCategory === 'all') {
-      words = A1_VOCABULARY;
+      words = A1_VOCABULARY_WORDS;
     } else {
-      words = getVocabularyByCategory(selectedCategory);
+      words = getVocabularyWordsByCategory(selectedCategory);
     }
     
     setFilteredWords(words);
@@ -41,8 +59,32 @@ const Vocabulary: React.FC = () => {
     setSelectedWord(null);
   };
 
-  const startPractice = () => {
-    setPracticeMode(true);
+  const startPractice = (type: 'flashcards' | 'translation' | 'multiple-choice', words: VocabularyWord[]) => {
+    setSessionType(type);
+    setSessionWords(words);
+    setSessionMode('session');
+  };
+
+  const handleSessionComplete = (results: SessionResult) => {
+    setSessionResults(results);
+    setSessionMode('results');
+  };
+
+  const handleSessionExit = () => {
+    setSessionMode('browse');
+    setSessionResults(null);
+  };
+
+  const handleRestart = () => {
+    setSessionMode('session');
+  };
+
+  const handleReviewMistakes = () => {
+    if (sessionResults && sessionResults.mistakes.length > 0) {
+      const mistakeWords = sessionResults.mistakes.map(m => m.word);
+      setSessionWords(mistakeWords);
+      setSessionMode('session');
+    }
   };
 
   const getWordTypeColor = (type: string) => {
@@ -70,9 +112,31 @@ const Vocabulary: React.FC = () => {
     return colors[gender as keyof typeof colors] || 'bg-gray-100 text-gray-800';
   };
 
-  if (practiceMode) {
-    return <VocabularyPractice />;
+  // Session mode rendering
+  if (sessionMode === 'session' && sessionWords.length > 0) {
+    return (
+      <VocabularySession
+        words={sessionWords}
+        sessionType={sessionType}
+        onComplete={handleSessionComplete}
+        onExit={handleSessionExit}
+      />
+    );
   }
+
+  if (sessionMode === 'results' && sessionResults) {
+    return (
+      <SessionResults
+        results={sessionResults}
+        sessionType={sessionType}
+        onRestart={handleRestart}
+        onReviewMistakes={handleReviewMistakes}
+        onExit={handleSessionExit}
+      />
+    );
+  }
+
+  // Browse mode rendering
 
   return (
     <div className="min-h-screen bg-gray-50 py-8 px-4">
@@ -87,62 +151,116 @@ const Vocabulary: React.FC = () => {
           </p>
         </div>
 
-        {/* Controls */}
-        <div className="bg-white rounded-2xl shadow-lg p-6 mb-8">
-          <div className="flex flex-col lg:flex-row gap-4 items-center justify-between">
-            {/* Search */}
-            <div className="relative flex-1 min-w-0 w-full lg:w-auto">
-              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <svg className="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-              </div>
-              <input
-                type="text"
-                placeholder="Search vocabulary..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-xl leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-              />
+        {/* Articles Practice Banner */}
+        <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl p-4 sm:p-6 mb-8 text-white">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:justify-between">
+            <div className="flex-1">
+              <h3 className="text-lg sm:text-xl font-bold mb-2">🎯 Master German Articles</h3>
+              <p className="text-blue-100 text-sm sm:text-base">
+                Practice der, die, das with 200+ essential A1 words using the 80-20 rule
+              </p>
             </div>
+            <button
+              onClick={() => navigate('/articles')}
+              className="w-full sm:w-auto bg-white text-blue-600 px-4 sm:px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors flex items-center justify-center gap-2"
+            >
+              <span>Start Articles Practice</span>
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+        </div>
 
-            {/* Category Filter */}
-            <div className="flex-shrink-0 w-full lg:w-auto">
-              <select
-                value={selectedCategory}
-                onChange={(e) => setSelectedCategory(e.target.value as 'all' | keyof typeof A1_VOCABULARY_BY_CATEGORY)}
-                className="block w-full px-4 py-3 border border-gray-300 rounded-xl bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-              >
-                <option value="all">All Categories</option>
-                <option value="articles">Articles</option>
-                <option value="pronouns">Pronouns</option>
-                <option value="verbs">Verbs</option>
-                <option value="nouns">Nouns</option>
-                <option value="adjectives">Adjectives</option>
-                <option value="conjunctions">Conjunctions</option>
-                <option value="interjections">Interjections</option>
-              </select>
+        {/* Controls */}
+        <div className="bg-white rounded-2xl shadow-lg p-4 sm:p-6 mb-8">
+          <div className="space-y-4">
+            {/* Search and Category Row */}
+            <div className="flex flex-col sm:flex-row gap-4">
+              {/* Search */}
+              <div className="relative flex-1">
+                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <svg className="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  </svg>
+                </div>
+                <input
+                  type="text"
+                  placeholder="Search vocabulary..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-xl leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                />
+              </div>
+
+              {/* Category Filter */}
+              <div className="flex-shrink-0 sm:w-48">
+                <select
+                  value={selectedCategory}
+                  onChange={(e) => setSelectedCategory(e.target.value)}
+                  className="block w-full px-4 py-3 border border-gray-300 rounded-xl bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                >
+                  <option value="all">All Categories</option>
+                  <option value="articles">Articles</option>
+                  <option value="greetings">Greetings</option>
+                  <option value="politeness">Politeness</option>
+                  <option value="responses">Responses</option>
+                  <option value="pronouns">Pronouns</option>
+                  <option value="verbs">Verbs</option>
+                </select>
+              </div>
             </div>
 
             {/* Action Buttons */}
-            <div className="flex gap-3 w-full lg:w-auto">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               <button
-                onClick={startPractice}
-                className="flex-1 lg:flex-none bg-blue-600 text-white px-6 py-3 rounded-xl hover:bg-blue-700 transition-all duration-200 flex items-center justify-center gap-2 font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                onClick={() => {
+                  const words = getRandomVocabularyWords(10);
+                  startPractice('flashcards', words);
+                }}
+                className="bg-blue-600 text-white px-4 py-3 rounded-xl hover:bg-blue-700 transition-all duration-200 flex items-center justify-center gap-2 font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >
                 <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                Practice Mode
+                <span className="hidden sm:inline">Flashcards</span>
+                <span className="sm:hidden">Flash</span>
               </button>
               <button
-                onClick={() => setFilteredWords(getRandomVocabulary(20))}
-                className="flex-1 lg:flex-none bg-green-600 text-white px-6 py-3 rounded-xl hover:bg-green-700 transition-all duration-200 flex items-center justify-center gap-2 font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                onClick={() => {
+                  const words = getRandomVocabularyWords(15);
+                  startPractice('translation', words);
+                }}
+                className="bg-purple-600 text-white px-4 py-3 rounded-xl hover:bg-purple-700 transition-all duration-200 flex items-center justify-center gap-2 font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              >
+                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                </svg>
+                <span className="hidden sm:inline">Translation</span>
+                <span className="sm:hidden">Trans</span>
+              </button>
+              <button
+                onClick={() => {
+                  const words = getRandomVocabularyWords(12);
+                  startPractice('multiple-choice', words);
+                }}
+                className="bg-orange-600 text-white px-4 py-3 rounded-xl hover:bg-orange-700 transition-all duration-200 flex items-center justify-center gap-2 font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              >
+                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                </svg>
+                <span className="hidden sm:inline">Quiz</span>
+                <span className="sm:hidden">Quiz</span>
+              </button>
+              <button
+                onClick={() => setFilteredWords(getRandomVocabularyWords(20))}
+                className="bg-green-600 text-white px-4 py-3 rounded-xl hover:bg-green-700 transition-all duration-200 flex items-center justify-center gap-2 font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >
                 <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                 </svg>
-                Random Words
+                <span className="hidden sm:inline">Random Words</span>
+                <span className="sm:hidden">Random</span>
               </button>
             </div>
           </div>
@@ -161,7 +279,7 @@ const Vocabulary: React.FC = () => {
               </div>
               <div className="ml-4">
                 <p className="text-sm font-medium text-gray-500">Total Words</p>
-                <p className="text-3xl font-bold text-gray-900">{A1_VOCABULARY.length}</p>
+                <p className="text-3xl font-bold text-gray-900">{A1_VOCABULARY_WORDS.length}</p>
               </div>
             </div>
           </div>
@@ -253,12 +371,12 @@ const Vocabulary: React.FC = () => {
       {dialogOpen && selectedWord && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
-            <div className="p-8">
+            <div className="p-4 sm:p-8">
               <div className="flex justify-between items-start mb-6">
-                <h2 className="text-3xl font-bold text-gray-900">{selectedWord.german}</h2>
+                <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 pr-4">{selectedWord.german}</h2>
                 <button
                   onClick={handleCloseDialog}
-                  className="text-gray-400 hover:text-gray-600 p-2 rounded-lg hover:bg-gray-100 transition-all duration-200"
+                  className="text-gray-400 hover:text-gray-600 p-2 rounded-lg hover:bg-gray-100 transition-all duration-200 flex-shrink-0"
                 >
                   <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -272,16 +390,16 @@ const Vocabulary: React.FC = () => {
                   <p className="text-gray-700 text-lg">{selectedWord.english}</p>
                 </div>
                 
-                <div className="flex flex-wrap gap-3">
-                  <span className={`px-4 py-2 text-sm rounded-xl font-medium ${getWordTypeColor(selectedWord.type)}`}>
+                <div className="flex flex-wrap gap-2 sm:gap-3">
+                  <span className={`px-3 sm:px-4 py-2 text-sm rounded-xl font-medium ${getWordTypeColor(selectedWord.type)}`}>
                     {selectedWord.type}
                   </span>
                   {selectedWord.gender && (
-                    <span className={`px-4 py-2 text-sm rounded-xl font-medium ${getGenderColor(selectedWord.gender)}`}>
+                    <span className={`px-3 sm:px-4 py-2 text-sm rounded-xl font-medium ${getGenderColor(selectedWord.gender)}`}>
                       {selectedWord.gender}
                     </span>
                   )}
-                  <span className="px-4 py-2 bg-gray-100 text-gray-700 text-sm rounded-xl font-medium">
+                  <span className="px-3 sm:px-4 py-2 bg-gray-100 text-gray-700 text-sm rounded-xl font-medium">
                     Level: {selectedWord.level}
                   </span>
                 </div>
@@ -296,7 +414,7 @@ const Vocabulary: React.FC = () => {
                 {selectedWord.conjugations && selectedWord.conjugations.length > 0 && (
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-3">Conjugations</h3>
-                    <div className="grid grid-cols-2 gap-3">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       {selectedWord.conjugations.map((conjugation, index) => (
                         <span key={index} className="px-3 py-2 bg-blue-50 text-blue-700 text-sm rounded-lg font-medium">
                           {conjugation}

@@ -1,0 +1,602 @@
+{
+    "STUDY_PLAN": [
+        {
+            "day": 1,
+            "title": "Welcome to German!",
+            "description": "Basic greetings and introductions",
+            "focusAreas": [
+                "greetings",
+                "personal_info",
+                "numbers_1-10"
+            ],
+            "vocabularyWords": [
+                "v6",
+                "v7",
+                "v8",
+                "v9",
+                "v10",
+                "v11",
+                "v12",
+                "v13",
+                "v14",
+                "v15"
+            ],
+            "grammarTopics": [
+                "personal_pronouns"
+            ],
+            "exercises": [
+                {
+                    "id": "e1_1",
+                    "type": "vocabulary",
+                    "title": "Learn Basic Greetings",
+                    "description": "Master hello, goodbye, please, thank you",
+                    "estimatedTime": 15,
+                    "isRequired": true
+                },
+                {
+                    "id": "e1_2",
+                    "type": "speaking",
+                    "title": "Practice Introduction",
+                    "description": "Record yourself saying \"Hallo, ich bin...\"",
+                    "estimatedTime": 10,
+                    "isRequired": true
+                }
+            ],
+            "estimatedTime": 30,
+            "difficulty": "easy"
+        },
+        {
+            "day": 2,
+            "title": "Personal Information",
+            "description": "Learn to talk about yourself",
+            "focusAreas": [
+                "personal_info",
+                "family",
+                "pronouns"
+            ],
+            "vocabularyWords": [
+                "v19",
+                "v20",
+                "v21",
+                "v22",
+                "v23",
+                "v24",
+                "v25",
+                "n52",
+                "n53",
+                "n63"
+            ],
+            "grammarTopics": [
+                "personal_pronouns",
+                "verb_sein"
+            ],
+            "exercises": [
+                {
+                    "id": "e2_1",
+                    "type": "vocabulary",
+                    "title": "Personal Pronouns",
+                    "description": "Learn ich, du, er, sie, es, wir, ihr, sie",
+                    "estimatedTime": 20,
+                    "isRequired": true
+                },
+                {
+                    "id": "e2_2",
+                    "type": "grammar",
+                    "title": "Verb 'sein' (to be)",
+                    "description": "Conjugate and use the verb 'sein'",
+                    "estimatedTime": 15,
+                    "isRequired": true
+                }
+            ],
+            "estimatedTime": 45,
+            "difficulty": "easy"
+        },
+        {
+            "day": 3,
+            "title": "Articles - Der, Die, Das",
+            "description": "Master German articles",
+            "focusAreas": [
+                "articles",
+                "gender",
+                "basic_nouns"
+            ],
+            "vocabularyWords": [
+                "v1",
+                "v2",
+                "v3",
+                "v4",
+                "v5",
+                "n1",
+                "n51",
+                "n118",
+                "n121",
+                "n150"
+            ],
+            "grammarTopics": [
+                "definite_articles",
+                "indefinite_articles",
+                "gender"
+            ],
+            "exercises": [
+                {
+                    "id": "e3_1",
+                    "type": "vocabulary",
+                    "title": "Article Practice",
+                    "description": "Practice der, die, das with common nouns",
+                    "estimatedTime": 25,
+                    "isRequired": true
+                },
+                {
+                    "id": "e3_2",
+                    "type": "grammar",
+                    "title": "Gender Rules",
+                    "description": "Learn basic gender patterns",
+                    "estimatedTime": 20,
+                    "isRequired": true
+                }
+            ],
+            "estimatedTime": 50,
+            "difficulty": "medium"
+        },
+        {
+            "day": 4,
+            "title": "Family Members",
+            "description": "Learn family vocabulary",
+            "focusAreas": [
+                "family",
+                "people",
+                "possessive_pronouns"
+            ],
+            "vocabularyWords": [
+                "n2",
+                "n52",
+                "n3",
+                "n53",
+                "n4",
+                "n54",
+                "n55",
+                "n56",
+                "n118",
+                "n119"
+            ],
+            "grammarTopics": [
+                "possessive_pronouns",
+                "family_vocabulary"
+            ],
+            "exercises": [
+                {
+                    "id": "e4_1",
+                    "type": "vocabulary",
+                    "title": "Family Tree",
+                    "description": "Learn family member names",
+                    "estimatedTime": 20,
+                    "isRequired": true
+                },
+                {
+                    "id": "e4_2",
+                    "type": "speaking",
+                    "title": "Describe Your Family",
+                    "description": "Practice talking about family members",
+                    "estimatedTime": 15,
+                    "isRequired": true
+                }
+            ],
+            "estimatedTime": 40,
+            "difficulty": "easy"
+        },
+        {
+            "day": 5,
+            "title": "Essential Verbs",
+            "description": "Core German verbs",
+            "focusAreas": [
+                "verbs",
+                "present_tense",
+                "daily_actions"
+            ],
+            "vocabularyWords": [
+                "v26",
+                "v27",
+                "v28",
+                "v29",
+                "v30",
+                "v31",
+                "v32",
+                "v33",
+                "v34",
+                "v35"
+            ],
+            "grammarTopics": [
+                "present_tense",
+                "verb_conjugation"
+            ],
+            "exercises": [
+                {
+                    "id": "e5_1",
+                    "type": "vocabulary",
+                    "title": "Essential Verbs",
+                    "description": "Learn sein, haben, machen, gehen, kommen",
+                    "estimatedTime": 25,
+                    "isRequired": true
+                },
+                {
+                    "id": "e5_2",
+                    "type": "grammar",
+                    "title": "Present Tense Conjugation",
+                    "description": "Practice conjugating regular verbs",
+                    "estimatedTime": 20,
+                    "isRequired": true
+                }
+            ],
+            "estimatedTime": 50,
+            "difficulty": "medium"
+        },
+        {
+            "day": 6,
+            "title": "Numbers and Time",
+            "description": "Numbers 1-100 and telling time",
+            "focusAreas": [
+                "numbers",
+                "time",
+                "daily_routine"
+            ],
+            "vocabularyWords": [
+                "n23",
+                "n24",
+                "n25",
+                "n65",
+                "n66",
+                "n67",
+                "n68",
+                "n69",
+                "n165"
+            ],
+            "grammarTopics": [
+                "numbers",
+                "time_expressions"
+            ],
+            "exercises": [
+                {
+                    "id": "e6_1",
+                    "type": "vocabulary",
+                    "title": "Numbers 1-100",
+                    "description": "Practice counting and number recognition",
+                    "estimatedTime": 20,
+                    "isRequired": true
+                },
+                {
+                    "id": "e6_2",
+                    "type": "grammar",
+                    "title": "Telling Time",
+                    "description": "Learn to tell time in German",
+                    "estimatedTime": 25,
+                    "isRequired": true
+                }
+            ],
+            "estimatedTime": 50,
+            "difficulty": "medium"
+        },
+        {
+            "day": 7,
+            "title": "Food and Drinks",
+            "description": "Essential food vocabulary",
+            "focusAreas": [
+                "food",
+                "drinks",
+                "restaurant"
+            ],
+            "vocabularyWords": [
+                "n30",
+                "n31",
+                "n32",
+                "n33",
+                "n96",
+                "n150",
+                "n151",
+                "n152",
+                "n153",
+                "n154"
+            ],
+            "grammarTopics": [
+                "food_vocabulary",
+                "ordering_phrases"
+            ],
+            "exercises": [
+                {
+                    "id": "e7_1",
+                    "type": "vocabulary",
+                    "title": "Food and Drinks",
+                    "description": "Learn essential food vocabulary",
+                    "estimatedTime": 25,
+                    "isRequired": true
+                },
+                {
+                    "id": "e7_2",
+                    "type": "speaking",
+                    "title": "At the Restaurant",
+                    "description": "Practice ordering food and drinks",
+                    "estimatedTime": 20,
+                    "isRequired": true
+                }
+            ],
+            "estimatedTime": 50,
+            "difficulty": "easy"
+        },
+        {
+            "day": 8,
+            "title": "Places and Locations",
+            "description": "Important places in the city",
+            "focusAreas": [
+                "places",
+                "directions",
+                "prepositions"
+            ],
+            "vocabularyWords": [
+                "n71",
+                "n72",
+                "n73",
+                "n74",
+                "n121",
+                "n133",
+                "n134",
+                "n145",
+                "n146",
+                "n147"
+            ],
+            "grammarTopics": [
+                "prepositions_of_place",
+                "directions"
+            ],
+            "exercises": [
+                {
+                    "id": "e8_1",
+                    "type": "vocabulary",
+                    "title": "Places in the City",
+                    "description": "Learn important locations",
+                    "estimatedTime": 20,
+                    "isRequired": true
+                },
+                {
+                    "id": "e8_2",
+                    "type": "grammar",
+                    "title": "Asking for Directions",
+                    "description": "Practice asking and giving directions",
+                    "estimatedTime": 25,
+                    "isRequired": true
+                }
+            ],
+            "estimatedTime": 50,
+            "difficulty": "medium"
+        },
+        {
+            "day": 9,
+            "title": "Transportation",
+            "description": "Getting around in German",
+            "focusAreas": [
+                "transport",
+                "travel",
+                "tickets"
+            ],
+            "vocabularyWords": [
+                "n19",
+                "n20",
+                "n21",
+                "n22",
+                "n122",
+                "n123",
+                "n124",
+                "n125"
+            ],
+            "grammarTopics": [
+                "transportation_vocabulary",
+                "travel_phrases"
+            ],
+            "exercises": [
+                {
+                    "id": "e9_1",
+                    "type": "vocabulary",
+                    "title": "Transportation",
+                    "description": "Learn transport vocabulary",
+                    "estimatedTime": 20,
+                    "isRequired": true
+                },
+                {
+                    "id": "e9_2",
+                    "type": "speaking",
+                    "title": "Buying Tickets",
+                    "description": "Practice buying transportation tickets",
+                    "estimatedTime": 20,
+                    "isRequired": true
+                }
+            ],
+            "estimatedTime": 45,
+            "difficulty": "medium"
+        },
+        {
+            "day": 10,
+            "title": "Home and Living",
+            "description": "Rooms and furniture",
+            "focusAreas": [
+                "home",
+                "furniture",
+                "rooms"
+            ],
+            "vocabularyWords": [
+                "n76",
+                "n77",
+                "n78",
+                "n79",
+                "n129",
+                "n130",
+                "n131",
+                "n132",
+                "n11",
+                "n12"
+            ],
+            "grammarTopics": [
+                "home_vocabulary",
+                "describing_rooms"
+            ],
+            "exercises": [
+                {
+                    "id": "e10_1",
+                    "type": "vocabulary",
+                    "title": "Rooms and Furniture",
+                    "description": "Learn home vocabulary",
+                    "estimatedTime": 25,
+                    "isRequired": true
+                },
+                {
+                    "id": "e10_2",
+                    "type": "writing",
+                    "title": "Describe Your Home",
+                    "description": "Write about your living space",
+                    "estimatedTime": 20,
+                    "isRequired": true
+                }
+            ],
+            "estimatedTime": 50,
+            "difficulty": "medium"
+        }
+    ],
+    "weeks": [
+        {
+            "week": 1,
+            "title": "Foundation Week",
+            "description": "Building basic German foundation",
+            "days": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+            ],
+            "focusAreas": [
+                "greetings",
+                "personal_info",
+                "articles",
+                "family",
+                "verbs",
+                "numbers",
+                "food"
+            ],
+            "difficulty": "easy"
+        },
+        {
+            "week": 2,
+            "title": "Expanding Vocabulary",
+            "description": "Building practical vocabulary",
+            "days": [
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14
+            ],
+            "focusAreas": [
+                "places",
+                "transport",
+                "home",
+                "shopping",
+                "clothing",
+                "weather",
+                "health"
+            ],
+            "difficulty": "medium"
+        },
+        {
+            "week": 3,
+            "title": "Grammar Focus",
+            "description": "Strengthening grammar skills",
+            "days": [
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21
+            ],
+            "focusAreas": [
+                "past_tense",
+                "future_tense",
+                "modal_verbs",
+                "adjectives",
+                "comparisons"
+            ],
+            "difficulty": "medium"
+        },
+        {
+            "week": 4,
+            "title": "Exam Preparation",
+            "description": "A1 exam preparation and practice",
+            "days": [
+                22,
+                23,
+                24,
+                25,
+                26,
+                27,
+                28
+            ],
+            "focusAreas": [
+                "exam_practice",
+                "listening",
+                "speaking",
+                "reading",
+                "writing",
+                "test_strategies"
+            ],
+            "difficulty": "hard"
+        }
+    ],
+    "exerciseTypes": {
+        "vocabulary": {
+            "name": "Vocabulary Practice",
+            "description": "Learn new words and phrases",
+            "icon": "📚",
+            "color": "#3B82F6"
+        },
+        "grammar": {
+            "name": "Grammar Exercise",
+            "description": "Practice grammar rules and structures",
+            "icon": "📝",
+            "color": "#10B981"
+        },
+        "speaking": {
+            "name": "Speaking Practice",
+            "description": "Improve pronunciation and fluency",
+            "icon": "🗣️",
+            "color": "#EF4444"
+        },
+        "listening": {
+            "name": "Listening Exercise",
+            "description": "Improve listening comprehension",
+            "icon": "👂",
+            "color": "#F59E0B"
+        },
+        "writing": {
+            "name": "Writing Practice",
+            "description": "Practice writing skills",
+            "icon": "✍️",
+            "color": "#8B5CF6"
+        },
+        "reading": {
+            "name": "Reading Exercise",
+            "description": "Improve reading comprehension",
+            "icon": "📖",
+            "color": "#06B6D4"
+        }
+    },
+    "metadata": {
+        "totalDays": 30,
+        "level": "A1",
+        "description": "Structured 30-day German A1 learning plan",
+        "lastUpdated": "2025-01-07",
+        "averageTimePerDay": 45,
+        "totalEstimatedTime": 1350
+    }
+}

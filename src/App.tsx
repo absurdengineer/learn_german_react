@@ -1,6 +1,7 @@
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import { AppProvider } from './context/AppContext.jsx';
 import Layout from './presentation/components/Layout';
+import Articles from './presentation/pages/Articles';
 import Grammar from './presentation/pages/Grammar';
 import Home from './presentation/pages/Home';
 import Progress from './presentation/pages/Progress';
@@ -20,6 +21,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/study-plan" element={<StudyPlan />} />
             <Route path="/vocabulary" element={<Vocabulary />} />
+            <Route path="/articles" element={<Articles />} />
             <Route path="/grammar" element={<Grammar />} />
             <Route path="/speaking" element={<Speaking />} />
             <Route path="/writing" element={<Writing />} />

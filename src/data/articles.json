@@ -1,0 +1,3104 @@
+{
+    "ESSENTIAL_A1_NOUNS": [
+        {
+            "id": "n1",
+            "german": "Zeit",
+            "english": "time",
+            "gender": "die",
+            "frequency": 10,
+            "category": "time"
+        },
+        {
+            "id": "n2",
+            "german": "Mensch",
+            "english": "person",
+            "gender": "der",
+            "frequency": 10,
+            "category": "people"
+        },
+        {
+            "id": "n3",
+            "german": "Familie",
+            "english": "family",
+            "gender": "die",
+            "frequency": 10,
+            "category": "family"
+        },
+        {
+            "id": "n4",
+            "german": "Haus",
+            "english": "house",
+            "gender": "das",
+            "frequency": 10,
+            "category": "house"
+        },
+        {
+            "id": "n5",
+            "german": "Tag",
+            "english": "day",
+            "gender": "der",
+            "frequency": 10,
+            "category": "time"
+        },
+        {
+            "id": "n6",
+            "german": "Jahr",
+            "english": "year",
+            "gender": "das",
+            "frequency": 10,
+            "category": "time"
+        },
+        {
+            "id": "n7",
+            "german": "Arbeit",
+            "english": "work",
+            "gender": "die",
+            "frequency": 10,
+            "category": "occupations"
+        },
+        {
+            "id": "n8",
+            "german": "Wasser",
+            "english": "water",
+            "gender": "das",
+            "frequency": 10,
+            "category": "food"
+        },
+        {
+            "id": "n9",
+            "german": "Geld",
+            "english": "money",
+            "gender": "das",
+            "frequency": 10,
+            "category": "money"
+        },
+        {
+            "id": "n10",
+            "german": "Name",
+            "english": "name",
+            "gender": "der",
+            "frequency": 10,
+            "category": "personal"
+        },
+        {
+            "id": "n11",
+            "german": "Freund",
+            "english": "friend",
+            "gender": "der",
+            "frequency": 9,
+            "category": "people"
+        },
+        {
+            "id": "n12",
+            "german": "Freundin",
+            "english": "girlfriend/female friend",
+            "gender": "die",
+            "frequency": 9,
+            "category": "people"
+        },
+        {
+            "id": "n13",
+            "german": "Mutter",
+            "english": "mother",
+            "gender": "die",
+            "frequency": 9,
+            "category": "family"
+        },
+        {
+            "id": "n14",
+            "german": "Vater",
+            "english": "father",
+            "gender": "der",
+            "frequency": 9,
+            "category": "family"
+        },
+        {
+            "id": "n15",
+            "german": "Kind",
+            "english": "child",
+            "gender": "das",
+            "frequency": 9,
+            "category": "family"
+        },
+        {
+            "id": "n16",
+            "german": "Frau",
+            "english": "woman",
+            "gender": "die",
+            "frequency": 9,
+            "category": "people"
+        },
+        {
+            "id": "n17",
+            "german": "Mann",
+            "english": "man",
+            "gender": "der",
+            "frequency": 9,
+            "category": "people"
+        },
+        {
+            "id": "n18",
+            "german": "Auto",
+            "english": "car",
+            "gender": "das",
+            "frequency": 9,
+            "category": "transport"
+        },
+        {
+            "id": "n19",
+            "german": "Schule",
+            "english": "school",
+            "gender": "die",
+            "frequency": 9,
+            "category": "places"
+        },
+        {
+            "id": "n20",
+            "german": "Bett",
+            "english": "bed",
+            "gender": "das",
+            "frequency": 9,
+            "category": "furniture"
+        },
+        {
+            "id": "n21",
+            "german": "Telefon",
+            "english": "telephone",
+            "gender": "das",
+            "frequency": 8,
+            "category": "technology"
+        },
+        {
+            "id": "n22",
+            "german": "Tisch",
+            "english": "table",
+            "gender": "der",
+            "frequency": 8,
+            "category": "furniture"
+        },
+        {
+            "id": "n23",
+            "german": "Stuhl",
+            "english": "chair",
+            "gender": "der",
+            "frequency": 8,
+            "category": "furniture"
+        },
+        {
+            "id": "n24",
+            "german": "Küche",
+            "english": "kitchen",
+            "gender": "die",
+            "frequency": 8,
+            "category": "rooms"
+        },
+        {
+            "id": "n25",
+            "german": "Badezimmer",
+            "english": "bathroom",
+            "gender": "das",
+            "frequency": 8,
+            "category": "rooms"
+        },
+        {
+            "id": "n26",
+            "german": "Wohnung",
+            "english": "apartment",
+            "gender": "die",
+            "frequency": 8,
+            "category": "house"
+        },
+        {
+            "id": "n27",
+            "german": "Buch",
+            "english": "book",
+            "gender": "das",
+            "frequency": 8,
+            "category": "objects"
+        },
+        {
+            "id": "n28",
+            "german": "Brot",
+            "english": "bread",
+            "gender": "das",
+            "frequency": 8,
+            "category": "food"
+        },
+        {
+            "id": "n29",
+            "german": "Milch",
+            "english": "milk",
+            "gender": "die",
+            "frequency": 8,
+            "category": "food"
+        },
+        {
+            "id": "n30",
+            "german": "Kaffee",
+            "english": "coffee",
+            "gender": "der",
+            "frequency": 8,
+            "category": "food"
+        },
+        {
+            "id": "n31",
+            "german": "Tee",
+            "english": "tea",
+            "gender": "der",
+            "frequency": 8,
+            "category": "food"
+        },
+        {
+            "id": "n32",
+            "german": "Sprache",
+            "english": "language",
+            "gender": "die",
+            "frequency": 8,
+            "category": "communication"
+        },
+        {
+            "id": "n33",
+            "german": "Wort",
+            "english": "word",
+            "gender": "das",
+            "frequency": 8,
+            "category": "communication"
+        },
+        {
+            "id": "n34",
+            "german": "Lehrer",
+            "english": "teacher",
+            "gender": "der",
+            "frequency": 8,
+            "category": "occupations"
+        },
+        {
+            "id": "n35",
+            "german": "Lehrerin",
+            "english": "female teacher",
+            "gender": "die",
+            "frequency": 8,
+            "category": "occupations"
+        },
+        {
+            "id": "n36",
+            "german": "Student",
+            "english": "student",
+            "gender": "der",
+            "frequency": 8,
+            "category": "occupations"
+        },
+        {
+            "id": "n37",
+            "german": "Studentin",
+            "english": "female student",
+            "gender": "die",
+            "frequency": 8,
+            "category": "occupations"
+        },
+        {
+            "id": "n38",
+            "german": "Arzt",
+            "english": "doctor",
+            "gender": "der",
+            "frequency": 8,
+            "category": "occupations"
+        },
+        {
+            "id": "n39",
+            "german": "Ärztin",
+            "english": "female doctor",
+            "gender": "die",
+            "frequency": 8,
+            "category": "occupations"
+        },
+        {
+            "id": "n40",
+            "german": "Hund",
+            "english": "dog",
+            "gender": "der",
+            "frequency": 7,
+            "category": "animals"
+        },
+        {
+            "id": "n41",
+            "german": "Katze",
+            "english": "cat",
+            "gender": "die",
+            "frequency": 7,
+            "category": "animals"
+        },
+        {
+            "id": "n42",
+            "german": "Kopf",
+            "english": "head",
+            "gender": "der",
+            "frequency": 7,
+            "category": "body"
+        },
+        {
+            "id": "n43",
+            "german": "Hand",
+            "english": "hand",
+            "gender": "die",
+            "frequency": 7,
+            "category": "body"
+        },
+        {
+            "id": "n44",
+            "german": "Fuß",
+            "english": "foot",
+            "gender": "der",
+            "frequency": 7,
+            "category": "body"
+        },
+        {
+            "id": "n45",
+            "german": "Auge",
+            "english": "eye",
+            "gender": "das",
+            "frequency": 7,
+            "category": "body"
+        },
+        {
+            "id": "n46",
+            "german": "Nase",
+            "english": "nose",
+            "gender": "die",
+            "frequency": 7,
+            "category": "body"
+        },
+        {
+            "id": "n47",
+            "german": "Mund",
+            "english": "mouth",
+            "gender": "der",
+            "frequency": 7,
+            "category": "body"
+        },
+        {
+            "id": "n48",
+            "german": "Ohr",
+            "english": "ear",
+            "gender": "das",
+            "frequency": 7,
+            "category": "body"
+        },
+        {
+            "id": "n49",
+            "german": "Haar",
+            "english": "hair",
+            "gender": "das",
+            "frequency": 7,
+            "category": "body"
+        },
+        {
+            "id": "n50",
+            "german": "Laden",
+            "english": "shop",
+            "gender": "der",
+            "frequency": 7,
+            "category": "shopping"
+        },
+        {
+            "id": "n51",
+            "german": "Supermarkt",
+            "english": "supermarket",
+            "gender": "der",
+            "frequency": 7,
+            "category": "shopping"
+        },
+        {
+            "id": "n52",
+            "german": "Kleidung",
+            "english": "clothing",
+            "gender": "die",
+            "frequency": 7,
+            "category": "clothing"
+        },
+        {
+            "id": "n53",
+            "german": "Hemd",
+            "english": "shirt",
+            "gender": "das",
+            "frequency": 7,
+            "category": "clothing"
+        },
+        {
+            "id": "n54",
+            "german": "Hose",
+            "english": "trousers",
+            "gender": "die",
+            "frequency": 7,
+            "category": "clothing"
+        },
+        {
+            "id": "n55",
+            "german": "Jacke",
+            "english": "jacket",
+            "gender": "die",
+            "frequency": 7,
+            "category": "clothing"
+        },
+        {
+            "id": "n56",
+            "german": "Schuhe",
+            "english": "shoes",
+            "gender": "die",
+            "frequency": 7,
+            "category": "clothing"
+        },
+        {
+            "id": "n57",
+            "german": "Wetter",
+            "english": "weather",
+            "gender": "das",
+            "frequency": 7,
+            "category": "weather"
+        },
+        {
+            "id": "n58",
+            "german": "Sonne",
+            "english": "sun",
+            "gender": "die",
+            "frequency": 7,
+            "category": "weather"
+        },
+        {
+            "id": "n59",
+            "german": "Regen",
+            "english": "rain",
+            "gender": "der",
+            "frequency": 7,
+            "category": "weather"
+        },
+        {
+            "id": "n60",
+            "german": "Schnee",
+            "english": "snow",
+            "gender": "der",
+            "frequency": 7,
+            "category": "weather"
+        },
+        {
+            "id": "n61",
+            "german": "Bruder",
+            "english": "brother",
+            "gender": "der",
+            "frequency": 7,
+            "category": "family"
+        },
+        {
+            "id": "n62",
+            "german": "Schwester",
+            "english": "sister",
+            "gender": "die",
+            "frequency": 7,
+            "category": "family"
+        },
+        {
+            "id": "n63",
+            "german": "Sohn",
+            "english": "son",
+            "gender": "der",
+            "frequency": 7,
+            "category": "family"
+        },
+        {
+            "id": "n64",
+            "german": "Tochter",
+            "english": "daughter",
+            "gender": "die",
+            "frequency": 7,
+            "category": "family"
+        },
+        {
+            "id": "n65",
+            "german": "Großvater",
+            "english": "grandfather",
+            "gender": "der",
+            "frequency": 7,
+            "category": "family"
+        },
+        {
+            "id": "n66",
+            "german": "Großmutter",
+            "english": "grandmother",
+            "gender": "die",
+            "frequency": 7,
+            "category": "family"
+        },
+        {
+            "id": "n67",
+            "german": "Zimmer",
+            "english": "room",
+            "gender": "das",
+            "frequency": 7,
+            "category": "rooms"
+        },
+        {
+            "id": "n68",
+            "german": "Schlafzimmer",
+            "english": "bedroom",
+            "gender": "das",
+            "frequency": 7,
+            "category": "rooms"
+        },
+        {
+            "id": "n69",
+            "german": "Wohnzimmer",
+            "english": "living room",
+            "gender": "das",
+            "frequency": 7,
+            "category": "rooms"
+        },
+        {
+            "id": "n70",
+            "german": "Fenster",
+            "english": "window",
+            "gender": "das",
+            "frequency": 7,
+            "category": "house"
+        },
+        {
+            "id": "n71",
+            "german": "Tür",
+            "english": "door",
+            "gender": "die",
+            "frequency": 7,
+            "category": "house"
+        },
+        {
+            "id": "n72",
+            "german": "Straße",
+            "english": "street",
+            "gender": "die",
+            "frequency": 7,
+            "category": "places"
+        },
+        {
+            "id": "n73",
+            "german": "Stadt",
+            "english": "city",
+            "gender": "die",
+            "frequency": 7,
+            "category": "places"
+        },
+        {
+            "id": "n74",
+            "german": "Land",
+            "english": "country",
+            "gender": "das",
+            "frequency": 7,
+            "category": "places"
+        },
+        {
+            "id": "n75",
+            "german": "Zug",
+            "english": "train",
+            "gender": "der",
+            "frequency": 7,
+            "category": "transport"
+        },
+        {
+            "id": "n76",
+            "german": "Bus",
+            "english": "bus",
+            "gender": "der",
+            "frequency": 7,
+            "category": "transport"
+        },
+        {
+            "id": "n77",
+            "german": "Fahrrad",
+            "english": "bicycle",
+            "gender": "das",
+            "frequency": 7,
+            "category": "transport"
+        },
+        {
+            "id": "n78",
+            "german": "Flugzeug",
+            "english": "airplane",
+            "gender": "das",
+            "frequency": 7,
+            "category": "transport"
+        },
+        {
+            "id": "n79",
+            "german": "Bahnhof",
+            "english": "train station",
+            "gender": "der",
+            "frequency": 7,
+            "category": "places"
+        },
+        {
+            "id": "n80",
+            "german": "Flughafen",
+            "english": "airport",
+            "gender": "der",
+            "frequency": 7,
+            "category": "places"
+        },
+        {
+            "id": "n81",
+            "german": "Hotel",
+            "english": "hotel",
+            "gender": "das",
+            "frequency": 7,
+            "category": "places"
+        },
+        {
+            "id": "n82",
+            "german": "Restaurant",
+            "english": "restaurant",
+            "gender": "das",
+            "frequency": 7,
+            "category": "places"
+        },
+        {
+            "id": "n83",
+            "german": "Café",
+            "english": "café",
+            "gender": "das",
+            "frequency": 7,
+            "category": "places"
+        },
+        {
+            "id": "n84",
+            "german": "Bank",
+            "english": "bank",
+            "gender": "die",
+            "frequency": 7,
+            "category": "places"
+        },
+        {
+            "id": "n85",
+            "german": "Post",
+            "english": "post office",
+            "gender": "die",
+            "frequency": 7,
+            "category": "places"
+        },
+        {
+            "id": "n86",
+            "german": "Krankenhaus",
+            "english": "hospital",
+            "gender": "das",
+            "frequency": 7,
+            "category": "places"
+        },
+        {
+            "id": "n87",
+            "german": "Polizei",
+            "english": "police",
+            "gender": "die",
+            "frequency": 7,
+            "category": "places"
+        },
+        {
+            "id": "n88",
+            "german": "Kirche",
+            "english": "church",
+            "gender": "die",
+            "frequency": 7,
+            "category": "places"
+        },
+        {
+            "id": "n89",
+            "german": "Park",
+            "english": "park",
+            "gender": "der",
+            "frequency": 7,
+            "category": "places"
+        },
+        {
+            "id": "n90",
+            "german": "Stunde",
+            "english": "hour",
+            "gender": "die",
+            "frequency": 6,
+            "category": "time"
+        },
+        {
+            "id": "n91",
+            "german": "Minute",
+            "english": "minute",
+            "gender": "die",
+            "frequency": 6,
+            "category": "time"
+        },
+        {
+            "id": "n92",
+            "german": "Woche",
+            "english": "week",
+            "gender": "die",
+            "frequency": 6,
+            "category": "time"
+        },
+        {
+            "id": "n93",
+            "german": "Monat",
+            "english": "month",
+            "gender": "der",
+            "frequency": 6,
+            "category": "time"
+        },
+        {
+            "id": "n94",
+            "german": "Morgen",
+            "english": "morning",
+            "gender": "der",
+            "frequency": 6,
+            "category": "time"
+        },
+        {
+            "id": "n95",
+            "german": "Mittag",
+            "english": "noon",
+            "gender": "der",
+            "frequency": 6,
+            "category": "time"
+        },
+        {
+            "id": "n96",
+            "german": "Abend",
+            "english": "evening",
+            "gender": "der",
+            "frequency": 6,
+            "category": "time"
+        },
+        {
+            "id": "n97",
+            "german": "Nacht",
+            "english": "night",
+            "gender": "die",
+            "frequency": 6,
+            "category": "time"
+        },
+        {
+            "id": "n98",
+            "german": "Uhr",
+            "english": "clock",
+            "gender": "die",
+            "frequency": 6,
+            "category": "time"
+        },
+        {
+            "id": "n99",
+            "german": "Montag",
+            "english": "Monday",
+            "gender": "der",
+            "frequency": 6,
+            "category": "time"
+        },
+        {
+            "id": "n100",
+            "german": "Dienstag",
+            "english": "Tuesday",
+            "gender": "der",
+            "frequency": 6,
+            "category": "time"
+        },
+        {
+            "id": "n101",
+            "german": "Mittwoch",
+            "english": "Wednesday",
+            "gender": "der",
+            "frequency": 6,
+            "category": "time"
+        },
+        {
+            "id": "n102",
+            "german": "Donnerstag",
+            "english": "Thursday",
+            "gender": "der",
+            "frequency": 6,
+            "category": "time"
+        },
+        {
+            "id": "n103",
+            "german": "Freitag",
+            "english": "Friday",
+            "gender": "der",
+            "frequency": 6,
+            "category": "time"
+        },
+        {
+            "id": "n104",
+            "german": "Samstag",
+            "english": "Saturday",
+            "gender": "der",
+            "frequency": 6,
+            "category": "time"
+        },
+        {
+            "id": "n105",
+            "german": "Sonntag",
+            "english": "Sunday",
+            "gender": "der",
+            "frequency": 6,
+            "category": "time"
+        },
+        {
+            "id": "n106",
+            "german": "Essen",
+            "english": "food",
+            "gender": "das",
+            "frequency": 6,
+            "category": "food"
+        },
+        {
+            "id": "n107",
+            "german": "Frühstück",
+            "english": "breakfast",
+            "gender": "das",
+            "frequency": 6,
+            "category": "food"
+        },
+        {
+            "id": "n108",
+            "german": "Mittagessen",
+            "english": "lunch",
+            "gender": "das",
+            "frequency": 6,
+            "category": "food"
+        },
+        {
+            "id": "n109",
+            "german": "Abendessen",
+            "english": "dinner",
+            "gender": "das",
+            "frequency": 6,
+            "category": "food"
+        },
+        {
+            "id": "n110",
+            "german": "Fleisch",
+            "english": "meat",
+            "gender": "das",
+            "frequency": 6,
+            "category": "food"
+        },
+        {
+            "id": "n111",
+            "german": "Gemüse",
+            "english": "vegetables",
+            "gender": "das",
+            "frequency": 6,
+            "category": "food"
+        },
+        {
+            "id": "n112",
+            "german": "Obst",
+            "english": "fruit",
+            "gender": "das",
+            "frequency": 6,
+            "category": "food"
+        },
+        {
+            "id": "n113",
+            "german": "Apfel",
+            "english": "apple",
+            "gender": "der",
+            "frequency": 6,
+            "category": "food"
+        },
+        {
+            "id": "n114",
+            "german": "Banane",
+            "english": "banana",
+            "gender": "die",
+            "frequency": 6,
+            "category": "food"
+        },
+        {
+            "id": "n115",
+            "german": "Orange",
+            "english": "orange",
+            "gender": "die",
+            "frequency": 6,
+            "category": "food"
+        },
+        {
+            "id": "n116",
+            "german": "Tomate",
+            "english": "tomato",
+            "gender": "die",
+            "frequency": 6,
+            "category": "food"
+        },
+        {
+            "id": "n117",
+            "german": "Kartoffel",
+            "english": "potato",
+            "gender": "die",
+            "frequency": 6,
+            "category": "food"
+        },
+        {
+            "id": "n118",
+            "german": "Käse",
+            "english": "cheese",
+            "gender": "der",
+            "frequency": 6,
+            "category": "food"
+        },
+        {
+            "id": "n119",
+            "german": "Butter",
+            "english": "butter",
+            "gender": "die",
+            "frequency": 6,
+            "category": "food"
+        },
+        {
+            "id": "n120",
+            "german": "Zucker",
+            "english": "sugar",
+            "gender": "der",
+            "frequency": 6,
+            "category": "food"
+        },
+        {
+            "id": "n121",
+            "german": "Salz",
+            "english": "salt",
+            "gender": "das",
+            "frequency": 6,
+            "category": "food"
+        },
+        {
+            "id": "n122",
+            "german": "Pfeffer",
+            "english": "pepper",
+            "gender": "der",
+            "frequency": 6,
+            "category": "food"
+        },
+        {
+            "id": "n123",
+            "german": "Reis",
+            "english": "rice",
+            "gender": "der",
+            "frequency": 6,
+            "category": "food"
+        },
+        {
+            "id": "n124",
+            "german": "Nudeln",
+            "english": "noodles",
+            "gender": "die",
+            "frequency": 6,
+            "category": "food"
+        },
+        {
+            "id": "n125",
+            "german": "Suppe",
+            "english": "soup",
+            "gender": "die",
+            "frequency": 6,
+            "category": "food"
+        },
+        {
+            "id": "n126",
+            "german": "Salat",
+            "english": "salad",
+            "gender": "der",
+            "frequency": 6,
+            "category": "food"
+        },
+        {
+            "id": "n127",
+            "german": "Bier",
+            "english": "beer",
+            "gender": "das",
+            "frequency": 6,
+            "category": "food"
+        },
+        {
+            "id": "n128",
+            "german": "Wein",
+            "english": "wine",
+            "gender": "der",
+            "frequency": 6,
+            "category": "food"
+        },
+        {
+            "id": "n129",
+            "german": "Saft",
+            "english": "juice",
+            "gender": "der",
+            "frequency": 6,
+            "category": "food"
+        },
+        {
+            "id": "n130",
+            "german": "Kuchen",
+            "english": "cake",
+            "gender": "der",
+            "frequency": 6,
+            "category": "food"
+        },
+        {
+            "id": "n131",
+            "german": "Eis",
+            "english": "ice cream",
+            "gender": "das",
+            "frequency": 6,
+            "category": "food"
+        },
+        {
+            "id": "n132",
+            "german": "Schokolade",
+            "english": "chocolate",
+            "gender": "die",
+            "frequency": 6,
+            "category": "food"
+        },
+        {
+            "id": "n133",
+            "german": "Kino",
+            "english": "cinema",
+            "gender": "das",
+            "frequency": 6,
+            "category": "entertainment"
+        },
+        {
+            "id": "n134",
+            "german": "Theater",
+            "english": "theater",
+            "gender": "das",
+            "frequency": 6,
+            "category": "entertainment"
+        },
+        {
+            "id": "n135",
+            "german": "Museum",
+            "english": "museum",
+            "gender": "das",
+            "frequency": 6,
+            "category": "entertainment"
+        },
+        {
+            "id": "n136",
+            "german": "Musik",
+            "english": "music",
+            "gender": "die",
+            "frequency": 6,
+            "category": "entertainment"
+        },
+        {
+            "id": "n137",
+            "german": "Film",
+            "english": "film",
+            "gender": "der",
+            "frequency": 6,
+            "category": "entertainment"
+        },
+        {
+            "id": "n138",
+            "german": "Fernsehen",
+            "english": "television",
+            "gender": "das",
+            "frequency": 6,
+            "category": "media"
+        },
+        {
+            "id": "n139",
+            "german": "Radio",
+            "english": "radio",
+            "gender": "das",
+            "frequency": 6,
+            "category": "media"
+        },
+        {
+            "id": "n140",
+            "german": "Zeitung",
+            "english": "newspaper",
+            "gender": "die",
+            "frequency": 6,
+            "category": "media"
+        },
+        {
+            "id": "n141",
+            "german": "Zeitschrift",
+            "english": "magazine",
+            "gender": "die",
+            "frequency": 6,
+            "category": "media"
+        },
+        {
+            "id": "n142",
+            "german": "Internet",
+            "english": "internet",
+            "gender": "das",
+            "frequency": 6,
+            "category": "technology"
+        },
+        {
+            "id": "n143",
+            "german": "Computer",
+            "english": "computer",
+            "gender": "der",
+            "frequency": 6,
+            "category": "technology"
+        },
+        {
+            "id": "n144",
+            "german": "Handy",
+            "english": "mobile phone",
+            "gender": "das",
+            "frequency": 6,
+            "category": "technology"
+        },
+        {
+            "id": "n145",
+            "german": "Kamera",
+            "english": "camera",
+            "gender": "die",
+            "frequency": 6,
+            "category": "technology"
+        },
+        {
+            "id": "n146",
+            "german": "Kühlschrank",
+            "english": "refrigerator",
+            "gender": "der",
+            "frequency": 6,
+            "category": "appliances"
+        },
+        {
+            "id": "n147",
+            "german": "Waschmaschine",
+            "english": "washing machine",
+            "gender": "die",
+            "frequency": 6,
+            "category": "appliances"
+        },
+        {
+            "id": "n148",
+            "german": "Herd",
+            "english": "stove",
+            "gender": "der",
+            "frequency": 6,
+            "category": "appliances"
+        },
+        {
+            "id": "n149",
+            "german": "Backofen",
+            "english": "oven",
+            "gender": "der",
+            "frequency": 6,
+            "category": "appliances"
+        },
+        {
+            "id": "n150",
+            "german": "Mikrowelle",
+            "english": "microwave",
+            "gender": "die",
+            "frequency": 6,
+            "category": "appliances"
+        },
+        {
+            "id": "n151",
+            "german": "Sofa",
+            "english": "sofa",
+            "gender": "das",
+            "frequency": 6,
+            "category": "furniture"
+        },
+        {
+            "id": "n152",
+            "german": "Sessel",
+            "english": "armchair",
+            "gender": "der",
+            "frequency": 6,
+            "category": "furniture"
+        },
+        {
+            "id": "n153",
+            "german": "Schrank",
+            "english": "wardrobe",
+            "gender": "der",
+            "frequency": 6,
+            "category": "furniture"
+        },
+        {
+            "id": "n154",
+            "german": "Regal",
+            "english": "shelf",
+            "gender": "das",
+            "frequency": 6,
+            "category": "furniture"
+        },
+        {
+            "id": "n155",
+            "german": "Lampe",
+            "english": "lamp",
+            "gender": "die",
+            "frequency": 6,
+            "category": "furniture"
+        },
+        {
+            "id": "n156",
+            "german": "Spiegel",
+            "english": "mirror",
+            "gender": "der",
+            "frequency": 6,
+            "category": "furniture"
+        },
+        {
+            "id": "n157",
+            "german": "Teppich",
+            "english": "carpet",
+            "gender": "der",
+            "frequency": 6,
+            "category": "furniture"
+        },
+        {
+            "id": "n158",
+            "german": "Vorhang",
+            "english": "curtain",
+            "gender": "der",
+            "frequency": 6,
+            "category": "furniture"
+        },
+        {
+            "id": "n159",
+            "german": "Bild",
+            "english": "picture",
+            "gender": "das",
+            "frequency": 6,
+            "category": "objects"
+        },
+        {
+            "id": "n160",
+            "german": "Foto",
+            "english": "photo",
+            "gender": "das",
+            "frequency": 6,
+            "category": "objects"
+        },
+        {
+            "id": "n161",
+            "german": "Schlüssel",
+            "english": "key",
+            "gender": "der",
+            "frequency": 6,
+            "category": "objects"
+        },
+        {
+            "id": "n162",
+            "german": "Tasche",
+            "english": "bag",
+            "gender": "die",
+            "frequency": 6,
+            "category": "objects"
+        },
+        {
+            "id": "n163",
+            "german": "Koffer",
+            "english": "suitcase",
+            "gender": "der",
+            "frequency": 6,
+            "category": "objects"
+        },
+        {
+            "id": "n164",
+            "german": "Rucksack",
+            "english": "backpack",
+            "gender": "der",
+            "frequency": 6,
+            "category": "objects"
+        },
+        {
+            "id": "n165",
+            "german": "Papier",
+            "english": "paper",
+            "gender": "das",
+            "frequency": 6,
+            "category": "objects"
+        },
+        {
+            "id": "n166",
+            "german": "Stift",
+            "english": "pen",
+            "gender": "der",
+            "frequency": 6,
+            "category": "objects"
+        },
+        {
+            "id": "n167",
+            "german": "Bleistift",
+            "english": "pencil",
+            "gender": "der",
+            "frequency": 6,
+            "category": "objects"
+        },
+        {
+            "id": "n168",
+            "german": "Radiergummi",
+            "english": "eraser",
+            "gender": "der",
+            "frequency": 6,
+            "category": "objects"
+        },
+        {
+            "id": "n169",
+            "german": "Lineal",
+            "english": "ruler",
+            "gender": "das",
+            "frequency": 6,
+            "category": "objects"
+        },
+        {
+            "id": "n170",
+            "german": "Schere",
+            "english": "scissors",
+            "gender": "die",
+            "frequency": 6,
+            "category": "objects"
+        },
+        {
+            "id": "n171",
+            "german": "Messer",
+            "english": "knife",
+            "gender": "das",
+            "frequency": 6,
+            "category": "objects"
+        },
+        {
+            "id": "n172",
+            "german": "Gabel",
+            "english": "fork",
+            "gender": "die",
+            "frequency": 6,
+            "category": "objects"
+        },
+        {
+            "id": "n173",
+            "german": "Löffel",
+            "english": "spoon",
+            "gender": "der",
+            "frequency": 6,
+            "category": "objects"
+        },
+        {
+            "id": "n174",
+            "german": "Teller",
+            "english": "plate",
+            "gender": "der",
+            "frequency": 6,
+            "category": "objects"
+        },
+        {
+            "id": "n175",
+            "german": "Schüssel",
+            "english": "bowl",
+            "gender": "die",
+            "frequency": 6,
+            "category": "objects"
+        },
+        {
+            "id": "n176",
+            "german": "Tasse",
+            "english": "cup",
+            "gender": "die",
+            "frequency": 6,
+            "category": "objects"
+        },
+        {
+            "id": "n177",
+            "german": "Glas",
+            "english": "glass",
+            "gender": "das",
+            "frequency": 6,
+            "category": "objects"
+        },
+        {
+            "id": "n178",
+            "german": "Flasche",
+            "english": "bottle",
+            "gender": "die",
+            "frequency": 6,
+            "category": "objects"
+        },
+        {
+            "id": "n179",
+            "german": "Dose",
+            "english": "can",
+            "gender": "die",
+            "frequency": 6,
+            "category": "objects"
+        },
+        {
+            "id": "n180",
+            "german": "Paket",
+            "english": "package",
+            "gender": "das",
+            "frequency": 6,
+            "category": "objects"
+        },
+        {
+            "id": "n181",
+            "german": "Brief",
+            "english": "letter",
+            "gender": "der",
+            "frequency": 6,
+            "category": "communication"
+        },
+        {
+            "id": "n182",
+            "german": "Karte",
+            "english": "card",
+            "gender": "die",
+            "frequency": 6,
+            "category": "communication"
+        },
+        {
+            "id": "n183",
+            "german": "Postkarte",
+            "english": "postcard",
+            "gender": "die",
+            "frequency": 6,
+            "category": "communication"
+        },
+        {
+            "id": "n184",
+            "german": "E-Mail",
+            "english": "email",
+            "gender": "die",
+            "frequency": 6,
+            "category": "communication"
+        },
+        {
+            "id": "n185",
+            "german": "Nachricht",
+            "english": "message",
+            "gender": "die",
+            "frequency": 6,
+            "category": "communication"
+        },
+        {
+            "id": "n186",
+            "german": "Antwort",
+            "english": "answer",
+            "gender": "die",
+            "frequency": 6,
+            "category": "communication"
+        },
+        {
+            "id": "n187",
+            "german": "Frage",
+            "english": "question",
+            "gender": "die",
+            "frequency": 6,
+            "category": "communication"
+        },
+        {
+            "id": "n188",
+            "german": "Gespräch",
+            "english": "conversation",
+            "gender": "das",
+            "frequency": 6,
+            "category": "communication"
+        },
+        {
+            "id": "n189",
+            "german": "Stimme",
+            "english": "voice",
+            "gender": "die",
+            "frequency": 6,
+            "category": "communication"
+        },
+        {
+            "id": "n190",
+            "german": "Adresse",
+            "english": "address",
+            "gender": "die",
+            "frequency": 6,
+            "category": "personal"
+        },
+        {
+            "id": "n191",
+            "german": "Nummer",
+            "english": "number",
+            "gender": "die",
+            "frequency": 6,
+            "category": "personal"
+        },
+        {
+            "id": "n192",
+            "german": "Alter",
+            "english": "age",
+            "gender": "das",
+            "frequency": 6,
+            "category": "personal"
+        },
+        {
+            "id": "n193",
+            "german": "Geburtstag",
+            "english": "birthday",
+            "gender": "der",
+            "frequency": 6,
+            "category": "personal"
+        },
+        {
+            "id": "n194",
+            "german": "Geburtsdatum",
+            "english": "date of birth",
+            "gender": "das",
+            "frequency": 6,
+            "category": "personal"
+        },
+        {
+            "id": "n195",
+            "german": "Nationalität",
+            "english": "nationality",
+            "gender": "die",
+            "frequency": 6,
+            "category": "personal"
+        },
+        {
+            "id": "n196",
+            "german": "Beruf",
+            "english": "profession",
+            "gender": "der",
+            "frequency": 6,
+            "category": "occupations"
+        },
+        {
+            "id": "n197",
+            "german": "Büro",
+            "english": "office",
+            "gender": "das",
+            "frequency": 6,
+            "category": "occupations"
+        },
+        {
+            "id": "n198",
+            "german": "Chef",
+            "english": "boss",
+            "gender": "der",
+            "frequency": 6,
+            "category": "occupations"
+        },
+        {
+            "id": "n199",
+            "german": "Chefin",
+            "english": "female boss",
+            "gender": "die",
+            "frequency": 6,
+            "category": "occupations"
+        },
+        {
+            "id": "n200",
+            "german": "Kollege",
+            "english": "colleague",
+            "gender": "der",
+            "frequency": 6,
+            "category": "occupations"
+        },
+        {
+            "id": "n201",
+            "german": "Kollegin",
+            "english": "female colleague",
+            "gender": "die",
+            "frequency": 6,
+            "category": "occupations"
+        },
+        {
+            "id": "n202",
+            "german": "Verkäufer",
+            "english": "salesperson",
+            "gender": "der",
+            "frequency": 6,
+            "category": "occupations"
+        },
+        {
+            "id": "n203",
+            "german": "Verkäuferin",
+            "english": "female salesperson",
+            "gender": "die",
+            "frequency": 6,
+            "category": "occupations"
+        },
+        {
+            "id": "n204",
+            "german": "Kellner",
+            "english": "waiter",
+            "gender": "der",
+            "frequency": 6,
+            "category": "occupations"
+        },
+        {
+            "id": "n205",
+            "german": "Kellnerin",
+            "english": "waitress",
+            "gender": "die",
+            "frequency": 6,
+            "category": "occupations"
+        },
+        {
+            "id": "n206",
+            "german": "Koch",
+            "english": "cook",
+            "gender": "der",
+            "frequency": 6,
+            "category": "occupations"
+        },
+        {
+            "id": "n207",
+            "german": "Köchin",
+            "english": "female cook",
+            "gender": "die",
+            "frequency": 6,
+            "category": "occupations"
+        },
+        {
+            "id": "n208",
+            "german": "Fahrer",
+            "english": "driver",
+            "gender": "der",
+            "frequency": 6,
+            "category": "occupations"
+        },
+        {
+            "id": "n209",
+            "german": "Fahrerin",
+            "english": "female driver",
+            "gender": "die",
+            "frequency": 6,
+            "category": "occupations"
+        },
+        {
+            "id": "n210",
+            "german": "Polizist",
+            "english": "policeman",
+            "gender": "der",
+            "frequency": 6,
+            "category": "occupations"
+        },
+        {
+            "id": "n211",
+            "german": "Polizistin",
+            "english": "policewoman",
+            "gender": "die",
+            "frequency": 6,
+            "category": "occupations"
+        },
+        {
+            "id": "n212",
+            "german": "Friseur",
+            "english": "hairdresser",
+            "gender": "der",
+            "frequency": 6,
+            "category": "occupations"
+        },
+        {
+            "id": "n213",
+            "german": "Friseurin",
+            "english": "female hairdresser",
+            "gender": "die",
+            "frequency": 6,
+            "category": "occupations"
+        },
+        {
+            "id": "n214",
+            "german": "Mechaniker",
+            "english": "mechanic",
+            "gender": "der",
+            "frequency": 6,
+            "category": "occupations"
+        },
+        {
+            "id": "n215",
+            "german": "Mechanikerin",
+            "english": "female mechanic",
+            "gender": "die",
+            "frequency": 6,
+            "category": "occupations"
+        },
+        {
+            "id": "n216",
+            "german": "Kleid",
+            "english": "dress",
+            "gender": "das",
+            "frequency": 5,
+            "category": "clothing"
+        },
+        {
+            "id": "n217",
+            "german": "Rock",
+            "english": "skirt",
+            "gender": "der",
+            "frequency": 5,
+            "category": "clothing"
+        },
+        {
+            "id": "n218",
+            "german": "Bluse",
+            "english": "blouse",
+            "gender": "die",
+            "frequency": 5,
+            "category": "clothing"
+        },
+        {
+            "id": "n219",
+            "german": "Pullover",
+            "english": "sweater",
+            "gender": "der",
+            "frequency": 5,
+            "category": "clothing"
+        },
+        {
+            "id": "n220",
+            "german": "T-Shirt",
+            "english": "t-shirt",
+            "gender": "das",
+            "frequency": 5,
+            "category": "clothing"
+        },
+        {
+            "id": "n221",
+            "german": "Jeans",
+            "english": "jeans",
+            "gender": "die",
+            "frequency": 5,
+            "category": "clothing"
+        },
+        {
+            "id": "n222",
+            "german": "Shorts",
+            "english": "shorts",
+            "gender": "die",
+            "frequency": 5,
+            "category": "clothing"
+        },
+        {
+            "id": "n223",
+            "german": "Socken",
+            "english": "socks",
+            "gender": "die",
+            "frequency": 5,
+            "category": "clothing"
+        },
+        {
+            "id": "n224",
+            "german": "Strümpfe",
+            "english": "stockings",
+            "gender": "die",
+            "frequency": 5,
+            "category": "clothing"
+        },
+        {
+            "id": "n225",
+            "german": "Unterwäsche",
+            "english": "underwear",
+            "gender": "die",
+            "frequency": 5,
+            "category": "clothing"
+        },
+        {
+            "id": "n226",
+            "german": "Mantel",
+            "english": "coat",
+            "gender": "der",
+            "frequency": 5,
+            "category": "clothing"
+        },
+        {
+            "id": "n227",
+            "german": "Mütze",
+            "english": "cap",
+            "gender": "die",
+            "frequency": 5,
+            "category": "clothing"
+        },
+        {
+            "id": "n228",
+            "german": "Hut",
+            "english": "hat",
+            "gender": "der",
+            "frequency": 5,
+            "category": "clothing"
+        },
+        {
+            "id": "n229",
+            "german": "Handschuhe",
+            "english": "gloves",
+            "gender": "die",
+            "frequency": 5,
+            "category": "clothing"
+        },
+        {
+            "id": "n230",
+            "german": "Schal",
+            "english": "scarf",
+            "gender": "der",
+            "frequency": 5,
+            "category": "clothing"
+        },
+        {
+            "id": "n231",
+            "german": "Gürtel",
+            "english": "belt",
+            "gender": "der",
+            "frequency": 5,
+            "category": "clothing"
+        },
+        {
+            "id": "n232",
+            "german": "Schmuck",
+            "english": "jewelry",
+            "gender": "der",
+            "frequency": 5,
+            "category": "clothing"
+        },
+        {
+            "id": "n233",
+            "german": "Uhr",
+            "english": "watch",
+            "gender": "die",
+            "frequency": 5,
+            "category": "clothing"
+        },
+        {
+            "id": "n234",
+            "german": "Ring",
+            "english": "ring",
+            "gender": "der",
+            "frequency": 5,
+            "category": "clothing"
+        },
+        {
+            "id": "n235",
+            "german": "Kette",
+            "english": "necklace",
+            "gender": "die",
+            "frequency": 5,
+            "category": "clothing"
+        },
+        {
+            "id": "n236",
+            "german": "Brille",
+            "english": "glasses",
+            "gender": "die",
+            "frequency": 5,
+            "category": "clothing"
+        },
+        {
+            "id": "n237",
+            "german": "Sonnenbrille",
+            "english": "sunglasses",
+            "gender": "die",
+            "frequency": 5,
+            "category": "clothing"
+        },
+        {
+            "id": "n238",
+            "german": "Arm",
+            "english": "arm",
+            "gender": "der",
+            "frequency": 5,
+            "category": "body"
+        },
+        {
+            "id": "n239",
+            "german": "Bein",
+            "english": "leg",
+            "gender": "das",
+            "frequency": 5,
+            "category": "body"
+        },
+        {
+            "id": "n240",
+            "german": "Finger",
+            "english": "finger",
+            "gender": "der",
+            "frequency": 5,
+            "category": "body"
+        },
+        {
+            "id": "n241",
+            "german": "Zeh",
+            "english": "toe",
+            "gender": "der",
+            "frequency": 5,
+            "category": "body"
+        },
+        {
+            "id": "n242",
+            "german": "Rücken",
+            "english": "back",
+            "gender": "der",
+            "frequency": 5,
+            "category": "body"
+        },
+        {
+            "id": "n243",
+            "german": "Bauch",
+            "english": "stomach",
+            "gender": "der",
+            "frequency": 5,
+            "category": "body"
+        },
+        {
+            "id": "n244",
+            "german": "Brust",
+            "english": "chest",
+            "gender": "die",
+            "frequency": 5,
+            "category": "body"
+        },
+        {
+            "id": "n245",
+            "german": "Schulter",
+            "english": "shoulder",
+            "gender": "die",
+            "frequency": 5,
+            "category": "body"
+        },
+        {
+            "id": "n246",
+            "german": "Hals",
+            "english": "neck",
+            "gender": "der",
+            "frequency": 5,
+            "category": "body"
+        },
+        {
+            "id": "n247",
+            "german": "Knie",
+            "english": "knee",
+            "gender": "das",
+            "frequency": 5,
+            "category": "body"
+        },
+        {
+            "id": "n248",
+            "german": "Ellbogen",
+            "english": "elbow",
+            "gender": "der",
+            "frequency": 5,
+            "category": "body"
+        },
+        {
+            "id": "n249",
+            "german": "Herz",
+            "english": "heart",
+            "gender": "das",
+            "frequency": 5,
+            "category": "body"
+        },
+        {
+            "id": "n250",
+            "german": "Zahn",
+            "english": "tooth",
+            "gender": "der",
+            "frequency": 5,
+            "category": "body"
+        },
+        {
+            "id": "n251",
+            "german": "Zähne",
+            "english": "teeth",
+            "gender": "die",
+            "frequency": 5,
+            "category": "body"
+        },
+        {
+            "id": "n252",
+            "german": "Haut",
+            "english": "skin",
+            "gender": "die",
+            "frequency": 5,
+            "category": "body"
+        },
+        {
+            "id": "n253",
+            "german": "Blut",
+            "english": "blood",
+            "gender": "das",
+            "frequency": 5,
+            "category": "body"
+        },
+        {
+            "id": "n254",
+            "german": "Knochen",
+            "english": "bone",
+            "gender": "der",
+            "frequency": 5,
+            "category": "body"
+        },
+        {
+            "id": "n255",
+            "german": "Pferd",
+            "english": "horse",
+            "gender": "das",
+            "frequency": 5,
+            "category": "animals"
+        },
+        {
+            "id": "n256",
+            "german": "Kuh",
+            "english": "cow",
+            "gender": "die",
+            "frequency": 5,
+            "category": "animals"
+        },
+        {
+            "id": "n257",
+            "german": "Schwein",
+            "english": "pig",
+            "gender": "das",
+            "frequency": 5,
+            "category": "animals"
+        },
+        {
+            "id": "n258",
+            "german": "Schaf",
+            "english": "sheep",
+            "gender": "das",
+            "frequency": 5,
+            "category": "animals"
+        },
+        {
+            "id": "n259",
+            "german": "Huhn",
+            "english": "chicken",
+            "gender": "das",
+            "frequency": 5,
+            "category": "animals"
+        },
+        {
+            "id": "n260",
+            "german": "Vogel",
+            "english": "bird",
+            "gender": "der",
+            "frequency": 5,
+            "category": "animals"
+        },
+        {
+            "id": "n261",
+            "german": "Fisch",
+            "english": "fish",
+            "gender": "der",
+            "frequency": 5,
+            "category": "animals"
+        },
+        {
+            "id": "n262",
+            "german": "Maus",
+            "english": "mouse",
+            "gender": "die",
+            "frequency": 5,
+            "category": "animals"
+        },
+        {
+            "id": "n263",
+            "german": "Elefant",
+            "english": "elephant",
+            "gender": "der",
+            "frequency": 5,
+            "category": "animals"
+        },
+        {
+            "id": "n264",
+            "german": "Löwe",
+            "english": "lion",
+            "gender": "der",
+            "frequency": 5,
+            "category": "animals"
+        },
+        {
+            "id": "n265",
+            "german": "Tiger",
+            "english": "tiger",
+            "gender": "der",
+            "frequency": 5,
+            "category": "animals"
+        },
+        {
+            "id": "n266",
+            "german": "Bär",
+            "english": "bear",
+            "gender": "der",
+            "frequency": 5,
+            "category": "animals"
+        },
+        {
+            "id": "n267",
+            "german": "Affe",
+            "english": "monkey",
+            "gender": "der",
+            "frequency": 5,
+            "category": "animals"
+        },
+        {
+            "id": "n268",
+            "german": "Hase",
+            "english": "rabbit",
+            "gender": "der",
+            "frequency": 5,
+            "category": "animals"
+        },
+        {
+            "id": "n269",
+            "german": "Gesicht",
+            "english": "face",
+            "gender": "das",
+            "frequency": 5,
+            "category": "description"
+        },
+        {
+            "id": "n270",
+            "german": "Farbe",
+            "english": "color",
+            "gender": "die",
+            "frequency": 5,
+            "category": "description"
+        },
+        {
+            "id": "n271",
+            "german": "Größe",
+            "english": "size",
+            "gender": "die",
+            "frequency": 5,
+            "category": "description"
+        },
+        {
+            "id": "n272",
+            "german": "Form",
+            "english": "shape",
+            "gender": "die",
+            "frequency": 5,
+            "category": "description"
+        },
+        {
+            "id": "n273",
+            "german": "Gewicht",
+            "english": "weight",
+            "gender": "das",
+            "frequency": 5,
+            "category": "description"
+        },
+        {
+            "id": "n274",
+            "german": "Länge",
+            "english": "length",
+            "gender": "die",
+            "frequency": 5,
+            "category": "description"
+        },
+        {
+            "id": "n275",
+            "german": "Breite",
+            "english": "width",
+            "gender": "die",
+            "frequency": 5,
+            "category": "description"
+        },
+        {
+            "id": "n276",
+            "german": "Höhe",
+            "english": "height",
+            "gender": "die",
+            "frequency": 5,
+            "category": "description"
+        },
+        {
+            "id": "n277",
+            "german": "Temperatur",
+            "english": "temperature",
+            "gender": "die",
+            "frequency": 5,
+            "category": "weather"
+        },
+        {
+            "id": "n278",
+            "german": "Wind",
+            "english": "wind",
+            "gender": "der",
+            "frequency": 5,
+            "category": "weather"
+        },
+        {
+            "id": "n279",
+            "german": "Wolke",
+            "english": "cloud",
+            "gender": "die",
+            "frequency": 5,
+            "category": "weather"
+        },
+        {
+            "id": "n280",
+            "german": "Himmel",
+            "english": "sky",
+            "gender": "der",
+            "frequency": 5,
+            "category": "weather"
+        },
+        {
+            "id": "n281",
+            "german": "Erde",
+            "english": "earth",
+            "gender": "die",
+            "frequency": 5,
+            "category": "weather"
+        },
+        {
+            "id": "n282",
+            "german": "Meer",
+            "english": "sea",
+            "gender": "das",
+            "frequency": 5,
+            "category": "places"
+        },
+        {
+            "id": "n283",
+            "german": "See",
+            "english": "lake",
+            "gender": "der",
+            "frequency": 5,
+            "category": "places"
+        },
+        {
+            "id": "n284",
+            "german": "Fluss",
+            "english": "river",
+            "gender": "der",
+            "frequency": 5,
+            "category": "places"
+        },
+        {
+            "id": "n285",
+            "german": "Berg",
+            "english": "mountain",
+            "gender": "der",
+            "frequency": 5,
+            "category": "places"
+        },
+        {
+            "id": "n286",
+            "german": "Wald",
+            "english": "forest",
+            "gender": "der",
+            "frequency": 5,
+            "category": "places"
+        },
+        {
+            "id": "n287",
+            "german": "Garten",
+            "english": "garden",
+            "gender": "der",
+            "frequency": 5,
+            "category": "places"
+        },
+        {
+            "id": "n288",
+            "german": "Strand",
+            "english": "beach",
+            "gender": "der",
+            "frequency": 5,
+            "category": "places"
+        },
+        {
+            "id": "n289",
+            "german": "Insel",
+            "english": "island",
+            "gender": "die",
+            "frequency": 5,
+            "category": "places"
+        },
+        {
+            "id": "n290",
+            "german": "Dorf",
+            "english": "village",
+            "gender": "das",
+            "frequency": 5,
+            "category": "places"
+        },
+        {
+            "id": "n291",
+            "german": "Zentrum",
+            "english": "center",
+            "gender": "das",
+            "frequency": 5,
+            "category": "places"
+        },
+        {
+            "id": "n292",
+            "german": "Platz",
+            "english": "square",
+            "gender": "der",
+            "frequency": 5,
+            "category": "places"
+        },
+        {
+            "id": "n293",
+            "german": "Markt",
+            "english": "market",
+            "gender": "der",
+            "frequency": 5,
+            "category": "places"
+        },
+        {
+            "id": "n294",
+            "german": "Geschäft",
+            "english": "store",
+            "gender": "das",
+            "frequency": 5,
+            "category": "shopping"
+        },
+        {
+            "id": "n295",
+            "german": "Kaufhaus",
+            "english": "department store",
+            "gender": "das",
+            "frequency": 5,
+            "category": "shopping"
+        },
+        {
+            "id": "n296",
+            "german": "Apotheke",
+            "english": "pharmacy",
+            "gender": "die",
+            "frequency": 5,
+            "category": "shopping"
+        },
+        {
+            "id": "n297",
+            "german": "Bäckerei",
+            "english": "bakery",
+            "gender": "die",
+            "frequency": 5,
+            "category": "shopping"
+        },
+        {
+            "id": "n298",
+            "german": "Metzgerei",
+            "english": "butcher shop",
+            "gender": "die",
+            "frequency": 5,
+            "category": "shopping"
+        },
+        {
+            "id": "n299",
+            "german": "Friseur",
+            "english": "hairdresser",
+            "gender": "der",
+            "frequency": 5,
+            "category": "shopping"
+        },
+        {
+            "id": "n300",
+            "german": "Tankstelle",
+            "english": "gas station",
+            "gender": "die",
+            "frequency": 5,
+            "category": "shopping"
+        },
+        {
+            "id": "n301",
+            "german": "Preis",
+            "english": "price",
+            "gender": "der",
+            "frequency": 5,
+            "category": "money"
+        },
+        {
+            "id": "n302",
+            "german": "Rechnung",
+            "english": "bill",
+            "gender": "die",
+            "frequency": 5,
+            "category": "money"
+        },
+        {
+            "id": "n303",
+            "german": "Kasse",
+            "english": "cash register",
+            "gender": "die",
+            "frequency": 5,
+            "category": "money"
+        },
+        {
+            "id": "n304",
+            "german": "Karte",
+            "english": "card",
+            "gender": "die",
+            "frequency": 5,
+            "category": "money"
+        },
+        {
+            "id": "n305",
+            "german": "Bargeld",
+            "english": "cash",
+            "gender": "das",
+            "frequency": 5,
+            "category": "money"
+        },
+        {
+            "id": "n306",
+            "german": "Wechselgeld",
+            "english": "change",
+            "gender": "das",
+            "frequency": 5,
+            "category": "money"
+        },
+        {
+            "id": "n307",
+            "german": "Euro",
+            "english": "euro",
+            "gender": "der",
+            "frequency": 5,
+            "category": "money"
+        },
+        {
+            "id": "n308",
+            "german": "Cent",
+            "english": "cent",
+            "gender": "der",
+            "frequency": 5,
+            "category": "money"
+        },
+        {
+            "id": "n309",
+            "german": "Rabatt",
+            "english": "discount",
+            "gender": "der",
+            "frequency": 5,
+            "category": "money"
+        },
+        {
+            "id": "n310",
+            "german": "Angebot",
+            "english": "offer",
+            "gender": "das",
+            "frequency": 5,
+            "category": "money"
+        },
+        {
+            "id": "n311",
+            "german": "Seife",
+            "english": "soap",
+            "gender": "die",
+            "frequency": 5,
+            "category": "hygiene"
+        },
+        {
+            "id": "n312",
+            "german": "Shampoo",
+            "english": "shampoo",
+            "gender": "das",
+            "frequency": 5,
+            "category": "hygiene"
+        },
+        {
+            "id": "n313",
+            "german": "Zahnbürste",
+            "english": "toothbrush",
+            "gender": "die",
+            "frequency": 5,
+            "category": "hygiene"
+        },
+        {
+            "id": "n314",
+            "german": "Zahnpasta",
+            "english": "toothpaste",
+            "gender": "die",
+            "frequency": 5,
+            "category": "hygiene"
+        },
+        {
+            "id": "n315",
+            "german": "Handtuch",
+            "english": "towel",
+            "gender": "das",
+            "frequency": 5,
+            "category": "hygiene"
+        },
+        {
+            "id": "n316",
+            "german": "Deo",
+            "english": "deodorant",
+            "gender": "das",
+            "frequency": 5,
+            "category": "hygiene"
+        },
+        {
+            "id": "n317",
+            "german": "Parfüm",
+            "english": "perfume",
+            "gender": "das",
+            "frequency": 5,
+            "category": "hygiene"
+        },
+        {
+            "id": "n318",
+            "german": "Creme",
+            "english": "cream",
+            "gender": "die",
+            "frequency": 5,
+            "category": "hygiene"
+        },
+        {
+            "id": "n319",
+            "german": "Lotion",
+            "english": "lotion",
+            "gender": "die",
+            "frequency": 5,
+            "category": "hygiene"
+        },
+        {
+            "id": "n320",
+            "german": "Kamm",
+            "english": "comb",
+            "gender": "der",
+            "frequency": 5,
+            "category": "hygiene"
+        },
+        {
+            "id": "n321",
+            "german": "Bürste",
+            "english": "brush",
+            "gender": "die",
+            "frequency": 5,
+            "category": "hygiene"
+        },
+        {
+            "id": "n322",
+            "german": "Spiegel",
+            "english": "mirror",
+            "gender": "der",
+            "frequency": 5,
+            "category": "hygiene"
+        },
+        {
+            "id": "n323",
+            "german": "Dusche",
+            "english": "shower",
+            "gender": "die",
+            "frequency": 5,
+            "category": "hygiene"
+        },
+        {
+            "id": "n324",
+            "german": "Badewanne",
+            "english": "bathtub",
+            "gender": "die",
+            "frequency": 5,
+            "category": "hygiene"
+        },
+        {
+            "id": "n325",
+            "german": "Toilette",
+            "english": "toilet",
+            "gender": "die",
+            "frequency": 5,
+            "category": "hygiene"
+        },
+        {
+            "id": "n326",
+            "german": "Waschbecken",
+            "english": "sink",
+            "gender": "das",
+            "frequency": 5,
+            "category": "hygiene"
+        },
+        {
+            "id": "n327",
+            "german": "Lied",
+            "english": "song",
+            "gender": "das",
+            "frequency": 5,
+            "category": "entertainment"
+        },
+        {
+            "id": "n328",
+            "german": "Konzert",
+            "english": "concert",
+            "gender": "das",
+            "frequency": 5,
+            "category": "entertainment"
+        },
+        {
+            "id": "n329",
+            "german": "Party",
+            "english": "party",
+            "gender": "die",
+            "frequency": 5,
+            "category": "entertainment"
+        },
+        {
+            "id": "n330",
+            "german": "Fest",
+            "english": "festival",
+            "gender": "das",
+            "frequency": 5,
+            "category": "entertainment"
+        },
+        {
+            "id": "n331",
+            "german": "Spiel",
+            "english": "game",
+            "gender": "das",
+            "frequency": 5,
+            "category": "entertainment"
+        },
+        {
+            "id": "n332",
+            "german": "Sport",
+            "english": "sport",
+            "gender": "der",
+            "frequency": 5,
+            "category": "entertainment"
+        },
+        {
+            "id": "n333",
+            "german": "Fußball",
+            "english": "football",
+            "gender": "der",
+            "frequency": 5,
+            "category": "entertainment"
+        },
+        {
+            "id": "n334",
+            "german": "Tennis",
+            "english": "tennis",
+            "gender": "das",
+            "frequency": 5,
+            "category": "entertainment"
+        },
+        {
+            "id": "n335",
+            "german": "Basketball",
+            "english": "basketball",
+            "gender": "der",
+            "frequency": 5,
+            "category": "entertainment"
+        },
+        {
+            "id": "n336",
+            "german": "Schwimmen",
+            "english": "swimming",
+            "gender": "das",
+            "frequency": 5,
+            "category": "entertainment"
+        },
+        {
+            "id": "n337",
+            "german": "Laufen",
+            "english": "running",
+            "gender": "das",
+            "frequency": 5,
+            "category": "entertainment"
+        },
+        {
+            "id": "n338",
+            "german": "Reise",
+            "english": "trip",
+            "gender": "die",
+            "frequency": 5,
+            "category": "entertainment"
+        },
+        {
+            "id": "n339",
+            "german": "Urlaub",
+            "english": "vacation",
+            "gender": "der",
+            "frequency": 5,
+            "category": "entertainment"
+        },
+        {
+            "id": "n340",
+            "german": "Ferien",
+            "english": "holidays",
+            "gender": "die",
+            "frequency": 5,
+            "category": "entertainment"
+        },
+        {
+            "id": "n341",
+            "german": "Ticket",
+            "english": "ticket",
+            "gender": "das",
+            "frequency": 5,
+            "category": "transport"
+        },
+        {
+            "id": "n342",
+            "german": "Fahrkarte",
+            "english": "train ticket",
+            "gender": "die",
+            "frequency": 5,
+            "category": "transport"
+        },
+        {
+            "id": "n343",
+            "german": "Flugticket",
+            "english": "flight ticket",
+            "gender": "das",
+            "frequency": 5,
+            "category": "transport"
+        },
+        {
+            "id": "n344",
+            "german": "Taxi",
+            "english": "taxi",
+            "gender": "das",
+            "frequency": 5,
+            "category": "transport"
+        },
+        {
+            "id": "n345",
+            "german": "U-Bahn",
+            "english": "subway",
+            "gender": "die",
+            "frequency": 5,
+            "category": "transport"
+        },
+        {
+            "id": "n346",
+            "german": "Straßenbahn",
+            "english": "tram",
+            "gender": "die",
+            "frequency": 5,
+            "category": "transport"
+        },
+        {
+            "id": "n347",
+            "german": "Schiff",
+            "english": "ship",
+            "gender": "das",
+            "frequency": 5,
+            "category": "transport"
+        },
+        {
+            "id": "n348",
+            "german": "Boot",
+            "english": "boat",
+            "gender": "das",
+            "frequency": 5,
+            "category": "transport"
+        },
+        {
+            "id": "n349",
+            "german": "Motorrad",
+            "english": "motorcycle",
+            "gender": "das",
+            "frequency": 5,
+            "category": "transport"
+        },
+        {
+            "id": "n350",
+            "german": "Roller",
+            "english": "scooter",
+            "gender": "der",
+            "frequency": 5,
+            "category": "transport"
+        },
+        {
+            "id": "n351",
+            "german": "Haltestelle",
+            "english": "stop",
+            "gender": "die",
+            "frequency": 5,
+            "category": "transport"
+        },
+        {
+            "id": "n352",
+            "german": "Ampel",
+            "english": "traffic light",
+            "gender": "die",
+            "frequency": 5,
+            "category": "transport"
+        },
+        {
+            "id": "n353",
+            "german": "Parkplatz",
+            "english": "parking lot",
+            "gender": "der",
+            "frequency": 5,
+            "category": "transport"
+        },
+        {
+            "id": "n354",
+            "german": "Garage",
+            "english": "garage",
+            "gender": "die",
+            "frequency": 5,
+            "category": "transport"
+        },
+        {
+            "id": "n355",
+            "german": "Benzin",
+            "english": "gasoline",
+            "gender": "das",
+            "frequency": 5,
+            "category": "transport"
+        },
+        {
+            "id": "n356",
+            "german": "Führerschein",
+            "english": "driver's license",
+            "gender": "der",
+            "frequency": 5,
+            "category": "transport"
+        },
+        {
+            "id": "n357",
+            "german": "Wand",
+            "english": "wall",
+            "gender": "die",
+            "frequency": 4,
+            "category": "house"
+        },
+        {
+            "id": "n358",
+            "german": "Decke",
+            "english": "ceiling",
+            "gender": "die",
+            "frequency": 4,
+            "category": "house"
+        },
+        {
+            "id": "n359",
+            "german": "Boden",
+            "english": "floor",
+            "gender": "der",
+            "frequency": 4,
+            "category": "house"
+        },
+        {
+            "id": "n360",
+            "german": "Dach",
+            "english": "roof",
+            "gender": "das",
+            "frequency": 4,
+            "category": "house"
+        },
+        {
+            "id": "n361",
+            "german": "Keller",
+            "english": "basement",
+            "gender": "der",
+            "frequency": 4,
+            "category": "house"
+        },
+        {
+            "id": "n362",
+            "german": "Dachboden",
+            "english": "attic",
+            "gender": "der",
+            "frequency": 4,
+            "category": "house"
+        },
+        {
+            "id": "n363",
+            "german": "Treppe",
+            "english": "stairs",
+            "gender": "die",
+            "frequency": 4,
+            "category": "house"
+        },
+        {
+            "id": "n364",
+            "german": "Flur",
+            "english": "hallway",
+            "gender": "der",
+            "frequency": 4,
+            "category": "house"
+        },
+        {
+            "id": "n365",
+            "german": "Balkon",
+            "english": "balcony",
+            "gender": "der",
+            "frequency": 4,
+            "category": "house"
+        },
+        {
+            "id": "n366",
+            "german": "Terrasse",
+            "english": "terrace",
+            "gender": "die",
+            "frequency": 4,
+            "category": "house"
+        },
+        {
+            "id": "n367",
+            "german": "Glocke",
+            "english": "bell",
+            "gender": "die",
+            "frequency": 4,
+            "category": "objects"
+        },
+        {
+            "id": "n368",
+            "german": "Klingel",
+            "english": "doorbell",
+            "gender": "die",
+            "frequency": 4,
+            "category": "objects"
+        }
+    ],
+    "categories": {
+        "people": {
+            "name": "People",
+            "description": "Words related to people and individuals",
+            "color": "#3B82F6"
+        },
+        "family": {
+            "name": "Family",
+            "description": "Family members and relationships",
+            "color": "#EF4444"
+        },
+        "occupations": {
+            "name": "Occupations",
+            "description": "Jobs and professions",
+            "color": "#10B981"
+        },
+        "furniture": {
+            "name": "Furniture",
+            "description": "Household furniture and fittings",
+            "color": "#F59E0B"
+        },
+        "technology": {
+            "name": "Technology",
+            "description": "Electronic devices and technology",
+            "color": "#8B5CF6"
+        },
+        "appliances": {
+            "name": "Appliances",
+            "description": "Kitchen and home appliances",
+            "color": "#06B6D4"
+        },
+        "transport": {
+            "name": "Transport",
+            "description": "Vehicles and transportation",
+            "color": "#84CC16"
+        },
+        "places": {
+            "name": "Places",
+            "description": "Buildings, locations and venues",
+            "color": "#F97316"
+        },
+        "time": {
+            "name": "Time",
+            "description": "Time-related words",
+            "color": "#EC4899"
+        },
+        "rooms": {
+            "name": "Rooms",
+            "description": "Rooms in a house or building",
+            "color": "#6366F1"
+        },
+        "house": {
+            "name": "House",
+            "description": "Parts of a house or building",
+            "color": "#14B8A6"
+        },
+        "personal": {
+            "name": "Personal",
+            "description": "Personal information and details",
+            "color": "#F43F5E"
+        },
+        "food": {
+            "name": "Food",
+            "description": "Food and beverages",
+            "color": "#22C55E"
+        },
+        "animals": {
+            "name": "Animals",
+            "description": "Animals and pets",
+            "color": "#A855F7"
+        },
+        "body": {
+            "name": "Body",
+            "description": "Parts of the human body",
+            "color": "#EF4444"
+        },
+        "shopping": {
+            "name": "Shopping",
+            "description": "Shopping and commerce",
+            "color": "#F59E0B"
+        },
+        "objects": {
+            "name": "Objects",
+            "description": "Common objects and items",
+            "color": "#64748B"
+        },
+        "communication": {
+            "name": "Communication",
+            "description": "Communication and language",
+            "color": "#3B82F6"
+        },
+        "media": {
+            "name": "Media",
+            "description": "Media and information",
+            "color": "#8B5CF6"
+        },
+        "entertainment": {
+            "name": "Entertainment",
+            "description": "Entertainment and leisure",
+            "color": "#EC4899"
+        },
+        "description": {
+            "name": "Description",
+            "description": "Descriptive words and adjectives",
+            "color": "#06B6D4"
+        },
+        "clothing": {
+            "name": "Clothing",
+            "description": "Clothes and accessories",
+            "color": "#F97316"
+        },
+        "weather": {
+            "name": "Weather",
+            "description": "Weather and climate",
+            "color": "#84CC16"
+        },
+        "hygiene": {
+            "name": "Hygiene",
+            "description": "Personal care and hygiene",
+            "color": "#14B8A6"
+        },
+        "money": {
+            "name": "Money",
+            "description": "Money and finances",
+            "color": "#22C55E"
+        },
+        "abstract": {
+            "name": "Abstract",
+            "description": "Abstract concepts and ideas",
+            "color": "#A855F7"
+        }
+    },
+    "genderStats": {
+        "der": {
+            "count": 133,
+            "percentage": 36.14,
+            "color": "#3B82F6"
+        },
+        "die": {
+            "count": 137,
+            "percentage": 37.23,
+            "color": "#EF4444"
+        },
+        "das": {
+            "count": 98,
+            "percentage": 26.63,
+            "color": "#10B981"
+        }
+    },
+    "metadata": {
+        "totalNouns": 368,
+        "level": "A1",
+        "description": "Essential German nouns with articles for A1 level learners following the 80-20 rule",
+        "lastUpdated": "2025-01-07",
+        "source": "80-20 Rule: Most essential nouns for A1 level based on exam frequency analysis"
+    }
+}

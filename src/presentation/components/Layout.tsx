@@ -8,13 +8,14 @@ interface LayoutProps {
 
 const menuItems = [
   { text: 'Home', icon: '🏠', path: '/' },
-  { text: 'Study Plan', icon: '📅', path: '/study-plan' },
   { text: 'Vocabulary', icon: '📚', path: '/vocabulary' },
+  { text: 'Articles', icon: '🎯', path: '/articles' },
+  { text: 'Study Plan', icon: '📅', path: '/study-plan' },
   { text: 'Grammar', icon: '📝', path: '/grammar' },
   { text: 'Speaking', icon: '🗣️', path: '/speaking' },
   { text: 'Writing', icon: '✍️', path: '/writing' },
   { text: 'Progress', icon: '📊', path: '/progress' },
-  { text: 'Tests', icon: '🎯', path: '/tests' },
+  { text: 'Tests', icon: '🧪', path: '/tests' },
   { text: 'Settings', icon: '⚙️', path: '/settings' },
 ];
 
@@ -34,7 +35,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 flex">
       {/* Mobile sidebar overlay */}
       {sidebarOpen && (
         <div 
@@ -44,7 +45,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       )}
 
       {/* Sidebar */}
-      <div className={`fixed inset-y-0 left-0 z-50 w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0 ${
+      <div className={`fixed inset-y-0 left-0 z-50 w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:h-screen ${
         sidebarOpen ? 'translate-x-0' : '-translate-x-full'
       }`}>
         <div className="flex items-center justify-between h-16 px-6 border-b border-gray-200">
@@ -53,8 +54,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               <span className="text-white font-bold text-lg">DE</span>
             </div>
             <div>
-              <h1 className="text-xl font-bold text-gray-900">German A1</h1>
-              <p className="text-xs text-gray-500">Learning Journey</p>
+              <h1 className="text-xl font-bold text-gray-900">DeutschMeister</h1>
+              <p className="text-xs text-gray-500">A1 German Mastery</p>
             </div>
           </div>
           <button
@@ -123,9 +124,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       </div>
 
       {/* Main content */}
-      <div className="lg:ml-64">
+      <div className="flex-1 flex flex-col overflow-hidden">
         {/* Top bar */}
-        <header className="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-30">
+        <header className="bg-white shadow-sm border-b border-gray-200 z-30 flex-shrink-0">
           <div className="flex items-center justify-between h-16 px-6">
             <button
               onClick={() => setSidebarOpen(true)}
@@ -173,8 +174,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         </header>
 
         {/* Page content */}
-        <main className="min-h-screen">
-          {children}
+        <main className="flex-1 overflow-auto bg-gray-50">
+          <div className="p-6">
+            {children}
+          </div>
         </main>
       </div>
     </div>

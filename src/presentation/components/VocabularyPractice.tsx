@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { A1_VOCABULARY, A1_VOCABULARY_BY_CATEGORY } from '../../data/vocabulary';
+import { A1_VOCABULARY_WORDS, A1_VOCABULARY_WORDS_BY_CATEGORY } from '../../data';
 import { ExampleSentence, VocabularyWord } from '../../domain/entities/Vocabulary.js';
+import { getGenderColor, getGenderDisplayName } from '../../utils/genderColors';
 
 interface VocabularyCardProps {
   word: VocabularyWord;
@@ -8,9 +9,18 @@ interface VocabularyCardProps {
   showAnswer: boolean;
 }
 
+interface FlashcardProps {
+  word: VocabularyWord;
+  showAnswer: boolean;
+  onNext: () => void;
+  onShowAnswer: () => void;
+}
+
+// Quiz mode component with user input and feedback
 const VocabularyCard: React.FC<VocabularyCardProps> = ({ word, onStudy, showAnswer }) => {
   const [userAnswer, setUserAnswer] = useState('');
   const [feedback, setFeedback] = useState<'correct' | 'incorrect' | null>(null);
+  const genderColor = getGenderColor(word.gender);
 
   const handleSubmit = () => {
     const isCorrect = userAnswer.toLowerCase().trim() === word.english.toLowerCase().trim();
@@ -30,14 +40,34 @@ const VocabularyCard: React.FC<VocabularyCardProps> = ({ word, onStudy, showAnsw
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-lg p-6 max-w-md mx-auto">
+    <div className={`rounded-lg shadow-lg p-6 max-w-md mx-auto transition-all duration-300 ${
+      word.hasGender() ? `${genderColor.bg} ${genderColor.border} border-2` : 'bg-white'
+    }`}>
       <div className="text-center mb-6">
-        <h3 className="text-2xl font-bold text-gray-800 mb-2">{word.german}</h3>
+        <div className="flex items-center justify-center gap-2 mb-2">
+          <h3 className={`text-2xl font-bold ${word.hasGender() ? genderColor.text : 'text-gray-800'}`}>
+            {word.german}
+          </h3>
+          {word.hasGender() && (
+            <span className={`px-2 py-1 text-xs font-semibold rounded-full ${genderColor.bg} ${genderColor.text} border ${genderColor.border}`}>
+              {word.gender}
+            </span>
+          )}
+        </div>
         {word.isNoun() && word.hasGender() && (
-          <p className="text-sm text-gray-600 mb-2">{word.getFullNoun()}</p>
+          <p className={`text-sm mb-2 ${word.hasGender() ? genderColor.text : 'text-gray-600'}`}>
+            {word.getFullNoun()}
+            {word.hasGender() && (
+              <span className={`ml-2 text-xs ${genderColor.text} opacity-75`}>
+                ({getGenderDisplayName(word.gender)})
+              </span>
+            )}
+          </p>
         )}
         {word.pronunciation && (
-          <p className="text-sm text-gray-500 italic">/{word.pronunciation}/</p>
+          <p className={`text-sm italic ${word.hasGender() ? genderColor.text + ' opacity-75' : 'text-gray-500'}`}>
+            /{word.pronunciation}/
+          </p>
         )}
       </div>
 
@@ -92,7 +122,11 @@ const VocabularyCard: React.FC<VocabularyCardProps> = ({ word, onStudy, showAnsw
         {word.tags.map((tag: string) => (
           <span 
             key={tag} 
-            className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full"
+            className={`px-2 py-1 text-xs rounded-full ${
+              word.hasGender() && word.type === 'article' 
+                ? `${genderColor.bg} ${genderColor.text} border ${genderColor.border}`
+                : 'bg-blue-100 text-blue-800'
+            }`}
           >
             {tag}
           </span>
@@ -102,21 +136,107 @@ const VocabularyCard: React.FC<VocabularyCardProps> = ({ word, onStudy, showAnsw
   );
 };
 
+// Learning-focused flashcard component (no scoring or feedback)
+const VocabularyFlashcard: React.FC<FlashcardProps> = ({ word, showAnswer, onNext, onShowAnswer }) => {
+  const genderColor = getGenderColor(word.gender);
+
+  return (
+    <div className={`rounded-lg shadow-lg p-6 max-w-md mx-auto transition-all duration-300 ${
+      word.hasGender() ? `${genderColor.bg} ${genderColor.border} border-2` : 'bg-white'
+    }`}>
+      <div className="text-center mb-6">
+        <div className="flex items-center justify-center gap-2 mb-2">
+          <h3 className={`text-2xl font-bold ${word.hasGender() ? genderColor.text : 'text-gray-800'}`}>
+            {word.german}
+          </h3>
+          {word.hasGender() && (
+            <span className={`px-2 py-1 text-xs font-semibold rounded-full ${genderColor.bg} ${genderColor.text} border ${genderColor.border}`}>
+              {word.gender}
+            </span>
+          )}
+        </div>
+        {word.isNoun() && word.hasGender() && (
+          <p className={`text-sm mb-2 ${word.hasGender() ? genderColor.text : 'text-gray-600'}`}>
+            {word.getFullNoun()}
+            {word.hasGender() && (
+              <span className={`ml-2 text-xs ${genderColor.text} opacity-75`}>
+                ({getGenderDisplayName(word.gender)})
+              </span>
+            )}
+          </p>
+        )}
+        {word.pronunciation && (
+          <p className={`text-sm italic ${word.hasGender() ? genderColor.text + ' opacity-75' : 'text-gray-500'}`}>
+            /{word.pronunciation}/
+          </p>
+        )}
+      </div>
+
+      {!showAnswer ? (
+        <div className="text-center">
+          <button
+            onClick={onShowAnswer}
+            className="bg-blue-500 text-white py-2 px-6 rounded-md hover:bg-blue-600 transition-colors"
+          >
+            Show Translation
+          </button>
+        </div>
+      ) : (
+        <div className="text-center">
+          <p className="text-xl font-semibold text-green-600 mb-4">{word.english}</p>
+          {word.exampleSentences.length > 0 && (
+            <div className="space-y-2 mb-4">
+              <h4 className="font-medium text-gray-700">Example:</h4>
+              {word.exampleSentences.slice(0, 2).map((example: ExampleSentence, index: number) => (
+                <div key={index} className="text-sm text-gray-600">
+                  <p className="italic">{example.german}</p>
+                  <p>{example.english}</p>
+                </div>
+              ))}
+            </div>
+          )}
+          <button
+            onClick={onNext}
+            className="bg-green-500 text-white py-2 px-6 rounded-md hover:bg-green-600 transition-colors"
+          >
+            Next Word
+          </button>
+        </div>
+      )}
+
+      <div className="mt-4 flex flex-wrap gap-1">
+        {word.tags.map((tag: string) => (
+          <span 
+            key={tag} 
+            className={`px-2 py-1 text-xs rounded-full ${
+              word.hasGender() && word.type === 'article' 
+                ? `${genderColor.bg} ${genderColor.text} border ${genderColor.border}`
+                : 'bg-blue-100 text-blue-800'
+            }`}
+          >
+            {tag}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+
 const VocabularyPractice: React.FC = () => {
   const [words, setWords] = useState<VocabularyWord[]>([]);
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [showAnswer, setShowAnswer] = useState(false);
-  const [stats, setStats] = useState({ correct: 0, total: 0 });
-  const [selectedCategory, setSelectedCategory] = useState<'all' | keyof typeof A1_VOCABULARY_BY_CATEGORY>('all');
-  const [practiceMode, setPracticeMode] = useState<'flashcards' | 'quiz'>('quiz');
+  const [selectedCategory, setSelectedCategory] = useState<'all' | string>('all');
+  const [practiceMode, setPracticeMode] = useState<'flashcards' | 'quiz'>('flashcards');
 
   const initializePractice = useCallback(() => {
     let wordsToStudy: VocabularyWord[];
     
     if (selectedCategory === 'all') {
-      wordsToStudy = [...A1_VOCABULARY];
+      wordsToStudy = [...A1_VOCABULARY_WORDS];
     } else {
-      wordsToStudy = [...A1_VOCABULARY_BY_CATEGORY[selectedCategory]];
+      wordsToStudy = [...A1_VOCABULARY_WORDS_BY_CATEGORY[selectedCategory]];
     }
     
     // Shuffle words
@@ -124,34 +244,31 @@ const VocabularyPractice: React.FC = () => {
     setWords(shuffled.slice(0, 20)); // Limit to 20 words per session
     setCurrentWordIndex(0);
     setShowAnswer(false);
-    setStats({ correct: 0, total: 0 });
   }, [selectedCategory]);
 
   useEffect(() => {
     initializePractice();
   }, [initializePractice]);
 
-  const handleStudy = (_word: VocabularyWord, isCorrect: boolean) => {
-    setStats(prev => ({
-      correct: prev.correct + (isCorrect ? 1 : 0),
-      total: prev.total + 1
-    }));
-
-    // Move to next word after delay
-    setTimeout(() => {
-      if (currentWordIndex < words.length - 1) {
-        setCurrentWordIndex(prev => prev + 1);
-        setShowAnswer(false);
-      } else {
-        // Session complete
-        alert(`Session complete! Score: ${stats.correct + (isCorrect ? 1 : 0)}/${stats.total + 1}`);
-        initializePractice();
-      }
-    }, 2000);
+  const handleNextWord = () => {
+    if (currentWordIndex < words.length - 1) {
+      setCurrentWordIndex(prev => prev + 1);
+      setShowAnswer(false);
+    } else {
+      // Session complete, restart
+      initializePractice();
+    }
   };
 
   const handleShowAnswer = () => {
     setShowAnswer(true);
+  };
+
+  const handleStudy = (_word: VocabularyWord, _isCorrect: boolean) => {
+    // For quiz mode - move to next word after delay
+    setTimeout(() => {
+      handleNextWord();
+    }, 2000);
   };
 
   if (words.length === 0) {
@@ -179,14 +296,13 @@ const VocabularyPractice: React.FC = () => {
           <div className="flex justify-center mb-6">
             <select
               value={selectedCategory as string}
-              onChange={(e) => setSelectedCategory(e.target.value as 'all' | keyof typeof A1_VOCABULARY_BY_CATEGORY)}
+              onChange={(e) => setSelectedCategory(e.target.value)}
               className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               <option value="all">All Categories</option>
               <option value="articles">Articles</option>
               <option value="pronouns">Pronouns</option>
               <option value="verbs">Verbs</option>
-              <option value="nouns">Nouns</option>
               <option value="adjectives">Adjectives</option>
               <option value="conjunctions">Conjunctions</option>
               <option value="interjections">Interjections</option>
@@ -222,7 +338,7 @@ const VocabularyPractice: React.FC = () => {
         <div className="mb-8">
           <div className="flex justify-between text-sm text-gray-600 mb-2">
             <span>Progress: {currentWordIndex + 1} / {words.length}</span>
-            <span>Score: {stats.correct} / {stats.total}</span>
+            <span>Learning Mode</span>
           </div>
           <div className="w-full bg-gray-200 rounded-full h-2">
             <div 
@@ -241,56 +357,17 @@ const VocabularyPractice: React.FC = () => {
               showAnswer={showAnswer}
             />
           ) : (
-            <div className="bg-white rounded-lg shadow-lg p-6 max-w-md mx-auto">
-              <div className="text-center">
-                <h3 className="text-2xl font-bold text-gray-800 mb-4">{currentWord.german}</h3>
-                {showAnswer && (
-                  <div className="space-y-4">
-                    <p className="text-xl text-green-600">{currentWord.english}</p>
-                    {currentWord.exampleSentences.length > 0 && (
-                      <div className="space-y-2">
-                        <h4 className="font-medium text-gray-700">Example:</h4>
-                        <div className="text-sm text-gray-600">
-                          <p className="italic">{currentWord.exampleSentences[0].german}</p>
-                          <p>{currentWord.exampleSentences[0].english}</p>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                )}
-              </div>
-            </div>
+            <VocabularyFlashcard 
+              word={currentWord}
+              showAnswer={showAnswer}
+              onNext={handleNextWord}
+              onShowAnswer={handleShowAnswer}
+            />
           )}
         </div>
 
         {/* Controls */}
         <div className="flex justify-center gap-4">
-          {practiceMode === 'flashcards' && !showAnswer && (
-            <button
-              onClick={handleShowAnswer}
-              className="bg-green-500 text-white px-6 py-2 rounded-md hover:bg-green-600 transition-colors"
-            >
-              Show Answer
-            </button>
-          )}
-          
-          {(practiceMode === 'flashcards' && showAnswer) && (
-            <div className="flex gap-4">
-              <button
-                onClick={() => handleStudy(currentWord, false)}
-                className="bg-red-500 text-white px-6 py-2 rounded-md hover:bg-red-600 transition-colors"
-              >
-                Need Practice
-              </button>
-              <button
-                onClick={() => handleStudy(currentWord, true)}
-                className="bg-green-500 text-white px-6 py-2 rounded-md hover:bg-green-600 transition-colors"
-              >
-                Know It!
-              </button>
-            </div>
-          )}
-          
           <button
             onClick={initializePractice}
             className="bg-gray-500 text-white px-6 py-2 rounded-md hover:bg-gray-600 transition-colors"
@@ -310,10 +387,6 @@ const VocabularyPractice: React.FC = () => {
             <div className="flex items-center gap-2">
               <span className="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">verbs</span>
               <span className="text-gray-600">actions</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded-full">nouns</span>
-              <span className="text-gray-600">people, things</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="px-2 py-1 bg-yellow-100 text-yellow-800 text-xs rounded-full">adjectives</span>

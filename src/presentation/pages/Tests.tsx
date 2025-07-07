@@ -1,9 +1,85 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import SessionResults from '../components/SessionResults';
+import TestSession from '../components/TestSession';
+
+interface TestResults {
+  totalQuestions: number;
+  correctAnswers: number;
+  wrongAnswers: number;
+  timeSpent: number;
+  accuracy: number;
+  questions: unknown[];
+}
 
 const Tests: React.FC = () => {
   const navigate = useNavigate();
   const [selectedLevel, setSelectedLevel] = useState<'A1' | 'Practice' | 'Mock'>('A1');
+  const [testMode, setTestMode] = useState<'browse' | 'testing' | 'results'>('browse');
+  const [currentTest, setCurrentTest] = useState<{
+    type: 'vocabulary' | 'grammar' | 'mixed';
+    questionCount: number;
+  } | null>(null);
+  const [testResults, setTestResults] = useState<TestResults | null>(null);
+
+  const startTest = (type: 'vocabulary' | 'grammar' | 'mixed', questionCount: number) => {
+    setCurrentTest({ type, questionCount });
+    setTestMode('testing');
+  };
+
+  const handleTestComplete = (results: TestResults) => {
+    setTestResults(results);
+    setTestMode('results');
+  };
+
+  const handleTestExit = () => {
+    setTestMode('browse');
+    setCurrentTest(null);
+    setTestResults(null);
+  };
+
+  const handleRestart = () => {
+    if (currentTest) {
+      setTestMode('testing');
+    }
+  };
+
+  const handleReviewMistakes = () => {
+    // For now, just restart the test
+    handleRestart();
+  };
+
+  // Render test session
+  if (testMode === 'testing' && currentTest) {
+    return (
+      <TestSession
+        testType={currentTest.type}
+        questionCount={currentTest.questionCount}
+        onComplete={handleTestComplete}
+        onExit={handleTestExit}
+      />
+    );
+  }
+
+  // Render results
+  if (testMode === 'results' && testResults) {
+    return (
+      <SessionResults
+        results={{
+          totalQuestions: testResults.totalQuestions,
+          correctAnswers: testResults.correctAnswers,
+          wrongAnswers: testResults.wrongAnswers,
+          timeSpent: testResults.timeSpent,
+          wordsStudied: [], // Empty for tests
+          mistakes: [], // Empty for now
+        }}
+        sessionType="multiple-choice"
+        onRestart={handleRestart}
+        onReviewMistakes={handleReviewMistakes}
+        onExit={handleTestExit}
+      />
+    );
+  }
 
   const testCategories = [
     {
@@ -212,7 +288,11 @@ const Tests: React.FC = () => {
                     <div
                       key={category.id}
                       className="bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer transform hover:-translate-y-1 border border-gray-100"
-                      onClick={() => navigate(`/tests/${category.id}`)}
+                      onClick={() => {
+                        const testType = category.id === 'vocabulary' ? 'vocabulary' : 
+                                       category.id === 'grammar' ? 'grammar' : 'mixed';
+                        startTest(testType, category.questions);
+                      }}
                     >
                       <div className="p-6">
                         <div className="flex items-start justify-between mb-3">
