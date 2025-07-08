@@ -1,0 +1,91 @@
+{
+  "topics": [
+    {
+      "id": "verb-conjugation",
+      "title": "Verb Conjugation",
+      "level": "A1",
+      "explanation": "In German, verbs change their form depending on the subject (pronoun). This is called conjugation. For regular verbs in the present tense, you typically remove the -en ending and add a new ending.",
+      "rules": [
+        { "pronoun": "ich", "ending": "-e" },
+        { "pronoun": "du", "ending": "-st" },
+        { "pronoun": "er/sie/es", "ending": "-t" },
+        { "pronoun": "wir", "ending": "-en" },
+        { "pronoun": "ihr", "ending": "-t" },
+        { "pronoun": "sie/Sie", "ending": "-en" }
+      ],
+      "practice_questions": [
+        {
+          "id": "gq1",
+          "question": "Which is the correct form of 'sein' (to be) for 'ich'?",
+          "options": ["bin", "bist", "ist", "sind"],
+          "answer": "bin"
+        },
+        {
+          "id": "gq2",
+          "question": "Which is the correct form of 'haben' (to have) for 'du'?",
+          "options": ["habe", "hast", "hat", "haben"],
+          "answer": "hast"
+        },
+        {
+          "id": "gq3",
+          "question": "Which is the correct form of 'spielen' (to play) for 'er'?",
+          "options": ["spiele", "spielst", "spielt", "spielen"],
+          "answer": "spielt"
+        }
+      ]
+    },
+    {
+      "id": "sentence-structure",
+      "title": "Basic Sentence Structure",
+      "level": "A1",
+      "explanation": "In a simple German statement, the verb is always in the second position. The subject is often in the first position, but another element can be placed first for emphasis, in which case the subject moves after the verb.",
+      "examples": [
+        { "german": "Ich spiele heute Fußball.", "english": "I am playing soccer today." },
+        { "german": "Heute spiele ich Fußball.", "english": "Today I am playing soccer." }
+      ],
+      "practice_questions": [
+        {
+          "id": "gq4",
+          "question": "Which sentence has the correct word order?",
+          "options": [
+            "Ich spiele gern Fußball.",
+            "Ich gern spiele Fußball.",
+            "Spiele ich gern Fußball.",
+            "Fußball spiele gern ich."
+          ],
+          "answer": "Ich spiele gern Fußball."
+        },
+        {
+          "id": "gq5",
+          "question": "Rearrange the words to form a correct sentence: 'morgen / wir / ins Kino / gehen'",
+          "options": [
+            "Wir gehen morgen ins Kino.",
+            "Wir morgen gehen ins Kino.",
+            "Gehen wir ins Kino morgen.",
+            "Morgen gehen ins Kino wir."
+          ],
+          "answer": "Wir gehen morgen ins Kino."
+        }
+      ]
+    },
+    {
+      "id": "nominative-case",
+      "title": "Nominative Case",
+      "level": "A1",
+      "explanation": "The nominative case is used for the subject of a sentence—the person or thing performing the action. The articles 'der', 'die', 'das' are in their basic, nominative form.",
+      "examples": [
+        { "german": "Der Hund schläft.", "english": "The dog is sleeping." },
+        { "german": "Die Katze isst.", "english": "The cat is eating." },
+        { "german": "Das Buch ist neu.", "english": "The book is new." }
+      ],
+      "practice_questions": [
+        {
+          "id": "gq6",
+          "question": "Which pronoun is in the nominative case in the sentence: 'Er liest ein Buch.'?",
+          "options": ["Er", "ein", "Buch", "liest"],
+          "answer": "Er"
+        }
+      ]
+    }
+  ]
+}

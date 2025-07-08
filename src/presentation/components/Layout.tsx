@@ -10,12 +10,12 @@ const menuItems = [
   { text: 'Home', icon: '🏠', path: '/' },
   { text: 'Vocabulary', icon: '📚', path: '/vocabulary' },
   { text: 'Articles', icon: '🎯', path: '/articles' },
+  { text: 'Tests', icon: '🧪', path: '/tests' },
   { text: 'Study Plan', icon: '📅', path: '/study-plan' },
   { text: 'Grammar', icon: '📝', path: '/grammar' },
   { text: 'Speaking', icon: '🗣️', path: '/speaking' },
   { text: 'Writing', icon: '✍️', path: '/writing' },
   { text: 'Progress', icon: '📊', path: '/progress' },
-  { text: 'Tests', icon: '🧪', path: '/tests' },
   { text: 'Settings', icon: '⚙️', path: '/settings' },
 ];
 
