@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { VocabularyWord } from '../../domain/entities/Vocabulary';
 import ArticlesLearning from '../components/ArticlesLearning';
 import ArticlesPractice from '../components/ArticlesPractice';
+import PageHeader from '../components/PageHeader';
 import SessionResults from '../components/SessionResults';
 
 interface ArticlesSessionResult {
@@ -105,17 +106,11 @@ const Articles: React.FC<{ mainRef?: React.RefObject<HTMLElement> }> = ({ mainRe
     <div className="min-h-screen bg-gray-50 py-8 px-4">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-gray-900 mb-4">
-            German Articles 🎯
-          </h1>
-          <p className="text-xl text-gray-600 mb-2">
-            Master der, die, das with the 80-20 rule
-          </p>
-          <p className="text-lg text-gray-500">
-            Focus on the most essential nouns for A1 exam success
-          </p>
-        </div>
+        <PageHeader
+          title="German Articles 🎯"
+          subtitle="Master der, die, das with the 80-20 rule"
+          description="Focus on the most essential nouns for A1 exam success"
+        />
 
         {/* 80-20 Rule Explanation */}
         <div className="bg-gradient-to-r from-yellow-50 to-orange-50 rounded-xl p-6 mb-8 border border-yellow-200">

@@ -7,6 +7,7 @@ import {
   searchVocabularyWords
 } from '../../data';
 import { VocabularyWord } from '../../domain/entities/Vocabulary';
+import PageHeader from '../components/PageHeader';
 import SessionResults from '../components/SessionResults';
 import VocabularySession from '../components/VocabularySession';
 
@@ -153,14 +154,11 @@ const Vocabulary: React.FC<{ mainRef?: React.RefObject<HTMLElement> }> = ({ main
     <div className="min-h-screen bg-gray-50 py-8 px-4">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-2">
-            German Vocabulary 📚
-          </h1>
-          <p className="text-lg text-gray-600">
-            Learn essential German words for A1 level
-          </p>
-        </div>
+        <PageHeader
+          title="German Vocabulary 📚"
+          subtitle="Learn essential German words for A1 level"
+          description="Browse, search, and practice with interactive exercises"
+        />
 
         {/* Articles Practice Banner */}
         <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl p-4 sm:p-6 mb-8 text-white">

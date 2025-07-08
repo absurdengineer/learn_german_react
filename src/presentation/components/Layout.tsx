@@ -68,30 +68,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               <p className="text-xs text-gray-500">A1 German Mastery</p>
             </div>
           </div>
-          <button
-            onClick={() => setSidebarOpen(false)}
-            className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
-          >
-            <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
+          
         </div>
 
-        {/* User Info */}
-        <div className="p-6 border-b border-gray-200">
-          <div className="flex items-center space-x-3">
-            <div className="w-12 h-12 bg-gradient-to-r from-green-400 to-blue-500 rounded-full flex items-center justify-center">
-              <span className="text-white font-semibold text-lg">
-                {user.name ? user.name.charAt(0).toUpperCase() : 'U'}
-              </span>
-            </div>
-            <div>
-              <p className="font-medium text-gray-900">{user.name || 'Welcome!'}</p>
-              <p className="text-sm text-gray-500">Day {user.currentDay} of 30</p>
-            </div>
-          </div>
-        </div>
+        
 
         {/* Navigation */}
         <nav className="mt-6 px-3">
@@ -135,56 +115,16 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
       {/* Main content */}
       <div className="flex-1 flex flex-col overflow-hidden lg:ml-64">
-        {/* Top bar */}
-        <header className="fixed top-0 left-0 right-0 bg-white shadow-sm border-b border-gray-200 z-30 lg:left-64">
-          <div className="flex items-center justify-between h-16 px-6">
-            <button
-              onClick={() => setSidebarOpen(true)}
-              className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
-            >
-              <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
-
-            {/* Page title */}
-            <div className="flex-1 lg:flex-none">
-              <h2 className="text-lg font-semibold text-gray-900 capitalize">
-                {location.pathname === '/' ? 'Home' : location.pathname.slice(1).replace('-', ' ')}
-              </h2>
-            </div>
-
-            {/* Right side actions */}
-            <div className="flex items-center space-x-4">
-              {/* Study streak */}
-              <div className="hidden sm:flex items-center space-x-2 bg-orange-50 px-3 py-2 rounded-lg">
-                <span className="text-orange-500">🔥</span>
-                <span className="text-sm font-medium text-orange-700">3 day streak</span>
-              </div>
-
-              {/* Notifications */}
-              <button className="p-2 rounded-lg hover:bg-gray-100 transition-colors relative">
-                <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-5 5v-5z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3a2 2 0 012-2h4a2 2 0 012 2v4M8 7v10a2 2 0 002 2h4a2 2 0 002-2V7M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V9a2 2 0 00-2-2h-2" />
-                </svg>
-                <div className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></div>
-              </button>
-
-              {/* User menu */}
-              <div className="flex items-center space-x-3">
-                <div className="w-8 h-8 bg-gradient-to-r from-green-400 to-blue-500 rounded-full flex items-center justify-center">
-                  <span className="text-white font-semibold text-sm">
-                    {user.name ? user.name.charAt(0).toUpperCase() : 'U'}
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </header>
-
+        <button
+          onClick={() => setSidebarOpen(true)}
+          className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+        >
+          <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
         {/* Page content */}
-        <main ref={mainRef} className="flex-1 overflow-auto bg-gray-50 pt-16">
+        <main ref={mainRef} className="flex-1 overflow-auto bg-gray-50">
           <div className="p-6">
             {React.cloneElement(children as React.ReactElement, { mainRef })}
           </div>

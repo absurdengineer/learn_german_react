@@ -8,7 +8,6 @@ interface ArticlesLearningProps {
   sessionLength?: number;
   focusCategory?: string;
   autoAdvanceSpeed?: number; // milliseconds
-  mainRef?: React.RefObject<HTMLElement>;
 }
 
 // Load essential A1 nouns from JSON
@@ -19,7 +18,6 @@ const ArticlesLearning: React.FC<ArticlesLearningProps> = ({
   sessionLength = 30,
   focusCategory,
   autoAdvanceSpeed = 3000, // 3 seconds per word
-  mainRef,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);

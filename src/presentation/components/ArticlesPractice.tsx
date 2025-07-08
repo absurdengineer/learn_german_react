@@ -10,7 +10,6 @@ interface ArticlesPracticeProps {
   sessionLength?: number;
   focusCategory?: string;
   showCategoryFilter?: boolean;
-  mainRef?: React.RefObject<HTMLElement>;
   reviewWords?: VocabularyWord[];
 }
 
@@ -35,7 +34,6 @@ const ArticlesPractice: React.FC<ArticlesPracticeProps> = ({
   onExit,
   sessionLength = 30,
   focusCategory,
-  mainRef,
   reviewWords,
 }) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);

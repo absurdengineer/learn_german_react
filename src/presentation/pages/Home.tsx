@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useProgress, useUser } from '../../hooks/useApp';
+import PageHeader from '../components/PageHeader';
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
@@ -60,16 +61,12 @@ const Home: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 py-8 px-4">
-      <div className="max-w-4xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-2">
-            Guten Tag, {user.name || 'Learner'}! 👋
-          </h1>
-          <p className="text-lg text-gray-600">
-            Welcome to your German A1 learning journey
-          </p>
-        </div>
+      <div className="max-w-6xl mx-auto">
+        <PageHeader
+          title={`Guten Tag, ${user.name || 'Learner'}! 👋`}
+          subtitle="Welcome to your German A1 learning journey"
+          description="Your personalized dashboard to track progress and access learning materials."
+        />
 
         {/* Progress Overview */}
         <div className="bg-white rounded-2xl shadow-lg p-6 mb-8">
