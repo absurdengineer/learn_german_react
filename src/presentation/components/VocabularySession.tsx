@@ -1,13 +1,14 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { getRandomVocabularyWords } from '../../data';
 import { VocabularyWord } from '../../domain/entities/Vocabulary';
 import { getGenderColor, getGenderDisplayName } from '../../utils/genderColors';
 
 interface VocabularySessionProps {
   words: VocabularyWord[];
-  sessionType: 'flashcards' | 'translation' | 'multiple-choice';
+  sessionType: 'flashcards' | 'translation-de-en' | 'multiple-choice-de-en' | 'translation-en-de' | 'multiple-choice-en-de';
   onComplete: (results: SessionResult) => void;
   onExit: () => void;
+  mainRef?: React.RefObject<HTMLElement>;
 }
 
 interface SessionResult {
@@ -42,8 +43,26 @@ const VocabularySession: React.FC<VocabularySessionProps> = ({
     mistakes: [],
   });
   const [startTime] = useState(Date.now());
-  const [selectedOption, setSelectedOption] = useState<string>('');
+  const [selectedOption, setSelectedOption] = useState('');
   const [multipleChoiceOptions, setMultipleChoiceOptions] = useState<string[]>([]);
+  const translationInputRef = useRef<HTMLInputElement>(null);
+
+  const isReverse = sessionType === 'translation-en-de' || sessionType === 'multiple-choice-en-de';
+
+  useEffect(() => {
+    if (sessionType.startsWith('translation') && translationInputRef.current) {
+      translationInputRef.current.focus();
+    }
+  }, [currentIndex, sessionType]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+    }, 100);
+  }, []);
 
   const currentWord = words[currentIndex];
   const progress = ((currentIndex + 1) / words.length) * 100;
@@ -51,15 +70,21 @@ const VocabularySession: React.FC<VocabularySessionProps> = ({
 
   const generateMultipleChoiceOptions = useCallback(() => {
     if (!currentWord) return;
-    
-    const correctAnswer = currentWord.english;
-    const otherWords = getRandomVocabularyWords(3).filter((w: VocabularyWord) => w.english !== correctAnswer);
-    const options = [correctAnswer, ...otherWords.map((w: VocabularyWord) => w.english)];
+
+    const correctAnswer = isReverse ? currentWord.german : currentWord.english;
+    const excludeWords = words.map((w) => w.german);
+    const otherWords = getRandomVocabularyWords(3, excludeWords).filter(
+      (w: VocabularyWord) => (isReverse ? w.german : w.english) !== correctAnswer
+    );
+    const options = [
+      correctAnswer,
+      ...otherWords.map((w: VocabularyWord) => (isReverse ? w.german : w.english)),
+    ];
     setMultipleChoiceOptions(options.sort(() => Math.random() - 0.5));
-  }, [currentWord]);
+  }, [currentWord, words, isReverse]);
 
   useEffect(() => {
-    if (sessionType === 'multiple-choice' && currentWord) {
+    if (sessionType.startsWith('multiple-choice') && currentWord) {
       generateMultipleChoiceOptions();
     }
   }, [currentIndex, sessionType, currentWord, generateMultipleChoiceOptions]);
@@ -71,19 +96,20 @@ const VocabularySession: React.FC<VocabularySessionProps> = ({
       correctAnswers: sessionResults.correctAnswers + (isCorrect ? 1 : 0),
       wrongAnswers: sessionResults.wrongAnswers + (isCorrect ? 0 : 1),
       wordsStudied: [...sessionResults.wordsStudied, currentWord],
-      mistakes: isCorrect ? sessionResults.mistakes : [
-        ...sessionResults.mistakes,
-        {
-          word: currentWord,
-          userAnswer: answer,
-          correctAnswer: currentWord.english,
-        },
-      ],
+      mistakes: isCorrect
+        ? sessionResults.mistakes
+        : [
+            ...sessionResults.mistakes,
+            {
+              word: currentWord,
+              userAnswer: answer,
+              correctAnswer: isReverse ? currentWord.german : currentWord.english,
+            },
+          ],
     };
 
     setSessionResults(updatedResults);
-    
-    // Only set feedback for quiz modes, not flashcards
+
     if (sessionType !== 'flashcards') {
       setFeedback(isCorrect ? 'correct' : 'incorrect');
     }
@@ -96,14 +122,13 @@ const VocabularySession: React.FC<VocabularySessionProps> = ({
         setSelectedOption('');
         setFeedback(null);
       } else {
-        // Session complete
         const finalResults = {
           ...updatedResults,
           timeSpent: Math.round((Date.now() - startTime) / 1000),
         };
         onComplete(finalResults);
       }
-    }, sessionType === 'flashcards' ? 0 : 2000); // No delay for flashcards, 2s for quiz modes
+    }, sessionType === 'flashcards' ? 0 : 2000);
   };
 
   const handleFlashcardNext = () => {
@@ -112,11 +137,10 @@ const VocabularySession: React.FC<VocabularySessionProps> = ({
         setCurrentIndex(currentIndex + 1);
         setShowAnswer(false);
       } else {
-        // Session complete - just mark as completed without scoring
         const finalResults = {
           ...sessionResults,
           totalQuestions: words.length,
-          correctAnswers: words.length, // Mark all as completed for learning mode
+          correctAnswers: words.length,
           timeSpent: Math.round((Date.now() - startTime) / 1000),
           wordsStudied: words,
           mistakes: [],
@@ -130,27 +154,32 @@ const VocabularySession: React.FC<VocabularySessionProps> = ({
 
   const handleTranslationSubmit = () => {
     if (!userAnswer.trim()) return;
-    
-    const isCorrect = userAnswer.toLowerCase().trim() === currentWord.english.toLowerCase().trim();
+
+    const correctAnswer = isReverse ? currentWord.german : currentWord.english;
+    const isCorrect = userAnswer.toLowerCase().trim() === correctAnswer.toLowerCase().trim();
     handleAnswer(userAnswer, isCorrect);
   };
 
   const handleMultipleChoiceSelect = (option: string) => {
-    const isCorrect = option === currentWord.english;
+    const correctAnswer = isReverse ? currentWord.german : currentWord.english;
+    const isCorrect = option === correctAnswer;
     setSelectedOption(option);
     handleAnswer(option, isCorrect);
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter' && sessionType === 'translation') {
+    if (e.key === 'Enter' && sessionType.startsWith('translation')) {
       handleTranslationSubmit();
     }
   };
 
   if (!currentWord) return null;
 
+  const questionWord = isReverse ? currentWord.english : currentWord.german;
+  const correctAnswer = isReverse ? currentWord.german : currentWord.english;
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 p-4">
+    <div className="min-h-screen bg-gray-50 p-4">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
@@ -179,31 +208,29 @@ const VocabularySession: React.FC<VocabularySessionProps> = ({
 
         {/* Main Card */}
         <div className={`rounded-xl shadow-lg p-8 mb-6 transition-all duration-300 ${
-          currentWord.hasGender() ? `${genderColor.bg} ${genderColor.border} border-2` : 'bg-white'
+          currentWord.hasGender() && !isReverse ? `${genderColor.bg} ${genderColor.border} border-2` : 'bg-white'
         }`}>
           <div className="text-center mb-8">
             <div className="flex items-center justify-center gap-3 mb-2">
-              <h1 className={`text-4xl font-bold ${currentWord.hasGender() ? genderColor.text : 'text-gray-800'}`}>
-                {currentWord.german}
+              <h1 className={`text-4xl font-bold ${currentWord.hasGender() && !isReverse ? genderColor.text : 'text-gray-800'}`}>
+                {questionWord}
               </h1>
-              {currentWord.hasGender() && (
+              {currentWord.hasGender() && !isReverse && (
                 <span className={`px-3 py-1 text-sm font-semibold rounded-full ${genderColor.bg} ${genderColor.text} border-2 ${genderColor.border}`}>
                   {currentWord.gender}
                 </span>
               )}
             </div>
-            {currentWord.isNoun() && currentWord.hasGender() && (
-              <p className={`text-lg mb-2 ${currentWord.hasGender() ? genderColor.text : 'text-gray-600'}`}>
+            {currentWord.isNoun() && currentWord.hasGender() && !isReverse && (
+              <p className={`text-lg mb-2 ${genderColor.text}`}>
                 {currentWord.getFullNoun()}
-                {currentWord.hasGender() && (
-                  <span className={`ml-2 text-sm ${genderColor.text} opacity-75`}>
-                    ({getGenderDisplayName(currentWord.gender)})
-                  </span>
-                )}
+                <span className={`ml-2 text-sm ${genderColor.text} opacity-75`}>
+                  ({getGenderDisplayName(currentWord.gender)})
+                </span>
               </p>
             )}
-            {currentWord.pronunciation && (
-              <p className={`text-sm italic ${currentWord.hasGender() ? genderColor.text + ' opacity-75' : 'text-gray-500'}`}>
+            {currentWord.pronunciation && !isReverse && (
+              <p className={`text-sm italic ${genderColor.text} opacity-75`}>
                 /{currentWord.pronunciation}/
               </p>
             )}
@@ -227,7 +254,7 @@ const VocabularySession: React.FC<VocabularySessionProps> = ({
               ) : (
                 <div className="space-y-6">
                   <div className="text-2xl font-semibold text-green-600">
-                    {currentWord.english}
+                    {correctAnswer}
                   </div>
                   {currentWord.exampleSentences && currentWord.exampleSentences.length > 0 && (
                     <div className="bg-gray-50 p-4 rounded-lg">
@@ -250,18 +277,19 @@ const VocabularySession: React.FC<VocabularySessionProps> = ({
             </div>
           )}
 
-          {sessionType === 'translation' && (
+          {sessionType.startsWith('translation') && (
             <div className="space-y-6">
               <p className="text-lg text-gray-600 text-center">
-                Translate this word to English:
+                Translate this word to {isReverse ? 'German' : 'English'}:
               </p>
               <div className="max-w-md mx-auto">
                 <input
+                  ref={translationInputRef}
                   type="text"
                   value={userAnswer}
                   onChange={(e) => setUserAnswer(e.target.value)}
                   onKeyPress={handleKeyPress}
-                  placeholder="Enter English translation..."
+                  placeholder={`Enter ${isReverse ? 'German' : 'English'} translation...`}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                   disabled={feedback !== null}
                 />
@@ -276,10 +304,10 @@ const VocabularySession: React.FC<VocabularySessionProps> = ({
             </div>
           )}
 
-          {sessionType === 'multiple-choice' && (
+          {sessionType.startsWith('multiple-choice') && (
             <div className="space-y-6">
               <p className="text-lg text-gray-600 text-center">
-                Choose the correct English translation:
+                Choose the correct {isReverse ? 'German' : 'English'} translation:
               </p>
               <div className="grid grid-cols-2 gap-4 max-w-md mx-auto">
                 {multipleChoiceOptions.map((option, index) => (
@@ -288,9 +316,9 @@ const VocabularySession: React.FC<VocabularySessionProps> = ({
                     onClick={() => handleMultipleChoiceSelect(option)}
                     disabled={feedback !== null}
                     className={`p-4 rounded-lg border transition-all ${
-                      feedback !== null && option === currentWord.english
+                      feedback !== null && option === correctAnswer
                         ? 'bg-green-100 border-green-500 text-green-700'
-                        : feedback !== null && option === selectedOption && option !== currentWord.english
+                        : feedback !== null && option === selectedOption && option !== correctAnswer
                         ? 'bg-red-100 border-red-500 text-red-700'
                         : 'bg-gray-50 border-gray-200 hover:bg-gray-100'
                     }`}
@@ -325,7 +353,7 @@ const VocabularySession: React.FC<VocabularySessionProps> = ({
                     <span className="font-medium">Incorrect</span>
                   </div>
                   <p className="text-sm">
-                    The correct answer is: <strong>{currentWord.english}</strong>
+                    The correct answer is: <strong>{correctAnswer}</strong>
                   </p>
                 </div>
               )}

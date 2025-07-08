@@ -139,9 +139,20 @@ export const getArticlesByGender = (gender: 'der' | 'die' | 'das'): ArticleNoun[
   return articles.filter(noun => noun.gender === gender);
 };
 
-export const getRandomVocabulary = (count: number = 10): VocabularyItem[] => {
-  const vocabulary = loadVocabulary();
-  const shuffled = [...vocabulary].sort(() => Math.random() - 0.5);
+export const getRandomVocabulary = (
+  count: number = 10,
+  exclude: string[] = []
+): VocabularyItem[] => {
+  const vocabulary = loadVocabulary().filter(
+    (item) => !exclude.includes(item.german)
+  );
+
+  // Ensure uniqueness based on the German word
+  const uniqueVocabulary = Array.from(
+    new Map(vocabulary.map((item) => [item.german, item])).values()
+  );
+
+  const shuffled = [...uniqueVocabulary].sort(() => Math.random() - 0.5);
   return shuffled.slice(0, count);
 };
 
@@ -320,8 +331,11 @@ export const getVocabularyWordsByCategory = (category: string): VocabularyWord[]
   return convertToVocabularyWords(getVocabularyByCategory(category));
 };
 
-export const getRandomVocabularyWords = (count: number = 10): VocabularyWord[] => {
-  return convertToVocabularyWords(getRandomVocabulary(count));
+export const getRandomVocabularyWords = (
+  count: number = 10,
+  exclude: string[] = []
+): VocabularyWord[] => {
+  return convertToVocabularyWords(getRandomVocabulary(count, exclude));
 };
 
 export const searchVocabularyWords = (searchTerm: string): VocabularyWord[] => {

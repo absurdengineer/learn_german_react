@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { VocabularyWord } from '../../domain/entities/Vocabulary';
 
 interface SessionResult {
@@ -32,6 +32,15 @@ const SessionResults: React.FC<SessionResultsProps> = ({
   const accuracy = results.totalQuestions > 0 ? (results.correctAnswers / results.totalQuestions) * 100 : 0;
   const timePerQuestion = results.totalQuestions > 0 ? results.timeSpent / results.totalQuestions : 0;
 
+  useEffect(() => {
+    setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+    }, 100);
+  }, []);
+
   const getPerformanceMessage = () => {
     if (sessionType === 'flashcards') {
       return { text: "Learning session complete! 📚", color: "text-blue-600" };
@@ -45,7 +54,7 @@ const SessionResults: React.FC<SessionResultsProps> = ({
   const performanceMessage = getPerformanceMessage();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 p-4">
+    <div className="min-h-screen bg-gray-50 p-4">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-gray-800 mb-2">Session Complete!</h1>

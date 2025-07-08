@@ -8,6 +8,7 @@ interface ArticlesLearningProps {
   sessionLength?: number;
   focusCategory?: string;
   autoAdvanceSpeed?: number; // milliseconds
+  mainRef?: React.RefObject<HTMLElement>;
 }
 
 // Load essential A1 nouns from JSON
@@ -18,6 +19,7 @@ const ArticlesLearning: React.FC<ArticlesLearningProps> = ({
   sessionLength = 30,
   focusCategory,
   autoAdvanceSpeed = 3000, // 3 seconds per word
+  mainRef,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
@@ -26,6 +28,15 @@ const ArticlesLearning: React.FC<ArticlesLearningProps> = ({
   );
   const [wordsStudied, setWordsStudied] = useState(0);
   const [currentSpeed, setCurrentSpeed] = useState(autoAdvanceSpeed);
+
+  useEffect(() => {
+    setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+    }, 100);
+  }, []);
 
   // Initialize shuffled words
   useEffect(() => {
@@ -99,7 +110,7 @@ const ArticlesLearning: React.FC<ArticlesLearningProps> = ({
   const progress = ((currentIndex + 1) / shuffledWords.length) * 100;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-blue-50 to-cyan-50 p-4">
+    <div className="min-h-screen bg-gray-50 p-4">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="flex items-center justify-between mb-6">

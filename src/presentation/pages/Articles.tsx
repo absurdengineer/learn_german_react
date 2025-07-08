@@ -17,15 +17,17 @@ interface ArticlesSessionResult {
   }>;
 }
 
-const Articles: React.FC = () => {
+const Articles: React.FC<{ mainRef?: React.RefObject<HTMLElement> }> = ({ mainRef }) => {
   const [sessionMode, setSessionMode] = useState<'menu' | 'practice' | 'learning' | 'results'>('menu');
   const [sessionResults, setSessionResults] = useState<ArticlesSessionResult | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<string>('');
   const [sessionLength, setSessionLength] = useState(20);
+  const [reviewWords, setReviewWords] = useState<VocabularyWord[]>([]);
 
   const handleStartPractice = (category: string = '', length: number = 20) => {
     setSelectedCategory(category);
     setSessionLength(length);
+    setReviewWords([]); // Clear review words when starting a new session
     setSessionMode('practice');
   };
 
@@ -46,11 +48,13 @@ const Articles: React.FC = () => {
   };
 
   const handleRestart = () => {
-    setSessionMode('practice');
+    handleStartPractice(selectedCategory, sessionLength);
   };
 
   const handleReviewMistakes = () => {
     if (sessionResults && sessionResults.mistakes.length > 0) {
+      const mistakenWords = sessionResults.mistakes.map((mistake) => mistake.word);
+      setReviewWords(mistakenWords);
       setSessionMode('practice');
     }
   };
@@ -64,6 +68,8 @@ const Articles: React.FC = () => {
         sessionLength={sessionLength}
         focusCategory={selectedCategory}
         showCategoryFilter={!!selectedCategory}
+        mainRef={mainRef}
+        reviewWords={reviewWords}
       />
     );
   }
@@ -75,6 +81,7 @@ const Articles: React.FC = () => {
         onExit={handleSessionExit}
         sessionLength={sessionLength}
         focusCategory={selectedCategory}
+        mainRef={mainRef}
       />
     );
   }
@@ -88,13 +95,14 @@ const Articles: React.FC = () => {
         onRestart={handleRestart}
         onReviewMistakes={handleReviewMistakes}
         onExit={handleSessionExit}
+        mainRef={mainRef}
       />
     );
   }
 
   // Menu mode rendering
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 py-8 px-4">
+    <div className="min-h-screen bg-gray-50 py-8 px-4">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">

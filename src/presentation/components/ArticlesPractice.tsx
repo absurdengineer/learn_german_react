@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { loadArticleNouns, type ArticleNoun } from '../../data';
 import { VocabularyWord } from '../../domain/entities/Vocabulary';
 import { GENDER_COLORS } from '../../utils/genderColors';
@@ -10,6 +10,8 @@ interface ArticlesPracticeProps {
   sessionLength?: number;
   focusCategory?: string;
   showCategoryFilter?: boolean;
+  mainRef?: React.RefObject<HTMLElement>;
+  reviewWords?: VocabularyWord[];
 }
 
 interface ArticlesSessionResult {
@@ -33,6 +35,8 @@ const ArticlesPractice: React.FC<ArticlesPracticeProps> = ({
   onExit,
   sessionLength = 30,
   focusCategory,
+  mainRef,
+  reviewWords,
 }) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
@@ -48,18 +52,40 @@ const ArticlesPractice: React.FC<ArticlesPracticeProps> = ({
     }>
   >([]);
 
+  useEffect(() => {
+    setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+    }, 100);
+  }, []);
+
   // Initialize session words
-  React.useEffect(() => {
-    let wordsToUse = ESSENTIAL_A1_NOUNS;
-    if (focusCategory) {
-      wordsToUse = ESSENTIAL_A1_NOUNS.filter(
-        (noun) => noun.category === focusCategory
-      );
+  useEffect(() => {
+    let wordsToUse: ArticleNoun[] = [];
+
+    if (reviewWords && reviewWords.length > 0) {
+      wordsToUse = reviewWords.map((word) => ({
+        german: word.german,
+        english: word.english,
+        gender: word.gender as 'der' | 'die' | 'das',
+        category: word.tags[0] || 'unknown',
+        frequency: word.frequency || 0,
+      }));
+    } else {
+      let filteredNouns = ESSENTIAL_A1_NOUNS;
+      if (focusCategory) {
+        filteredNouns = ESSENTIAL_A1_NOUNS.filter(
+          (noun) => noun.category === focusCategory
+        );
+      }
+      wordsToUse = filteredNouns;
     }
 
     const shuffled = [...wordsToUse].sort(() => Math.random() - 0.5);
     setSessionWords(shuffled.slice(0, sessionLength));
-  }, [focusCategory, sessionLength]);
+  }, [focusCategory, sessionLength, reviewWords]);
 
   const currentWord = sessionWords[currentQuestionIndex];
 
@@ -169,7 +195,7 @@ const ArticlesPractice: React.FC<ArticlesPracticeProps> = ({
     : 'bg-white';
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-blue-50 to-cyan-50 p-4">
+    <div className="min-h-screen bg-gray-50 p-4">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="flex flex-wrap items-center justify-between mb-6 gap-4">

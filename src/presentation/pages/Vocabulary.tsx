@@ -23,15 +23,18 @@ interface SessionResult {
   }>;
 }
 
-const Vocabulary: React.FC = () => {
+const Vocabulary: React.FC<{ mainRef?: React.RefObject<HTMLElement> }> = ({ mainRef }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<'all' | string>('all');
   const [filteredWords, setFilteredWords] = useState<VocabularyWord[]>(A1_VOCABULARY_WORDS);
   const [selectedWord, setSelectedWord] = useState<VocabularyWord | null>(null);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [sessionMode, setSessionMode] = useState<'browse' | 'session' | 'results'>('browse');
-  const [sessionType, setSessionType] = useState<'flashcards' | 'translation' | 'multiple-choice'>('flashcards');
+  const [sessionType, setSessionType] = useState<
+    'flashcards' | 'translation-de-en' | 'multiple-choice-de-en' | 'translation-en-de' | 'multiple-choice-en-de'
+  >('flashcards');
   const [sessionWords, setSessionWords] = useState<VocabularyWord[]>([]);
+  const [sessionLength, setSessionLength] = useState(10);
   const [sessionResults, setSessionResults] = useState<SessionResult | null>(null);
   const navigate = useNavigate();
 
@@ -59,9 +62,13 @@ const Vocabulary: React.FC = () => {
     setSelectedWord(null);
   };
 
-  const startPractice = (type: 'flashcards' | 'translation' | 'multiple-choice', words: VocabularyWord[]) => {
+  const startPractice = (
+    type: 'flashcards' | 'translation-de-en' | 'multiple-choice-de-en' | 'translation-en-de' | 'multiple-choice-en-de',
+    words: VocabularyWord[]
+  ) => {
     setSessionType(type);
     setSessionWords(words);
+    setSessionLength(words.length);
     setSessionMode('session');
   };
 
@@ -76,12 +83,14 @@ const Vocabulary: React.FC = () => {
   };
 
   const handleRestart = () => {
+    const newWords = getRandomVocabularyWords(sessionLength);
+    setSessionWords(newWords);
     setSessionMode('session');
   };
 
   const handleReviewMistakes = () => {
     if (sessionResults && sessionResults.mistakes.length > 0) {
-      const mistakeWords = sessionResults.mistakes.map(m => m.word);
+      const mistakeWords = sessionResults.mistakes.map((m) => m.word);
       setSessionWords(mistakeWords);
       setSessionMode('session');
     }
@@ -120,6 +129,7 @@ const Vocabulary: React.FC = () => {
         sessionType={sessionType}
         onComplete={handleSessionComplete}
         onExit={handleSessionExit}
+        mainRef={mainRef}
       />
     );
   }
@@ -132,6 +142,7 @@ const Vocabulary: React.FC = () => {
         onRestart={handleRestart}
         onReviewMistakes={handleReviewMistakes}
         onExit={handleSessionExit}
+        mainRef={mainRef}
       />
     );
   }
@@ -189,8 +200,24 @@ const Vocabulary: React.FC = () => {
                   placeholder="Search vocabulary..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-xl leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                  className="block w-full pl-10 pr-10 py-3 border border-gray-300 rounded-xl leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
                 />
+                {searchTerm && (
+                  <div className="absolute inset-y-0 right-0 pr-3 flex items-center">
+                    <button
+                      onClick={() => setSearchTerm('')}
+                      className="text-gray-400 hover:text-gray-600"
+                    >
+                      <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                )}
               </div>
 
               {/* Category Filter */}
@@ -212,10 +239,10 @@ const Vocabulary: React.FC = () => {
             </div>
 
             {/* Action Buttons */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
               <button
                 onClick={() => {
-                  const words = getRandomVocabularyWords(10);
+                  const words = getRandomVocabularyWords(20);
                   startPractice('flashcards', words);
                 }}
                 className="bg-blue-600 text-white px-4 py-3 rounded-xl hover:bg-blue-700 transition-all duration-200 flex items-center justify-center gap-2 font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1"
@@ -229,32 +256,58 @@ const Vocabulary: React.FC = () => {
               <button
                 onClick={() => {
                   const words = getRandomVocabularyWords(15);
-                  startPractice('translation', words);
+                  startPractice('translation-de-en', words);
                 }}
                 className="bg-purple-600 text-white px-4 py-3 rounded-xl hover:bg-purple-700 transition-all duration-200 flex items-center justify-center gap-2 font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >
                 <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                 </svg>
-                <span className="hidden sm:inline">Translation</span>
-                <span className="sm:hidden">Trans</span>
+                <span className="hidden sm:inline">Write in English</span>
+                <span className="sm:hidden">Eng</span>
+              </button>
+              <button
+                onClick={() => {
+                  const words = getRandomVocabularyWords(15);
+                  startPractice('translation-en-de', words);
+                }}
+                className="bg-green-600 text-white px-4 py-3 rounded-xl hover:bg-green-700 transition-all duration-200 flex items-center justify-center gap-2 font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              >
+                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                </svg>
+                <span className="hidden sm:inline">Write in German</span>
+                <span className="sm:hidden">Ger</span>
               </button>
               <button
                 onClick={() => {
                   const words = getRandomVocabularyWords(12);
-                  startPractice('multiple-choice', words);
+                  startPractice('multiple-choice-de-en', words);
                 }}
                 className="bg-orange-600 text-white px-4 py-3 rounded-xl hover:bg-orange-700 transition-all duration-200 flex items-center justify-center gap-2 font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >
                 <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
                 </svg>
-                <span className="hidden sm:inline">Quiz</span>
-                <span className="sm:hidden">Quiz</span>
+                <span className="hidden sm:inline">English Quiz</span>
+                <span className="sm:hidden">Eng Quiz</span>
+              </button>
+              <button
+                onClick={() => {
+                  const words = getRandomVocabularyWords(12);
+                  startPractice('multiple-choice-en-de', words);
+                }}
+                className="bg-red-600 text-white px-4 py-3 rounded-xl hover:bg-red-700 transition-all duration-200 flex items-center justify-center gap-2 font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              >
+                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                </svg>
+                <span className="hidden sm:inline">German Quiz</span>
+                <span className="sm:hidden">Ger Quiz</span>
               </button>
               <button
                 onClick={() => setFilteredWords(getRandomVocabularyWords(20))}
-                className="bg-green-600 text-white px-4 py-3 rounded-xl hover:bg-green-700 transition-all duration-200 flex items-center justify-center gap-2 font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                className="bg-gray-700 text-white px-4 py-3 rounded-xl hover:bg-gray-800 transition-all duration-200 flex items-center justify-center gap-2 font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >
                 <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />

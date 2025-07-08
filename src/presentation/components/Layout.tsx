@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useUser } from '../../hooks/useApp';
 
@@ -24,6 +24,16 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const user = useUser();
+  const mainRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+    }, 100);
+  }, [location.pathname]);
 
   const isActiveRoute = (path: string) => {
     return location.pathname === path;
@@ -45,7 +55,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       )}
 
       {/* Sidebar */}
-      <div className={`fixed inset-y-0 left-0 z-50 w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:h-screen ${
+      <div className={`fixed inset-y-0 left-0 z-50 w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:h-screen ${
         sidebarOpen ? 'translate-x-0' : '-translate-x-full'
       }`}>
         <div className="flex items-center justify-between h-16 px-6 border-b border-gray-200">
@@ -124,9 +134,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       </div>
 
       {/* Main content */}
-      <div className="flex-1 flex flex-col overflow-hidden">
+      <div className="flex-1 flex flex-col overflow-hidden lg:ml-64">
         {/* Top bar */}
-        <header className="bg-white shadow-sm border-b border-gray-200 z-30 flex-shrink-0">
+        <header className="fixed top-0 left-0 right-0 bg-white shadow-sm border-b border-gray-200 z-30 lg:left-64">
           <div className="flex items-center justify-between h-16 px-6">
             <button
               onClick={() => setSidebarOpen(true)}
@@ -174,9 +184,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         </header>
 
         {/* Page content */}
-        <main className="flex-1 overflow-auto bg-gray-50">
+        <main ref={mainRef} className="flex-1 overflow-auto bg-gray-50 pt-16">
           <div className="p-6">
-            {children}
+            {React.cloneElement(children as React.ReactElement, { mainRef })}
           </div>
         </main>
       </div>
