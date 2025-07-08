@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { loadArticleNouns, type ArticleNoun } from '../../data';
-import { getGenderColor } from '../../utils/genderColors';
-import GenderLegend from './GenderLegend';
+import React, { useEffect, useState } from "react";
+import { loadArticleNouns, type ArticleNoun } from "../../data";
+import { getGenderColor } from "../../utils/genderColors";
+import GenderLegend from "./GenderLegend";
 
 interface ArticlesLearningProps {
   onExit: () => void;
@@ -17,20 +17,25 @@ const ArticlesLearning: React.FC<ArticlesLearningProps> = ({
   onExit,
   sessionLength = 30,
   focusCategory,
-  autoAdvanceSpeed = 3000 // 3 seconds per word
+  autoAdvanceSpeed = 3000, // 3 seconds per word
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
-  const [shuffledWords, setShuffledWords] = useState<typeof ESSENTIAL_A1_NOUNS>([]);
+  const [shuffledWords, setShuffledWords] = useState<typeof ESSENTIAL_A1_NOUNS>(
+    []
+  );
   const [wordsStudied, setWordsStudied] = useState(0);
+  const [currentSpeed, setCurrentSpeed] = useState(autoAdvanceSpeed);
 
   // Initialize shuffled words
   useEffect(() => {
     let wordsToStudy = ESSENTIAL_A1_NOUNS;
     if (focusCategory) {
-      wordsToStudy = ESSENTIAL_A1_NOUNS.filter(noun => noun.category === focusCategory);
+      wordsToStudy = ESSENTIAL_A1_NOUNS.filter(
+        (noun) => noun.category === focusCategory
+      );
     }
-    
+
     const shuffled = [...wordsToStudy].sort(() => Math.random() - 0.5);
     setShuffledWords(shuffled.slice(0, sessionLength));
   }, [focusCategory, sessionLength]);
@@ -41,8 +46,8 @@ const ArticlesLearning: React.FC<ArticlesLearningProps> = ({
 
     const timer = setTimeout(() => {
       if (currentIndex < shuffledWords.length - 1) {
-        setCurrentIndex(prev => prev + 1);
-        setWordsStudied(prev => prev + 1);
+        setCurrentIndex((prev) => prev + 1);
+        setWordsStudied((prev) => prev + 1);
       } else {
         // Session complete - restart from beginning
         setCurrentIndex(0);
@@ -51,10 +56,10 @@ const ArticlesLearning: React.FC<ArticlesLearningProps> = ({
         const newShuffled = [...shuffledWords].sort(() => Math.random() - 0.5);
         setShuffledWords(newShuffled);
       }
-    }, autoAdvanceSpeed);
+    }, currentSpeed);
 
     return () => clearTimeout(timer);
-  }, [currentIndex, isPlaying, shuffledWords, autoAdvanceSpeed]);
+  }, [currentIndex, isPlaying, shuffledWords, currentSpeed]);
 
   const togglePlayPause = () => {
     setIsPlaying(!isPlaying);
@@ -62,8 +67,8 @@ const ArticlesLearning: React.FC<ArticlesLearningProps> = ({
 
   const goToNext = () => {
     if (currentIndex < shuffledWords.length - 1) {
-      setCurrentIndex(prev => prev + 1);
-      setWordsStudied(prev => prev + 1);
+      setCurrentIndex((prev) => prev + 1);
+      setWordsStudied((prev) => prev + 1);
     } else {
       setCurrentIndex(0);
       setWordsStudied(0);
@@ -72,7 +77,7 @@ const ArticlesLearning: React.FC<ArticlesLearningProps> = ({
 
   const goToPrevious = () => {
     if (currentIndex > 0) {
-      setCurrentIndex(prev => prev - 1);
+      setCurrentIndex((prev) => prev - 1);
     }
   };
 
@@ -88,7 +93,9 @@ const ArticlesLearning: React.FC<ArticlesLearningProps> = ({
   }
 
   const currentWord = shuffledWords[currentIndex];
-  const genderColor = getGenderColor(currentWord.gender as 'der' | 'die' | 'das');
+  const genderColor = getGenderColor(
+    currentWord.gender as "der" | "die" | "das"
+  );
   const progress = ((currentIndex + 1) / shuffledWords.length) * 100;
 
   return (
@@ -100,21 +107,35 @@ const ArticlesLearning: React.FC<ArticlesLearningProps> = ({
             onClick={onExit}
             className="flex items-center space-x-2 px-4 py-2 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow"
           >
-            <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            <svg
+              className="w-5 h-5 text-gray-600"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
             </svg>
             <span className="text-gray-700">Exit</span>
           </button>
-          
+
           <div className="text-center">
-            <h2 className="text-xl font-bold text-gray-800">Articles Learning</h2>
+            <h2 className="text-xl font-bold text-gray-800">
+              Articles Learning
+            </h2>
             <p className="text-sm text-gray-600">
               Word {currentIndex + 1} of {shuffledWords.length}
             </p>
           </div>
-          
+
           <div className="flex items-center space-x-2">
-            <span className="text-sm text-gray-600">Words studied: {wordsStudied}</span>
+            <span className="text-sm text-gray-600">
+              Words studied: {wordsStudied}
+            </span>
           </div>
         </div>
 
@@ -122,10 +143,12 @@ const ArticlesLearning: React.FC<ArticlesLearningProps> = ({
         <div className="mb-6">
           <div className="flex justify-between items-center mb-2">
             <span className="text-sm text-gray-600">Progress</span>
-            <span className="text-sm text-gray-600">{Math.round(progress)}%</span>
+            <span className="text-sm text-gray-600">
+              {Math.round(progress)}%
+            </span>
           </div>
           <div className="w-full bg-gray-200 rounded-full h-2">
-            <div 
+            <div
               className="bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full transition-all duration-300"
               style={{ width: `${progress}%` }}
             />
@@ -138,7 +161,9 @@ const ArticlesLearning: React.FC<ArticlesLearningProps> = ({
         </div>
 
         {/* Main Learning Card */}
-        <div className={`rounded-xl shadow-lg p-8 mb-6 transition-all duration-500 ${genderColor.bg} ${genderColor.border} border-2`}>
+        <div
+          className={`rounded-xl shadow-lg p-8 mb-6 transition-all duration-500 ${genderColor.bg} ${genderColor.border} border-2`}
+        >
           <div className="text-center mb-8">
             <div className="flex items-center justify-center gap-3 mb-4">
               <h1 className={`text-6xl font-bold ${genderColor.text}`}>
@@ -148,12 +173,14 @@ const ArticlesLearning: React.FC<ArticlesLearningProps> = ({
                 {currentWord.german}
               </h1>
             </div>
-            
+
             <p className={`text-2xl mb-4 ${genderColor.text} opacity-80`}>
               {currentWord.english}
             </p>
-            
-            <div className={`inline-block px-4 py-2 rounded-lg border-2 ${genderColor.border} ${genderColor.bg}`}>
+
+            <div
+              className={`inline-block px-4 py-2 rounded-lg border-2 ${genderColor.border} ${genderColor.bg}`}
+            >
               <span className={`text-sm font-medium ${genderColor.text}`}>
                 {currentWord.category} • {genderColor.name}
               </span>
@@ -167,34 +194,70 @@ const ArticlesLearning: React.FC<ArticlesLearningProps> = ({
               disabled={currentIndex === 0}
               className="p-3 bg-white rounded-full shadow-md hover:shadow-lg transition-shadow disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              <svg
+                className="w-6 h-6 text-gray-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M15 19l-7-7 7-7"
+                />
               </svg>
             </button>
-            
+
             <button
               onClick={togglePlayPause}
               className={`p-4 rounded-full shadow-lg hover:shadow-xl transition-all ${
-                isPlaying ? 'bg-red-500 hover:bg-red-600' : 'bg-green-500 hover:bg-green-600'
+                isPlaying
+                  ? "bg-red-500 hover:bg-red-600"
+                  : "bg-green-500 hover:bg-green-600"
               } text-white`}
             >
               {isPlaying ? (
-                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <svg
+                  className="w-8 h-8"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
                 </svg>
               ) : (
-                <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M8 5v14l11-7z"/>
+                <svg
+                  className="w-8 h-8"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M8 5v14l11-7z" />
                 </svg>
               )}
             </button>
-            
+
             <button
               onClick={goToNext}
               className="p-3 bg-white rounded-full shadow-md hover:shadow-lg transition-shadow"
             >
-              <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              <svg
+                className="w-6 h-6 text-gray-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
               </svg>
             </button>
           </div>
@@ -206,18 +269,18 @@ const ArticlesLearning: React.FC<ArticlesLearningProps> = ({
             <span className="text-sm font-medium text-gray-700">Speed:</span>
             <div className="flex space-x-2">
               {[
-                { speed: 5000, label: 'Slow' },
-                { speed: 3000, label: 'Normal' },
-                { speed: 1500, label: 'Fast' },
-                { speed: 800, label: 'Very Fast' }
+                { speed: 5000, label: "Slow" },
+                { speed: 3000, label: "Normal" },
+                { speed: 1500, label: "Fast" },
+                { speed: 800, label: "Very Fast" },
               ].map(({ speed, label }) => (
                 <button
                   key={speed}
-                  onClick={() => {/* setAutoAdvanceSpeed(speed) - would need to be passed as prop */}}
+                  onClick={() => setCurrentSpeed(speed)}
                   className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
-                    autoAdvanceSpeed === speed
-                      ? 'bg-blue-500 text-white'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    currentSpeed === speed
+                      ? "bg-blue-500 text-white"
+                      : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                   }`}
                 >
                   {label}
