@@ -1,8 +1,25 @@
 import { useLocation, Link } from 'react-router-dom';
 
+interface Question {
+  id: string;
+  question: string;
+  answer: string;
+}
+
+interface Test {
+  title: string;
+  questions: Question[];
+}
+
+interface Result {
+  totalTime: number;
+  totalQuestions: number;
+  score: number;
+}
+
 const SessionResults = () => {
   const { state } = useLocation();
-  const { userAnswers, test, result } = state || {};
+  const { userAnswers, test, result } = (state as { userAnswers: any; test: Test; result: Result }) || {};
 
   if (!userAnswers || !test || !result) {
     return <div>No results to display.</div>;
@@ -37,7 +54,7 @@ const SessionResults = () => {
           </div>
 
           <div className="space-y-4 text-left">
-            {test.questions.map((question) => (
+            {test.questions.map((question: Question) => (
               <div
                 key={question.id}
                 className={`p-4 rounded-md border-l-4 ${

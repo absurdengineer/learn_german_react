@@ -2,27 +2,43 @@ import { useParams, Link } from 'react-router-dom';
 import studyPlanData from '../../data/studyPlan.json';
 import vocabularyData from '../../data/vocabulary.json';
 import { getGenderColor } from '../../utils/genderColors';
+import { VocabularyWord } from '../../domain/entities/Vocabulary';
+import type { Gender } from '../../types';
+
+interface DayData {
+  day: number;
+  title: string;
+  description: string;
+  focusAreas: string[];
+  vocabularyWords: string[];
+  grammarTopics: string[];
+  exercises: { id: string; type: string; title: string; description: string; estimatedTime: number }[];
+  estimatedTime: number;
+  difficulty: string;
+}
 
 const DayView = () => {
-  const { day } = useParams();
-  const dayNumber = parseInt(day, 10);
+  const { day } = useParams<{ day: string }>();
+  const dayNumber = parseInt(day || '1', 10);
   const dayData = studyPlanData.STUDY_PLAN.find(
-    (d) => d.day === dayNumber
+    (d: any): d is DayData => d.day === dayNumber
   );
 
   if (!dayData) {
     return <div>Day not found</div>;
   }
 
-  const isLastDay = dayNumber === studyPlanData.metadata.totalDays;
-
-  const vocabularyList = dayData.vocabularyWords
-    .map((wordId) =>
-      vocabularyData.A1_VOCABULARY.find((v) => v.id === wordId)
-    )
-    .filter(Boolean);
+  const vocabularyList: VocabularyWord[] = dayData.vocabularyWords
+    .map((wordId) => {
+      const wordData = vocabularyData.A1_VOCABULARY.find((v) => v.id === wordId);
+      if (wordData) {
+        return VocabularyWord.create(wordData as any);
+      }
+      return null;
+    })
+    .filter((word): word is VocabularyWord => !!word);
     
-  const lastDayInPlan = Math.max(...studyPlanData.STUDY_PLAN.map(d => d.day));
+  const lastDayInPlan = Math.max(...studyPlanData.STUDY_PLAN.map((d: any) => d.day));
   const isLastAvailableDay = dayNumber === lastDayInPlan;
 
   return (
@@ -56,7 +72,7 @@ const DayView = () => {
         <div className="bg-white p-4 rounded-lg shadow">
           <h3 className="font-semibold text-lg mb-2">Focus Areas</h3>
           <ul className="space-y-1">
-            {dayData.focusAreas.map((area) => (
+            {dayData.focusAreas.map((area: string) => (
               <li key={area} className="text-gray-700">
                 {area.replace(/_/g, ' ')}
               </li>
@@ -66,7 +82,7 @@ const DayView = () => {
         <div className="bg-white p-4 rounded-lg shadow">
           <h3 className="font-semibold text-lg mb-2">Grammar Topics</h3>
           <ul className="space-y-1">
-            {dayData.grammarTopics.map((topic) => (
+            {dayData.grammarTopics.map((topic: string) => (
               <li key={topic} className="text-gray-700">
                 {topic.replace(/_/g, ' ')}
               </li>
@@ -87,10 +103,10 @@ const DayView = () => {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {vocabularyList.map((vocab) => (
             <div
-              key={vocab.id}
+              key={vocab.id.toString()}
               className="p-3 border rounded-md text-center"
               style={{
-                borderLeft: `4px solid ${getGenderColor(vocab.gender)}`,
+                borderLeft: `4px solid ${getGenderColor(vocab.gender as Gender)}`,
               }}
             >
               <p className="font-bold">{vocab.german}</p>
@@ -104,7 +120,7 @@ const DayView = () => {
         <h2 className="text-2xl font-semibold mb-3">Exercises</h2>
         <ul className="space-y-4">
           {dayData.exercises.map((exercise) => {
-            const exerciseType = studyPlanData.exerciseTypes[exercise.type];
+            const exerciseType = (studyPlanData.exerciseTypes as any)[exercise.type];
             return (
               <li
                 key={exercise.id}

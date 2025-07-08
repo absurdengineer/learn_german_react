@@ -1,18 +1,32 @@
 import { useState, useEffect, useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
+interface Question {
+  id: string;
+  question: string;
+  options: string[];
+  answer: string;
+}
+
+interface Test {
+  id: string;
+  title: string;
+  type: string;
+  questions: Question[];
+}
+
 const TestSession = () => {
   const { state } = useLocation();
   const navigate = useNavigate();
-  const { test } = state || {};
+  const { test } = (state as { test: Test }) || {};
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [userAnswers, setUserAnswers] = useState({});
+  const [userAnswers, setUserAnswers] = useState<{ [key: string]: string }>({});
   const [timeLeft, setTimeLeft] = useState(20);
   const [totalTime, setTotalTime] = useState(0);
   const [selectedOption, setSelectedOption] = useState('');
   const questionStartTime = useRef(Date.now());
-  const timerRef = useRef(null);
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     if (!test) return;
@@ -28,7 +42,11 @@ const TestSession = () => {
       });
     }, 1000);
 
-    return () => clearInterval(timerRef.current);
+    return () => {
+      if (timerRef.current) {
+        clearInterval(timerRef.current);
+      }
+    };
   }, [test]);
 
   if (!test) {
@@ -36,7 +54,9 @@ const TestSession = () => {
   }
 
   const resetTimer = () => {
-    clearInterval(timerRef.current);
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+    }
     setTimeLeft(20);
     timerRef.current = setInterval(() => {
       setTimeLeft((prevTime) => {
@@ -49,7 +69,7 @@ const TestSession = () => {
     }, 1000);
   };
 
-  const handleNextQuestion = (currentAnswers) => {
+  const handleNextQuestion = (currentAnswers: { [key: string]: string }) => {
     const timeSpent = Date.now() - questionStartTime.current;
     setTotalTime((prev) => prev + timeSpent);
 
@@ -63,7 +83,7 @@ const TestSession = () => {
     }
   };
 
-  const handleAnswer = (questionId, answer) => {
+  const handleAnswer = (questionId: string, answer: string) => {
     if (selectedOption) return; // Prevent changing answer
 
     const newAnswers = { ...userAnswers, [questionId]: answer };
@@ -75,8 +95,10 @@ const TestSession = () => {
     }, 500); // Delay to show selection before moving to next question
   };
 
-  const handleSubmit = (finalAnswers) => {
-    clearInterval(timerRef.current);
+  const handleSubmit = (finalAnswers: { [key: string]: string }) => {
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+    }
     const score = test.questions.reduce((acc, question) => {
       return finalAnswers[question.id] === question.answer ? acc + 1 : acc;
     }, 0);

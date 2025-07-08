@@ -1,10 +1,25 @@
 
 import { useState } from 'react';
-import studyPlanData from '../../data/studyPlan.json';
 import { Link } from 'react-router-dom';
+import studyPlanData from '../data/studyPlan.json';
+
+interface Week {
+  week: number;
+  title: string;
+  description: string;
+  days: number[];
+}
+
+interface Day {
+  day: number;
+  title: string;
+  description: string;
+  estimatedTime: number;
+  difficulty: string;
+}
 
 const StudyPlan = () => {
-  const [selectedWeek, setSelectedWeek] = useState(studyPlanData.weeks[0]);
+  const [selectedWeek, setSelectedWeek] = useState<Week>((studyPlanData as any).weeks[0]);
 
   return (
     <div className="p-4 md:p-6">
@@ -13,7 +28,7 @@ const StudyPlan = () => {
       <div className="mb-6">
         <h2 className="text-xl font-semibold mb-2">Weeks</h2>
         <div className="flex space-x-2">
-          {studyPlanData.weeks.map((week) => (
+          {(studyPlanData as any).weeks.map((week: Week) => (
             <button
               key={week.week}
               onClick={() => setSelectedWeek(week)}
@@ -33,9 +48,9 @@ const StudyPlan = () => {
         <h2 className="text-2xl font-bold mb-2">{selectedWeek.title}</h2>
         <p className="mb-4">{selectedWeek.description}</p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {selectedWeek.days.map((dayNumber) => {
-            const day = studyPlanData.STUDY_PLAN.find(
-              (d) => d.day === dayNumber
+          {selectedWeek.days.map((dayNumber: number) => {
+            const day: Day | undefined = (studyPlanData as any).STUDY_PLAN.find(
+              (d: any) => d.day === dayNumber
             );
             if (!day) return null;
             return (

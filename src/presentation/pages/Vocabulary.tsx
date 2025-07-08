@@ -8,7 +8,7 @@ import {
 } from '../../data';
 import { VocabularyWord } from '../../domain/entities/Vocabulary';
 import PageHeader from '../components/PageHeader';
-import SessionResults from '../components/SessionResults';
+import PracticeSessionResults from '../components/PracticeSessionResults';
 import VocabularySession from '../components/VocabularySession';
 
 interface SessionResult {
@@ -24,7 +24,7 @@ interface SessionResult {
   }>;
 }
 
-const Vocabulary: React.FC<{ mainRef?: React.RefObject<HTMLElement> }> = ({ mainRef }) => {
+const Vocabulary: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<'all' | string>('all');
   const [filteredWords, setFilteredWords] = useState<VocabularyWord[]>(A1_VOCABULARY_WORDS);
@@ -130,20 +130,18 @@ const Vocabulary: React.FC<{ mainRef?: React.RefObject<HTMLElement> }> = ({ main
         sessionType={sessionType}
         onComplete={handleSessionComplete}
         onExit={handleSessionExit}
-        mainRef={mainRef}
       />
     );
   }
 
   if (sessionMode === 'results' && sessionResults) {
     return (
-      <SessionResults
+      <PracticeSessionResults
         results={sessionResults}
         sessionType={sessionType}
         onRestart={handleRestart}
         onReviewMistakes={handleReviewMistakes}
         onExit={handleSessionExit}
-        mainRef={mainRef}
       />
     );
   }

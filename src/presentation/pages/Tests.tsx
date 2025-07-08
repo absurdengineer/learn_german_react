@@ -7,10 +7,17 @@ import {
 } from '../../utils/testGenerator';
 import PageHeader from '../components/PageHeader';
 
+type TestGenerator = (count: number) => {
+  id: string;
+  title: string;
+  type: string;
+  questions: any[];
+};
+
 const Tests = () => {
   const navigate = useNavigate();
 
-  const startTest = (generator, count) => {
+  const startTest = (generator: TestGenerator, count: number) => {
     const test = generator(count);
     navigate(`/tests/session`, { state: { test } });
   };

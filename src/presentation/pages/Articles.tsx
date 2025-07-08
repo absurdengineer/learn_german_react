@@ -3,7 +3,7 @@ import { VocabularyWord } from '../../domain/entities/Vocabulary';
 import ArticlesLearning from '../components/ArticlesLearning';
 import ArticlesPractice from '../components/ArticlesPractice';
 import PageHeader from '../components/PageHeader';
-import SessionResults from '../components/SessionResults';
+import PracticeSessionResults from '../components/PracticeSessionResults';
 
 interface ArticlesSessionResult {
   totalQuestions: number;
@@ -18,7 +18,7 @@ interface ArticlesSessionResult {
   }>;
 }
 
-const Articles: React.FC<{ mainRef?: React.RefObject<HTMLElement> }> = ({ mainRef }) => {
+const Articles: React.FC = () => {
   const [sessionMode, setSessionMode] = useState<'menu' | 'practice' | 'learning' | 'results'>('menu');
   const [sessionResults, setSessionResults] = useState<ArticlesSessionResult | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<string>('');
@@ -69,7 +69,6 @@ const Articles: React.FC<{ mainRef?: React.RefObject<HTMLElement> }> = ({ mainRe
         sessionLength={sessionLength}
         focusCategory={selectedCategory}
         showCategoryFilter={!!selectedCategory}
-        mainRef={mainRef}
         reviewWords={reviewWords}
       />
     );
@@ -82,7 +81,6 @@ const Articles: React.FC<{ mainRef?: React.RefObject<HTMLElement> }> = ({ mainRe
         onExit={handleSessionExit}
         sessionLength={sessionLength}
         focusCategory={selectedCategory}
-        mainRef={mainRef}
       />
     );
   }
@@ -90,13 +88,12 @@ const Articles: React.FC<{ mainRef?: React.RefObject<HTMLElement> }> = ({ mainRe
   // Results mode rendering
   if (sessionMode === 'results' && sessionResults) {
     return (
-      <SessionResults
+      <PracticeSessionResults
         results={sessionResults}
         sessionType="multiple-choice"
         onRestart={handleRestart}
         onReviewMistakes={handleReviewMistakes}
         onExit={handleSessionExit}
-        mainRef={mainRef}
       />
     );
   }

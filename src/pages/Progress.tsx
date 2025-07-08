@@ -1,7 +1,14 @@
 import { useState, useEffect } from 'react';
 
+interface TestResult {
+  title: string;
+  score: number;
+  totalQuestions: number;
+  date: string;
+}
+
 const Progress = () => {
-  const [testResults, setTestResults] = useState([]);
+  const [testResults, setTestResults] = useState<TestResult[]>([]);
 
   useEffect(() => {
     const results = JSON.parse(localStorage.getItem('testResults') || '[]');

@@ -65,6 +65,7 @@ const ArticlesPractice: React.FC<ArticlesPracticeProps> = ({
 
     if (reviewWords && reviewWords.length > 0) {
       wordsToUse = reviewWords.map((word) => ({
+        id: word.id.toString(),
         german: word.german,
         english: word.english,
         gender: word.gender as 'der' | 'die' | 'das',

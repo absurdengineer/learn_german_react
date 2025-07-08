@@ -126,7 +126,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         {/* Page content */}
         <main ref={mainRef} className="flex-1 overflow-auto bg-gray-50">
           <div className="p-6">
-            {React.cloneElement(children as React.ReactElement, { mainRef })}
+            {children}
           </div>
         </main>
       </div>

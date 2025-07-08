@@ -129,7 +129,7 @@ const Progress: React.FC = () => {
             </div>
             <div className="text-3xl font-bold text-gray-900 mb-1">
               {progress.testScores.length > 0 
-                ? Math.round(progress.testScores.reduce((a, b) => a + b.percentage, 0) / progress.testScores.length)
+                ? Math.round(progress.testScores.reduce((a: number, b: { percentage: number }) => a + b.percentage, 0) / progress.testScores.length)
                 : 0}%
             </div>
             <p className="text-sm text-gray-600">test average</p>

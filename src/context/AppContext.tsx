@@ -1,7 +1,6 @@
 import type { ReactNode } from 'react';
 import React, { createContext, useEffect, useReducer } from 'react';
-import type { Achievement, AppSettings, Progress, User } from '../types';
-import { STORAGE_KEYS } from '../types';
+import { type Achievement, type AppSettings, type Progress, type User, STORAGE_KEYS } from '../types';
 import { loadFromStorage, saveToStorage } from '../utils/storage.js';
 
 // Initial states

@@ -1,8 +1,10 @@
-import vocabularyData from '../data/vocabulary.json';
+import { type ArticleNoun } from '../data';
+import { VocabularyWord } from '../domain/entities/Vocabulary';
 import articlesData from '../data/articles.json';
 import grammarData from '../data/grammar.json';
+import vocabularyData from '../data/vocabulary.json';
 
-const shuffleArray = (array) => {
+const shuffleArray = <T>(array: T[]): T[] => {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [array[i], array[j]] = [array[j], array[i]];
@@ -11,7 +13,7 @@ const shuffleArray = (array) => {
 };
 
 export const generateVocabularyTest = (count = 10) => {
-  const allWords = vocabularyData.A1_VOCABULARY;
+  const allWords = vocabularyData.A1_VOCABULARY as unknown as VocabularyWord[];
   const uniqueWords = allWords.filter(
     (word, index, self) =>
       index === self.findIndex((t) => t.german === word.german)
@@ -21,7 +23,7 @@ export const generateVocabularyTest = (count = 10) => {
 
   const questions = selectedWords.map((word, index) => {
     const otherWords = uniqueWords.filter((w) => w.english !== word.english);
-    const wrongOptions = new Set();
+    const wrongOptions = new Set<string>();
     while (wrongOptions.size < 3 && otherWords.length > 0) {
       const randomIndex = Math.floor(Math.random() * otherWords.length);
       wrongOptions.add(otherWords.splice(randomIndex, 1)[0].english);
@@ -45,7 +47,7 @@ export const generateVocabularyTest = (count = 10) => {
 };
 
 export const generateArticlesTest = (count = 10) => {
-  const allNouns = articlesData.ESSENTIAL_A1_NOUNS;
+  const allNouns = articlesData.ESSENTIAL_A1_NOUNS as ArticleNoun[];
   const selectedNouns = shuffleArray([...allNouns]).slice(0, count);
 
   const questions = selectedNouns.map((noun, index) => {
