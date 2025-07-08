@@ -1,96 +1,19 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useProgress } from '../../hooks/useApp';
+import { STUDY_PLAN } from '../../data/studyPlan.json';
 
 const StudyPlan: React.FC = () => {
   const navigate = useNavigate();
   const progress = useProgress();
 
-  const studyPlan = [
-    {
-      day: 1,
-      title: 'Welcome to German!',
-      description: 'Basic greetings and introductions',
-      activities: [
-        { type: 'vocabulary', title: 'Learn 10 basic greetings', duration: '15 min' },
-        { type: 'grammar', title: 'Personal pronouns', duration: '20 min' },
-        { type: 'speaking', title: 'Practice introductions', duration: '10 min' },
-      ],
-      completed: true,
-    },
-    {
-      day: 2,
-      title: 'Numbers and Time',
-      description: 'Learn numbers 1-20 and basic time expressions',
-      activities: [
-        { type: 'vocabulary', title: 'Numbers 1-20', duration: '20 min' },
-        { type: 'grammar', title: 'Time expressions', duration: '15 min' },
-        { type: 'listening', title: 'Number recognition', duration: '10 min' },
-      ],
-      completed: true,
-    },
-    {
-      day: 3,
-      title: 'Family and Relationships',
-      description: 'Family members and describing relationships',
-      activities: [
-        { type: 'vocabulary', title: 'Family vocabulary', duration: '25 min' },
-        { type: 'grammar', title: 'Possessive pronouns', duration: '20 min' },
-        { type: 'speaking', title: 'Describe your family', duration: '15 min' },
-      ],
-      completed: true,
-    },
-    {
-      day: 4,
-      title: 'Colors and Descriptions',
-      description: 'Learn colors and basic adjectives',
-      activities: [
-        { type: 'vocabulary', title: 'Colors and adjectives', duration: '20 min' },
-        { type: 'grammar', title: 'Adjective endings', duration: '25 min' },
-        { type: 'writing', title: 'Describe objects', duration: '15 min' },
-      ],
-      completed: progress.currentDay > 4,
-    },
-    {
-      day: 5,
-      title: 'Food and Drinks',
-      description: 'Essential food vocabulary and ordering',
-      activities: [
-        { type: 'vocabulary', title: 'Food and drinks', duration: '25 min' },
-        { type: 'grammar', title: 'Modal verbs (möchten)', duration: '20 min' },
-        { type: 'speaking', title: 'Order food', duration: '15 min' },
-      ],
-      completed: progress.currentDay > 5,
-    },
-    {
-      day: 6,
-      title: 'Daily Routines',
-      description: 'Express daily activities and routines',
-      activities: [
-        { type: 'vocabulary', title: 'Daily activities', duration: '20 min' },
-        { type: 'grammar', title: 'Separable verbs', duration: '25 min' },
-        { type: 'writing', title: 'Write about your day', duration: '15 min' },
-      ],
-      completed: progress.currentDay > 6,
-    },
-    {
-      day: 7,
-      title: 'Review Week 1',
-      description: 'Test your knowledge from the first week',
-      activities: [
-        { type: 'test', title: 'Week 1 vocabulary test', duration: '20 min' },
-        { type: 'test', title: 'Week 1 grammar test', duration: '25 min' },
-        { type: 'speaking', title: 'Speaking assessment', duration: '15 min' },
-      ],
-      completed: progress.currentDay > 7,
-    },
-  ];
+  const studyPlan = STUDY_PLAN;
 
   const weeklyProgress = {
-    week1: studyPlan.slice(0, 7).filter(day => day.completed).length,
-    week2: 0, // Would be calculated based on days 8-14
-    week3: 0, // Would be calculated based on days 15-21
-    week4: 0, // Would be calculated based on days 22-28
+    week1: studyPlan.slice(0, 7).filter(day => progress.completedDays.includes(day.day)).length,
+    week2: studyPlan.slice(7, 14).filter(day => progress.completedDays.includes(day.day)).length,
+    week3: studyPlan.slice(14, 21).filter(day => progress.completedDays.includes(day.day)).length,
+    week4: studyPlan.slice(21, 28).filter(day => progress.completedDays.includes(day.day)).length,
   };
 
   const getActivityIcon = (type: string) => {
@@ -223,13 +146,17 @@ const StudyPlan: React.FC = () => {
             Daily Lessons
           </h2>
 
-          {studyPlan.map((day) => (
+          {studyPlan.map((day) => {
+          const isCompleted = progress.completedDays.includes(day.day);
+          const isCurrent = progress.currentDay === day.day;
+
+          return (
             <div
               key={day.day}
               className={`bg-white rounded-xl shadow-sm border transition-all duration-200 ${
-                day.completed 
+                isCompleted 
                   ? 'border-green-200 bg-green-50' 
-                  : progress.currentDay === day.day 
+                  : isCurrent
                     ? 'border-blue-200 bg-blue-50' 
                     : 'border-gray-200'
               }`}
@@ -238,13 +165,13 @@ const StudyPlan: React.FC = () => {
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex items-start space-x-4">
                     <div className={`w-12 h-12 rounded-lg flex items-center justify-center text-white font-bold ${
-                      day.completed 
+                      isCompleted 
                         ? 'bg-green-500' 
-                        : progress.currentDay === day.day 
+                        : isCurrent
                           ? 'bg-blue-500' 
                           : 'bg-gray-400'
                     }`}>
-                      {day.completed ? (
+                      {isCompleted ? (
                         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                         </svg>
@@ -257,7 +184,7 @@ const StudyPlan: React.FC = () => {
                         <h3 className="text-xl font-semibold text-gray-900">
                           Day {day.day}: {day.title}
                         </h3>
-                        {progress.currentDay === day.day && (
+                        {isCurrent && (
                           <span className="px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-medium">
                             Current
                           </span>
@@ -267,7 +194,7 @@ const StudyPlan: React.FC = () => {
                         {day.description}
                       </p>
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                        {day.activities.map((activity, index) => (
+                        {day.exercises.map((activity, index) => (
                           <div key={index} className="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
                             <div className="text-xl">
                               {getActivityIcon(activity.type)}
@@ -281,7 +208,7 @@ const StudyPlan: React.FC = () => {
                                   {activity.type}
                                 </span>
                                 <span className="text-xs text-gray-500">
-                                  {activity.duration}
+                                  {activity.estimatedTime} min
                                 </span>
                               </div>
                             </div>
@@ -291,7 +218,7 @@ const StudyPlan: React.FC = () => {
                     </div>
                   </div>
                   <div className="flex items-center space-x-2">
-                    {progress.currentDay === day.day && (
+                    {isCurrent && (
                       <button
                         onClick={() => navigate(`/study-plan/day/${day.day}`)}
                         className="px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors"
@@ -299,7 +226,7 @@ const StudyPlan: React.FC = () => {
                         Start Day
                       </button>
                     )}
-                    {day.completed && (
+                    {isCompleted && (
                       <button
                         onClick={() => navigate(`/study-plan/day/${day.day}`)}
                         className="px-4 py-2 bg-green-600 text-white rounded-lg font-medium hover:bg-green-700 transition-colors"
@@ -311,7 +238,8 @@ const StudyPlan: React.FC = () => {
                 </div>
               </div>
             </div>
-          ))}
+          )
+        })}
         </div>
 
         {/* Motivation Section */}

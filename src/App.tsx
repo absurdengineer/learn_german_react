@@ -9,6 +9,8 @@ import Progress from './presentation/pages/Progress';
 import Settings from './presentation/pages/Settings';
 import Speaking from './presentation/pages/Speaking';
 import StudyPlan from './presentation/pages/StudyPlan';
+import DayView from './presentation/pages/DayView';
+import StudyPlanComplete from './presentation/pages/StudyPlanComplete';
 import Tests from './presentation/pages/Tests';
 import Vocabulary from './presentation/pages/Vocabulary';
 import Writing from './presentation/pages/Writing';
@@ -21,6 +23,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/study-plan" element={<StudyPlan />} />
+            <Route path="/study-plan/day/:day" element={<DayView />} />
+            <Route path="/study-plan/complete" element={<StudyPlanComplete />} />
             <Route path="/vocabulary" element={<Vocabulary />} />
             <Route path="/articles" element={<Articles />} />
             <Route path="/grammar" element={<Grammar />} />
