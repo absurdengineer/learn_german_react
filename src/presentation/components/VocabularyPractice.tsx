@@ -45,7 +45,7 @@ const VocabularyCard: React.FC<VocabularyCardProps> = ({ word, onStudy, showAnsw
     }`}>
       <div className="text-center mb-6">
         <div className="flex items-center justify-center gap-2 mb-2">
-          <h3 className={`text-2xl font-bold ${word.hasGender() ? genderColor.text : 'text-gray-800'}`}>
+          <h3 className={`text-xl sm:text-2xl font-bold ${word.hasGender() ? genderColor.text : 'text-gray-800'}`}>
             {word.german}
           </h3>
           {word.hasGender() && (
@@ -93,7 +93,7 @@ const VocabularyCard: React.FC<VocabularyCardProps> = ({ word, onStudy, showAnsw
         </div>
       ) : (
         <div className="text-center">
-          <p className="text-xl font-semibold text-green-600 mb-4">{word.english}</p>
+          <p className="text-lg sm:text-xl font-semibold text-green-600 mb-4">{word.english}</p>
           {word.exampleSentences.length > 0 && (
             <div className="space-y-2">
               <h4 className="font-medium text-gray-700">Examples:</h4>
@@ -146,7 +146,7 @@ const VocabularyFlashcard: React.FC<FlashcardProps> = ({ word, showAnswer, onNex
     }`}>
       <div className="text-center mb-6">
         <div className="flex items-center justify-center gap-2 mb-2">
-          <h3 className={`text-2xl font-bold ${word.hasGender() ? genderColor.text : 'text-gray-800'}`}>
+          <h3 className={`text-xl sm:text-2xl font-bold ${word.hasGender() ? genderColor.text : 'text-gray-800'}`}>
             {word.german}
           </h3>
           {word.hasGender() && (
@@ -183,7 +183,7 @@ const VocabularyFlashcard: React.FC<FlashcardProps> = ({ word, showAnswer, onNex
         </div>
       ) : (
         <div className="text-center">
-          <p className="text-xl font-semibold text-green-600 mb-4">{word.english}</p>
+          <p className="text-lg sm:text-xl font-semibold text-green-600 mb-4">{word.english}</p>
           {word.exampleSentences.length > 0 && (
             <div className="space-y-2 mb-4">
               <h4 className="font-medium text-gray-700">Example:</h4>
