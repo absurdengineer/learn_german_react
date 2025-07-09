@@ -44,6 +44,12 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     setSidebarOpen(false); // Close mobile sidebar after navigation
   };
 
+  // Get current page name
+  const getCurrentPageName = () => {
+    const currentItem = menuItems.find(item => item.path === location.pathname);
+    return currentItem ? currentItem.text : 'Home';
+  };
+
   return (
     <div className="min-h-screen bg-gray-50 flex">
       {/* Mobile sidebar overlay */}
@@ -115,17 +121,31 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
       {/* Main content */}
       <div className="flex-1 flex flex-col overflow-hidden lg:ml-64">
-        <button
-          onClick={() => setSidebarOpen(true)}
-          className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
-        >
-          <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
+        {/* Mobile header - sticky at top */}
+        <div className="lg:hidden sticky top-0 z-30 bg-white border-b border-gray-200 shadow-sm">
+          <div className="flex items-center justify-between px-4 py-3">
+            <button
+              onClick={() => setSidebarOpen(true)}
+              className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
+            >
+              <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+            
+            {/* Page name in center */}
+            <h1 className="text-lg font-semibold text-gray-900">
+              {getCurrentPageName()}
+            </h1>
+            
+            {/* Right side spacer for balance */}
+            <div className="w-10"></div>
+          </div>
+        </div>
+
         {/* Page content */}
         <main ref={mainRef} className="flex-1 overflow-auto bg-gray-50">
-          <div className="p-6">
+          <div className="p-6 lg:p-6 p-4">
             {children}
           </div>
         </main>

@@ -1,10 +1,9 @@
-import React, { useState, useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { loadArticleCategories } from '../../data';
 import { VocabularyWord } from '../../domain/entities/Vocabulary';
 import { shuffleArray } from '../../utils/testGenerator';
 import ArticlesLearning from '../components/ArticlesLearning';
 import ArticlesPractice from '../components/ArticlesPractice';
-import PageHeader from '../components/PageHeader';
 import PracticeSessionResults from '../components/PracticeSessionResults';
 
 interface ArticlesSessionResult {
@@ -137,14 +136,20 @@ const Articles: React.FC = () => {
 
   // Menu mode rendering
   return (
-    <div className="min-h-screen bg-gray-50 py-8 px-4">
-      <div className="max-w-6xl mx-auto">
-        {/* Header */}
-        <PageHeader
-          title="German Articles 🎯"
-          subtitle="Master der, die, das with the 80-20 rule"
-          description="Focus on the most essential nouns for A1 exam success"
-        />
+    <div className="min-h-screen bg-gray-50">
+      <div className="bg-white border-b border-gray-200">
+        <div className="max-w-6xl mx-auto px-4 py-12 text-center">
+          <h1 className="text-5xl font-bold mb-4 text-gray-900">🎯 German Articles</h1>
+          <p className="text-xl text-gray-600 mb-2">
+            Master der, die, das with the 80-20 rule
+          </p>
+          <p className="text-gray-500">
+            Focus on the most essential nouns for A1 exam success
+          </p>
+        </div>
+      </div>
+
+      <div className="max-w-6xl mx-auto px-4 py-8">
 
         {/* 80-20 Rule Explanation */}
         <div className="bg-gradient-to-r from-yellow-50 to-orange-50 rounded-xl p-6 mb-8 border border-yellow-200">

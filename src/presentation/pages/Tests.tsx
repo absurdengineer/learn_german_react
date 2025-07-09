@@ -1,11 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 import {
-  generateVocabularyTest,
-  generateArticlesTest,
-  generateGrammarTest,
-  generateA1Test,
+    generateA1Test,
+    generateArticlesTest,
+    generateGrammarTest,
+    generateVocabularyTest,
 } from '../../utils/testGenerator';
-import PageHeader from '../components/PageHeader';
 
 interface Question {
   id: string;
@@ -67,13 +66,20 @@ const Tests = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8 px-4">
-      <div className="max-w-6xl mx-auto">
-        <PageHeader
-          title="Test Your Knowledge 🧪"
-          subtitle="Select a category and test length to begin"
-          description="Our dynamic tests ensure you never get the same questions twice."
-        />
+    <div className="min-h-screen bg-gray-50">
+      <div className="bg-white border-b border-gray-200">
+        <div className="max-w-6xl mx-auto px-4 py-12 text-center">
+          <h1 className="text-5xl font-bold mb-4 text-gray-900">🧪 Test Your Knowledge</h1>
+          <p className="text-xl text-gray-600 mb-2">
+            Select a category and test length to begin
+          </p>
+          <p className="text-gray-500">
+            Our dynamic tests ensure you never get the same questions twice
+          </p>
+        </div>
+      </div>
+
+      <div className="max-w-6xl mx-auto px-4 py-8">
 
         <div className="space-y-12">
           {testTypes.map((testType) => (

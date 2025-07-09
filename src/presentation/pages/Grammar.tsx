@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { grammarQuestions } from '../../data/grammarData';
 import { grammarLessons, type GrammarLesson } from '../../data/grammarLessons';
 import type { TestQuestion } from '../../utils/grammarCsvParser';
@@ -45,6 +45,18 @@ const Grammar: React.FC = () => {
   const [sessionStartTime, setSessionStartTime] = useState<number>(0);
   const [flashcardIndex, setFlashcardIndex] = useState(0);
   const [showFlashcardAnswer, setShowFlashcardAnswer] = useState(false);
+  const [showResult, setShowResult] = useState(false);
+  const [currentAnswer, setCurrentAnswer] = useState<string>('');
+
+  // Scroll to top when session mode changes
+  useEffect(() => {
+    setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+    }, 100);
+  }, [sessionMode]);
 
   // Get available categories from lessons
   const availableCategories = useMemo(() => {
@@ -70,6 +82,8 @@ const Grammar: React.FC = () => {
     setUserAnswers([]);
     setFlashcardIndex(0);
     setShowFlashcardAnswer(false);
+    setShowResult(false);
+    setCurrentAnswer('');
   };
 
   const startPractice = (category?: string) => {
@@ -98,36 +112,43 @@ const Grammar: React.FC = () => {
   };
 
   const handleAnswerSubmit = (answer: string) => {
-    const newAnswers = [...userAnswers, answer];
-    setUserAnswers(newAnswers);
+    setCurrentAnswer(answer);
+    setShowResult(true);
 
-    if (currentQuestionIndex < practiceQuestions.length - 1) {
-      setCurrentQuestionIndex(currentQuestionIndex + 1);
-    } else {
-      // Calculate results
-      const correctAnswers = practiceQuestions.reduce((count, question, index) => {
-        return count + (newAnswers[index] === question.answer ? 1 : 0);
-      }, 0);
+    setTimeout(() => {
+      const newAnswers = [...userAnswers, answer];
+      setUserAnswers(newAnswers);
 
-      const mistakes = practiceQuestions
-        .map((question, index) => ({
-          question,
-          userAnswer: newAnswers[index],
-          correctAnswer: question.answer,
-        }))
-        .filter(item => item.userAnswer !== item.correctAnswer);
+      if (currentQuestionIndex < practiceQuestions.length - 1) {
+        setCurrentQuestionIndex(currentQuestionIndex + 1);
+        setShowResult(false);
+        setCurrentAnswer('');
+      } else {
+        // Calculate results
+        const correctAnswers = practiceQuestions.reduce((count, question, index) => {
+          return count + (newAnswers[index] === question.answer ? 1 : 0);
+        }, 0);
 
-      const results: SessionResult = {
-        totalQuestions: practiceQuestions.length,
-        correctAnswers,
-        wrongAnswers: practiceQuestions.length - correctAnswers,
-        timeSpent: Math.round((Date.now() - sessionStartTime) / 1000),
-        mistakes,
-      };
+        const mistakes = practiceQuestions
+          .map((question, index) => ({
+            question,
+            userAnswer: newAnswers[index],
+            correctAnswer: question.answer,
+          }))
+          .filter(item => item.userAnswer !== item.correctAnswer);
 
-      setSessionResults(results);
-      setSessionMode('results');
-    }
+        const results: SessionResult = {
+          totalQuestions: practiceQuestions.length,
+          correctAnswers,
+          wrongAnswers: practiceQuestions.length - correctAnswers,
+          timeSpent: Math.round((Date.now() - sessionStartTime) / 1000),
+          mistakes,
+        };
+
+        setSessionResults(results);
+        setSessionMode('results');
+      }
+    }, 1500);
   };
 
   if (sessionMode === 'menu') {
@@ -285,16 +306,16 @@ const Grammar: React.FC = () => {
   if (sessionMode === 'lesson' && selectedLesson) {
     return (
       <div className="min-h-screen bg-gray-50">
-        <div className="bg-gradient-to-r from-green-600 to-blue-600 text-white">
+        <div className="bg-white border-b border-gray-200">
           <div className="max-w-4xl mx-auto px-4 py-8">
             <button
               onClick={resetToMenu}
-              className="mb-4 text-green-200 hover:text-white transition-colors"
+              className="mb-4 text-gray-600 hover:text-gray-900 transition-colors"
             >
               ← Back to Grammar
             </button>
-            <h1 className="text-3xl font-bold mb-2">{selectedLesson.title}</h1>
-            <p className="text-green-100">{selectedLesson.description}</p>
+            <h1 className="text-3xl font-bold mb-2 text-gray-900">{selectedLesson.title}</h1>
+            <p className="text-gray-600">{selectedLesson.description}</p>
           </div>
         </div>
 
@@ -392,24 +413,24 @@ const Grammar: React.FC = () => {
 
     return (
       <div className="min-h-screen bg-gray-50">
-        <div className="bg-gradient-to-r from-green-600 to-blue-600 text-white">
+        <div className="bg-white border-b border-gray-200">
           <div className="max-w-4xl mx-auto px-4 py-6">
             <div className="flex items-center justify-between mb-4">
               <button
                 onClick={resetToMenu}
-                className="text-green-200 hover:text-white transition-colors"
+                className="text-gray-600 hover:text-gray-900 transition-colors"
               >
                 ← Exit Practice
               </button>
               <div className="text-right">
-                <div className="text-sm text-green-200">
+                <div className="text-sm text-gray-600">
                   Question {currentQuestionIndex + 1} of {practiceQuestions.length}
                 </div>
               </div>
             </div>
-            <div className="w-full bg-green-200 rounded-full h-2">
+            <div className="w-full bg-gray-200 rounded-full h-2">
               <div 
-                className="bg-white h-2 rounded-full transition-all duration-300"
+                className="bg-green-600 h-2 rounded-full transition-all duration-300"
                 style={{ width: `${progress}%` }}
               ></div>
             </div>
@@ -443,24 +464,67 @@ const Grammar: React.FC = () => {
 
             <div className="space-y-3">
               {currentQuestion.type === 'multiple_choice' ? (
-                currentQuestion.options.map((option: string, index: number) => (
-                  <button
-                    key={index}
-                    onClick={() => handleAnswerSubmit(option)}
-                    className="w-full p-4 text-left bg-gray-50 hover:bg-blue-50 border border-gray-200 hover:border-blue-300 rounded-lg transition-colors"
-                  >
-                    {option}
-                  </button>
-                ))
+                <>
+                  {currentQuestion.options.map((option: string, index: number) => (
+                    <button
+                      key={index}
+                      onClick={() => handleAnswerSubmit(option)}
+                      disabled={showResult}
+                      className={`w-full p-4 text-left border rounded-lg transition-colors ${
+                        showResult && currentAnswer === option
+                          ? currentAnswer === currentQuestion.answer
+                            ? 'bg-green-100 border-green-300 text-green-800'
+                            : 'bg-red-100 border-red-300 text-red-800'
+                          : showResult
+                          ? 'bg-gray-100 border-gray-200 text-gray-500 cursor-not-allowed'
+                          : 'bg-gray-50 hover:bg-blue-50 border-gray-200 hover:border-blue-300'
+                      }`}
+                    >
+                      {option}
+                    </button>
+                  ))}
+                  
+                  {/* Result Display */}
+                  {showResult && (
+                    <div
+                      className={`text-center p-4 rounded-lg ${
+                        currentAnswer === currentQuestion.answer
+                          ? 'bg-green-100'
+                          : 'bg-red-100'
+                      }`}
+                    >
+                      <div
+                        className={`text-lg font-bold ${
+                          currentAnswer === currentQuestion.answer
+                            ? 'text-green-600'
+                            : 'text-red-600'
+                        }`}
+                      >
+                        {currentAnswer === currentQuestion.answer
+                          ? '✓ Correct!'
+                          : '✗ Wrong!'}
+                      </div>
+                      <div className="text-sm text-gray-700 mt-2">
+                        The correct answer is:{' '}
+                        <span className="font-bold text-green-600">
+                          {currentQuestion.answer}
+                        </span>
+                      </div>
+                    </div>
+                  )}
+                </>
               ) : (
                 <div className="space-y-4">
                   <input
                     type="text"
                     key={currentQuestionIndex} // Force re-render to clear input
                     placeholder="Type your answer here..."
-                    className="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    disabled={showResult}
+                    className={`w-full p-4 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
+                      showResult ? 'bg-gray-100 cursor-not-allowed' : 'border-gray-300'
+                    }`}
                     onKeyPress={(e) => {
-                      if (e.key === 'Enter') {
+                      if (e.key === 'Enter' && !showResult) {
                         const value = (e.target as HTMLInputElement).value;
                         if (value.trim()) {
                           handleAnswerSubmit(value);
@@ -468,18 +532,53 @@ const Grammar: React.FC = () => {
                       }
                     }}
                   />
-                  <button
-                    onClick={() => {
-                      const input = document.querySelector('input') as HTMLInputElement;
-                      const value = input.value;
-                      if (value.trim()) {
-                        handleAnswerSubmit(value);
-                      }
-                    }}
-                    className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
-                  >
-                    Submit Answer
-                  </button>
+                  
+                  {!showResult && (
+                    <button
+                      onClick={() => {
+                        const input = document.querySelector('input') as HTMLInputElement;
+                        const value = input.value;
+                        if (value.trim()) {
+                          handleAnswerSubmit(value);
+                        }
+                      }}
+                      className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+                    >
+                      Submit Answer
+                    </button>
+                  )}
+                  
+                  {/* Result Display for Text Input */}
+                  {showResult && (
+                    <div
+                      className={`text-center p-4 rounded-lg ${
+                        currentAnswer === currentQuestion.answer
+                          ? 'bg-green-100'
+                          : 'bg-red-100'
+                      }`}
+                    >
+                      <div
+                        className={`text-lg font-bold ${
+                          currentAnswer === currentQuestion.answer
+                            ? 'text-green-600'
+                            : 'text-red-600'
+                        }`}
+                      >
+                        {currentAnswer === currentQuestion.answer
+                          ? '✓ Correct!'
+                          : '✗ Wrong!'}
+                      </div>
+                      <div className="text-sm text-gray-700 mt-2">
+                        Your answer: <span className="font-medium">{currentAnswer}</span>
+                      </div>
+                      <div className="text-sm text-gray-700">
+                        The correct answer is:{' '}
+                        <span className="font-bold text-green-600">
+                          {currentQuestion.answer}
+                        </span>
+                      </div>
+                    </div>
+                  )}
                 </div>
               )}
             </div>
@@ -496,24 +595,24 @@ const Grammar: React.FC = () => {
 
     return (
       <div className="min-h-screen bg-gray-50">
-        <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+        <div className="bg-white border-b border-gray-200">
           <div className="max-w-4xl mx-auto px-4 py-6">
             <div className="flex items-center justify-between mb-4">
               <button
                 onClick={resetToMenu}
-                className="text-blue-200 hover:text-white transition-colors"
+                className="text-gray-600 hover:text-gray-900 transition-colors"
               >
                 ← Exit Flashcards
               </button>
               <div className="text-right">
-                <div className="text-sm text-blue-200">
+                <div className="text-sm text-gray-600">
                   Card {flashcardIndex + 1} of {flashcards.length}
                 </div>
               </div>
             </div>
-            <div className="w-full bg-blue-200 rounded-full h-2">
+            <div className="w-full bg-gray-200 rounded-full h-2">
               <div 
-                className="bg-white h-2 rounded-full transition-all duration-300"
+                className="bg-blue-600 h-2 rounded-full transition-all duration-300"
                 style={{ width: `${progress}%` }}
               ></div>
             </div>
@@ -582,10 +681,10 @@ const Grammar: React.FC = () => {
     
     return (
       <div className="min-h-screen bg-gray-50">
-        <div className="bg-gradient-to-r from-green-600 to-blue-600 text-white">
+        <div className="bg-white border-b border-gray-200">
           <div className="max-w-4xl mx-auto px-4 py-8 text-center">
-            <h1 className="text-3xl font-bold mb-2">Practice Complete!</h1>
-            <p className="text-green-100">Great job working through those grammar questions!</p>
+            <h1 className="text-3xl font-bold mb-2 text-gray-900">Practice Complete!</h1>
+            <p className="text-gray-600">Great job working through those grammar questions!</p>
           </div>
         </div>
 
