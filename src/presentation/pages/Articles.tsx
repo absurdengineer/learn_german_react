@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
+import { loadArticleCategories } from '../../data';
 import { VocabularyWord } from '../../domain/entities/Vocabulary';
 import { shuffleArray } from '../../utils/testGenerator';
 import ArticlesLearning from '../components/ArticlesLearning';
@@ -19,12 +20,46 @@ interface ArticlesSessionResult {
   }>;
 }
 
+const categoryIcons: Record<string, string> = {
+  people: '👥',
+  time: '⏰',
+  work: '💼',
+  transport: '🚗',
+  living: '🏠',
+  food_drink: '🍽️',
+  education: '🎓',
+  communication: '💬',
+  personal_info: 'ℹ️',
+  geography: '🌍',
+  animals: '🐕',
+  body: '👤',
+  media: '📰',
+  shopping: '🛒',
+  leisure: '🎉',
+  health: '❤️',
+  nature: '🌳',
+  public_service: '🏢',
+  money: '💰',
+  everyday_objects: '🔑',
+  accessories: '👓',
+  abstract: '🤔',
+  default: '📚',
+};
+
 const Articles: React.FC = () => {
   const [sessionMode, setSessionMode] = useState<'menu' | 'practice' | 'learning' | 'results'>('menu');
   const [sessionResults, setSessionResults] = useState<ArticlesSessionResult | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<string>('');
   const [sessionLength, setSessionLength] = useState(20);
   const [reviewWords, setReviewWords] = useState<VocabularyWord[]>([]);
+
+  const articleCategories = useMemo(() => {
+    const categories = loadArticleCategories();
+    return Object.values(categories).map(category => ({
+      ...category,
+      icon: categoryIcons[category.name] || categoryIcons.default,
+    }));
+  }, []);
 
   const handleStartPractice = (category: string = '', length: number = 20) => {
     setSelectedCategory(category);
@@ -250,26 +285,13 @@ const Articles: React.FC = () => {
             Choose practice mode or learning mode for each category
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-            {[
-              { name: 'family', icon: '👨‍👩‍👧‍👦', label: 'Family' },
-              { name: 'people', icon: '👥', label: 'People' },
-              { name: 'occupations', icon: '💼', label: 'Jobs' },
-              { name: 'food', icon: '🍽️', label: 'Food' },
-              { name: 'places', icon: '🏢', label: 'Places' },
-              { name: 'time', icon: '⏰', label: 'Time' },
-              { name: 'furniture', icon: '🪑', label: 'Furniture' },
-              { name: 'transport', icon: '🚗', label: 'Transport' },
-              { name: 'technology', icon: '💻', label: 'Technology' },
-              { name: 'body', icon: '👤', label: 'Body' },
-              { name: 'clothing', icon: '👕', label: 'Clothing' },
-              { name: 'animals', icon: '🐕', label: 'Animals' },
-            ].map((category) => (
+            {articleCategories.map((category) => (
               <div
                 key={category.name}
                 className="flex flex-col items-center p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
               >
                 <div className="text-2xl mb-2">{category.icon}</div>
-                <div className="text-sm font-medium text-gray-700 mb-3">{category.label}</div>
+                <div className="text-sm font-medium text-gray-700 mb-3 capitalize">{category.name.replace(/_/g, ' ')}</div>
                 <div className="flex flex-col gap-2 w-full">
                   <button
                     onClick={() => handleStartLearning(category.name, 20)}

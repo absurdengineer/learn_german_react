@@ -184,9 +184,14 @@ const ArticlesLearning: React.FC<ArticlesLearningProps> = ({
               </h1>
             </div>
 
-            <p className={`text-2xl mb-4 ${genderColor.text} opacity-80`}>
+            <p className={`text-2xl mb-2 ${genderColor.text} opacity-80`}>
               {currentWord.english}
             </p>
+            {currentWord.pronunciation && (
+              <p className={`text-lg mb-4 ${genderColor.text} opacity-70`}>
+                /{currentWord.pronunciation}/
+              </p>
+            )}
 
             <div
               className={`inline-block px-4 py-2 rounded-lg border-2 ${genderColor.border} ${genderColor.bg}`}

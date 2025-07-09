@@ -104,7 +104,7 @@ export class TestService {
     await this.testResultRepository.save(result);
 
     // Update user progress
-    await this.updateUserProgressFromTest(userId, result);
+    await this.updateUserProgressFromTest(userId);
 
     return result;
   }
@@ -260,7 +260,7 @@ export class TestService {
     }
   }
 
-  private async updateUserProgressFromTest(userId: string, _result: TestResult): Promise<void> {
+  private async updateUserProgressFromTest(userId: string): Promise<void> {
     const userProgress = await this.progressRepository.findByUserId(userId);
     if (!userProgress) {
       throw new Error('User progress not found');

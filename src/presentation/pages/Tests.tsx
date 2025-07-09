@@ -7,11 +7,18 @@ import {
 } from '../../utils/testGenerator';
 import PageHeader from '../components/PageHeader';
 
+interface Question {
+  id: string;
+  question: string;
+  options: string[];
+  answer: string;
+}
+
 type TestGenerator = (count: number) => {
   id: string;
   title: string;
   type: string;
-  questions: any[];
+  questions: Question[];
 };
 
 const Tests = () => {

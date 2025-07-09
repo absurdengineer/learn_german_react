@@ -1,8 +1,5 @@
-import { type ArticleNoun } from '../data';
-import articlesData from '../data/articles.json';
+import { A1_VOCABULARY_WORDS, loadArticleNouns } from '../data';
 import grammarData from '../data/grammar.json';
-import { VocabularyWord } from '../domain/entities/Vocabulary';
-const vocabularyData = {A1_VOCABULARY : []};
 
 export const shuffleArray = <T>(array: T[]): T[] => {
   for (let i = array.length - 1; i > 0; i--) {
@@ -13,7 +10,7 @@ export const shuffleArray = <T>(array: T[]): T[] => {
 };
 
 export const generateVocabularyTest = (count = 10) => {
-  const allWords = vocabularyData.A1_VOCABULARY as unknown as VocabularyWord[];
+  const allWords = A1_VOCABULARY_WORDS;
   const uniqueWords = allWords.filter(
     (word, index, self) =>
       index === self.findIndex((t) => t.german === word.german)
@@ -47,7 +44,7 @@ export const generateVocabularyTest = (count = 10) => {
 };
 
 export const generateArticlesTest = (count = 10) => {
-  const allNouns = articlesData.ESSENTIAL_A1_NOUNS as ArticleNoun[];
+  const allNouns = loadArticleNouns();
   const selectedNouns = shuffleArray([...allNouns]).slice(0, count);
 
   const questions = selectedNouns.map((noun, index) => {

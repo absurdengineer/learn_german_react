@@ -1,10 +1,12 @@
 import { type LevelType } from '../domain/entities/User';
 import { VocabularyWord, type Gender, type WordType } from '../domain/entities/Vocabulary';
-import articlesData from './articles.json';
+import { parseArticlesCSV } from './articles';
+import type { ArticleNoun } from './articles';
 import studyPlanData from './studyPlan.json';
 import { generateVocabularyCategoriesFromCSV, getCSVVocabularyStats, parseVocabularyCSV } from './vocabulary';
 
 // Type definitions
+export type { ArticleNoun };
 export interface VocabularyItem {
   id: string;
   german: string;
@@ -19,15 +21,6 @@ export interface VocabularyItem {
     german: string;
     english: string;
   }>;
-}
-
-export interface ArticleNoun {
-  id: string;
-  german: string;
-  english: string;
-  gender: 'der' | 'die' | 'das';
-  frequency: number;
-  category: string;
 }
 
 export interface StudyDay {
@@ -76,11 +69,21 @@ export const loadVocabularyCategories = (): Record<string, Category> => {
 };
 
 export const loadArticleNouns = (): ArticleNoun[] => {
-  return articlesData.ESSENTIAL_A1_NOUNS as ArticleNoun[];
+  return parseArticlesCSV();
 };
 
 export const loadArticleCategories = (): Record<string, Category> => {
-  return articlesData.categories as Record<string, Category>;
+  const articles = loadArticleNouns();
+  const categories: Record<string, Category> = {};
+  articles.forEach(article => {
+    if (!categories[article.category]) {
+      categories[article.category] = {
+        name: article.category,
+        description: `Nouns related to ${article.category}`,
+      };
+    }
+  });
+  return categories;
 };
 
 export const loadStudyPlan = (): StudyDay[] => {
@@ -212,7 +215,11 @@ export const getVocabularyStats = () => {
 export const getArticleStats = () => {
   const articles = loadArticleNouns();
   const totalNouns = articles.length;
-  const genderStats = articlesData.genderStats;
+  const genderStats = {
+    der: articles.filter(a => a.gender === 'der').length,
+    die: articles.filter(a => a.gender === 'die').length,
+    das: articles.filter(a => a.gender === 'das').length,
+  };
   const categories = loadArticleCategories();
   const categoryStats = Object.keys(categories).map(key => ({
     category: key,
@@ -225,7 +232,7 @@ export const getArticleStats = () => {
     totalNouns,
     genderStats,
     categories: categoryStats,
-    metadata: articlesData.metadata
+    metadata: { "source": "articles.csv" }
   };
 };
 

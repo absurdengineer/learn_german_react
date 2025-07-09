@@ -25,6 +25,7 @@ const TestSession = () => {
   const [timeLeft, setTimeLeft] = useState(20);
   const [totalTime, setTotalTime] = useState(0);
   const [selectedOption, setSelectedOption] = useState('');
+  const [showExitConfirm, setShowExitConfirm] = useState(false);
   const questionStartTime = useRef(Date.now());
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -35,6 +36,7 @@ const TestSession = () => {
     timerRef.current = setInterval(() => {
       setTimeLeft((prevTime) => {
         if (prevTime <= 1) {
+          // Use a ref to capture current userAnswers to avoid dependency issues
           handleNextQuestion(userAnswers);
           return 20;
         }
@@ -42,12 +44,58 @@ const TestSession = () => {
       });
     }, 1000);
 
+    // Prevent accidental navigation away from test
+    const handleBeforeUnload = (e: BeforeUnloadEvent) => {
+      e.preventDefault();
+      e.returnValue = 'Are you sure you want to leave? Your test progress will be lost.';
+      return 'Are you sure you want to leave? Your test progress will be lost.';
+    };
+
+    window.addEventListener('beforeunload', handleBeforeUnload);
+
     return () => {
       if (timerRef.current) {
         clearInterval(timerRef.current);
       }
+      window.removeEventListener('beforeunload', handleBeforeUnload);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [test]);
+
+  const handleExitClick = () => {
+    setShowExitConfirm(true);
+  };
+
+  const handleConfirmExit = () => {
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+    }
+    navigate('/tests');
+  };
+
+  const handleCancelExit = () => {
+    setShowExitConfirm(false);
+  };
+
+  // Handle ESC key to close modal
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && showExitConfirm) {
+        setShowExitConfirm(false);
+      }
+    };
+
+    if (showExitConfirm) {
+      document.addEventListener('keydown', handleKeyDown);
+      // Prevent scrolling when modal is open
+      document.body.style.overflow = 'hidden';
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'unset';
+    };
+  }, [showExitConfirm]);
 
   if (!test) {
     return <div>Test data is missing. Please start a new test.</div>;
@@ -123,35 +171,92 @@ const TestSession = () => {
   const progressPercentage = ((currentQuestionIndex + 1) / test.questions.length) * 100;
 
   return (
-    <div className="p-4 md:p-6 bg-gray-100 min-h-screen flex flex-col justify-center items-center">
-      <div className="w-full max-w-2xl">
-        <div className="w-full bg-gray-300 rounded-full h-4 mb-4">
-          <div
-            className="bg-blue-500 h-4 rounded-full transition-all duration-300"
-            style={{ width: `${progressPercentage}%` }}
-          ></div>
-        </div>
+    <div className="min-h-screen bg-gray-50 p-4">
+      <div className="max-w-4xl mx-auto">
+        {/* Header */}
+        <div className="flex flex-wrap items-center justify-between mb-6 gap-4">
+          <button
+            onClick={handleExitClick}
+            className="flex items-center space-x-2 px-4 py-2 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow"
+          >
+            <svg
+              className="w-5 h-5 text-gray-600"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+            <span className="text-gray-700">Exit Test</span>
+          </button>
 
-        <div className="bg-white p-6 rounded-lg shadow-xl">
-          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4 space-y-2 sm:space-y-0">
-            <h1 className="text-xl font-bold text-center sm:text-left">{test.title}</h1>
-            <div className="text-lg font-bold text-blue-500 text-center sm:text-right">
-              Question {currentQuestionIndex + 1}/{test.questions.length}
+          <div className="text-center">
+            <div className="text-sm font-medium text-gray-600 mb-1">
+              🧪 {test.title}
+            </div>
+            <div className="text-lg font-bold text-gray-800">
+              Question {currentQuestionIndex + 1} of {test.questions.length}
             </div>
           </div>
 
-          <div className="relative h-8 w-full bg-gray-200 rounded-full overflow-hidden mb-6">
-            <div
-              className="absolute top-0 left-0 h-full bg-green-400 transition-all duration-1000 linear"
-              style={{ width: `${(timeLeft / 20) * 100}%` }}
-            ></div>
-            <span className="absolute inset-0 flex items-center justify-center text-sm font-medium text-gray-700">
-              {timeLeft}s
+          <div className="flex items-center space-x-4">
+            <div className="text-center">
+              <div className="text-sm text-gray-600">Timer</div>
+              <div className={`text-lg font-bold ${timeLeft <= 5 ? 'text-red-600' : 'text-blue-600'}`}>
+                {timeLeft}s
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Progress Bar */}
+        <div className="mb-8">
+          <div className="flex justify-between text-sm text-gray-600 mb-2">
+            <span>Progress</span>
+            <span>
+              {Math.round(progressPercentage)}%
             </span>
           </div>
+          <div className="w-full bg-gray-200 rounded-full h-2">
+            <div
+              className="bg-gradient-to-r from-blue-500 to-purple-600 h-2 rounded-full transition-all duration-300"
+              style={{ width: `${progressPercentage}%` }}
+            />
+          </div>
+        </div>
 
-          <p className="text-2xl font-semibold text-center mb-6">{question.question}</p>
-          <div className="grid grid-cols-2 gap-4">
+        {/* Timer Progress Bar */}
+        <div className="mb-8">
+          <div className="flex justify-between text-sm text-gray-600 mb-2">
+            <span>Time Remaining</span>
+            <span>{timeLeft}s</span>
+          </div>
+          <div className="w-full bg-gray-200 rounded-full h-2">
+            <div
+              className={`h-2 rounded-full transition-all duration-1000 ${
+                timeLeft <= 5 ? 'bg-red-500' : timeLeft <= 10 ? 'bg-yellow-500' : 'bg-green-500'
+              }`}
+              style={{ width: `${(timeLeft / 20) * 100}%` }}
+            />
+          </div>
+        </div>
+
+        {/* Question Card */}
+        <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 mb-6">
+          <div className="text-center mb-8">
+            <div className="text-sm text-gray-600 mb-2">
+              Question {currentQuestionIndex + 1} of {test.questions.length}
+            </div>
+            <p className="text-2xl sm:text-3xl font-bold text-gray-800 mb-4">{question.question}</p>
+          </div>
+
+          {/* Answer Options */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
             {question.options.map((option) => {
               const isSelected = selectedOption === option;
               return (
@@ -159,11 +264,11 @@ const TestSession = () => {
                   key={option}
                   onClick={() => handleAnswer(question.id, option)}
                   disabled={!!selectedOption}
-                  className={`w-full p-4 text-center rounded-lg border-2 transition-all duration-200 ${
+                  className={`w-full p-4 text-center rounded-xl font-medium transition-all duration-200 transform hover:scale-105 ${
                     isSelected
-                      ? 'bg-blue-500 text-white border-blue-600'
-                      : 'bg-gray-50 hover:bg-gray-100 border-gray-200'
-                  }`}
+                      ? 'bg-blue-500 text-white border-2 border-blue-600 shadow-lg'
+                      : 'bg-gray-50 hover:bg-gray-100 border-2 border-gray-200 text-gray-700'
+                  } ${!!selectedOption && !isSelected ? 'opacity-50' : ''}`}
                 >
                   {option}
                 </button>
@@ -172,6 +277,45 @@ const TestSession = () => {
           </div>
         </div>
       </div>
+
+      {/* Exit Confirmation Modal */}
+      {showExitConfirm && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+          onClick={handleCancelExit}
+        >
+          <div 
+            className="bg-white rounded-lg p-6 max-w-md mx-4"
+            onClick={(e) => e.stopPropagation()}
+            role="dialog"
+            aria-labelledby="exit-dialog-title"
+            aria-describedby="exit-dialog-description"
+          >
+            <div className="text-center">
+              <div className="text-2xl mb-4">⚠️</div>
+              <h3 id="exit-dialog-title" className="text-lg font-bold text-gray-900 mb-2">Exit Test?</h3>
+              <p id="exit-dialog-description" className="text-gray-600 mb-6">
+                Are you sure you want to exit? Your test progress will be lost and cannot be recovered.
+              </p>
+              <div className="flex justify-center space-x-4">
+                <button
+                  onClick={handleCancelExit}
+                  className="px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition-colors"
+                  autoFocus
+                >
+                  Cancel
+                </button>
+                <button
+                  onClick={handleConfirmExit}
+                  className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors"
+                >
+                  Exit Test
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

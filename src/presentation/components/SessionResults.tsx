@@ -19,7 +19,7 @@ interface Result {
 
 const SessionResults = () => {
   const { state } = useLocation();
-  const { userAnswers, test, result } = (state as { userAnswers: any; test: Test; result: Result }) || {};
+  const { userAnswers, test, result } = (state as { userAnswers: Record<string, string>; test: Test; result: Result }) || {};
 
   if (!userAnswers || !test || !result) {
     return <div>No results to display.</div>;

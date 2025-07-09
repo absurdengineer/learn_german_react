@@ -1,0 +1,407 @@
+id,german,english,pronunciation,gender,frequency,category
+n1,Zeit,time,[tsaɪt],die,7,abstract
+n2,Familie,family,[faˈmiːliə],die,9,people
+n3,Mann,man/husband,[man],der,9,people
+n4,Frau,woman/wife/Mrs.,[fʁaʊ],die,9,people
+n5,Kind,child,[kɪnt],das,9,people
+n6,Mensch,person/human,[mɛnʃ],der,8,people
+n7,Freund,friend (male),[fʁɔʏnt],der,8,people
+n8,Name,name,[ˈnaːmə],der,9,personal_info
+n9,Land,country,[lant],das,8,geography
+n10,Stadt,city/town,[ʃtat],die,8,geography
+n11,Haus,house,[haʊs],das,8,living
+n12,Wohnung,apartment,[ˈvoːnʊŋ],die,8,living
+n13,Straße,street,[ˈʃtʁaːsə],die,8,transport
+n14,Auto,car,[ˈaʊto],das,8,transport
+n15,Tag,day,[taːk],der,9,time
+n16,Woche,week,[ˈvɔxə],die,9,time
+n17,Monat,month,[ˈmoːnat],der,9,time
+n18,Jahr,year,[jaːɐ̯],der,9,time
+n19,Uhr,o'clock/watch,[uːɐ̯],die,9,time
+n20,Leben,life,[ˈleːbən],das,7,abstract
+n21,Euro,Euro,[ˈɔʏʁo],der,9,money
+n22,Frage,question,[ˈfʁaːɡə],die,8,communication
+n23,Antwort,answer,[ˈantvɔʁt],die,8,communication
+n24,Schule,school,[ˈʃuːlə],die,8,education
+n25,Student,student (male),[ʃtuˈdɛnt],der,7,education
+n26,Lehrer,teacher (male),[ˈleːʁɐ],der,8,education
+n27,Arbeit,work/job,[ˈaʁbaɪt],die,8,work
+n28,Beruf,profession/job,[bəˈʁuːf],der,8,work
+n29,Hand,hand,[hant],die,7,body
+n30,Auge,eye,[ˈaʊɡə],das,7,body
+n31,Kopf,head,[kɔpf],der,7,body
+n32,Wasser,water,[ˈvasɐ],das,9,food_drink
+n33,Brot,bread,[bʁoːt],das,8,food_drink
+n34,Tisch,table,[tɪʃ],der,8,living
+n35,Stuhl,chair,[ʃtuːl],der,8,living
+n36,Bett,bed,[bɛt],das,8,living
+n37,Zimmer,room,[ˈtsɪmɐ],das,8,living
+n38,Tür,door,[tyːɐ̯],die,8,living
+n39,Fenster,window,[ˈfɛnstɐ],das,8,living
+n40,Buch,book,[buːx],das,7,media
+n41,Film,movie,[fɪlm],der,7,media
+n42,Musik,music,[muˈziːk],die,7,media
+n43,Wort,word,[vɔʁt],das,7,communication
+n44,Satz,sentence,[zats],der,7,communication
+n45,Problem,problem,[pʁoˈbleːm],das,8,abstract
+n46,Hilfe,help,[ˈhɪlfə],die,8,abstract
+n47,Geld,money,[ɡɛlt],das,9,money
+n48,Welt,world,[vɛlt],die,7,abstract
+n49,Sohn,son,[zoːn],der,8,people
+n50,Tochter,daughter,[ˈtɔxtɐ],die,8,people
+n51,Mutter,mother,[ˈmʊtɐ],die,9,people
+n52,Vater,father,[ˈfaːtɐ],der,9,people
+n53,Eltern,parents,[ˈɛltɐn],die,9,people
+n54,Bruder,brother,[ˈbʁuːdɐ],der,8,people
+n55,Schwester,sister,[ˈʃvɛstɐ],die,8,people
+n56,Herr,Mr./gentleman,[hɛʁ],der,9,people
+n57,Leute,people,[ˈlɔʏtə],die,8,people
+n58,Hund,dog,[hʊnt],der,7,animals
+n59,Katze,cat,[ˈkatsə],die,7,animals
+n60,Bahnhof,train station,[ˈbaːnˌhoːf],der,8,transport
+n61,Zug,train,[tsuːk],der,8,transport
+n62,Bus,bus,[bʊs],der,8,transport
+n63,Flughafen,airport,[ˈfluːkˌhaːfn̩],der,8,transport
+n64,Flugzeug,airplane,[ˈfluːkˌtsɔʏk],das,7,transport
+n65,Ticket,ticket,[ˈtɪkət],das,8,transport
+n66,Reise,journey/trip,[ˈʁaɪzə],die,7,transport
+n67,Urlaub,vacation,[ˈuːɐ̯laʊp],der,8,leisure
+n68,Pass,passport,[pas],der,8,personal_info
+n69,Koffer,suitcase,[ˈkɔfɐ],der,7,transport
+n70,Hotel,hotel,[hoˈtɛl],das,8,living
+n71,Restaurant,restaurant,[ʁɛstoˈʁɑ̃ː],das,8,food_drink
+n72,Essen,food/meal,[ˈɛsn̩],das,9,food_drink
+n73,Trinken,drink,[ˈtʁɪŋkən],das,9,food_drink
+n74,Kaffee,coffee,[ˈkafe],der,9,food_drink
+n75,Tee,tea,[teː],der,8,food_drink
+n76,Milch,milk,[mɪlç],die,8,food_drink
+n77,Zucker,sugar,[ˈtsʊkɐ],der,7,food_drink
+n78,Salz,salt,[zalts],das,7,food_drink
+n79,Käse,cheese,[ˈkɛːzə],der,8,food_drink
+n80,Fleisch,meat,[flaɪʃ],das,8,food_drink
+n81,Fisch,fish,[fɪʃ],der,8,food_drink
+n82,Apfel,apple,[ˈapfl̩],der,8,food_drink
+n83,Banane,banana,[baˈnaːnə],die,7,food_drink
+n84,Orange,orange,[oˈʁɑ̃ːʒə],die,7,food_drink
+n85,Gemüse,vegetable,[ɡəˈmyːzə],das,8,food_drink
+n86,Kartoffel,potato,[kaʁˈtɔfl̩],die,8,food_drink
+n87,Reis,rice,[ʁaɪs],der,7,food_drink
+n88,Kuchen,cake,[ˈkuːxn̩],der,7,food_drink
+n89,Supermarkt,supermarket,[ˈzuːpɐˌmaʁkt],der,8,shopping
+n90,Markt,market,[maʁkt],der,7,shopping
+n91,Preis,price,[pʁaɪs],der,8,shopping
+n92,Rechnung,bill/invoice,[ˈʁɛçnʊŋ],die,8,shopping
+n93,Küche,kitchen,[ˈkʏçə],die,8,living
+n94,Bad,bathroom,[baːt],das,8,living
+n95,Toilette,toilet,[toaˈlɛtə],die,8,living
+n96,Lampe,lamp,[ˈlampə],die,7,living
+n97,Sofa,sofa,[ˈzoːfa],das,7,living
+n98,Schrank,closet/cabinet,[ʃʁaŋk],der,7,living
+n99,Garten,garden,[ˈɡaʁtn̩],der,7,living
+n100,Balkon,balcony,[balˈkoːn],der,7,living
+n101,Wetter,weather,[ˈvɛtɐ],das,8,nature
+n102,Sonne,sun,[ˈzɔnə],die,8,nature
+n103,Regen,rain,[ˈʁeːɡn̩],der,7,nature
+n104,Himmel,sky,[ˈhɪml̩],der,7,nature
+n105,Temperatur,temperature,[tɛmpəʁaˈtuːɐ̯],die,7,nature
+n106,Grad,degree,[ɡʁaːt],das,7,nature
+n107,Norden,north,[ˈnɔʁdn̩],der,6,geography
+n108,Süden,south,[ˈzyːdn̩],der,6,geography
+n109,Westen,west,[ˈvɛstn̩],der,6,geography
+n110,Osten,east,[ˈɔstn̩],der,6,geography
+n111,Arzt,doctor (male),[aːɐ̯tst],der,8,work
+n112,Termin,appointment,[tɛʁˈmiːn],der,8,time
+n113,Krankenhaus,hospital,[ˈkʁaŋkənˌhaʊs],das,7,health
+n114,Apotheke,pharmacy,[apoˈteːkə],die,7,health
+n115,Medikament,medicine,[medikaˈmɛnt],das,7,health
+n116,Krankheit,illness,[ˈkʁaŋkhaɪt],die,6,health
+n117,Schmerz,pain,[ʃmɛʁts],der,7,health
+n118,Körper,body,[ˈkœʁpɐ],der,7,body
+n119,Arm,arm,[aʁm],der,7,body
+n120,Bein,leg,[baɪn],das,7,body
+n121,Fuß,foot,[fuːs],der,7,body
+n122,Haar,hair,[haːɐ̯],das,7,body
+n123,Gesicht,face,[ɡəˈzɪçt],das,7,body
+n124,Mund,mouth,[mʊnt],der,7,body
+n125,Nase,nose,[ˈnaːzə],die,7,body
+n126,Ohr,ear,[oːɐ̯],das,7,body
+n127,Hobby,hobby,[ˈhɔbi],das,8,leisure
+n128,Sport,sport,[ʃpɔʁt],der,8,leisure
+n129,Spiel,game,[ʃpiːl],das,7,leisure
+n130,Party,party,[ˈpaːɐ̯ti],die,8,leisure
+n131,Fest,celebration/festival,[fɛst],das,7,leisure
+n132,Wochenende,weekend,[ˈvɔxənˌʔɛndə],das,9,time
+n133,Morgen,morning,[ˈmɔʁɡn̩],der,9,time
+n134,Vormittag,late morning,[ˈfoːɐ̯mɪˌtaːk],der,8,time
+n135,Mittag,noon,[ˈmɪtaːk],der,8,time
+n136,Nachmittag,afternoon,[ˈnaːxmɪˌtaːk],der,9,time
+n137,Abend,evening,[ˈaːbənt],der,9,time
+n138,Nacht,night,[naxt],die,9,time
+n139,Stunde,hour,[ˈʃtʊndə],die,9,time
+n140,Minute,minute,[miˈnuːtə],die,9,time
+n141,Sekunde,second,[zeˈkʊndə],die,7,time
+n142,Geburtstag,birthday,[ɡəˈbuːɐ̯tsˌtaːk],der,9,personal_info
+n143,Datum,date,[ˈdaːtʊm],das,8,time
+n144,Nummer,number,[ˈnʊmɐ],die,9,communication
+n145,Telefon,telephone,[ˈteːləfoːn],das,8,communication
+n146,Handy,cell phone,[ˈhɛndi],das,8,communication
+n147,E-Mail,e-mail,[ˈiːmeɪl],die,8,communication
+n148,Adresse,address,[aˈdʁɛsə],die,9,personal_info
+n149,Postleitzahl,postal code,[ˈpɔstlaɪtˌtsaːl],die,8,personal_info
+n150,Ort,place/town,[ɔʁt],der,8,geography
+n151,Platz,place/square,[plats],der,7,geography
+n152,Weg,way/path,[veːk],der,7,transport
+n153,Anfang,beginning,[ˈanˌfaŋ],der,7,abstract
+n154,Ende,end,[ˈɛndə],das,7,abstract
+n155,Farbe,color,[ˈfaʁbə],die,7,abstract
+n156,Größe,size,[ˈɡʁøːsə],die,7,abstract
+n157,Gewicht,weight,[ɡəˈvɪçt],das,6,abstract
+n158,Alter,age,[ˈaltɐ],das,8,personal_info
+n159,Baby,baby,[ˈbeːbi],das,8,people
+n160,Junge,boy,[ˈjʊŋə],der,8,people
+n161,Mädchen,girl,[ˈmɛːtçən],das,8,people
+n162,Partner,partner (male),[ˈpaʁtnɐ],der,8,people
+n163,Kollege,colleague (male),[kɔˈleːɡə],der,8,work
+n164,Chef,boss (male),[ʃɛf],der,8,work
+n165,Firma,company,[ˈfɪʁma],die,7,work
+n166,Büro,office,[byˈʁoː],das,7,work
+n167,Polizei,police,[poliˈtsaɪ],die,7,public_service
+n168,Feuerwehr,fire department,[ˈfɔʏɐˌveːɐ̯],die,6,public_service
+n169,Post,post office,[pɔst],die,7,public_service
+n170,Bank,bank,[baŋk],die,7,money
+n171,Konto,account,[ˈkɔnto],das,7,money
+n172,Kreditkarte,credit card,[kʁeˈdɪtˌkaʁtə],die,7,money
+n173,Bargeld,cash,[ˈbaːɐ̯ˌɡɛlt],das,7,money
+n174,Kleidung,clothing,[ˈklaɪdʊŋ],die,8,shopping
+n175,Jacke,jacket,[ˈjakə],die,7,shopping
+n176,Hose,pants,[ˈhoːzə],die,7,shopping
+n177,Schuh,shoe,[ʃuː],der,7,shopping
+n178,Hemd,shirt,[hɛmt],das,7,shopping
+n179,Kleid,dress,[klaɪt],das,7,shopping
+n180,Rock,skirt,[ʁɔk],der,6,shopping
+n181,Brille,glasses,[ˈbʁɪlə],die,7,accessories
+n182,Tasche,bag/purse,[ˈtaʃə],die,7,accessories
+n183,Schlüssel,key,[ˈʃlʏsl̩],der,8,everyday_objects
+n184,Stift,pen,[ʃtɪft],der,7,everyday_objects
+n185,Papier,paper,[paˈpiːɐ̯],das,7,everyday_objects
+n186,Computer,computer,[kɔmˈpjuːtɐ],der,8,everyday_objects
+n187,Bildschirm,screen,[ˈbɪltˌʃɪʁm],der,7,everyday_objects
+n188,Maus,mouse,[maʊs],die,7,everyday_objects
+n189,Tastatur,keyboard,[tastaˈtuːɐ̯],die,7,everyday_objects
+n190,Drucker,printer,[ˈdʁʊkɐ],der,6,everyday_objects
+n191,Internet,internet,[ˈɪntɐnɛt],das,8,media
+n192,Webseite,website,[ˈvɛpˌzaɪtə],die,7,media
+n193,Foto,photo,[ˈfoːto],das,7,media
+n194,Video,video,[ˈviːdeo],das,7,media
+n195,Nachricht,message/news,[ˈnaːxˌʁɪçt],die,7,communication
+n196,Zeitung,newspaper,[ˈtsaɪtʊŋ],die,7,media
+n197,Zeitschrift,magazine,[ˈtsaɪtˌʃʁɪft],die,6,media
+n198,Radio,radio,[ˈʁaːdio],das,7,media
+n199,Fernseher,television set,[ˈfɛɐnˌzeːɐ],der,7,media
+n200,Sprache,language,[ˈʃpʁaːxə],die,8,communication
+n201,Deutsch,German (language),[dɔʏtʃ],das,9,communication
+n202,Englisch,English (language),[ˈɛŋlɪʃ],das,8,communication
+n203,Spanisch,Spanish (language),[ˈʃpaːnɪʃ],das,7,communication
+n204,Französisch,French (language),[fʁanˈtsøːzɪʃ],das,7,communication
+n205,Unterricht,class/lesson,[ˈʊntɐˌʁɪçt],der,8,education
+n206,Kurs,course,[kʊʁs],der,8,education
+n207,Prüfung,exam,[ˈpʁyːfʊŋ],die,8,education
+n208,Hausaufgabe,homework,[ˈhaʊsʔaʊfˌɡaːbə],die,7,education
+n209,Beispiel,example,[ˈbaɪʃpiːl],das,7,communication
+n210,Seite,page,[ˈzaɪtə],die,7,media
+n211,Teil,part,[taɪl],der,7,abstract
+n212,Anzug,suit,[ˈanˌtsuːk],der,6,shopping
+n213,Apfelsaft,apple juice,[ˈapfl̩ˌzaft],der,8,food_drink
+n214,Orangensaft,orange juice,[oˈʁɑ̃ːʒn̩ˌzaft],der,8,food_drink
+n215,Bier,beer,[biːɐ̯],das,8,food_drink
+n216,Wein,wine,[vaɪn],der,8,food_drink
+n217,Wasserflasche,water bottle,[ˈvasɐˌflaʃə],die,7,food_drink
+n218,Tasse,cup,[ˈtasə],die,8,food_drink
+n219,Glas,glass,[ɡlaːs],das,8,food_drink
+n220,Flasche,bottle,[ˈflaʃə],die,8,food_drink
+n221,Teller,plate,[ˈtɛlɐ],der,7,food_drink
+n222,Messer,knife,[ˈmɛsɐ],das,7,food_drink
+n223,Gabel,fork,[ˈɡaːbl̩],die,7,food_drink
+n224,Löffel,spoon,[ˈlœfl̩],der,7,food_drink
+n225,Serviette,napkin,[zɛʁˈvi̯ɛtə],die,6,food_drink
+n226,Frühstück,breakfast,[ˈfʁyːˌʃtʏk],das,9,food_drink
+n227,Mittagessen,lunch,[ˈmɪtaːkˌʔɛsn̩],das,9,food_drink
+n228,Abendessen,dinner,[ˈaːbəntˌʔɛsn̩],das,9,food_drink
+n229,Vorspeise,starter/appetizer,[ˈfoːɐ̯ˌʃpaɪzə],die,6,food_drink
+n230,Hauptgericht,main course,[ˈhaʊptɡəˌʁɪçt],das,7,food_drink
+n231,Nachtisch,dessert,[ˈnaːxˌtɪʃ],der,7,food_drink
+n232,Salat,salad,[zaˈlaːt],der,8,food_drink
+n233,Suppe,soup,[ˈzʊpə],die,8,food_drink
+n234,Butter,butter,[ˈbʊtɐ],die,8,food_drink
+n235,Marmelade,jam,[maʁməˈlaːdə],die,7,food_drink
+n236,Honig,honey,[ˈhoːnɪç],der,7,food_drink
+n237,Ei,egg,[aɪ],das,8,food_drink
+n238,Wurst,sausage,[vʊʁst],die,8,food_drink
+n239,Schinken,ham,[ˈʃɪŋkən],der,7,food_drink
+n240,Hähnchen,chicken,[ˈhɛːnçən],das,8,food_drink
+n241,Rindfleisch,beef,[ˈʁɪntˌflaɪʃ],das,7,food_drink
+n242,Schwein,pig/pork,[ʃvaɪn],das,7,food_drink
+n243,Zwiebel,onion,[ˈtsviːbl̩],die,7,food_drink
+n244,Tomate,tomato,[toˈmaːtə],die,8,food_drink
+n245,Gurke,cucumber,[ˈɡʊʁkə],die,7,food_drink
+n246,Paprika,pepper (vegetable),[ˈpapʁika],die,7,food_drink
+n247,Obst,fruit,[oːpst],das,8,food_drink
+n248,Erdbeere,strawberry,[ˈeːɐ̯tˌbeːʁə],die,7,food_drink
+n249,Zitrone,lemon,[tsiˈtʁoːnə],die,7,food_drink
+n250,Kino,cinema,[ˈkiːno],das,7,leisure
+n251,Theater,theater,[teˈaːtɐ],das,6,leisure
+n252,Museum,museum,[muˈzeːʊm],das,7,leisure
+n253,Konzert,concert,[kɔnˈtsɛʁt],das,7,leisure
+n254,Schwimmbad,swimming pool,[ˈʃvɪmˌbaːt],das,7,leisure
+n255,Strand,beach,[ʃtʁant],der,7,leisure
+n256,See,lake,[zeː],der,7,nature
+n257,Meer,sea/ocean,[meːɐ̯],das,7,nature
+n258,Fluss,river,[flʊs],der,7,nature
+n259,Berg,mountain,[bɛʁk],der,7,nature
+n260,Wald,forest,[valt],der,7,nature
+n261,Baum,tree,[baʊm],der,7,nature
+n262,Blume,flower,[ˈbluːmə],die,7,nature
+n263,Tier,animal,[tiːɐ̯],das,7,animals
+n264,Pferd,horse,[pfeːɐ̯t],das,6,animals
+n265,Vogel,bird,[ˈfoːɡl̩],der,6,animals
+n266,Fahrrad,bicycle,[ˈfaːˌʁaːt],das,8,transport
+n267,Motorrad,motorcycle,[ˈmoːtoːɐ̯ˌʁaːt],das,6,transport
+n268,Schiff,ship,[ʃɪf],das,6,transport
+n269,U-Bahn,subway,[ˈuːˌbaːn],die,8,transport
+n270,S-Bahn,suburban train,[ˈɛsˌbaːn],die,8,transport
+n271,Haltestelle,stop (bus/tram),[ˈhaltəˌʃtɛlə],die,8,transport
+n272,Gleis,platform/track,[ɡlaɪs],das,8,transport
+n273,Abflug,departure (flight),[ˈapˌfluːk],der,7,transport
+n274,Ankunft,arrival,[ˈanˌkʊnft],die,7,transport
+n275,Verspätung,delay,[fɛɐ̯ˈʃpɛːtʊŋ],die,7,transport
+n276,Ausweis,ID card,[ˈaʊsˌvaɪs],der,8,personal_info
+n277,Visum,visa,[ˈviːzʊm],das,7,personal_info
+n278,Formular,form,[fɔʁmuˈlaːɐ̯],das,7,communication
+n279,Unterschrift,signature,[ˈʊntɐˌʃʁɪft],die,7,communication
+n280,Brief,letter,[bʁiːf],der,7,communication
+n281,Postkarte,postcard,[ˈpɔstˌkaʁtə],die,7,communication
+n282,Paket,package,[paˈkeːt],das,7,communication
+n283,Briefmarke,stamp,[ˈbʁiːfˌmaʁkə],die,7,communication
+n284,Absender,sender,[ˈapˌzɛndɐ],der,6,communication
+n285,Empfänger,recipient,[ɛmˈpfɛŋɐ],der,6,communication
+n286,Geschenk,gift,[ɡəˈʃɛŋk],das,7,leisure
+n287,Einladung,invitation,[ˈaɪnˌlaːdʊŋ],die,7,leisure
+n288,Glück,luck/happiness,[ɡlʏk],das,7,abstract
+n289,Pech,bad luck,[pɛç],das,6,abstract
+n290,Liebe,love,[ˈliːbə],die,7,abstract
+n291,Angst,fear,[aŋst],die,6,abstract
+n292,Traum,dream,[tʁaʊm],der,6,abstract
+n293,Idee,idea,[iˈdeː],die,7,abstract
+n294,Plan,plan,[plaːn],der,7,abstract
+n295,Ziel,goal/destination,[tsiːl],das,6,abstract
+n296,Grund,reason,[ɡʁʊnt],der,6,abstract
+n297,Art,type/kind,[aːɐ̯t],die,6,abstract
+n298,Form,shape/form,[fɔʁm],die,6,abstract
+n299,Paar,pair/couple,[paːɐ̯],das,7,abstract
+n300,Stück,piece,[ʃtʏk],das,7,abstract
+n301,Rest,rest/remainder,[ʁɛst],der,6,abstract
+n302,Anruf,phone call,[ˈanˌʁuːf],der,7,communication
+n303,Gespräch,conversation,[ɡəˈʃpʁɛːç],das,7,communication
+n304,Information,information,[ɪnfɔʁmaˈtsjoːn],die,8,communication
+n305,Moment,moment,[moˈmɛnt],der,8,time
+n306,Pause,break,[ˈpaʊzə],die,8,leisure
+n307,Feierabend,end of the workday,[ˈfaɪɐˌʔaːbənt],der,8,work
+n308,Wochentag,weekday,[ˈvɔxənˌtaːk],der,8,time
+n309,Montag,Monday,[ˈmoːnˌtaːk],der,9,time
+n310,Dienstag,Tuesday,[ˈdiːnsˌtaːk],der,9,time
+n311,Mittwoch,Wednesday,[ˈmɪtˌvɔx],der,9,time
+n312,Donnerstag,Thursday,[ˈdɔnɐsˌtaːk],der,9,time
+n313,Freitag,Friday,[ˈfʁaɪˌtaːk],der,9,time
+n314,Samstag,Saturday,[ˈzamsˌtaːk],der,9,time
+n315,Sonntag,Sunday,[ˈzɔnˌtaːk],der,9,time
+n316,Januar,January,[ˈjanuaːɐ̯],der,9,time
+n317,Februar,February,[ˈfeːbʁuaːɐ̯],der,9,time
+n318,März,March,[mɛʁts],der,9,time
+n319,April,April,[aˈpʁɪl],der,9,time
+n320,Mai,May,[maɪ],der,9,time
+n321,Juni,June,[ˈjuːni],der,9,time
+n322,Juli,July,[ˈjuːli],der,9,time
+n323,August,August,[aʊˈɡʊst],der,9,time
+n324,September,September,[zɛpˈtɛmbɐ],der,9,time
+n325,Oktober,October,[ɔkˈtoːbɐ],der,9,time
+n326,November,November,[noˈvɛmbɐ],der,9,time
+n327,Dezember,December,[deˈtsɛmbɐ],der,9,time
+n328,Frühling,spring,[ˈfʁyːlɪŋ],der,8,time
+n329,Sommer,summer,[ˈzɔmɐ],der,8,time
+n330,Herbst,autumn,[hɛʁpst],der,8,time
+n331,Winter,winter,[ˈvɪntɐ],der,8,time
+n332,Heizung,heating,[ˈhaɪtsʊŋ],die,7,living
+n333,Licht,light,[lɪçt],das,7,living
+n334,Dusche,shower,[ˈduːʃə],die,7,living
+n335,Seife,soap,[ˈzaɪfə],die,6,living
+n336,Handtuch,towel,[ˈhantˌtuːx],das,7,living
+n337,Zahnbürste,toothbrush,[ˈtsaːnˌbʏʁstə],die,7,health
+n338,Zahnpasta,toothpaste,[ˈtsaːnˌpasta],die,7,health
+n339,Spiegel,mirror,[ˈʃpiːɡl̩],der,7,living
+n340,Müll,trash,[mʏl],der,7,living
+n341,Boden,floor/ground,[ˈboːdn̩],der,7,living
+n342,Wand,wall,[vant],die,7,living
+n343,Decke,ceiling/blanket,[ˈdɛkə],die,7,living
+n344,Treppe,stairs,[ˈtʁɛpə],die,7,living
+n345,Keller,cellar/basement,[ˈkɛlɐ],der,6,living
+n346,Dach,roof,[dax],das,6,living
+n347,Garage,garage,[ɡaˈʁaːʒə],die,6,living
+n348,Schlafzimmer,bedroom,[ˈʃlaːfˌtsɪmɐ],das,8,living
+n349,Wohnzimmer,living room,[ˈvoːnˌtsɪmɐ],das,8,living
+n350,Badezimmer,bathroom,[ˈbaːdəˌtsɪmɐ],das,8,living
+n351,Kinderzimmer,children's room,[ˈkɪndɐˌtsɪmɐ],das,8,living
+n352,Arbeitszimmer,study/home office,[ˈaʁbaɪtsˌtsɪmɐ],das,7,living
+n353,Flur,hallway,[fluːɐ̯],der,7,living
+n354,Eingang,entrance,[ˈaɪnˌɡaŋ],der,7,living
+n355,Ausgang,exit,[ˈaʊsˌɡaŋ],der,7,living
+n356,Notfall,emergency,[ˈnoːtˌfal],der,6,health
+n357,Unfall,accident,[ˈʊnˌfal],der,6,health
+n358,Polizist,police officer (male),[poliˈtsɪst],der,7,work
+n359,Verkäufer,salesperson (male),[fɛɐ̯ˈkɔʏfɐ],der,7,work
+n360,Kellner,waiter,[ˈkɛlnɐ],der,7,work
+n361,Koch,cook/chef (male),[kɔx],der,7,work
+n362,Friseur,hairdresser (male),[fʁiˈzøːɐ̯],der,7,work
+n363,Mechaniker,mechanic (male),[meˈçaːnɪkɐ],der,6,work
+n364,Sekretärin,secretary (female),[zekʁeˈtɛːʁɪn],die,7,work
+n365,Künstler,artist (male),[ˈkʏnstlɐ],der,6,work
+n366,Sänger,singer (male),[ˈzɛŋɐ],der,6,work
+n367,Schauspieler,actor,[ˈʃaʊˌʃpiːlɐ],der,6,work
+n368,Nachbar,neighbor (male),[ˈnaxbaːɐ̯],der,7,people
+n369,Besuch,visit/visitor,[bəˈzuːx],der,7,leisure
+n370,Gast,guest,[ɡast],der,7,leisure
+n371,Anschluss,connection,[ˈanˌʃlʊs],der,7,transport
+n372,Führerschein,driver's license,[ˈfyːʁɐˌʃaɪn],der,7,personal_info
+n373,Fahrkarte,ticket (for transport),[ˈfaːɐ̯ˌkaʁtə],die,8,transport
+n374,Bahnsteig,platform,[ˈbaːnˌʃtaɪk],der,8,transport
+n375,Sitzplatz,seat,[ˈzɪtsˌplats],der,7,transport
+n376,Gepäck,luggage,[ɡəˈpɛk],das,7,transport
+n377,Zentrum,center,[ˈtsɛntʁʊm],das,7,geography
+n378,Ampel,traffic light,[ˈampl̩],die,7,transport
+n379,Kreuzung,intersection,[ˈkʁɔʏtsʊŋ],die,6,transport
+n380,Brücke,bridge,[ˈbʁʏkə],die,6,transport
+n381,Park,park,[paʁk],der,7,leisure
+n382,Kneipe,pub,[ˈknaɪpə],die,6,leisure
+n383,Disco,disco,[ˈdɪsko],die,6,leisure
+n384,Fitnessstudio,gym,[ˈfɪtnɛsˌʃtuːdio],das,7,leisure
+n385,Verein,club/association,[fɛɐ̯ˈʔaɪn],der,6,leisure
+n386,Mannschaft,team,[ˈmanʃaft],die,6,leisure
+n387,Regel,rule,[ˈʁeːɡl̩],die,6,abstract
+n388,Gesetz,law,[ɡəˈzɛts],das,5,abstract
+n389,Gefühl,feeling,[ɡəˈfyːl],das,6,abstract
+n390,Gedanke,thought,[ɡəˈdaŋkə],der,6,abstract
+n391,Wunsch,wish,[vʊnʃ],der,6,abstract
+n392,Stimme,voice,[ˈʃtɪmə],die,6,communication
+n393,Geräusch,noise,[ɡəˈʁɔʏʃ],das,6,abstract
+n394,Stille,silence,[ˈʃtɪlə],die,6,abstract
+n395,Fehler,mistake,[ˈfeːlɐ],der,7,abstract
+n396,Glückwunsch,congratulation,[ˈɡlʏkˌvʊnʃ],der,7,communication
+n397,Rat,advice/council,[ʁaːt],der,6,communication
+n398,Vorschlag,suggestion,[ˈfoːɐ̯ˌʃlaːk],der,6,communication
+n399,Meinung,opinion,[ˈmaɪnʊŋ],die,7,communication
+n400,Diskussion,discussion,[dɪskʊˈsjoːn],die,6,communication
+n401,Universität,university,[univɛʁziˈtɛːt],die,7,education
+n402,Bibliothek,library,[biblioˈteːk],die,7,education
+n403,Heft,notebook,[hɛft],das,7,education
+n404,Wörterbuch,dictionary,[ˈvœʁtɐˌbuːx],das,7,education
+n405,Lösung,solution,[ˈløːzʊŋ],die,6,abstract
+```

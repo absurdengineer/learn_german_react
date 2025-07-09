@@ -189,7 +189,7 @@ const ArticlesPractice: React.FC<ArticlesPracticeProps> = ({
     );
   }
 
-  const cardBgColor = showResult
+  const cardBgColor = showResult && currentWord
     ? GENDER_COLORS[currentWord.gender]?.bg
     : 'bg-white';
 
@@ -279,6 +279,11 @@ const ArticlesPractice: React.FC<ArticlesPracticeProps> = ({
             <div className="text-lg sm:text-xl text-gray-600">
               {currentWord?.english}
             </div>
+            {currentWord?.pronunciation && (
+              <div className="text-md sm:text-lg text-gray-500">
+                /{currentWord.pronunciation}/
+              </div>
+            )}
             <div className="text-sm text-gray-500 mt-2 capitalize">
               Category: {currentWord?.category}
             </div>
@@ -326,7 +331,7 @@ const ArticlesPractice: React.FC<ArticlesPracticeProps> = ({
                 The correct answer is:{' '}
                 <span
                   className={`font-bold ${
-                    GENDER_COLORS[currentWord?.gender]?.text
+                    currentWord && GENDER_COLORS[currentWord.gender]?.text
                   }`}
                 >
                   {currentWord?.gender}
