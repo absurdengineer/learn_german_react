@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
-  A1_VOCABULARY_WORDS,
-  getRandomVocabularyWords,
-  getVocabularyWordsByCategory,
-  searchVocabularyWords
+    A1_VOCABULARY_WORDS,
+    getRandomVocabularyWords,
+    getVocabularyWordsByCategory,
+    loadVocabularyCategories,
+    searchVocabularyWords
 } from '../../data';
 import { VocabularyWord } from '../../domain/entities/Vocabulary';
+import { shuffleArray } from '../../utils/testGenerator';
 import PageHeader from '../components/PageHeader';
 import PracticeSessionResults from '../components/PracticeSessionResults';
 import VocabularySession from '../components/VocabularySession';
@@ -28,6 +30,7 @@ const Vocabulary: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<'all' | string>('all');
   const [filteredWords, setFilteredWords] = useState<VocabularyWord[]>(A1_VOCABULARY_WORDS);
+  const [availableCategories, setAvailableCategories] = useState<Record<string, { name: string; description: string; color?: string }>>({});
   const [selectedWord, setSelectedWord] = useState<VocabularyWord | null>(null);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [sessionMode, setSessionMode] = useState<'browse' | 'session' | 'results'>('browse');
@@ -38,6 +41,12 @@ const Vocabulary: React.FC = () => {
   const [sessionLength, setSessionLength] = useState(10);
   const [sessionResults, setSessionResults] = useState<SessionResult | null>(null);
   const navigate = useNavigate();
+
+  // Load available categories on component mount
+  useEffect(() => {
+    const categories = loadVocabularyCategories();
+    setAvailableCategories(categories);
+  }, []);
 
   useEffect(() => {
     let words: VocabularyWord[] = [];
@@ -92,7 +101,8 @@ const Vocabulary: React.FC = () => {
   const handleReviewMistakes = () => {
     if (sessionResults && sessionResults.mistakes.length > 0) {
       const mistakeWords = sessionResults.mistakes.map((m) => m.word);
-      setSessionWords(mistakeWords);
+      const shuffledWords = shuffleArray([...mistakeWords]);
+      setSessionWords(shuffledWords);
       setSessionMode('session');
     }
   };
@@ -224,12 +234,13 @@ const Vocabulary: React.FC = () => {
                   className="block w-full px-4 py-3 border border-gray-300 rounded-xl bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
                 >
                   <option value="all">All Categories</option>
-                  <option value="articles">Articles</option>
-                  <option value="greetings">Greetings</option>
-                  <option value="politeness">Politeness</option>
-                  <option value="responses">Responses</option>
-                  <option value="pronouns">Pronouns</option>
-                  <option value="verbs">Verbs</option>
+                  {Object.entries(availableCategories)
+                    .sort(([, a], [, b]) => a.name.localeCompare(b.name))
+                    .map(([key, category]) => (
+                      <option key={key} value={key}>
+                        {category.name}
+                      </option>
+                    ))}
                 </select>
               </div>
             </div>
@@ -238,6 +249,7 @@ const Vocabulary: React.FC = () => {
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
               <button
                 onClick={() => {
+                  setSelectedCategory('all'); // Reset category filter for random practice
                   const words = getRandomVocabularyWords(20);
                   startPractice('flashcards', words);
                 }}
@@ -251,6 +263,7 @@ const Vocabulary: React.FC = () => {
               </button>
               <button
                 onClick={() => {
+                  setSelectedCategory('all'); // Reset category filter for random practice
                   const words = getRandomVocabularyWords(15);
                   startPractice('translation-de-en', words);
                 }}
@@ -264,6 +277,7 @@ const Vocabulary: React.FC = () => {
               </button>
               <button
                 onClick={() => {
+                  setSelectedCategory('all'); // Reset category filter for random practice
                   const words = getRandomVocabularyWords(15);
                   startPractice('translation-en-de', words);
                 }}
@@ -277,6 +291,7 @@ const Vocabulary: React.FC = () => {
               </button>
               <button
                 onClick={() => {
+                  setSelectedCategory('all'); // Reset category filter for random practice
                   const words = getRandomVocabularyWords(12);
                   startPractice('multiple-choice-de-en', words);
                 }}
@@ -290,6 +305,7 @@ const Vocabulary: React.FC = () => {
               </button>
               <button
                 onClick={() => {
+                  setSelectedCategory('all'); // Reset category filter for random practice
                   const words = getRandomVocabularyWords(12);
                   startPractice('multiple-choice-en-de', words);
                 }}
@@ -302,7 +318,10 @@ const Vocabulary: React.FC = () => {
                 <span className="sm:hidden">Ger Quiz</span>
               </button>
               <button
-                onClick={() => setFilteredWords(getRandomVocabularyWords(20))}
+                onClick={() => {
+                  setSelectedCategory('all'); // Reset category filter for random practice
+                  setFilteredWords(getRandomVocabularyWords(20));
+                }}
                 className="bg-gray-700 text-white px-4 py-3 rounded-xl hover:bg-gray-800 transition-all duration-200 flex items-center justify-center gap-2 font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >
                 <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -373,7 +392,14 @@ const Vocabulary: React.FC = () => {
               className="bg-white rounded-xl shadow-sm p-6 cursor-pointer hover:shadow-lg transition-all duration-200 transform hover:-translate-y-1 border border-gray-100"
             >
               <div className="flex justify-between items-start mb-3">
-                <h3 className="text-xl font-bold text-gray-900">{word.german}</h3>
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900">{word.german}</h3>
+                  {word.pronunciation && (
+                    <p className="text-sm text-blue-600 italic mt-1">
+                      {word.pronunciation}
+                    </p>
+                  )}
+                </div>
                 <span className={`px-3 py-1 text-xs rounded-full font-medium ${getWordTypeColor(word.type)}`}>
                   {word.type}
                 </span>
@@ -422,7 +448,14 @@ const Vocabulary: React.FC = () => {
           <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
             <div className="p-4 sm:p-8">
               <div className="flex justify-between items-start mb-6">
-                <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 pr-4">{selectedWord.german}</h2>
+                <div>
+                  <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 pr-4">{selectedWord.german}</h2>
+                  {selectedWord.pronunciation && (
+                    <p className="text-lg text-blue-600 italic mt-2">
+                      {selectedWord.pronunciation}
+                    </p>
+                  )}
+                </div>
                 <button
                   onClick={handleCloseDialog}
                   className="text-gray-400 hover:text-gray-600 p-2 rounded-lg hover:bg-gray-100 transition-all duration-200 flex-shrink-0"

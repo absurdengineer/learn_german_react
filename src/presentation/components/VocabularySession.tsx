@@ -152,11 +152,25 @@ const VocabularySession: React.FC<VocabularySessionProps> = ({
     }
   };
 
+  const checkAnswer = (userInput: string, correctAnswer: string): boolean => {
+    const normalizedUserInput = userInput.toLowerCase().trim();
+    const normalizedCorrectAnswer = correctAnswer.toLowerCase().trim();
+    
+    // If the correct answer contains "/", check if user input matches any of the alternatives
+    if (normalizedCorrectAnswer.includes('/')) {
+      const alternatives = normalizedCorrectAnswer.split('/').map(alt => alt.trim());
+      return alternatives.some(alt => alt === normalizedUserInput);
+    }
+    
+    // Otherwise, do exact match
+    return normalizedUserInput === normalizedCorrectAnswer;
+  };
+
   const handleTranslationSubmit = () => {
     if (!userAnswer.trim()) return;
 
     const correctAnswer = isReverse ? currentWord.german : currentWord.english;
-    const isCorrect = userAnswer.toLowerCase().trim() === correctAnswer.toLowerCase().trim();
+    const isCorrect = checkAnswer(userAnswer, correctAnswer);
     handleAnswer(userAnswer, isCorrect);
   };
 
@@ -182,26 +196,35 @@ const VocabularySession: React.FC<VocabularySessionProps> = ({
     <div className="min-h-screen bg-gray-50 p-4">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
-        <div className="flex items-center justify-between mb-6">
-          <button
-            onClick={onExit}
-            className="flex items-center space-x-2 px-4 py-2 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow"
-          >
-            <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            </svg>
-            <span className="text-gray-700">Exit</span>
-          </button>
+        <div className="mb-6">
+          {/* Exit button */}
+          <div className="flex justify-start mb-4">
+            <button
+              onClick={onExit}
+              className="flex items-center space-x-2 px-4 py-2 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow"
+            >
+              <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+              <span className="text-gray-700">Exit</span>
+            </button>
+          </div>
           
-          <div className="flex items-center space-x-4">
-            <div className="text-sm text-gray-600">
-              {currentIndex + 1} / {words.length}
+          {/* Progress section */}
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-2 sm:space-y-0">
+            <div className="text-sm text-gray-600 text-center sm:text-left">
+              Question {currentIndex + 1} of {words.length}
             </div>
-            <div className="w-48 bg-gray-200 rounded-full h-2">
-              <div 
-                className="bg-blue-600 h-2 rounded-full transition-all duration-300"
-                style={{ width: `${progress}%` }}
-              />
+            <div className="flex items-center space-x-3">
+              <div className="text-xs text-gray-500">
+                {Math.round(progress)}%
+              </div>
+              <div className="flex-1 sm:w-48 bg-gray-200 rounded-full h-2">
+                <div 
+                  className="bg-blue-600 h-2 rounded-full transition-all duration-300"
+                  style={{ width: `${progress}%` }}
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -221,17 +244,17 @@ const VocabularySession: React.FC<VocabularySessionProps> = ({
                 </span>
               )}
             </div>
+            {currentWord.pronunciation && !isReverse && (
+              <p className={`text-xl italic mb-4 ${genderColor.text || 'text-blue-600'} font-medium`}>
+                {currentWord.pronunciation}
+              </p>
+            )}
             {currentWord.isNoun() && currentWord.hasGender() && !isReverse && (
               <p className={`text-lg mb-2 ${genderColor.text}`}>
                 {currentWord.getFullNoun()}
                 <span className={`ml-2 text-sm ${genderColor.text} opacity-75`}>
                   ({getGenderDisplayName(currentWord.gender)})
                 </span>
-              </p>
-            )}
-            {currentWord.pronunciation && !isReverse && (
-              <p className={`text-sm italic ${genderColor.text} opacity-75`}>
-                /{currentWord.pronunciation}/
               </p>
             )}
           </div>
@@ -253,8 +276,15 @@ const VocabularySession: React.FC<VocabularySessionProps> = ({
                 </div>
               ) : (
                 <div className="space-y-6">
-                  <div className="text-2xl font-semibold text-green-600">
-                    {correctAnswer}
+                  <div className="text-center">
+                    <div className="text-2xl font-semibold text-green-600 mb-2">
+                      {correctAnswer}
+                    </div>
+                    {currentWord.pronunciation && (
+                      <p className="text-lg text-blue-600 italic font-medium">
+                        {currentWord.pronunciation}
+                      </p>
+                    )}
                   </div>
                   {currentWord.exampleSentences && currentWord.exampleSentences.length > 0 && (
                     <div className="bg-gray-50 p-4 rounded-lg">
@@ -355,6 +385,11 @@ const VocabularySession: React.FC<VocabularySessionProps> = ({
                   <p className="text-sm">
                     The correct answer is: <strong>{correctAnswer}</strong>
                   </p>
+                  {currentWord.pronunciation && (
+                    <p className="text-sm text-blue-600 italic mt-1">
+                      Pronunciation: {currentWord.pronunciation}
+                    </p>
+                  )}
                 </div>
               )}
             </div>

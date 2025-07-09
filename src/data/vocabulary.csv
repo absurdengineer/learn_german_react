@@ -1,0 +1,476 @@
+german,english,pronunciation,type,tags,frequency,example,example_translation
+sein,to be,[zaɪn],verb,verb|essential|basic|irregular,9,Ich bin Studentin.,I am a student.
+haben,to have,[ˈhaːbən],verb,verb|essential|basic|irregular,9,Ich habe einen Hund.,I have a dog.
+werden,to become,[ˈveːɐ̯dən],verb,verb|essential|basic|irregular,9,Ich werde Lehrer.,I become a teacher.
+können,can/to be able to,[ˈkœnən],verb,verb|modal|essential,9,Ich kann schwimmen.,I can swim.
+müssen,must/to have to,[ˈmʏsən],verb,verb|modal|essential,9,Ich muss arbeiten.,I must work.
+wollen,to want to,[ˈvɔlən],verb,verb|modal|essential,8,Ich will nach Hause gehen.,I want to go home.
+sollen,should/to be supposed to,[ˈzɔlən],verb,verb|modal|essential,8,Du sollst pünktlich sein.,You should be punctual.
+dürfen,may/to be allowed to,[ˈdʏʁfn̩],verb,verb|modal|essential,7,Hier dürfen Sie nicht rauchen.,You are not allowed to smoke here.
+möchten,would like to,[ˈmœçtn̩],verb,verb|modal|essential,9,Ich möchte einen Kaffee bestellen.,I would like to order a coffee.
+machen,to do/to make,[ˈmaxn̩],verb,verb|essential|basic,9,Wir machen eine Party.,We are having a party.
+geben,to give,[ˈɡeːbn̩],verb,verb|essential|basic|irregular,8,Kannst du mir das Salz geben?,Can you give me the salt?
+kommen,to come,[ˈkɔmən],verb,verb|essential|basic|irregular,8,Sie kommt aus Spanien.,She comes from Spain.
+gehen,to go,[ˈɡeːən],verb,verb|essential|basic|irregular,9,Ich gehe ins Kino.,I am going to the cinema.
+sagen,to say,[ˈzaːɡn̩],verb,verb|essential|basic,8,Was hast du gesagt?,What did you say?
+sehen,to see,[ˈzeːən],verb,verb|essential|basic|irregular,8,Ich sehe einen Vogel.,I see a bird.
+sprechen,to speak,[ˈʃpʁɛçn̩],verb,verb|essential|basic|irregular,8,Sprechen Sie Deutsch?,Do you speak German?
+stehen,to stand,[ˈʃteːən],verb,verb|essential|basic|irregular,7,Das Auto steht vor dem Haus.,The car is standing in front of the house.
+nehmen,to take,[ˈneːmən],verb,verb|essential|basic|irregular,7,Ich nehme den Bus.,I am taking the bus.
+tun,to do,[tuːn],verb,verb|essential|basic|irregular,6,Was kann ich für Sie tun?,What can I do for you?
+fahren,to drive/to travel,[ˈfaːʁən],verb,verb|essential|basic|irregular,8,Wir fahren in den Urlaub.,We are going on vacation.
+finden,to find,[ˈfɪndn̩],verb,verb|essential|basic,7,Ich finde meine Schlüssel nicht.,I can't find my keys.
+bleiben,to stay,[ˈblaɪbn̩],verb,verb|essential|basic|irregular,7,Ich bleibe heute zu Hause.,I am staying at home today.
+liegen,to lie (be located),[ˈliːɡn̩],verb,verb|essential|basic|irregular,6,Das Buch liegt auf dem Tisch.,The book is lying on the table.
+heißen,to be called,[ˈhaɪsn̩],verb,verb|essential|basic|irregular,9,Wie heißen Sie?,What is your name?
+denken,to think,[ˈdɛŋkn̩],verb,verb|essential|basic|irregular,6,Ich denke, das ist eine gute Idee.,I think that is a good idea.
+fragen,to ask,[ˈfʁaːɡn̩],verb,verb|essential|basic,8,Ich muss dich etwas fragen.,I have to ask you something.
+kennen,to know (a person/place),[ˈkɛnən],verb,verb|essential|basic|irregular,7,Kennen Sie diese Stadt?,Do you know this city?
+wissen,to know (a fact),[ˈvɪsn̩],verb,verb|essential|basic|irregular,7,Ich weiß die Antwort nicht.,I don't know the answer.
+arbeiten,to work,[ˈaʁbaɪtn̩],verb,verb|essential|basic,8,Er arbeitet bei einer Bank.,He works at a bank.
+brauchen,to need,[ˈbʁaʊxən],verb,verb|essential|basic,8,Ich brauche Hilfe.,I need help.
+folgen,to follow,[ˈfɔlɡn̩],verb,verb|dative|basic,5,Bitte folgen Sie mir.,Please follow me.
+lernen,to learn,[ˈlɛʁnən],verb,verb|essential|basic,8,Ich lerne Deutsch.,I am learning German.
+verstehen,to understand,[fɛɐ̯ˈʃteːən],verb,verb|essential|basic|irregular,8,Ich verstehe die Frage nicht.,I don't understand the question.
+essen,to eat,[ˈɛsn̩],verb,verb|essential|basic|irregular,8,Was isst du gern?,What do you like to eat?
+trinken,to drink,[ˈtʁɪŋkn̩],verb,verb|essential|basic,8,Ich trinke jeden Morgen Kaffee.,I drink coffee every morning.
+kaufen,to buy,[ˈkaʊfn̩],verb,verb|essential|basic,8,Sie kauft ein neues Kleid.,She is buying a new dress.
+verkaufen,to sell,[fɛɐ̯ˈkaʊfn̩],verb,verb|basic,6,Er verkauft sein altes Auto.,He is selling his old car.
+bezahlen,to pay,[bəˈtsaːlən],verb,verb|essential|basic,8,Kann ich mit Karte bezahlen?,Can I pay with a card?
+kosten,to cost,[ˈkɔstn̩],verb,verb|essential|basic,8,Was kostet das?,How much does that cost?
+suchen,to look for/to search,[ˈzuːxən],verb,verb|essential|basic,7,Ich suche den Bahnhof.,I am looking for the train station.
+bringen,to bring,[ˈbʁɪŋən],verb,verb|essential|basic|irregular,7,Bringst du bitte das Brot mit?,Can you please bring the bread?
+anrufen,to call (on the phone),[ˈanˌʁuːfn̩],verb,verb|separable|essential,8,Ich rufe dich später an.,I will call you later.
+beginnen,to begin,[bəˈɡɪnən],verb,verb|essential|basic,6,Der Film beginnt um 20 Uhr.,The movie begins at 8 PM.
+erklären,to explain,[ɛɐ̯ˈklɛːʁən],verb,verb|basic,6,Kannst du das bitte erklären?,Can you please explain that?
+erzählen,to tell/to narrate,[ɛɐ̯ˈtsɛːlən],verb,verb|basic,6,Erzähl mir eine Geschichte.,Tell me a story.
+glauben,to believe,[ˈɡlaʊbn̩],verb,verb|basic,6,Ich glaube dir.,I believe you.
+helfen,to help,[ˈhɛlfn̩],verb,verb|dative|essential|irregular,7,Kannst du mir helfen?,Can you help me?
+hoffen,to hope,[ˈhɔfn̩],verb,verb|basic,6,Ich hoffe, es geht dir gut.,I hope you are doing well.
+hören,to hear/to listen,[ˈhøːʁən],verb,verb|essential|basic,8,Hörst du die Musik?,Do you hear the music?
+lesen,to read,[ˈleːzn̩],verb,verb|essential|basic|irregular,8,Ich lese gerade ein Buch.,I am reading a book right now.
+lieben,to love,[ˈliːbn̩],verb,verb|basic,7,Ich liebe dich.,I love you.
+meinen,to mean/to think,[ˈmaɪnən],verb,verb|basic,6,Was meinst du dazu?,What do you think about that?
+öffnen,to open,[ˈœfnən],verb,verb|essential|basic,7,Öffnen Sie bitte die Tür.,Please open the door.
+schließen,to close,[ˈʃliːsn̩],verb,verb|essential|basic,7,Schließ bitte das Fenster.,Please close the window.
+schreiben,to write,[ˈʃʁaɪbn̩],verb,verb|essential|basic,8,Ich schreibe eine E-Mail.,I am writing an email.
+schwimmen,to swim,[ˈʃvɪmən],verb,verb|basic,7,Im Sommer schwimmen wir im See.,In the summer, we swim in the lake.
+singen,to sing,[ˈzɪŋən],verb,verb|basic,6,Sie singt sehr gut.,She sings very well.
+sitzen,to sit,[ˈzɪtsn̩],verb,verb|essential|basic|irregular,7,Wir sitzen im Café.,We are sitting in the café.
+spielen,to play,[ˈʃpiːlən],verb,verb|essential|basic,8,Die Kinder spielen im Garten.,The children are playing in the garden.
+tanzen,to dance,[ˈtantsn̩],verb,verb|basic,6,Wollen wir tanzen?,Shall we dance?
+treffen,to meet,[ˈtʁɛfn̩],verb,verb|essential|basic|irregular,7,Ich treffe heute einen Freund.,I am meeting a friend today.
+warten,to wait,[ˈvaʁtn̩],verb,verb|essential|basic,7,Ich warte auf den Bus.,I am waiting for the bus.
+wohnen,to live/reside,[ˈvoːnən],verb,verb|essential|basic,9,Wo wohnst du?,Where do you live?
+zeigen,to show,[ˈtsaɪɡn̩],verb,verb|basic,6,Kannst du mir den Weg zeigen?,Can you show me the way?
+anfangen,to start/to begin,[ˈanˌfaŋən],verb,verb|separable|essential,7,Wann fängt der Kurs an?,When does the course start?
+aufstehen,to get up,[ˈaʊfˌʃteːən],verb,verb|separable|essential,7,Ich stehe jeden Tag um 7 Uhr auf.,I get up at 7 AM every day.
+einkaufen,to shop for groceries,[ˈaɪnˌkaʊfn̩],verb,verb|separable|essential,8,Am Samstag kaufe ich ein.,I go grocery shopping on Saturday.
+fernsehen,to watch TV,[ˈfɛɐnˌzeːən],verb,verb|separable|essential,7,Abends sehe ich oft fern.,In the evenings, I often watch TV.
+mitbringen,to bring along,[ˈmɪtˌbʁɪŋən],verb,verb|separable|essential,6,Bringst du einen Salat mit?,Are you bringing a salad?
+mitkommen,to come along,[ˈmɪtˌkɔmən],verb,verb|separable|essential,6,Kommst du mit ins Kino?,Are you coming along to the cinema?
+abfahren,to depart,[ˈapˌfaːʁən],verb,verb|separable|essential,6,Der Zug fährt um 10 Uhr ab.,The train departs at 10 AM.
+ankommen,to arrive,[ˈanˌkɔmən],verb,verb|separable|essential,7,Wann kommt der Bus an?,When does the bus arrive?
+einladen,to invite,[ˈaɪnˌlaːdn̩],verb,verb|separable|essential,6,Ich lade dich zu meiner Party ein.,I am inviting you to my party.
+aussehen,to look/appear,[ˈaʊsˌzeːən],verb,verb|separable|basic,6,Du siehst heute gut aus.,You look good today.
+gefallen,to be pleasing to/to like,[ɡəˈfalən],verb,verb|dative|irregular,7,Das Kleid gefällt mir.,I like the dress.
+gehören,to belong to,[ɡəˈhøːʁən],verb,verb|dative|basic,6,Wem gehört diese Jacke?,Who does this jacket belong to?
+passieren,to happen,[paˈsiːʁən],verb,verb|basic,6,Was ist passiert?,What happened?
+reservieren,to reserve,[ʁezɛʁˈviːʁən],verb,verb|basic,7,Ich möchte einen Tisch reservieren.,I would like to reserve a table.
+studieren,to study (at university),[ʃtuˈdiːʁən],verb,verb|basic,7,Er studiert Medizin in Berlin.,He studies medicine in Berlin.
+telefonieren,to telephone,[teləfoˈniːʁən],verb,verb|basic,7,Ich muss mit meinem Chef telefonieren.,I have to telephone my boss.
+vergessen,to forget,[fɛɐ̯ˈɡɛsn̩],verb,verb|irregular|basic,6,Ich habe meinen Regenschirm vergessen.,I forgot my umbrella.
+vorstellen,to introduce,[ˈfoːɐ̯ˌʃtɛlən],verb,verb|separable|reflexive,6,Ich stelle mich vor: Ich bin Anna.,Let me introduce myself: I am Anna.
+waschen,to wash,[ˈvaʃn̩],verb,verb|irregular|basic,6,Ich wasche mein Auto.,I am washing my car.
+wehtun,to hurt,[ˈveːˌtuːn],verb,verb|separable|basic,6,Mein Kopf tut weh.,My head hurts.
+zurückkommen,to come back,[tsuˈʁʏkˌkɔmən],verb,verb|separable|basic,6,Wann kommst du zurück?,When are you coming back?
+ich,I,[ɪç],pronoun,personal|nominative|essential,9,Ich lerne Deutsch.,I am learning German.
+du,you (informal),[duː],pronoun,personal|nominative|essential,9,Wie heißt du?,What is your name?
+er,he,[eːɐ̯],pronoun,personal|nominative|essential,9,Er kommt aus Deutschland.,He comes from Germany.
+sie,she/they,[ziː],pronoun,personal|nominative|essential,9,Sie liest ein Buch.,She is reading a book.
+es,it,[ɛs],pronoun,personal|nominative|essential,9,Es regnet.,It is raining.
+wir,we,[viːɐ̯],pronoun,personal|nominative|essential,9,Wir gehen spazieren.,We are going for a walk.
+ihr,you (plural, informal),[iːɐ̯],pronoun,personal|nominative|essential,9,Was macht ihr heute?,What are you (all) doing today?
+Sie,you (formal),[ziː],pronoun,personal|nominative|essential,9,Sprechen Sie Englisch?,Do you speak English?
+mich,me,[mɪç],pronoun,personal|accusative|essential,9,Kannst du mich anrufen?,Can you call me?
+dich,you (informal),[dɪç],pronoun,personal|accusative|essential,9,Ich sehe dich.,I see you.
+ihn,him,[iːn],pronoun,personal|accusative|essential,9,Ich kenne ihn nicht.,I don't know him.
+uns,us,[ʊns],pronoun,personal|accusative|dative|essential,9,Er besucht uns morgen.,He is visiting us tomorrow.
+euch,you (plural, informal),[ɔʏç],pronoun,personal|accusative|dative|essential,9,Ich helfe euch.,I'll help you (all).
+mir,me (dative),[miːɐ̯],pronoun,personal|dative|essential,9,Gib mir bitte das Buch.,Please give the book to me.
+dir,you (informal, dative),[diːɐ̯],pronoun,personal|dative|essential,9,Wie geht es dir?,How are you?
+ihm,him (dative),[iːm],pronoun,personal|dative|essential,9,Ich gebe ihm einen Stift.,I give a pen to him.
+ihr,her (dative),[iːɐ̯],pronoun,personal|dative|essential,9,Ich helfe ihr bei den Hausaufgaben.,I am helping her with the homework.
+Ihnen,you (formal, dative),[ˈiːnən],pronoun,personal|dative|essential,9,Kann ich Ihnen helfen?,Can I help you?
+mein,my,[maɪn],pronoun,possessive|essential,9,Das ist mein Auto.,That is my car.
+dein,your (informal),[daɪn],pronoun,possessive|essential,9,Ist das dein Hund?,Is that your dog?
+sein,his/its,[zaɪn],pronoun,possessive|essential,9,Das ist sein Fahrrad.,That is his bicycle.
+ihr,her/their,[iːɐ̯],pronoun,possessive|essential,9,Das ist ihr Haus.,That is her/their house.
+unser,our,[ˈʊnzɐ],pronoun,possessive|essential,9,Das ist unsere Wohnung.,That is our apartment.
+euer,your (plural, informal),[ˈɔʏɐ],pronoun,possessive|essential,9,Ist das euer Kind?,Is that your child?
+Ihr,your (formal),[iːɐ̯],pronoun,possessive|essential,9,Wie ist Ihr Name?,What is your name?
+was,what,[vas],pronoun,interrogative|essential,9,Was ist das?,What is that?
+wer,who,[veːɐ̯],pronoun,interrogative|essential,9,Wer bist du?,Who are you?
+wie,how,[viː],pronoun,interrogative|essential,9,Wie geht es Ihnen?,How are you?
+wo,where,[voː],pronoun,interrogative|essential,9,Wo wohnen Sie?,Where do you live?
+wann,when,[van],pronoun,interrogative|essential,9,Wann beginnt der Film?,When does the movie start?
+warum,why,[vaˈʁʊm],pronoun,interrogative|essential,8,Warum lernst du Deutsch?,Why are you learning German?
+woher,where from,[voˈheːɐ̯],pronoun,interrogative|essential,9,Woher kommen Sie?,Where do you come from?
+wohin,where to,[voˈhɪn],pronoun,interrogative|essential,8,Wohin fährst du?,Where are you driving to?
+welche,which,[ˈvɛlçə],pronoun,interrogative|essential,8,Welche Farbe magst du?,Which color do you like?
+gut,good,[ɡuːt],adjective,adjective|essential|basic,9,Das Essen ist sehr gut.,The food is very good.
+schlecht,bad,[ʃlɛçt],adjective,adjective|essential|basic,8,Das Wetter ist heute schlecht.,The weather is bad today.
+groß,big/large/tall,[ɡʁoːs],adjective,adjective|essential|basic,9,Berlin ist eine große Stadt.,Berlin is a large city.
+klein,small/little,[klaɪn],adjective,adjective|essential|basic,9,Ich habe ein kleines Auto.,I have a small car.
+neu,new,[nɔʏ],adjective,adjective|essential|basic,9,Mein Computer ist neu.,My computer is new.
+alt,old,[alt],adjective,adjective|essential|basic,9,Wie alt bist du?,How old are you?
+jung,young,[jʊŋ],adjective,adjective|essential|basic,8,Meine Schwester ist jünger als ich.,My sister is younger than me.
+schön,beautiful/nice,[ʃøːn],adjective,adjective|essential|basic,8,Das ist ein schönes Bild.,That is a beautiful picture.
+hässlich,ugly,[ˈhɛslɪç],adjective,adjective|basic,6,Ich finde diese Lampe hässlich.,I find this lamp ugly.
+lang,long,[laŋ],adjective,adjective|essential|basic,8,Der Film war zu lang.,The movie was too long.
+kurz,short,[kʊʁts],adjective,adjective|essential|basic,8,Ich trage eine kurze Hose.,I am wearing short pants.
+hoch,high,[hoːx],adjective,adjective|basic,7,Der Berg ist sehr hoch.,The mountain is very high.
+niedrig,low,[ˈniːdʁɪç],adjective,adjective|basic,6,Die Preise sind hier niedrig.,The prices here are low.
+heiß,hot,[haɪs],adjective,adjective|essential|basic,8,Im Sommer ist es oft heiß.,In summer it is often hot.
+kalt,cold,[kalt],adjective,adjective|essential|basic,8,Mir ist kalt.,I am cold.
+warm,warm,[vaʁm],adjective,adjective|essential|basic,8,Die Suppe ist noch warm.,The soup is still warm.
+hell,bright/light,[hɛl],adjective,adjective|basic,7,Das Zimmer ist sehr hell.,The room is very bright.
+dunkel,dark,[ˈdʊŋkl̩],adjective,adjective|basic,7,Im Winter wird es früh dunkel.,In winter it gets dark early.
+richtig,right/correct,[ˈʁɪçtɪç],adjective,adjective|essential|basic,8,Die Antwort ist richtig.,The answer is correct.
+falsch,wrong,[falʃ],adjective,adjective|essential|basic,8,Das ist die falsche Nummer.,That is the wrong number.
+schnell,fast,[ʃnɛl],adjective,adjective|essential|basic,8,Er kann sehr schnell laufen.,He can run very fast.
+langsam,slow,[ˈlaŋzaːm],adjective,adjective|essential|basic,8,Bitte sprechen Sie langsam.,Please speak slowly.
+einfach,easy/simple,[ˈaɪnfax],adjective,adjective|essential|basic,8,Die Prüfung war sehr einfach.,The exam was very easy.
+schwer,difficult/heavy,[ʃveːɐ̯],adjective,adjective|essential|basic,8,Der Koffer ist sehr schwer.,The suitcase is very heavy.
+leicht,easy/light,[laɪçt],adjective,adjective|essential|basic,8,Die Feder ist sehr leicht.,The feather is very light.
+billig,cheap,[ˈbɪlɪç],adjective,adjective|essential|basic,8,Das T-Shirt war sehr billig.,The T-shirt was very cheap.
+teuer,expensive,[ˈtɔʏɐ],adjective,adjective|essential|basic,8,Das Auto ist zu teuer.,The car is too expensive.
+frei,free,[fʁaɪ],adjective,adjective|essential|basic,7,Ist dieser Platz noch frei?,Is this seat still free?
+besetzt,occupied,[bəˈzɛtst],adjective,adjective|basic,6,Die Toilette ist besetzt.,The toilet is occupied.
+offen,open,[ˈɔfn̩],adjective,adjective|essential|basic,7,Das Geschäft ist bis 20 Uhr offen.,The store is open until 8 PM.
+geschlossen,closed,[ɡəˈʃlɔsn̩],adjective,adjective|essential|basic,7,Die Bank ist samstags geschlossen.,The bank is closed on Saturdays.
+müde,tired,[ˈmyːdə],adjective,adjective|essential|basic,8,Ich bin sehr müde.,I am very tired.
+glücklich,happy,[ˈɡlʏklɪç],adjective,adjective|basic,7,Sie sieht sehr glücklich aus.,She looks very happy.
+traurig,sad,[ˈtʁaʊʁɪç],adjective,adjective|basic,6,Warum bist du traurig?,Why are you sad?
+interessant,interesting,[ɪntəʁɛˈsant],adjective,adjective|basic,7,Der Artikel ist sehr interessant.,The article is very interesting.
+langweilig,boring,[ˈlaŋˌvaɪlɪç],adjective,adjective|basic,6,Der Film war langweilig.,The movie was boring.
+lecker,delicious,[ˈlɛkɐ],adjective,adjective|essential|basic,8,Der Kuchen ist sehr lecker.,The cake is very delicious.
+gesund,healthy,[ɡəˈzʊnt],adjective,adjective|basic,7,Obst und Gemüse sind gesund.,Fruits and vegetables are healthy.
+krank,sick,[kʁaŋk],adjective,adjective|essential|basic,7,Ich bin heute krank.,I am sick today.
+laut,loud,[laʊt],adjective,adjective|basic,7,Die Musik ist zu laut.,The music is too loud.
+leise,quiet,[ˈlaɪzə],adjective,adjective|basic,7,Bitte seid leise, das Baby schläft.,Please be quiet, the baby is sleeping.
+sauber,clean,[ˈzaʊbɐ],adjective,adjective|basic,7,Mein Zimmer ist sauber.,My room is clean.
+schmutzig,dirty,[ˈʃmʊtsɪç],adjective,adjective|basic,6,Deine Hände sind schmutzig.,Your hands are dirty.
+wichtig,important,[ˈvɪçtɪç],adjective,adjective|essential|basic,8,Das ist eine wichtige Information.,That is important information.
+möglich,possible,[ˈmøːklɪç],adjective,adjective|basic,6,Ist es möglich, einen Termin zu verschieben?,Is it possible to postpone an appointment?
+unmöglich,impossible,[ˈʊnˌmøːklɪç],adjective,adjective|basic,5,Das ist völlig unmöglich.,That is completely impossible.
+bekannt,famous/well-known,[bəˈkant],adjective,adjective|basic,6,Er ist ein bekannter Schauspieler.,He is a famous actor.
+spät,late,[ʃpɛːt],adjective,adjective|essential|basic,8,Es ist schon spät.,It is already late.
+früh,early,[fʁyː],adjective,adjective|essential|basic,7,Ich muss morgen früh aufstehen.,I have to get up early tomorrow.
+nächste,next,[ˈnɛːçstə],adjective,adjective|essential|basic,8,Wir sehen uns nächste Woche.,See you next week.
+letzte,last,[ˈlɛtstə],adjective,adjective|essential|basic,7,Das war die letzte Frage.,That was the last question.
+ganz,whole/quite,[ɡants],adjective,adverb|essential|basic,8,Ich habe den ganzen Tag gearbeitet.,I worked the whole day.
+viel,much/a lot,[fiːl],adjective,adverb|essential|basic,8,Ich habe nicht viel Zeit.,I don't have much time.
+wenig,little/few,[ˈveːnɪç],adjective,adverb|essential|basic,7,Ich verdiene nur wenig Geld.,I earn only a little money.
+andere,other/different,[ˈandəʁə],adjective,adjective|essential|basic,7,Hast du andere Pläne?,Do you have other plans?
+alle,all/everyone,[ˈalə],pronoun,pronoun|essential|basic,9,Alle sind eingeladen.,Everyone is invited.
+beide,both,[ˈbaɪdə],adjective,pronoun|basic,7,Wir nehmen beide.,We'll take both.
+einige,some,[ˈaɪnɪɡə],pronoun,pronoun|basic,6,Einige Leute sind schon da.,Some people are already there.
+kein,no/none,[kaɪn],pronoun,pronoun|essential|basic,9,Ich habe keine Zeit.,I have no time.
+manche,some,[ˈmançə],pronoun,pronoun|basic,6,Manche Fragen sind schwierig.,Some questions are difficult.
+jetzt,now,[jɛtst],adverb,adverb|time|essential,9,Wir müssen jetzt gehen.,We have to go now.
+heute,today,[ˈhɔʏtə],adverb,adverb|time|essential,9,Heute ist ein schöner Tag.,Today is a beautiful day.
+morgen,tomorrow,[ˈmɔʁɡn̩],adverb,adverb|time|essential,9,Morgen habe ich einen Termin.,Tomorrow I have an appointment.
+gestern,yesterday,[ˈɡɛstɐn],adverb,adverb|time|essential,9,Gestern war ich im Kino.,Yesterday I was at the cinema.
+immer,always,[ˈɪmɐ],adverb,adverb|frequency|essential,8,Er kommt immer zu spät.,He always comes too late.
+oft,often,[ɔft],adverb,adverb|frequency|essential,8,Wir gehen oft spazieren.,We often go for a walk.
+manchmal,sometimes,[ˈmançmaːl],adverb,adverb|frequency|essential,7,Manchmal esse ich Pizza.,Sometimes I eat pizza.
+selten,rarely,[ˈzɛltn̩],adverb,adverb|frequency|basic,6,Ich sehe ihn nur noch selten.,I rarely see him anymore.
+nie,never,[niː],adverb,adverb|frequency|essential,8,Ich war noch nie in Paris.,I have never been to Paris.
+bald,soon,[balt],adverb,adverb|time|essential,7,Bis bald!,See you soon!
+dann,then,[dan],adverb,adverb|time|essential,8,Erst die Arbeit, dann das Vergnügen.,First work, then pleasure.
+hier,here,[hiːɐ̯],adverb,adverb|place|essential,9,Hier ist der Eingang.,Here is the entrance.
+dort,there,[dɔʁt],adverb,adverb|place|essential,8,Das Restaurant ist dort drüben.,The restaurant is over there.
+links,left,[lɪŋks],adverb,adverb|direction|essential,8,Biegen Sie links ab.,Turn left.
+rechts,right,[ʁɛçts],adverb,adverb|direction|essential,8,Das Bad ist auf der rechten Seite.,The bathroom is on the right side.
+geradeaus,straight ahead,[ɡəˌʁaːdəˈʔaʊs],adverb,adverb|direction|essential,7,Gehen Sie immer geradeaus.,Go straight ahead.
+oben,above/upstairs,[ˈoːbn̩],adverb,adverb|place|essential,7,Meine Wohnung ist oben.,My apartment is upstairs.
+unten,below/downstairs,[ˈʊntn̩],adverb,adverb|place|essential,7,Der Keller ist unten.,The cellar is downstairs.
+vorne,in front,[ˈfɔʁnə],adverb,adverb|place|essential,7,Bitte vorne einsteigen.,Please get on at the front.
+hinten,behind/in the back,[ˈhɪntn̩],adverb,adverb|place|essential,7,Die Kinder sitzen hinten.,The children are sitting in the back.
+auch,also/too,[aʊx],adverb,adverb|essential,9,Ich komme auch mit.,I'm coming too.
+nur,only,[nuːɐ̯],adverb,adverb|essential,9,Ich habe nur fünf Euro.,I only have five euros.
+sehr,very,[zeːɐ̯],adverb,adverb|intensifier|essential,9,Das ist sehr gut.,That is very good.
+zu,too (excessively),[tsuː],adverb,adverb|intensifier|essential,8,Der Kaffee ist zu heiß.,The coffee is too hot.
+vielleicht,perhaps/maybe,[fiˈlaɪçt],adverb,adverb|modal|essential,8,Vielleicht komme ich später.,Maybe I'll come later.
+bitte,please,[ˈbɪtə],adverb,particle|essential,9,Ein Glas Wasser, bitte.,A glass of water, please.
+danke,thank you,[ˈdaŋkə],interjection,particle|essential,9,Danke für deine Hilfe.,Thank you for your help.
+gern,gladly/with pleasure,[ɡɛʁn],adverb,adverb|essential,8,Ich helfe Ihnen gern.,I'll gladly help you.
+leider,unfortunately,[ˈlaɪdɐ],adverb,adverb|essential,8,Leider habe ich keine Zeit.,Unfortunately, I don't have time.
+zusammen,together,[tsuˈzamən],adverb,adverb|essential,8,Wir gehen zusammen ins Restaurant.,We are going to the restaurant together.
+schon,already/yet,[ʃoːn],adverb,adverb|time|essential,8,Bist du schon fertig?,Are you already finished?
+noch,still/yet,[nɔx],adverb,adverb|time|essential,8,Er ist noch nicht da.,He is not here yet.
+wieder,again,[ˈviːdɐ],adverb,adverb|essential,7,Kommst du bald wieder?,Are you coming again soon?
+weg,away/gone,[vɛk],adverb,adverb|basic,6,Meine Brille ist weg.,My glasses are gone.
+zurück,back,[tsuˈʁʏk],adverb,adverb|direction|essential,7,Wann kommst du zurück?,When are you coming back?
+deshalb,therefore/that's why,[ˈdɛshalp],adverb,adverb|conjunction|basic,6,Ich bin krank, deshalb bleibe ich zu Hause.,I am sick, therefore I am staying home.
+trotzdem,nevertheless/anyway,[ˈtʁɔtsdeːm],adverb,adverb|conjunction|basic,6,Es regnet, trotzdem gehe ich spazieren.,It's raining, nevertheless I'm going for a walk.
+und,and,[ʊnt],conjunction,coordinating|essential,9,Ich kaufe Äpfel und Bananen.,I am buying apples and bananas.
+oder,or,[ˈoːdɐ],conjunction,coordinating|essential,9,Möchtest du Tee oder Kaffee?,Would you like tea or coffee?
+aber,but,[ˈaːbɐ],conjunction,coordinating|essential,9,Ich möchte kommen, aber ich habe keine Zeit.,I want to come, but I have no time.
+denn,because/for,[dɛn],conjunction,coordinating|essential,8,Ich bleibe zu Hause, denn ich bin müde.,I'm staying home, because I'm tired.
+sondern,but rather/instead,[ˈzɔndɐn],conjunction,coordinating|basic,6,Er ist nicht dumm, sondern faul.,He is not stupid, but rather lazy.
+dass,that,[das],conjunction,subordinating|essential,8,Ich weiß, dass du Recht hast.,I know that you are right.
+ob,if/whether,[ɔp],conjunction,subordinating|essential,7,Ich weiß nicht, ob er kommt.,I don't know if he is coming.
+weil,because,[vaɪl],conjunction,subordinating|essential,8,Ich lerne Deutsch, weil ich in Deutschland arbeiten will.,I'm learning German because I want to work in Germany.
+wenn,if/when,[vɛn],conjunction,subordinating|essential,8,Wenn das Wetter gut ist, gehen wir schwimmen.,If the weather is good, we'll go swimming.
+als,when (past event)/than,[als],conjunction,subordinating|essential,7,Als ich ein Kind war, lebte ich in Italien.,When I was a child, I lived in Italy.
+bevor,before,[bəˈfoːɐ̯],conjunction,subordinating|basic,6,Putzt du die Zähne, bevor du schlafen gehst?,Do you brush your teeth before you go to sleep?
+bis,until,[bɪs],conjunction,subordinating|preposition|essential,7,Ich warte, bis du fertig bist.,I'll wait until you are finished.
+damit,so that,[daˈmɪt],conjunction,subordinating|basic,5,Ich lerne viel, damit ich die Prüfung bestehe.,I study a lot so that I pass the exam.
+nachdem,after,[naxˈdeːm],conjunction,subordinating|basic,5,Nachdem er gegessen hatte, ging er spazieren.,After he had eaten, he went for a walk.
+obwohl,although,[ɔpˈvoːl],conjunction,subordinating|basic,6,Obwohl er krank ist, geht er zur Arbeit.,Although he is sick, he goes to work.
+seit,since,[zaɪt],conjunction,subordinating|preposition|basic,6,Seit ich hier wohne, bin ich glücklich.,Since I've lived here, I've been happy.
+während,while/during,[ˈvɛːʁənt],conjunction,subordinating|preposition|basic,6,Während ich koche, höre ich Musik.,While I cook, I listen to music.
+in,in/into,[ɪn],preposition,two-way|essential,9,Ich bin in der Schule.,I am in the school.
+an,at/on (vertical),[an],preposition,two-way|essential,9,Das Bild hängt an der Wand.,The picture is hanging on the wall.
+auf,on (horizontal),[aʊf],preposition,two-way|essential,9,Das Buch liegt auf dem Tisch.,The book is on the table.
+für,for,[fyːɐ̯],preposition,accusative|essential,9,Dieses Geschenk ist für dich.,This present is for you.
+mit,with,[mɪt],preposition,dative|essential,9,Ich fahre mit dem Zug.,I am traveling by train.
+nach,after/to (cities/countries),[naːx],preposition,dative|essential,9,Nach der Arbeit gehe ich nach Hause.,After work, I go home.
+von,from/of,[fɔn],preposition,dative|essential,9,Das ist ein Geschenk von meiner Mutter.,That is a gift from my mother.
+zu,to/at,[tsuː],preposition,dative|essential,9,Ich gehe zum Arzt.,I am going to the doctor.
+aus,from/out of,[aʊs],preposition,dative|essential,9,Er kommt aus der Türkei.,He comes from Turkey.
+bei,at/near/with,[baɪ],preposition,dative|essential,8,Sie wohnt bei ihren Eltern.,She lives with her parents.
+durch,through,[dʊʁç],preposition,accusative|essential,7,Wir fahren durch den Tunnel.,We are driving through the tunnel.
+gegen,against/around (time),[ˈɡeːɡn̩],preposition,accusative|essential,6,Ich bin gegen diesen Vorschlag.,I am against this proposal.
+ohne,without,[ˈoːnə],preposition,accusative|essential,8,Ich trinke Kaffee ohne Zucker.,I drink coffee without sugar.
+um,around/at (time),[ʊm],preposition,accusative|essential,8,Der Film beginnt um 20 Uhr.,The movie begins at 8 PM.
+seit,since/for (time),[zaɪt],preposition,dative|essential,7,Ich lerne seit einem Jahr Deutsch.,I have been learning German for a year.
+ab,from (time/place),[ap],preposition,dative|essential,6,Ab morgen habe ich Urlaub.,From tomorrow on, I have vacation.
+bis,until/to,[bɪs],preposition,accusative|essential,7,Ich arbeite bis 17 Uhr.,I work until 5 PM.
+entlang,along,[ɛntˈlaŋ],preposition,accusative|basic,4,Wir gehen den Fluss entlang.,We are walking along the river.
+gegenüber,opposite,[ɡeːɡn̩ˈʔyːbɐ],preposition,dative|basic,6,Die Bank ist gegenüber vom Bahnhof.,The bank is opposite the train station.
+außer,except for/besides,[ˈaʊsɐ],preposition,dative|basic,5,Außer dir war niemand da.,No one was there except for you.
+vor,in front of/before/ago,[foːɐ̯],preposition,two-way|essential,8,Das Auto parkt vor dem Haus.,The car is parking in front of the house.
+hinter,behind,[ˈhɪntɐ],preposition,two-way|essential,7,Der Garten ist hinter dem Haus.,The garden is behind the house.
+über,over/above/about,[ˈyːbɐ],preposition,two-way|essential,8,Das Flugzeug fliegt über die Stadt.,The airplane is flying over the city.
+unter,under/below/among,[ˈʊntɐ],preposition,two-way|essential,7,Die Katze sitzt unter dem Tisch.,The cat is sitting under the table.
+neben,next to/beside,[ˈneːbn̩],preposition,two-way|essential,8,Die Apotheke ist neben der Post.,The pharmacy is next to the post office.
+zwischen,between,[ˈtsvɪʃn̩],preposition,two-way|essential,7,Ich sitze zwischen meinen Freunden.,I am sitting between my friends.
+ja,yes,[jaː],particle,response|essential,9,Ja, das stimmt.,Yes, that's right.
+nein,no,[naɪn],particle,response|essential,9,Nein, das möchte ich nicht.,No, I don't want that.
+doch,yes (contradicting a negative),[dɔx],particle,response|essential,8,Du kommst nicht mit? Doch!,You're not coming? Yes, I am!
+bitte,please/you're welcome,[ˈbɪtə],particle,politeness|essential,9,Kannst du mir helfen, bitte?,Can you help me, please?
+danke,thanks,[ˈdaŋkə],particle,politeness|essential,9,Danke schön!,Thank you very much!
+hallo,hello,[haˈloː],interjection,greeting|essential,9,Hallo, wie geht's?,Hello, how's it going?
+tschüss,bye (informal),[tʃyːs],interjection,farewell|essential,9,Tschüss, bis morgen!,Bye, see you tomorrow!
+Auf Wiedersehen,goodbye (formal),[aʊf ˈviːdɐˌzeːən],phrase,farewell|essential,9,Auf Wiedersehen, Herr Schmidt.,Goodbye, Mr. Schmidt.
+Guten Morgen,Good morning,[ˌɡuːtn̩ ˈmɔʁɡn̩],phrase,greeting|essential,9,Guten Morgen, wie haben Sie geschlafen?,Good morning, how did you sleep?
+Guten Tag,Good day/hello,[ˌɡuːtn̩ ˈtaːk],phrase,greeting|essential,9,Guten Tag, was wünschen Sie?,Hello, what would you like?
+Guten Abend,Good evening,[ˌɡuːtn̩ ˈaːbn̩t],phrase,greeting|essential,9,Guten Abend, meine Damen und Herren.,Good evening, ladies and gentlemen.
+Gute Nacht,Good night,[ˌɡuːtə ˈnaxt],phrase,farewell|essential,9,Gute Nacht, schlaf gut.,Good night, sleep well.
+Entschuldigung,excuse me/pardon,[ɛntˈʃʊldɪɡʊŋ],phrase,politeness|essential,9,Entschuldigung, wo ist der Bahnhof?,Excuse me, where is the train station?
+natürlich,of course/naturally,[naˈtyːɐ̯lɪç],adverb,modal|essential,8,Kommst du mit? Natürlich!,Are you coming? Of course!
+genau,exactly,[ɡəˈnaʊ],adverb,response|essential,8,Genau, das ist es!,Exactly, that's it!
+ungefähr,approximately,[ˈʊnɡəˌfɛːɐ̯],adverb,quantity|basic,6,Die Fahrt dauert ungefähr eine Stunde.,The journey takes approximately one hour.
+sofort,immediately,[zoˈfɔʁt],adverb,time|essential,7,Ich komme sofort.,I'm coming immediately.
+einmal,once,[ˈaɪnmaːl],adverb,frequency|essential,7,Ich war einmal in London.,I was in London once.
+zweimal,twice,[ˈtsvaɪmaːl],adverb,frequency|basic,6,Ich gehe zweimal pro Woche zum Sport.,I go to sports twice a week.
+endlich,finally,[ˈɛntlɪç],adverb,time|basic,6,Endlich ist Wochenende!,Finally, it's the weekend!
+wiederholen,to repeat,[viːdɐˈhoːlən],verb,basic,7,Können Sie das bitte wiederholen?,Can you please repeat that?
+buchstabieren,to spell,[buːxʃtaˈbiːʁən],verb,basic,7,Wie buchstabiert man das?,How do you spell that?
+anprobieren,to try on,[ˈanpʁoˌbiːʁən],verb,separable|basic,6,Ich möchte dieses Hemd anprobieren.,I would like to try on this shirt.
+aufräumen,to clean up/tidy up,[ˈaʊfˌʁɔʏmən],verb,separable|basic,7,Du musst dein Zimmer aufräumen.,You have to clean up your room.
+abholen,to pick up,[ˈapˌhoːlən],verb,separable|essential,7,Kannst du mich vom Bahnhof abholen?,Can you pick me up from the train station?
+zumachen,to close,[ˈtsuːˌmaxn̩],verb,separable|basic,6,Mach bitte die Tür zu.,Please close the door.
+aufmachen,to open,[ˈaʊfˌmaxn̩],verb,separable|basic,6,Kannst du das Fenster aufmachen?,Can you open the window?
+stattfinden,to take place,[ˈʃtatˌfɪndn̩],verb,separable|basic,6,Das Konzert findet heute Abend statt.,The concert takes place tonight.
+teilnehmen,to participate,[ˈtaɪlˌneːmən],verb,separable|basic,5,Möchtest du am Wettbewerb teilnehmen?,Do you want to participate in the competition?
+passend,suitable/matching,[ˈpasn̩t],adjective,basic,6,Ich suche eine passende Krawatte.,I'm looking for a matching tie.
+bequem,comfortable,[bəˈkveːm],adjective,basic,7,Dieses Sofa ist sehr bequem.,This sofa is very comfortable.
+fertig,finished/ready,[ˈfɛʁtɪç],adjective,essential|basic,8,Bist du fertig mit den Hausaufgaben?,Are you finished with the homework?
+kaputt,broken,[kaˈpʊt],adjective,essential|basic,7,Mein Handy ist kaputt.,My phone is broken.
+lustig,funny,[ˈlʊstɪç],adjective,basic,7,Der Film war sehr lustig.,The movie was very funny.
+nett,nice/kind,[nɛt],adjective,essential|basic,8,Deine Nachbarn sind sehr nett.,Your neighbors are very nice.
+stark,strong,[ʃtaʁk],adjective,basic,7,Er ist sehr stark.,He is very strong.
+schwach,weak,[ʃvax],adjective,basic,6,Nach der Krankheit fühlte sie sich schwach.,After the illness, she felt weak.
+zufrieden,satisfied/content,[tsuˈfʁiːdn̩],adjective,basic,7,Ich bin mit meiner Arbeit zufrieden.,I am satisfied with my work.
+da,there/here/because,[daː],adverb,conjunction|essential,9,Ich bin schon da.,I'm already here.
+deswegen,that's why/for that reason,[ˈdɛsveːɡn̩],adverb,conjunction|basic,6,Ich war krank, deswegen war ich nicht da.,I was sick, that's why I wasn't there.
+überall,everywhere,[ˈyːbɐˌʔal],adverb,place|basic,6,Ich habe überall gesucht.,I have looked everywhere.
+nirgends,nowhere,[ˈnɪʁɡn̩ts],adverb,place|basic,6,Ich kann meine Schlüssel nirgends finden.,I can't find my keys anywhere.
+ziemlich,quite/rather,[ˈtsiːmlɪç],adverb,intensifier|basic,7,Das Wetter ist ziemlich gut.,The weather is quite good.
+besonders,especially,[bəˈzɔndɐs],adverb,intensifier|basic,7,Mir gefällt besonders die Farbe.,I especially like the color.
+man,one/you (general),[man],pronoun,impersonal|essential,8,Man darf hier nicht rauchen.,One is not allowed to smoke here.
+jemand,someone/somebody,[ˈjeːmant],pronoun,indefinite|basic,7,Ist jemand zu Hause?,Is someone at home?
+niemand,no one/nobody,[ˈniːmant],pronoun,indefinite|basic,7,Niemand hat geantwortet.,No one answered.
+etwas,something/a little,[ˈɛtvas],pronoun,indefinite|essential,8,Möchtest du etwas trinken?,Would you like something to drink?
+nichts,nothing,[nɪçts],pronoun,indefinite|essential,8,Ich habe nichts gesehen.,I saw nothing.
+dieser,this,[ˈdiːzɐ],pronoun,demonstrative|essential,8,Dieser Apfel ist rot.,This apple is red.
+jeder,every/each,[ˈjeːdɐ],pronoun,indefinite|essential,7,Jeder Student muss das Buch lesen.,Every student must read the book.
+anbieten,to offer,[ˈanˌbiːtn̩],verb,verb|separable|irregular,6,Darf ich Ihnen einen Kaffee anbieten?,May I offer you a coffee?
+ändern,to change,[ˈɛndɐn],verb,verb|basic,6,Ich möchte meine Adresse ändern.,I would like to change my address.
+antworten,to answer,[ˈantvɔʁtn̩],verb,verb|essential|basic,8,Bitte antworten Sie auf meine Frage.,Please answer my question.
+anziehen,to put on (clothes),[ˈanˌtsiːən],verb,verb|separable|reflexive,7,Ich ziehe meine Jacke an.,I'm putting on my jacket.
+aussteigen,to get off/exit,[ˈaʊsˌʃtaɪɡn̩],verb,verb|separable|essential,7,Wir müssen an der nächsten Haltestelle aussteigen.,We have to get off at the next stop.
+einsteigen,to get on/board,[ˈaɪnˌʃtaɪɡn̩],verb,verb|separable|essential,7,Bitte schnell einsteigen, der Zug fährt gleich ab.,Please board quickly, the train is leaving soon.
+umsteigen,to change (trains, etc.),[ˈʊmˌʃtaɪɡn̩],verb,verb|separable|essential,7,In Mannheim müssen Sie umsteigen.,You have to change trains in Mannheim.
+backen,to bake,[ˈbakn̩],verb,verb|basic,6,Am Wochenende backe ich einen Kuchen.,On the weekend, I'm baking a cake.
+baden,to bathe,[ˈbaːdn̩],verb,verb|basic,6,Die Kinder baden gerne im Meer.,The children like to bathe in the sea.
+bauen,to build,[ˈbaʊən],verb,verb|basic,6,Wir bauen ein Haus.,We are building a house.
+bedeuten,to mean,[bəˈdɔʏtn̩],verb,verb|basic,6,Was bedeutet dieses Wort?,What does this word mean?
+bekommen,to get/receive,[bəˈkɔmən],verb,verb|essential|basic|irregular,8,Ich habe ein Geschenk bekommen.,I received a present.
+bestellen,to order,[bəˈʃtɛlən],verb,verb|essential|basic,8,Wir möchten jetzt bestellen.,We would like to order now.
+besuchen,to visit,[bəˈzuːxən],verb,verb|essential|basic,7,Ich besuche meine Großeltern.,I am visiting my grandparents.
+bitten,to ask for/request,[ˈbɪtn̩],verb,verb|basic|irregular,7,Ich bitte um Ihre Aufmerksamkeit.,I ask for your attention.
+danken,to thank,[ˈdaŋkn̩],verb,verb|dative|basic,7,Ich danke Ihnen für die Hilfe.,I thank you for the help.
+dauern,to last/take (time),[ˈdaʊɐn],verb,verb|essential|basic,7,Wie lange dauert der Flug?,How long does the flight take?
+diskutieren,to discuss,[dɪskuˈtiːʁən],verb,verb|basic,5,Wir müssen dieses Problem diskutieren.,We need to discuss this problem.
+drücken,to push/press,[ˈdʁʏkn̩],verb,verb|basic,6,Drücken Sie diesen Knopf.,Press this button.
+einfallen,to come to mind,[ˈaɪnˌfalən],verb,verb|separable|dative,5,Mir fällt sein Name nicht ein.,His name doesn't come to my mind.
+entschuldigen,to excuse/apologize,[ɛntˈʃʊldɪɡn̩],verb,verb|reflexive|essential,8,Entschuldigen Sie die Störung.,Pardon the interruption.
+erinnern,to remember/remind,[ɛɐ̯ˈʔɪnɐn],verb,verb|reflexive|basic,6,Ich kann mich nicht erinnern.,I can't remember.
+erkennen,to recognize,[ɛɐ̯ˈkɛnən],verb,verb|irregular|basic,5,Ich habe dich sofort erkannt.,I recognized you immediately.
+erlauben,to allow/permit,[ɛɐ̯ˈlaʊbn̩],verb,verb|basic,6,Rauchen ist hier nicht erlaubt.,Smoking is not allowed here.
+erreichen,to reach/achieve,[ɛɐ̯ˈʁaɪçn̩],verb,verb|basic,6,Wann erreichen wir München?,When do we reach Munich?
+fehlen,to be missing/absent,[ˈfeːlən],verb,verb|dative|basic,6,Du fehlst mir.,I miss you.
+feiern,to celebrate,[ˈfaɪɐn],verb,verb|basic,7,Wir feiern heute meinen Geburtstag.,We are celebrating my birthday today.
+fotografieren,to photograph,[fotogʁaˈfiːʁən],verb,verb|basic,7,Darf man hier fotografieren?,Is one allowed to take pictures here?
+freuen,to be happy/look forward to,[ˈfʁɔʏən],verb,verb|reflexive|basic,7,Ich freue mich auf den Urlaub.,I'm looking forward to the vacation.
+fühlen,to feel,[ˈfyːlən],verb,verb|reflexive|basic,7,Wie fühlen Sie sich?,How are you feeling?
+funktionieren,to function/work,[fʊŋktsioˈniːʁən],verb,verb|basic,7,Mein neuer Drucker funktioniert super.,My new printer works great.
+gewinnen,to win,[ɡəˈvɪnən],verb,verb|irregular|basic,6,Wer hat das Spiel gewonnen?,Who won the game?
+gratulieren,to congratulate,[ɡʁatuˈliːʁən],verb,verb|dative|basic,7,Ich gratuliere dir zum Geburtstag.,I congratulate you on your birthday.
+heiraten,to marry,[ˈhaɪʁaːtn̩],verb,verb|basic,7,Sie heiraten nächsten Monat.,They are getting married next month.
+interessieren,to interest,[ɪntəʁɛˈsiːʁən],verb,verb|reflexive|basic,7,Ich interessiere mich für Kunst.,I am interested in art.
+kochen,to cook,[ˈkɔxn̩],verb,verb|essential|basic,8,Er kocht gerne für seine Freunde.,He likes to cook for his friends.
+kontrollieren,to check/control,[kɔntʁɔˈliːʁən],verb,verb|basic,6,Bitte kontrollieren Sie Ihr Ticket.,Please check your ticket.
+kopieren,to copy,[koˈpiːʁən],verb,verb|basic,6,Kannst du mir die Datei kopieren?,Can you copy the file for me?
+lachen,to laugh,[ˈlaxn̩],verb,verb|basic,7,Warum lachst du?,Why are you laughing?
+laufen,to run/walk,[ˈlaʊfn̩],verb,verb|irregular|essential,7,Ich laufe jeden Morgen im Park.,I run in the park every morning.
+leben,to live,[ˈleːbn̩],verb,verb|essential|basic,8,Meine Großeltern leben nicht mehr.,My grandparents are no longer living.
+legen,to lay/put down (horizontally),[ˈleːɡn̩],verb,verb|basic,7,Ich lege das Buch auf den Tisch.,I lay the book on the table.
+leihen,to lend/borrow,[ˈlaɪən],verb,verb|irregular|basic,6,Kannst du mir einen Stift leihen?,Can you lend me a pen?
+malen,to paint,[ˈmaːlən],verb,verb|basic,6,Die Kinder malen bunte Bilder.,The children are painting colorful pictures.
+mieten,to rent,[ˈmiːtn̩],verb,verb|basic,7,Wir wollen ein Auto mieten.,We want to rent a car.
+mitnehmen,to take with,[ˈmɪtˌneːmən],verb,verb|separable|irregular,7,Nimm einen Regenschirm mit!,Take an umbrella with you!
+organisieren,to organize,[ɔʁɡaniˈziːʁən],verb,verb|basic,6,Wer organisiert die Party?,Who is organizing the party?
+packen,to pack,[ˈpakn̩],verb,verb|basic,7,Ich muss meinen Koffer packen.,I have to pack my suitcase.
+parken,to park,[ˈpaʁkn̩],verb,verb|basic,7,Hier können Sie nicht parken.,You cannot park here.
+putzen,to clean,[ˈpʊtsn̩],verb,verb|basic,7,Ich putze jeden Samstag die Wohnung.,I clean the apartment every Saturday.
+rauchen,to smoke,[ˈʁaʊxn̩],verb,verb|basic,6,Rauchen ist ungesund.,Smoking is unhealthy.
+regnen,to rain,[ˈʁeːɡnən],verb,verb|impersonal|basic,7,Es regnet seit zwei Tagen.,It has been raining for two days.
+reisen,to travel,[ˈʁaɪzn̩],verb,verb|basic,7,Ich reise gern in andere Länder.,I like to travel to other countries.
+reparieren,to repair,[ʁepaˈʁiːʁən],verb,verb|basic,7,Er repariert sein Fahrrad.,He is repairing his bicycle.
+rufen,to call/shout,[ˈʁuːfn̩],verb,verb|irregular|basic,6,Ruf mich an, wenn du ankommst.,Call me when you arrive.
+schaffen,to manage/achieve,[ˈʃafn̩],verb,verb|basic,6,Wir schaffen das zusammen.,We can manage that together.
+scheinen,to shine/seem,[ˈʃaɪnən],verb,verb|irregular|basic,7,Die Sonne scheint.,The sun is shining.
+schenken,to give (a gift),[ˈʃɛŋkn̩],verb,verb|dative|basic,7,Was schenkst du ihm?,What are you giving him as a gift?
+schicken,to send,[ˈʃɪkn̩],verb,verb|basic,7,Ich schicke dir eine Postkarte.,I'll send you a postcard.
+schlafen,to sleep,[ˈʃlaːfn̩],verb,verb|irregular|essential,8,Ich schlafe normalerweise acht Stunden.,I normally sleep for eight hours.
+schmecken,to taste,[ˈʃmɛkn̩],verb,verb|dative|basic,7,Wie schmeckt Ihnen die Suppe?,How do you like the soup? (How does it taste to you?)
+schneiden,to cut,[ˈʃnaɪdn̩],verb,verb|irregular|basic,6,Vorsicht, das Messer schneidet gut.,Be careful, the knife cuts well.
+schneien,to snow,[ˈʃnaɪən],verb,verb|impersonal|basic,6,Im Winter schneit es oft.,In winter it often snows.
+schwanger,pregnant,[ˈʃvaŋɐ],adjective,adjective|basic,6,Meine Schwester ist schwanger.,My sister is pregnant.
+still,still/quiet,[ʃtɪl],adjective,adjective|basic,6,Sei bitte still!,Please be quiet!
+stolz,proud,[ʃtɔlts],adjective,adjective|basic,6,Ich bin stolz auf dich.,I am proud of you.
+sympathisch,likeable/pleasant,[zʏmˈpaːtɪʃ],adjective,adjective|basic,7,Dein neuer Freund ist sehr sympathisch.,Your new friend is very likeable.
+toll,great/fantastic,[tɔl],adjective,adjective|basic,7,Das war ein toller Abend!,That was a great evening!
+vorsichtig,careful,[ˈfoːɐ̯zɪçtɪç],adjective,adjective|basic,7,Fahr vorsichtig!,Drive carefully!
+wahr,true,[vaːɐ̯],adjective,adjective|basic,6,Ist das wirklich wahr?,Is that really true?
+wütend,furious/angry,[ˈvyːtn̩t],adjective,adjective|basic,6,Er war wütend auf mich.,He was furious with me.
+besser,better,[ˈbɛsɐ],adjective,adjective|comparative|essential,9,Mir geht es heute besser.,I am feeling better today.
+am besten,best,[am ˈbɛstn̩],adjective,adjective|superlative|essential,9,Das ist die beste Lösung.,That is the best solution.
+lieber,rather/preferably,[ˈliːbɐ],adverb,adverb|comparative|essential,8,Ich trinke lieber Tee als Kaffee.,I prefer to drink tea rather than coffee.
+am liebsten,most of all/favorite,[am ˈliːpstn̩],adverb,adverb|superlative|essential,8,Am liebsten esse ich Pizza.,Most of all I like to eat pizza.
+mehr,more,[meːɐ̯],adverb,adverb|comparative|essential,9,Ich brauche mehr Zeit.,I need more time.
+am meisten,the most,[am ˈmaɪstn̩],adverb,adverb|superlative|essential,8,Was magst du am meisten?,What do you like the most?
+weniger,less/fewer,[ˈveːnɪɡɐ],adverb,adverb|comparative|essential,7,Wir sollten weniger fernsehen.,We should watch less television.
+am wenigsten,the least,[am ˈveːnɪçstn̩],adverb,adverb|superlative|essential,7,Das ist am wenigsten wichtig.,That is the least important.
+größer,bigger/taller,[ˈɡʁøːsɐ],adjective,adjective|comparative|essential,8,Mein Bruder ist größer als ich.,My brother is taller than me.
+am größten,biggest/tallest,[am ˈɡʁøːstn̩],adjective,adjective|superlative|essential,8,Das ist das größte Gebäude der Stadt.,That is the biggest building in the city.
+älter,older,[ˈɛltɐ],adjective,adjective|comparative|essential,8,Sie ist zwei Jahre älter.,She is two years older.
+am ältesten,oldest,[am ˈɛltəstn̩],adjective,adjective|superlative|essential,8,Wer ist am ältesten in deiner Familie?,Who is the oldest in your family?
+draußen,outside,[ˈdʁaʊsn̩],adverb,adverb|place|essential,7,Die Kinder spielen draußen.,The children are playing outside.
+drinnen,inside,[ˈdʁɪnən],adverb,adverb|place|basic,7,Es ist kalt, lass uns drinnen bleiben.,It's cold, let's stay inside.
+irgendwo,somewhere,[ˈɪʁɡn̩tˌvoː],adverb,adverb|place|basic,6,Meine Tasche muss irgendwo hier sein.,My bag must be here somewhere.
+nirgendwo,nowhere,[ˈnɪʁɡn̩tˌvoː],adverb,adverb|place|basic,6,Ich war nirgendwo.,I wasn't anywhere.
+abends,in the evening,[ˈaːbn̩ts],adverb,adverb|time|essential,8,Abends lese ich gern.,In the evenings, I like to read.
+morgens,in the morning,[ˈmɔʁɡn̩s],adverb,adverb|time|essential,8,Morgens trinke ich immer Kaffee.,In the mornings, I always drink coffee.
+tagsüber,during the day,[ˈtaːksˌʔyːbɐ],adverb,adverb|time|basic,6,Tagsüber bin ich bei der Arbeit.,During the day I am at work.
+nachts,at night,[naxts],adverb,adverb|time|basic,7,Nachts ist es hier sehr ruhig.,At night it's very quiet here.
+früher,earlier/formerly,[ˈfʁyːɐ],adverb,adverb|time|comparative,7,Früher war hier ein Kino.,Formerly, there was a cinema here.
+später,later,[ˈʃpɛːtɐ],adverb,adverb|time|comparative,8,Wir können das später besprechen.,We can discuss that later.
+sofort,immediately,[zoˈfɔʁt],adverb,adverb|time|essential,7,Bitte kommen Sie sofort.,Please come immediately.
+neulich,recently,[ˈnɔʏlɪç],adverb,adverb|time|basic,6,Ich habe ihn neulich getroffen.,I met him recently.
+damals,back then/at that time,[ˈdaːmaːls],adverb,adverb|time|basic,6,Damals war alles anders.,Everything was different back then.
+übermorgen,the day after tomorrow,[ˈyːbɐˌmɔʁɡn̩],adverb,adverb|time|basic,7,Übermorgen fliegen wir in den Urlaub.,The day after tomorrow we are flying on vacation.
+vorgestern,the day before yesterday,[ˈfoːɐ̯ˌɡɛstɐn],adverb,adverb|time|basic,7,Vorgestern hatte ich Geburtstag.,The day before yesterday was my birthday.
+bergauf,uphill,[bɛʁkˈʔaʊf],adverb,adverb|direction|basic,4,Wir müssen den ganzen Weg bergauf gehen.,We have to walk uphill the whole way.
+bergab,downhill,[bɛʁkˈʔap],adverb,adverb|direction|basic,4,Mit dem Fahrrad ist es bergab einfacher.,With the bicycle, it's easier downhill.
+sogar,even,[zoˈɡaːɐ̯],adverb,adverb|intensifier|basic,6,Er hat sogar das Geschirr gespült.,He even washed the dishes.
+besonders,especially,[bəˈzɔndɐs],adverb,adverb|intensifier|basic,7,Das Konzert war besonders gut.,The concert was especially good.
+eigentlich,actually,[ˈaɪɡn̩tlɪç],adverb,adverb|modal|basic,7,Eigentlich wollte ich ins Kino gehen.,Actually, I wanted to go to the cinema.
+wahrscheinlich,probably,[vaːɐ̯ˈʃaɪnlɪç],adverb,adverb|modal|basic,6,Er kommt wahrscheinlich zu spät.,He is probably coming late.
+sicherlich,certainly,[ˈzɪçɐlɪç],adverb,adverb|modal|basic,6,Das ist sicherlich die beste Option.,That is certainly the best option.
+vielleicht,perhaps,[fiˈlaɪçt],adverb,adverb|modal|essential,8,Vielleicht regnet es morgen.,Perhaps it will rain tomorrow.
+mal,once/just (informal),[maːl],particle,particle|conversational|essential,8,Kannst du mir mal helfen?,Can you just help me?
+halt,just/simply (filler word),[halt],particle,particle|conversational|basic,6,Das ist halt so.,That's just the way it is.
+eben,just/exactly,[ˈeːbn̩],particle,particle|conversational|basic,6,Das habe ich eben gesagt.,I just said that.
+schon,already (also used for emphasis),[ʃoːn],particle,particle|conversational|essential,8,Das wird schon klappen.,It'll work out.
+wohl,probably/well,[voːl],particle,particle|conversational|basic,6,Er ist wohl krank.,He is probably sick.
+ach so,I see / oh, okay,[ax zoː],phrase,particle|conversational|essential,8,Ach so, das wusste ich nicht.,I see, I didn't know that.
+genau,exactly,[ɡəˈnaʊ],particle,particle|conversational|essential,8,Genau! Das ist die richtige Antwort.,Exactly! That is the correct answer.
+stimmt,that's right,[ʃtɪmt],phrase,particle|conversational|essential,8,Der Preis ist 10 Euro? Stimmt.,The price is 10 euros? That's right.
+einverstanden,agreed,[ˈaɪnfɛɐ̯ˌʃtandn̩],adjective,adjective|response|basic,7,Sollen wir uns um 8 treffen? Einverstanden!,Shall we meet at 8? Agreed!
+egal,it doesn't matter/whatever,[eˈɡaːl],adjective,adjective|response|basic,7,Tee oder Kaffee? Das ist mir egal.,Tea or coffee? I don't mind.
+fertig,ready/finished,[ˈfɛʁtɪç],adjective,adjective|essential|basic,8,Das Essen ist fertig.,The food is ready.
+verboten,forbidden,[fɛɐ̯ˈboːtn̩],adjective,adjective|basic,7,Parken ist hier verboten.,Parking is forbidden here.
+erlaubt,allowed/permitted,[ɛɐ̯ˈlaʊpt],adjective,adjective|basic,7,Das ist hier nicht erlaubt.,That is not allowed here.
+verheiratet,married,[fɛɐ̯ˈhaɪʁaːtət],adjective,adjective|essential|basic,8,Sind Sie verheiratet?,Are you married?
+ledig,single,[ˈleːdɪç],adjective,adjective|essential|basic,8,Ich bin ledig.,I am single.
+geschieden,divorced,[ɡəˈʃiːdn̩],adjective,adjective|basic,7,Meine Eltern sind geschieden.,My parents are divorced.
+verwitwet,widowed,[fɛɐ̯ˈvɪtvət],adjective,adjective|basic,6,Frau Meier ist verwitwet.,Mrs. Meier is widowed.
+eins,one,[aɪns],numeral,number|essential,9,Ich habe einen Bruder.,I have one brother.
+zwei,two,[tsvaɪ],numeral,number|essential,9,Zwei Kaffee, bitte.,Two coffees, please.
+drei,three,[dʁaɪ],numeral,number|essential,9,Wir haben drei Kinder.,We have three children.
+vier,four,[fiːɐ̯],numeral,number|essential,9,Das Auto hat vier Räder.,The car has four wheels.
+fünf,five,[fʏnf],numeral,number|essential,9,Es ist fünf Uhr.,It is five o'clock.
+sechs,six,[zɛks],numeral,number|essential,9,Der Kurs dauert sechs Wochen.,The course lasts six weeks.
+sieben,seven,[ˈziːbn̩],numeral,number|essential,9,Die Woche hat sieben Tage.,The week has seven days.
+acht,eight,[axt],numeral,number|essential,9,Bitte um acht Uhr hier sein.,Please be here at eight o'clock.
+neun,nine,[nɔʏn],numeral,number|essential,9,Ich habe neun Euro bezahlt.,I paid nine euros.
+zehn,ten,[tseːn],numeral,number|essential,9,Zehn Minuten Pause.,A ten-minute break.
+elf,eleven,[ɛlf],numeral,number|essential,9,Meine Tochter ist elf Jahre alt.,My daughter is eleven years old.
+zwölf,twelve,[tsvœlf],numeral,number|essential,9,Es ist zwölf Uhr mittags.,It is twelve o'clock noon.
+dreizehn,thirteen,[ˈdʁaɪˌtseːn],numeral,number|essential,8,Die Nummer dreizehn bringt Unglück.,The number thirteen brings bad luck.
+vierzehn,fourteen,[ˈfɪʁˌtseːn],numeral,number|essential,8,Sie ist vierzehn.,She is fourteen.
+fünfzehn,fifteen,[ˈfʏnfˌtseːn],numeral,number|essential,8,In fünfzehn Minuten geht es los.,We start in fifteen minutes.
+sechzehn,sixteen,[ˈzɛçˌtseːn],numeral,number|essential,8,Mit sechzehn darf man Bier kaufen.,At sixteen, one is allowed to buy beer.
+siebzehn,seventeen,[ˈziːpˌtseːn],numeral,number|essential,8,Der Flug geht um siebzehn Uhr.,The flight leaves at 5 PM.
+achtzehn,eighteen,[ˈaxˌtseːn],numeral,number|essential,8,Endlich achtzehn!,Finally eighteen!
+neunzehn,nineteen,[ˈnɔʏnˌtseːn],numeral,number|essential,8,Das Buch hat neunzehn Kapitel.,The book has nineteen chapters.
+zwanzig,twenty,[ˈtsvantsɪç],numeral,number|essential,9,Das kostet zwanzig Euro.,That costs twenty euros.
+einundzwanzig,twenty-one,[ˈaɪnʊntˌtsvantsɪç],numeral,number|essential,8,Der 21. Juli ist ein Feiertag.,July 21st is a holiday.
+dreißig,thirty,[ˈdʁaɪsɪç],numeral,number|essential,8,Mein Bruder ist dreißig.,My brother is thirty.
+vierzig,forty,[ˈfɪʁtsɪç],numeral,number|essential,8,Sie ist über vierzig.,She is over forty.
+fünfzig,fifty,[ˈfʏnftsɪç],numeral,number|essential,8,Fünfzig Prozent Rabatt.,Fifty percent discount.
+sechzig,sixty,[ˈzɛçtsɪç],numeral,number|essential,8,Mein Opa wird sechzig.,My grandpa is turning sixty.
+siebzig,seventy,[ˈziːptsɪç],numeral,number|essential,8,Die Geschwindigkeitsbegrenzung ist siebzig.,The speed limit is seventy.
+achtzig,eighty,[ˈaxtsɪç],numeral,number|essential,8,Sie hat achtzig Euro gewonnen.,She won eighty euros.
+neunzig,ninety,[ˈnɔʏntsɪç],numeral,number|essential,8,Das dauert neunzig Minuten.,That takes ninety minutes.
+hundert,one hundred,[ˈhʊndɐt],numeral,number|essential,9,Ich habe hundert E-Mails.,I have one hundred emails.
+tausend,one thousand,[ˈtaʊzn̩t],numeral,number|basic,7,Das Stadion fasst zehntausend Menschen.,The stadium holds ten thousand people.
+wessen,whose,[ˈvɛsn̩],pronoun,interrogative|genitive|basic,5,Wessen Jacke ist das?,Whose jacket is this?
+dagegen,against it,[daˈɡeːɡn̩],adverb,adverb|pronominal,6,Ich habe nichts dagegen.,I have nothing against it.
+dafür,for it,[daˈfyːɐ̯],adverb,adverb|pronominal,6,Bist du dafür oder dagegen?,Are you for it or against it?
+damit,with it/so that,[ˈdaːmɪt],adverb,adverb|pronominal,6,Was machst du damit?,What are you doing with that?
+darüber,about it/over it,[daˈʁyːbɐ],adverb,adverb|pronominal,7,Wir müssen darüber sprechen.,We need to talk about it.
+darum,therefore/around it,[ˈdaːrʊm],adverb,adverb|pronominal,6,Darum geht es nicht.,That's not the point.
+dran,on it/its turn,[dʁan],adverb,adverb|pronominal,7,Wer ist als Nächstes dran?,Whose turn is it next?
+drin,inside it,[dʁɪn],adverb,adverb|pronominal,6,Schau mal, was drin ist.,Look what's inside.
+womit,with what,[voˈmɪt],adverb,adverb|interrogative,6,Womit schreibst du?,What are you writing with?
+woran,on what,[voˈʁan],adverb,adverb|interrogative,5,Woran denkst du?,What are you thinking about?
+worauf,on what/for what,[voˈʁaʊf],adverb,adverb|interrogative,6,Worauf wartest du?,What are you waiting for?
+worüber,about what,[voˈʁyːbɐ],adverb,adverb|interrogative,6,Worüber lacht ihr?,What are you laughing about?

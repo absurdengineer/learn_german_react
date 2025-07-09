@@ -111,40 +111,41 @@ const ArticlesLearning: React.FC<ArticlesLearningProps> = ({
     <div className="min-h-screen bg-gray-50 p-4">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
-        <div className="flex items-center justify-between mb-6">
-          <button
-            onClick={onExit}
-            className="flex items-center space-x-2 px-4 py-2 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow"
-          >
-            <svg
-              className="w-5 h-5 text-gray-600"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+        <div className="mb-6">
+          {/* Exit button */}
+          <div className="flex justify-start mb-4">
+            <button
+              onClick={onExit}
+              className="flex items-center space-x-2 px-4 py-2 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-            <span className="text-gray-700">Exit</span>
-          </button>
-
-          <div className="text-center">
-            <h2 className="text-xl font-bold text-gray-800">
-              Articles Learning
-            </h2>
-            <p className="text-sm text-gray-600">
-              Word {currentIndex + 1} of {shuffledWords.length}
-            </p>
+              <svg
+                className="w-5 h-5 text-gray-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+              <span className="text-gray-700">Exit</span>
+            </button>
           </div>
 
-          <div className="flex items-center space-x-2">
-            <span className="text-sm text-gray-600">
+          {/* Title and progress section */}
+          <div className="text-center mb-4">
+            <h2 className="text-xl font-bold text-gray-800 mb-2">
+              Articles Learning
+            </h2>
+            <p className="text-sm text-gray-600 mb-2">
+              Word {currentIndex + 1} of {shuffledWords.length}
+            </p>
+            <p className="text-xs text-gray-500">
               Words studied: {wordsStudied}
-            </span>
+            </p>
           </div>
         </div>
 

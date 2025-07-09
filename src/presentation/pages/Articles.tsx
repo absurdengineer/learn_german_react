@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { VocabularyWord } from '../../domain/entities/Vocabulary';
+import { shuffleArray } from '../../utils/testGenerator';
 import ArticlesLearning from '../components/ArticlesLearning';
 import ArticlesPractice from '../components/ArticlesPractice';
 import PageHeader from '../components/PageHeader';
@@ -55,7 +56,8 @@ const Articles: React.FC = () => {
   const handleReviewMistakes = () => {
     if (sessionResults && sessionResults.mistakes.length > 0) {
       const mistakenWords = sessionResults.mistakes.map((mistake) => mistake.word);
-      setReviewWords(mistakenWords);
+      const shuffledWords = shuffleArray([...mistakenWords]);
+      setReviewWords(shuffledWords);
       setSessionMode('practice');
     }
   };

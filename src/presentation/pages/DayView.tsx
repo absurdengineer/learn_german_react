@@ -1,9 +1,18 @@
-import { useParams, Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import { loadVocabulary } from '../../data';
 import studyPlanData from '../../data/studyPlan.json';
-import vocabularyData from '../../data/vocabulary.json';
-import { getGenderColor } from '../../utils/genderColors';
-import { VocabularyWord } from '../../domain/entities/Vocabulary';
+import type { LevelType } from '../../domain/entities/User';
+import { VocabularyWord, type WordType } from '../../domain/entities/Vocabulary';
 import type { Gender } from '../../types';
+import { getGenderColor } from '../../utils/genderColors';
+
+interface Exercise {
+  id: string;
+  type: string;
+  title: string;
+  description: string;
+  estimatedTime: number;
+}
 
 interface DayData {
   day: number;
@@ -12,33 +21,61 @@ interface DayData {
   focusAreas: string[];
   vocabularyWords: string[];
   grammarTopics: string[];
-  exercises: { id: string; type: string; title: string; description: string; estimatedTime: number }[];
+  exercises: Exercise[];
   estimatedTime: number;
   difficulty: string;
+}
+
+interface ExerciseType {
+  icon: string;
+  name: string;
+}
+
+interface StudyPlanData {
+  STUDY_PLAN: DayData[];
+  exerciseTypes: Record<string, ExerciseType>;
 }
 
 const DayView = () => {
   const { day } = useParams<{ day: string }>();
   const dayNumber = parseInt(day || '1', 10);
-  const dayData = studyPlanData.STUDY_PLAN.find(
-    (d: any): d is DayData => d.day === dayNumber
+  const typedStudyPlanData = studyPlanData as StudyPlanData;
+  
+  const dayData = typedStudyPlanData.STUDY_PLAN.find(
+    (d: DayData): d is DayData => d.day === dayNumber
   );
 
   if (!dayData) {
     return <div>Day not found</div>;
   }
 
+  const vocabulary = loadVocabulary();
+  
   const vocabularyList: VocabularyWord[] = dayData.vocabularyWords
     .map((wordId) => {
-      const wordData = vocabularyData.A1_VOCABULARY.find((v) => v.id === wordId);
+      const wordData = vocabulary.find((v) => v.id === wordId);
       if (wordData) {
-        return VocabularyWord.create(wordData as any);
+        return VocabularyWord.create({
+          german: wordData.german,
+          english: wordData.english,
+          type: wordData.type as WordType,
+          level: wordData.level as LevelType,
+          gender: wordData.gender as Gender,
+          pronunciation: wordData.pronunciation,
+          tags: wordData.tags,
+          frequency: wordData.frequency,
+          exampleSentences: wordData.examples?.map(ex => ({
+            german: ex.german,
+            english: ex.english,
+            audioUrl: undefined
+          })) || []
+        });
       }
       return null;
     })
     .filter((word): word is VocabularyWord => !!word);
     
-  const lastDayInPlan = Math.max(...studyPlanData.STUDY_PLAN.map((d: any) => d.day));
+  const lastDayInPlan = Math.max(...typedStudyPlanData.STUDY_PLAN.map((d: DayData) => d.day));
   const isLastAvailableDay = dayNumber === lastDayInPlan;
 
   return (
@@ -120,7 +157,7 @@ const DayView = () => {
         <h2 className="text-2xl font-semibold mb-3">Exercises</h2>
         <ul className="space-y-4">
           {dayData.exercises.map((exercise) => {
-            const exerciseType = (studyPlanData.exerciseTypes as any)[exercise.type];
+            const exerciseType = typedStudyPlanData.exerciseTypes[exercise.type];
             return (
               <li
                 key={exercise.id}

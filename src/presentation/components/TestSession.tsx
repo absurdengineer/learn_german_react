@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 interface Question {
@@ -133,9 +133,9 @@ const TestSession = () => {
         </div>
 
         <div className="bg-white p-6 rounded-lg shadow-xl">
-          <div className="flex justify-between items-center mb-4">
-            <h1 className="text-xl font-bold">{test.title}</h1>
-            <div className="text-lg font-bold text-blue-500">
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4 space-y-2 sm:space-y-0">
+            <h1 className="text-xl font-bold text-center sm:text-left">{test.title}</h1>
+            <div className="text-lg font-bold text-blue-500 text-center sm:text-right">
               Question {currentQuestionIndex + 1}/{test.questions.length}
             </div>
           </div>
