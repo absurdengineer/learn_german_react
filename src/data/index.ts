@@ -1,9 +1,17 @@
 import { type LevelType } from '../domain/entities/User';
 import { VocabularyWord, type Gender, type WordType } from '../domain/entities/Vocabulary';
-import { parseArticlesCSV } from './articles';
 import type { ArticleNoun } from './articles';
+import { parseArticlesCSV } from './articles';
 import studyPlanData from './studyPlan.json';
 import { generateVocabularyCategoriesFromCSV, getCSVVocabularyStats, parseVocabularyCSV } from './vocabulary';
+
+// Grammar data exports
+export type { TestQuestion } from '../utils/grammarCsvParser';
+export {
+  getAvailableGrammarCategories,
+  getAvailableGrammarTypes, getGrammarQuestionsByCategory,
+  getGrammarQuestionsByType, getGrammarStats, getRandomGrammarQuestions, grammarQuestions
+} from './grammarData';
 
 // Type definitions
 export type { ArticleNoun };

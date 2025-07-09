@@ -1,5 +1,5 @@
 import { A1_VOCABULARY_WORDS, loadArticleNouns } from '../data';
-import grammarData from '../data/grammar.json';
+import { getRandomGrammarQuestions } from '../data/grammarData';
 
 export const shuffleArray = <T>(array: T[]): T[] => {
   for (let i = array.length - 1; i > 0; i--) {
@@ -65,9 +65,7 @@ export const generateArticlesTest = (count = 10) => {
 };
 
 export const generateGrammarTest = (count = 10) => {
-  const allQuestions = grammarData.topics.flatMap(
-    (topic) => topic.practice_questions
-  );
+  const allQuestions = getRandomGrammarQuestions(count * 3); // Get more questions to shuffle from
   const selectedQuestions = shuffleArray([...allQuestions]).slice(0, count);
 
   const questions = selectedQuestions.map((q, index) => {

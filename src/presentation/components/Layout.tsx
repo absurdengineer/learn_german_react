@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useUser } from '../../hooks/useApp';
 
@@ -10,9 +10,9 @@ const menuItems = [
   { text: 'Home', icon: '🏠', path: '/' },
   { text: 'Vocabulary', icon: '📚', path: '/vocabulary' },
   { text: 'Articles', icon: '🎯', path: '/articles' },
-  { text: 'Tests', icon: '🧪', path: '/tests' },
-  { text: 'Study Plan', icon: '📅', path: '/study-plan' },
   { text: 'Grammar', icon: '📝', path: '/grammar' },
+  { text: 'Tests', icon: '🧪', path: '/tests' },
+  { text: 'Study Plan', icon: '�', path: '/study-plan' },
   { text: 'Speaking', icon: '🗣️', path: '/speaking' },
   { text: 'Writing', icon: '✍️', path: '/writing' },
   { text: 'Progress', icon: '📊', path: '/progress' },
