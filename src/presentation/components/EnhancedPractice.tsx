@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { generatePracticeSession, parseEnhancedGrammarCSV, type EnhancedGrammarQuestion } from '../../utils/enhancedGrammarParser';
+import { loadGrammarQuestions, filterQuestionsByCategory, type TestQuestion } from '../../utils/grammarCsvParser';
 
 interface EnhancedPracticeProps {
   category?: string;
@@ -7,7 +7,7 @@ interface EnhancedPracticeProps {
 }
 
 const EnhancedPractice: React.FC<EnhancedPracticeProps> = ({ category, onBack }) => {
-  const [questions, setQuestions] = useState<EnhancedGrammarQuestion[]>([]);
+  const [questions, setQuestions] = useState<TestQuestion[]>([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [showResult, setShowResult] = useState(false);
@@ -17,20 +17,18 @@ const EnhancedPractice: React.FC<EnhancedPracticeProps> = ({ category, onBack })
   useEffect(() => {
     const loadGrammarData = async () => {
       try {
-        // Load the enhanced grammar CSV
-        const response = await fetch('/src/data/enhanced_grammar.csv');
+        const response = await fetch('/src/data/grammar.csv');
         const csvContent = await response.text();
-        const allQuestions = parseEnhancedGrammarCSV(csvContent);
+        const allQuestions = loadGrammarQuestions(csvContent);
         
-        // Generate practice session for the selected category
-        const practiceQuestions = generatePracticeSession(
-          allQuestions,
-          category,
-          'beginner', // Focus on beginner level
-          10 // Limit to 10 questions
-        );
+        let practiceQuestions = allQuestions;
+        if (category) {
+          practiceQuestions = filterQuestionsByCategory(allQuestions, category);
+        }
         
-        setQuestions(practiceQuestions);
+        // Shuffle and take 10 questions
+        const shuffledQuestions = practiceQuestions.sort(() => 0.5 - Math.random());
+        setQuestions(shuffledQuestions.slice(0, 10));
         setLoading(false);
       } catch (error) {
         console.error('Error loading grammar data:', error);
@@ -47,7 +45,7 @@ const EnhancedPractice: React.FC<EnhancedPracticeProps> = ({ category, onBack })
     setSelectedAnswer(answer);
     setShowResult(true);
     
-    if (answer === currentQuestion.correctAnswer) {
+    if (answer === currentQuestion.answer) {
       setScore(prev => ({ ...prev, correct: prev.correct + 1, total: prev.total + 1 }));
     } else {
       setScore(prev => ({ ...prev, total: prev.total + 1 }));
@@ -60,8 +58,7 @@ const EnhancedPractice: React.FC<EnhancedPracticeProps> = ({ category, onBack })
       setSelectedAnswer(null);
       setShowResult(false);
     } else {
-      // Practice session complete
-      const finalScore = score.correct + (selectedAnswer === currentQuestion.correctAnswer ? 1 : 0);
+      const finalScore = score.correct + (selectedAnswer === currentQuestion.answer ? 1 : 0);
       const percentage = Math.round((finalScore / (score.total + 1)) * 100);
       alert(`🎉 Practice complete!\n\nScore: ${finalScore}/${score.total + 1} (${percentage}%)\n\nKeep practicing to improve!`);
       onBack();
@@ -131,49 +128,27 @@ const EnhancedPractice: React.FC<EnhancedPracticeProps> = ({ category, onBack })
             </div>
             <div className="flex justify-between text-sm text-gray-600">
               <span>Progress: {Math.round(((currentQuestionIndex + 1) / questions.length) * 100)}%</span>
-              <span>{currentQuestion.category} • {currentQuestion.subcategory}</span>
+              <span>{currentQuestion.category}</span>
             </div>
           </div>
 
           {/* Question */}
           <div className="mb-8">
-            <div className="mb-4">
-              <span className={`inline-block px-3 py-1 rounded-full text-sm font-medium ${
-                currentQuestion.difficulty === 'beginner' ? 'bg-green-100 text-green-700' :
-                currentQuestion.difficulty === 'intermediate' ? 'bg-yellow-100 text-yellow-700' :
-                'bg-red-100 text-red-700'
-              }`}>
-                {currentQuestion.difficulty}
-              </span>
-            </div>
-            
             <h2 className="text-2xl font-bold text-gray-900 mb-3">
-              {currentQuestion.germanSentence}
+              {currentQuestion.question}
             </h2>
-            
-            <p className="text-lg text-gray-600 mb-4">
-              {currentQuestion.englishTranslation}
-            </p>
-
-            {currentQuestion.exampleContext && (
-              <div className="bg-blue-50 border-l-4 border-blue-400 p-4 mb-4">
-                <p className="text-sm text-blue-800">
-                  <strong>Context:</strong> {currentQuestion.exampleContext}
-                </p>
-              </div>
-            )}
           </div>
 
           {/* Answer Options */}
           <div className="space-y-3 mb-8">
-            {currentQuestion.options.map((option, index) => (
+            {currentQuestion.options.map((option: string, index: number) => (
               <button
                 key={index}
                 onClick={() => !showResult && handleAnswerSelect(option)}
                 disabled={showResult}
                 className={`w-full p-4 text-left rounded-lg border-2 transition-all duration-300 ${
                   showResult
-                    ? option === currentQuestion.correctAnswer
+                    ? option === currentQuestion.answer
                       ? 'border-green-500 bg-green-50 text-green-700'
                       : selectedAnswer === option
                       ? 'border-red-500 bg-red-50 text-red-700'
@@ -185,10 +160,10 @@ const EnhancedPractice: React.FC<EnhancedPracticeProps> = ({ category, onBack })
               >
                 <div className="flex items-center justify-between">
                   <span className="font-medium text-lg">{option}</span>
-                  {showResult && option === currentQuestion.correctAnswer && (
+                  {showResult && option === currentQuestion.answer && (
                     <span className="text-green-600 text-xl">✅</span>
                   )}
-                  {showResult && selectedAnswer === option && option !== currentQuestion.correctAnswer && (
+                  {showResult && selectedAnswer === option && option !== currentQuestion.answer && (
                     <span className="text-red-600 text-xl">❌</span>
                   )}
                 </div>
@@ -201,25 +176,15 @@ const EnhancedPractice: React.FC<EnhancedPracticeProps> = ({ category, onBack })
             <div className="space-y-4">
               <div className="border-t pt-6">
                 <div className={`text-lg font-semibold mb-4 ${
-                  selectedAnswer === currentQuestion.correctAnswer ? 'text-green-600' : 'text-red-600'
+                  selectedAnswer === currentQuestion.answer ? 'text-green-600' : 'text-red-600'
                 }`}>
-                  {selectedAnswer === currentQuestion.correctAnswer ? '🎉 Correct!' : '😅 Not quite right'}
+                  {selectedAnswer === currentQuestion.answer ? '🎉 Correct!' : '😅 Not quite right'}
                 </div>
                 
-                {/* Grammar Explanation */}
-                <div className="bg-gray-50 rounded-lg p-4 mb-4">
-                  <h3 className="font-semibold text-gray-900 mb-2">📚 Explanation:</h3>
-                  <p className="text-gray-700 mb-2">{currentQuestion.explanation}</p>
-                  <p className="text-sm text-gray-600">
-                    <strong>Grammar Point:</strong> {currentQuestion.grammarPoint}
-                  </p>
-                </div>
-
-                {/* Common Mistake */}
-                {currentQuestion.commonMistake && selectedAnswer !== currentQuestion.correctAnswer && (
-                  <div className="bg-orange-50 border-l-4 border-orange-400 p-4 mb-4">
-                    <h3 className="font-semibold text-orange-800 mb-1">⚠️ Common Mistake:</h3>
-                    <p className="text-orange-700 text-sm">{currentQuestion.commonMistake}</p>
+                {currentQuestion.helper_text && (
+                  <div className="bg-gray-50 rounded-lg p-4 mb-4">
+                    <h3 className="font-semibold text-gray-900 mb-2">📚 Explanation:</h3>
+                    <p className="text-gray-700 mb-2">{currentQuestion.helper_text}</p>
                   </div>
                 )}
 
