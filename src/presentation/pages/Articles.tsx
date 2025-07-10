@@ -5,6 +5,7 @@ import { shuffleArray } from '../../utils/testGenerator';
 import ArticlesLearning from '../components/ArticlesLearning';
 import ArticlesPractice from '../components/ArticlesPractice';
 import PracticeSessionResults from '../components/PracticeSessionResults';
+import { GradientCard, PageHero } from '../components/ui';
 
 interface ArticlesSessionResult {
   totalQuestions: number;
@@ -135,41 +136,37 @@ const Articles: React.FC = () => {
   }
 
   // Menu mode rendering
-  return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="bg-white border-b border-gray-200">
-        <div className="max-w-6xl mx-auto px-4 py-12 text-center">
-          <h1 className="text-5xl font-bold mb-4 text-gray-900">🎯 German Articles</h1>
-          <p className="text-xl text-gray-600 mb-2">
-            Master der, die, das with the 80-20 rule
+  const explanationBanner = (
+    <GradientCard gradient="yellow-orange" className="border border-yellow-200">
+      <div className="flex items-start space-x-4">
+        <div className="text-3xl">🎯</div>
+        <div>
+          <h3 className="text-xl font-bold mb-2">
+            80-20 Rule for German Articles
+          </h3>
+          <p className="mb-2">
+            Research shows that <strong>20% of German nouns</strong> account for <strong>80% of daily usage</strong>. 
+            By mastering these essential words, you'll handle most A1 exam situations with confidence!
           </p>
-          <p className="text-gray-500">
-            Focus on the most essential nouns for A1 exam success
+          <p className="text-sm opacity-90">
+            ✨ We've curated 200+ high-frequency nouns that appear most often in A1 exams and real conversations.
           </p>
         </div>
       </div>
+    </GradientCard>
+  );
 
-      <div className="max-w-6xl mx-auto px-4 py-8">
+  return (
+    <div className="min-h-screen bg-gray-50">
+      <PageHero
+        title="German Articles"
+        subtitle="Master der, die, das with the 80-20 rule"
+        description="Focus on the most essential nouns for A1 exam success"
+        icon="🎯"
+        bannerContent={explanationBanner}
+      />
 
-        {/* 80-20 Rule Explanation */}
-        <div className="bg-gradient-to-r from-yellow-50 to-orange-50 rounded-xl p-6 mb-8 border border-yellow-200">
-          <div className="flex items-start space-x-4">
-            <div className="text-3xl">🎯</div>
-            <div>
-              <h3 className="text-xl font-bold text-yellow-800 mb-2">
-                80-20 Rule for German Articles
-              </h3>
-              <p className="text-yellow-700 mb-2">
-                Research shows that <strong>20% of German nouns</strong> account for <strong>80% of daily usage</strong>. 
-                By mastering these essential words, you'll handle most A1 exam situations with confidence!
-              </p>
-              <p className="text-sm text-yellow-600">
-                ✨ We've curated 200+ high-frequency nouns that appear most often in A1 exams and real conversations.
-              </p>
-            </div>
-          </div>
-        </div>
-
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-8 pb-8">
         {/* Quick Start Options */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
           <div className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow">

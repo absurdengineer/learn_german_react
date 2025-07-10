@@ -3,6 +3,7 @@ import { loadArticleNouns, type ArticleNoun } from '../../data';
 import { VocabularyWord } from '../../domain/entities/Vocabulary';
 import { GENDER_COLORS } from '../../utils/genderColors';
 import GenderLegend from './GenderLegend';
+import { NavigationHeader } from './ui';
 
 interface ArticlesPracticeProps {
   onComplete: (results: ArticlesSessionResult) => void;
@@ -197,45 +198,16 @@ const ArticlesPractice: React.FC<ArticlesPracticeProps> = ({
     <div className="min-h-screen bg-gray-50 p-4">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
-        <div className="flex flex-wrap items-center justify-between mb-6 gap-4">
-          <button
-            onClick={onExit}
-            className="flex items-center space-x-2 px-4 py-2 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow"
-          >
-            <svg
-              className="w-5 h-5 text-gray-600"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-            <span className="text-gray-700">Exit</span>
-          </button>
-
-          <div className="text-center">
-            <div className="text-sm font-medium text-gray-600 mb-1">
-              🇩🇪 Articles Practice (80-20 Rule)
-            </div>
-            <div className="text-lg font-bold text-gray-800">
-              Question {currentQuestionIndex + 1} of {sessionWords.length}
-            </div>
-          </div>
-
-          <div className="flex items-center space-x-4">
-            <div className="text-center">
-              <div className="text-sm text-gray-600">Score</div>
-              <div className="text-lg font-bold text-green-600">
-                {score}/{sessionWords.length}
-              </div>
-            </div>
-          </div>
-        </div>
+        <NavigationHeader
+          title="🇩🇪 Articles Practice (80-20 Rule)"
+          subtitle={`Question ${currentQuestionIndex + 1} of ${sessionWords.length}`}
+          onBack={onExit}
+          backLabel="Exit"
+          score={{
+            current: score,
+            total: sessionWords.length
+          }}
+        />
 
         {/* Progress Bar */}
         <div className="mb-8">

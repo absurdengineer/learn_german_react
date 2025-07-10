@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useProgress, useUser } from '../../hooks/useApp';
-import PageHeader from '../components/PageHeader';
+import { Card, GradientCard, PageHero, ProgressCard, QuickActionCard } from '../components/ui';
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
@@ -53,25 +53,66 @@ const Home: React.FC = () => {
     },
   ];
 
-  const todayProgress = {
-    vocabulary: Math.floor((progress.vocabularyLearned / 500) * 100),
-    grammar: Math.floor((progress.grammarTopicsCompleted.length / 6) * 100),
-    overall: Math.floor((progress.currentDay / 30) * 100),
-  };
-
   return (
-    <div className="min-h-screen bg-gray-50 py-8 px-4">
-      <div className="max-w-6xl mx-auto">
-        <PageHeader
-          title={`Guten Tag, ${user.name || 'Learner'}! 👋`}
-          subtitle="Welcome to your German A1 learning journey"
-          description="Your personalized dashboard to track progress and access learning materials."
-        />
+    <div className="min-h-screen bg-gray-50">
+      <PageHero
+        title={`Guten Tag, ${user.name || 'Learner'}! 👋`}
+        subtitle="Welcome to your German A1 learning journey"
+        description="Your personalized dashboard to track progress and access learning materials."
+        icon=""
+      />
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-8 pb-8">
+
+        {/* Featured Learning Modes */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-8">
+          {/* Articles Practice Banner */}
+          <GradientCard gradient="blue-purple">
+            <div className="flex flex-col items-start gap-4">
+              <div className="flex-1">
+                <h3 className="text-xl font-bold mb-2">🎯 Master German Articles</h3>
+                <p className="opacity-90 text-sm">
+                  Practice der, die, das with 200+ essential A1 words using the 80-20 rule
+                </p>
+              </div>
+              <button
+                onClick={() => navigate('/articles')}
+                className="w-full bg-white text-blue-600 px-4 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors flex items-center justify-center gap-2"
+              >
+                <span>Start Articles Practice</span>
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+          </GradientCard>
+
+          {/* Vocabulary Practice Banner */}
+          <GradientCard gradient="green-blue">
+            <div className="flex flex-col items-start gap-4">
+              <div className="flex-1">
+                <h3 className="text-xl font-bold mb-2">📚 Build Your Vocabulary</h3>
+                <p className="opacity-90 text-sm">
+                  Learn essential German words with interactive exercises and spaced repetition
+                </p>
+              </div>
+              <button
+                onClick={() => navigate('/vocabulary')}
+                className="w-full bg-white text-green-600 px-4 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors flex items-center justify-center gap-2"
+              >
+                <span>Start Vocabulary Practice</span>
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+          </GradientCard>
+        </div>
 
         {/* Progress Overview */}
-        <div className="bg-white rounded-2xl shadow-lg p-6 mb-8">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-semibold text-gray-800">
+        <Card className="mb-8">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 gap-2">
+            <h2 className="text-xl sm:text-2xl font-semibold text-gray-800">
               Today's Progress
             </h2>
             <div className="flex items-center space-x-2">
@@ -82,97 +123,51 @@ const Home: React.FC = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="bg-blue-50 rounded-lg p-4">
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-sm font-medium text-blue-700">
-                  Vocabulary
-                </span>
-                <span className="text-sm text-blue-600">
-                  {progress.vocabularyLearned}/500
-                </span>
-              </div>
-              <div className="w-full bg-blue-200 rounded-full h-2">
-                <div 
-                  className="bg-blue-600 h-2 rounded-full transition-all duration-300"
-                  style={{ width: `${todayProgress.vocabulary}%` }}
-                />
-              </div>
-            </div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <ProgressCard
+              title="Vocabulary"
+              current={progress.vocabularyLearned}
+              total={500}
+              color="blue"
+            />
 
-            <div className="bg-green-50 rounded-lg p-4">
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-sm font-medium text-green-700">
-                  Grammar
-                </span>
-                <span className="text-sm text-green-600">
-                  {progress.grammarTopicsCompleted.length}/6
-                </span>
-              </div>
-              <div className="w-full bg-green-200 rounded-full h-2">
-                <div 
-                  className="bg-green-600 h-2 rounded-full transition-all duration-300"
-                  style={{ width: `${todayProgress.grammar}%` }}
-                />
-              </div>
-            </div>
+            <ProgressCard
+              title="Grammar"
+              current={progress.grammarTopicsCompleted.length}
+              total={6}
+              color="green"
+            />
 
-            <div className="bg-purple-50 rounded-lg p-4">
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-sm font-medium text-purple-700">
-                  Overall
-                </span>
-                <span className="text-sm text-purple-600">
-                  {todayProgress.overall}%
-                </span>
-              </div>
-              <div className="w-full bg-purple-200 rounded-full h-2">
-                <div 
-                  className="bg-purple-600 h-2 rounded-full transition-all duration-300"
-                  style={{ width: `${todayProgress.overall}%` }}
-                />
-              </div>
-            </div>
+            <ProgressCard
+              title="Overall"
+              current={progress.currentDay}
+              total={30}
+              color="purple"
+            />
           </div>
-        </div>
+        </Card>
 
         {/* Quick Actions */}
         <div className="mb-8">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-6">
+          <h2 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-6">
             Quick Actions
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {quickActions.map((action, index) => (
-              <div
+              <QuickActionCard
                 key={index}
+                title={action.title}
+                description={action.description}
+                icon={action.icon}
+                color={action.color}
                 onClick={() => navigate(action.path)}
-                className="bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer transform hover:-translate-y-1 border border-gray-100"
-              >
-                <div className="p-6">
-                  <div className="flex items-start justify-between mb-3">
-                    <div className={`${action.color} w-12 h-12 rounded-lg flex items-center justify-center text-white text-xl`}>
-                      {action.icon}
-                    </div>
-                    <div className="text-gray-400">
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </div>
-                  </div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                    {action.title}
-                  </h3>
-                  <p className="text-sm text-gray-600">
-                    {action.description}
-                  </p>
-                </div>
-              </div>
+              />
             ))}
           </div>
         </div>
 
         {/* Streak & Achievements */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
           <div className="bg-white rounded-xl shadow-sm p-6">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-lg font-semibold text-gray-800">

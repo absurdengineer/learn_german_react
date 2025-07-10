@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { NavigationHeader } from './ui';
 
 interface Question {
   id: string;
@@ -168,67 +169,21 @@ const TestSession = () => {
   };
 
   const question = test.questions[currentQuestionIndex];
-  const progressPercentage = ((currentQuestionIndex + 1) / test.questions.length) * 100;
 
   return (
     <div className="min-h-screen bg-gray-50 p-4">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
-        <div className="flex flex-wrap items-center justify-between mb-6 gap-4">
-          <button
-            onClick={handleExitClick}
-            className="flex items-center space-x-2 px-4 py-2 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow"
-          >
-            <svg
-              className="w-5 h-5 text-gray-600"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-            <span className="text-gray-700">Exit Test</span>
-          </button>
-
-          <div className="text-center">
-            <div className="text-sm font-medium text-gray-600 mb-1">
-              🧪 {test.title}
-            </div>
-            <div className="text-lg font-bold text-gray-800">
-              Question {currentQuestionIndex + 1} of {test.questions.length}
-            </div>
-          </div>
-
-          <div className="flex items-center space-x-4">
-            <div className="text-center">
-              <div className="text-sm text-gray-600">Timer</div>
-              <div className={`text-lg font-bold ${timeLeft <= 5 ? 'text-red-600' : 'text-blue-600'}`}>
-                {timeLeft}s
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Progress Bar */}
-        <div className="mb-8">
-          <div className="flex justify-between text-sm text-gray-600 mb-2">
-            <span>Progress</span>
-            <span>
-              {Math.round(progressPercentage)}%
-            </span>
-          </div>
-          <div className="w-full bg-gray-200 rounded-full h-2">
-            <div
-              className="bg-gradient-to-r from-blue-500 to-purple-600 h-2 rounded-full transition-all duration-300"
-              style={{ width: `${progressPercentage}%` }}
-            />
-          </div>
-        </div>
+        <NavigationHeader
+          title={`🧪 ${test.title}`}
+          subtitle={`Question ${currentQuestionIndex + 1} of ${test.questions.length}`}
+          onBack={handleExitClick}
+          backLabel="Exit Test"
+          currentStep={currentQuestionIndex + 1}
+          totalSteps={test.questions.length}
+          timeLeft={timeLeft}
+          showProgress={true}
+        />
 
         {/* Timer Progress Bar */}
         <div className="mb-8">

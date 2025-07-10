@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
-    A1_VOCABULARY_WORDS,
     getRandomVocabularyWords,
     getVocabularyWordsByCategory,
+    loadVocabulary,
     loadVocabularyCategories,
     searchVocabularyWords
 } from '../../data';
-import { VocabularyWord } from '../../domain/entities/Vocabulary';
+import { type LevelType } from '../../domain/entities/User';
+import { VocabularyWord, type Gender, type WordType } from '../../domain/entities/Vocabulary';
 import { shuffleArray } from '../../utils/testGenerator';
 import PracticeSessionResults from '../components/PracticeSessionResults';
 import VocabularySession from '../components/VocabularySession';
+import { GradientCard, PageHero } from '../components/ui';
 
 interface SessionResult {
   totalQuestions: number;
@@ -28,7 +30,8 @@ interface SessionResult {
 const Vocabulary: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<'all' | string>('all');
-  const [filteredWords, setFilteredWords] = useState<VocabularyWord[]>(A1_VOCABULARY_WORDS);
+  const [allWords, setAllWords] = useState<VocabularyWord[]>([]);
+  const [filteredWords, setFilteredWords] = useState<VocabularyWord[]>([]);
   const [availableCategories, setAvailableCategories] = useState<Record<string, { name: string; description: string; color?: string }>>({});
   const [selectedWord, setSelectedWord] = useState<VocabularyWord | null>(null);
   const [dialogOpen, setDialogOpen] = useState(false);
@@ -39,7 +42,50 @@ const Vocabulary: React.FC = () => {
   const [sessionWords, setSessionWords] = useState<VocabularyWord[]>([]);
   const [sessionLength, setSessionLength] = useState(10);
   const [sessionResults, setSessionResults] = useState<SessionResult | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [loadingError, setLoadingError] = useState<string | null>(null);
   const navigate = useNavigate();
+
+  // Load vocabulary data and categories on component mount
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        setLoading(true);
+        setLoadingError(null);
+        
+        // Load data asynchronously to prevent blocking
+        await new Promise(resolve => setTimeout(resolve, 0)); // Allow UI to render
+        
+        const vocabulary = loadVocabulary();
+        const categories = loadVocabularyCategories();
+        
+        // Convert to VocabularyWord entities
+        const convertedWords = vocabulary.map(item => 
+          VocabularyWord.create({
+            german: item.german,
+            english: item.english,
+            pronunciation: item.pronunciation,
+            type: item.type as WordType,
+            level: item.level as LevelType,
+            gender: item.gender as Gender | undefined,
+            tags: item.tags,
+            frequency: item.frequency
+          })
+        );
+        
+        setAllWords(convertedWords);
+        setFilteredWords(convertedWords);
+        setAvailableCategories(categories);
+        setLoading(false);
+      } catch (error) {
+        console.error('Error loading vocabulary data:', error);
+        setLoadingError('Failed to load vocabulary data. Please refresh the page.');
+        setLoading(false);
+      }
+    };
+    
+    loadData();
+  }, []);
 
   // Load available categories on component mount
   useEffect(() => {
@@ -48,18 +94,20 @@ const Vocabulary: React.FC = () => {
   }, []);
 
   useEffect(() => {
+    if (!allWords.length) return; // Don't filter until data is loaded
+    
     let words: VocabularyWord[] = [];
     
     if (searchTerm.trim()) {
       words = searchVocabularyWords(searchTerm);
     } else if (selectedCategory === 'all') {
-      words = A1_VOCABULARY_WORDS;
+      words = allWords;
     } else {
       words = getVocabularyWordsByCategory(selectedCategory);
     }
     
     setFilteredWords(words);
-  }, [searchTerm, selectedCategory]);
+  }, [searchTerm, selectedCategory, allWords]);
 
   const handleWordClick = (word: VocabularyWord) => {
     setSelectedWord(word);
@@ -157,43 +205,91 @@ const Vocabulary: React.FC = () => {
 
   // Browse mode rendering
 
-  return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="bg-white border-b border-gray-200">
-        <div className="max-w-6xl mx-auto px-4 py-12 text-center">
-          <h1 className="text-5xl font-bold mb-4 text-gray-900">📚 German Vocabulary</h1>
-          <p className="text-xl text-gray-600 mb-2">
-            Learn essential German words for A1 level
-          </p>
-          <p className="text-gray-500">
-            Browse, search, and practice with interactive exercises
+  const articlesBanner = (
+    <GradientCard gradient="blue-purple">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:justify-between">
+        <div className="flex-1">
+          <h3 className="text-lg sm:text-xl font-bold mb-2">🎯 Master German Articles</h3>
+          <p className="opacity-90 text-sm sm:text-base">
+            Practice der, die, das with 200+ essential A1 words using the 80-20 rule
           </p>
         </div>
+        <button
+          onClick={() => navigate('/articles')}
+          className="w-full sm:w-auto bg-white text-blue-600 px-4 sm:px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors flex items-center justify-center gap-2"
+        >
+          <span>Start Articles Practice</span>
+          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
       </div>
+    </GradientCard>
+  );
 
-      <div className="max-w-6xl mx-auto px-4 py-8">
-
-        {/* Articles Practice Banner */}
-        <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl p-4 sm:p-6 mb-8 text-white">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:justify-between">
-            <div className="flex-1">
-              <h3 className="text-lg sm:text-xl font-bold mb-2">🎯 Master German Articles</h3>
-              <p className="text-blue-100 text-sm sm:text-base">
-                Practice der, die, das with 200+ essential A1 words using the 80-20 rule
-              </p>
+  // Loading state
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-50">
+        <PageHero
+          title="German Vocabulary"
+          subtitle="Learn essential German words for A1 level"
+          description="Browse, search, and practice with interactive exercises"
+          icon="📚"
+        />
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-8 pb-8">
+          <div className="flex items-center justify-center py-20">
+            <div className="text-center">
+              <div className="animate-spin rounded-full h-16 w-16 border-b-4 border-blue-500 mx-auto mb-4"></div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Loading Vocabulary</h3>
+              <p className="text-gray-600">Please wait while we load the German vocabulary data...</p>
             </div>
-            <button
-              onClick={() => navigate('/articles')}
-              className="w-full sm:w-auto bg-white text-blue-600 px-4 sm:px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors flex items-center justify-center gap-2"
-            >
-              <span>Start Articles Practice</span>
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
           </div>
         </div>
+      </div>
+    );
+  }
 
+  // Error state
+  if (loadingError) {
+    return (
+      <div className="min-h-screen bg-gray-50">
+        <PageHero
+          title="German Vocabulary"
+          subtitle="Learn essential German words for A1 level"
+          description="Browse, search, and practice with interactive exercises"
+          icon="📚"
+        />
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-8 pb-8">
+          <div className="flex items-center justify-center py-20">
+            <div className="text-center">
+              <div className="text-6xl mb-4">⚠️</div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Loading Error</h3>
+              <p className="text-gray-600 mb-4">{loadingError}</p>
+              <button
+                onClick={() => window.location.reload()}
+                className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+              >
+                Retry Loading
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      <PageHero
+        title="German Vocabulary"
+        subtitle="Learn essential German words for A1 level"
+        description="Browse, search, and practice with interactive exercises"
+        icon="📚"
+        bannerContent={articlesBanner}
+      />
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-8 pb-8">
         {/* Controls */}
         <div className="bg-white rounded-2xl shadow-lg p-4 sm:p-6 mb-8">
           <div className="space-y-4">
@@ -352,7 +448,7 @@ const Vocabulary: React.FC = () => {
               </div>
               <div className="ml-4">
                 <p className="text-sm font-medium text-gray-500">Total Words</p>
-                <p className="text-3xl font-bold text-gray-900">{A1_VOCABULARY_WORDS.length}</p>
+                <p className="text-3xl font-bold text-gray-900">{allWords.length}</p>
               </div>
             </div>
           </div>

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { loadGrammarQuestions, filterQuestionsByCategory, type TestQuestion } from '../../utils/grammarCsvParser';
+import { filterQuestionsByCategory, loadGrammarQuestions, type TestQuestion } from '../../utils/grammarCsvParser';
+import { NavigationHeader } from './ui';
 
 interface EnhancedPracticeProps {
   category?: string;
@@ -95,26 +96,20 @@ const EnhancedPractice: React.FC<EnhancedPracticeProps> = ({ category, onBack })
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex items-center justify-between">
-            <button
-              onClick={onBack}
-              className="text-white hover:text-purple-200 transition-colors"
-            >
-              ← Back
-            </button>
-            <div className="text-center">
-              <h1 className="text-2xl font-bold">Enhanced Practice Mode</h1>
-              <p className="text-purple-100">Question {currentQuestionIndex + 1} of {questions.length}</p>
-            </div>
-            <div className="text-white text-right">
-              <div className="text-sm">Score</div>
-              <div className="font-bold">{score.correct}/{score.total}</div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <NavigationHeader
+        title="Enhanced Practice Mode"
+        subtitle={`Question ${currentQuestionIndex + 1} of ${questions.length}`}
+        onBack={onBack}
+        backLabel="Back"
+        currentStep={currentQuestionIndex + 1}
+        totalSteps={questions.length}
+        score={{
+          current: score.correct,
+          total: score.total
+        }}
+        showProgress={true}
+        className="bg-gradient-to-r from-purple-600 to-blue-600 text-white"
+      />
 
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="bg-white rounded-xl shadow-lg p-8">

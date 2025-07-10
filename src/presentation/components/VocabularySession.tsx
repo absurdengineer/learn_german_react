@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { getRandomVocabularyWords } from '../../data';
 import { VocabularyWord } from '../../domain/entities/Vocabulary';
 import { getGenderColor, getGenderDisplayName } from '../../utils/genderColors';
+import { NavigationHeader } from './ui';
 
 interface VocabularySessionProps {
   words: VocabularyWord[];
@@ -65,7 +66,6 @@ const VocabularySession: React.FC<VocabularySessionProps> = ({
   }, []);
 
   const currentWord = words[currentIndex];
-  const progress = ((currentIndex + 1) / words.length) * 100;
   const genderColor = getGenderColor(currentWord?.gender);
 
   const generateMultipleChoiceOptions = useCallback(() => {
@@ -196,38 +196,15 @@ const VocabularySession: React.FC<VocabularySessionProps> = ({
     <div className="min-h-screen bg-gray-50 p-4">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
-        <div className="mb-6">
-          {/* Exit button */}
-          <div className="flex justify-start mb-4">
-            <button
-              onClick={onExit}
-              className="flex items-center space-x-2 px-4 py-2 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow"
-            >
-              <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-              <span className="text-gray-700">Exit</span>
-            </button>
-          </div>
-          
-          {/* Progress section */}
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-2 sm:space-y-0">
-            <div className="text-sm text-gray-600 text-center sm:text-left">
-              Question {currentIndex + 1} of {words.length}
-            </div>
-            <div className="flex items-center space-x-3">
-              <div className="text-xs text-gray-500">
-                {Math.round(progress)}%
-              </div>
-              <div className="flex-1 sm:w-48 bg-gray-200 rounded-full h-2">
-                <div 
-                  className="bg-blue-600 h-2 rounded-full transition-all duration-300"
-                  style={{ width: `${progress}%` }}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
+        <NavigationHeader
+          title="Vocabulary Practice"
+          subtitle={`Question ${currentIndex + 1} of ${words.length}`}
+          onBack={onExit}
+          backLabel="Exit"
+          currentStep={currentIndex + 1}
+          totalSteps={words.length}
+          showProgress={true}
+        />
 
         {/* Main Card */}
         <div className={`rounded-xl shadow-lg p-8 mb-6 transition-all duration-300 ${
