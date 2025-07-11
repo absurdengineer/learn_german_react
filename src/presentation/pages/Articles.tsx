@@ -1,217 +1,35 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
-import { loadArticleCategories } from '../../data';
-import { VocabularyWord } from '../../domain/entities/Vocabulary';
-import { SESSION_KEYS, SessionManager } from '../../utils/sessionManager';
-import { shuffleArray } from '../../utils/testGenerator';
+import React from 'react';
+import { useArticles } from '../../hooks/useArticles';
 import ArticlesLearning from '../components/ArticlesLearning';
 import ArticlesPractice from '../components/ArticlesPractice';
 import SessionResults from '../components/SessionResults';
-import { GradientCard, PageHero } from '../components/ui';
-
-interface ArticlesSessionResult {
-  totalQuestions: number;
-  correctAnswers: number;
-  wrongAnswers: number;
-  timeSpent: number;
-  wordsStudied: VocabularyWord[];
-  mistakes: Array<{
-    word: VocabularyWord;
-    userAnswer: string;
-    correctAnswer: string;
-  }>;
-}
-
-const categoryIcons: Record<string, string> = {
-  people: '👥',
-  time: '⏰',
-  work: '💼',
-  transport: '🚗',
-  living: '🏠',
-  food_drink: '🍽️',
-  education: '🎓',
-  communication: '💬',
-  personal_info: 'ℹ️',
-  geography: '🌍',
-  animals: '🐕',
-  body: '👤',
-  media: '📰',
-  shopping: '🛒',
-  leisure: '🎉',
-  health: '❤️',
-  nature: '🌳',
-  public_service: '🏢',
-  money: '💰',
-  everyday_objects: '🔑',
-  accessories: '👓',
-  abstract: '🤔',
-  default: '📚',
-};
+import PageLayout from '../components/layout/PageLayout';
+import SectionGrid from '../components/layout/SectionGrid';
+import { CategoryCard } from '../components/ui/CategoryCard';
+import { PracticeCard } from '../components/ui/PracticeCard';
+import { GradientCard, StatCard } from '../components/ui';
+import type { ArticlesSessionResult } from '../../hooks/useArticles';
 
 const Articles: React.FC = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
-  const { category } = useParams<{ category?: string }>();
-  
-  const [sessionResults, setSessionResults] = useState<ArticlesSessionResult | null>(null);
-  const [selectedCategory, setSelectedCategory] = useState<string>(category || '');
-  const [sessionLength] = useState(20);
-  const [reviewWords, setReviewWords] = useState<VocabularyWord[]>([]);
+  const {
+    sessionMode,
+    sessionResults,
+    selectedCategory,
+    sessionLength,
+    reviewWords,
+    articleCategories,
+    handleStartPractice,
+    handleStartLearning,
+    handleSessionComplete,
+    handleSessionExit,
+    handleRestart,
+    handleReviewMistakes,
+  } = useArticles();
 
-  // Determine current mode from URL
-  const getCurrentMode = useCallback((): 'menu' | 'practice' | 'learning' | 'results' => {
-    const pathname = location.pathname;
-    if (pathname.includes('/results')) return 'results';
-    if (pathname.includes('/practice')) return 'practice';
-    if (pathname.includes('/learning')) return 'learning';
-    return 'menu';
-  }, [location.pathname]);
-
-  const [sessionMode, setSessionMode] = useState<'menu' | 'practice' | 'learning' | 'results'>(getCurrentMode());
-
-  // Update mode when URL changes
-  useEffect(() => {
-    const mode = getCurrentMode();
-    setSessionMode(mode);
-  }, [location.pathname, getCurrentMode]);
-
-  // Load results from location state if coming from a session
-  useEffect(() => {
-    if (location.state?.results) {
-      setSessionResults(location.state.results);
-    } else if (sessionMode === 'results') {
-      // Try to get results from session storage
-      const results = SessionManager.getResults(SESSION_KEYS.ARTICLES);
-      if (results) {
-        // Map SessionResults to ArticlesSessionResult
-        const articleResults: ArticlesSessionResult = {
-          totalQuestions: results.totalQuestions,
-          correctAnswers: results.correctAnswers,
-          wrongAnswers: results.wrongAnswers,
-          timeSpent: results.timeSpent,
-          wordsStudied: [], // This would need to be stored separately or reconstructed
-          mistakes: results.mistakes?.map(m => ({
-            word: (m.word as unknown as VocabularyWord) || { german: '', english: '', id: '' },
-            userAnswer: m.userAnswer,
-            correctAnswer: m.correctAnswer
-          })) || []
-        };
-        setSessionResults(articleResults);
-      }
-    }
-  }, [location.state, sessionMode]);
-
-  // Update selected category from URL params
-  useEffect(() => {
-    if (category) {
-      setSelectedCategory(category);
-    }
-  }, [category]);
-
-  const articleCategories = useMemo(() => {
-    const categories = loadArticleCategories();
-    return Object.values(categories).map(category => ({
-      ...category,
-      icon: categoryIcons[category.name] || categoryIcons.default,
-    }));
-  }, []);
-
-  const handleStartPractice = (practiceCategory: string = '', length: number = 20) => {
-    // Set session data
-    const sessionData = {
-      sessionId: SessionManager.generateSessionId(),
-      startTime: Date.now(),
-      type: 'articles' as const,
-      mode: 'practice',
-      category: practiceCategory,
-      config: { length }
-    };
-    SessionManager.setSession(SESSION_KEYS.ARTICLES, sessionData);
-    
-    // Navigate to practice route
-    if (practiceCategory) {
-      navigate(`/articles/category/${practiceCategory}/practice`);
-    } else {
-      navigate('/articles/practice');
-    }
-  };
-
-  const handleStartLearning = (learningCategory: string = '', length: number = 30) => {
-    // Set session data
-    const sessionData = {
-      sessionId: SessionManager.generateSessionId(),
-      startTime: Date.now(),
-      type: 'articles' as const,
-      mode: 'learning',
-      category: learningCategory,
-      config: { length }
-    };
-    SessionManager.setSession(SESSION_KEYS.ARTICLES, sessionData);
-    
-    // Navigate to learning route
-    if (learningCategory) {
-      navigate(`/articles/category/${learningCategory}/learning`);
-    } else {
-      navigate('/articles/learning');
-    }
-  };
-
-  const handleSessionComplete = (results: ArticlesSessionResult) => {
-    // Save results to session storage
-    SessionManager.setResults(SESSION_KEYS.ARTICLES, {
-      sessionId: SessionManager.generateSessionId(),
-      totalQuestions: results.totalQuestions,
-      correctAnswers: results.correctAnswers,
-      wrongAnswers: results.wrongAnswers,
-      timeSpent: results.timeSpent,
-      completedAt: Date.now(),
-      mistakes: results.mistakes?.map(m => ({
-        question: `What is the article for "${m.word.german}"?`,
-        userAnswer: m.userAnswer,
-        correctAnswer: m.correctAnswer,
-        word: m.word
-      }))
-    });
-    
-    // Navigate to results with state
-    if (selectedCategory) {
-      navigate(`/articles/category/${selectedCategory}/practice/results`, { 
-        state: { results }, 
-        replace: true 
-      });
-    } else {
-      navigate('/articles/practice/results', { 
-        state: { results }, 
-        replace: true 
-      });
-    }
-  };
-
-  const handleSessionExit = () => {
-    // Clear session data
-    SessionManager.clearSession(SESSION_KEYS.ARTICLES);
-    // Navigate back to main articles page
-    navigate('/articles');
-  };
-
-  const handleRestart = () => {
-    handleStartPractice(selectedCategory, sessionLength);
-  };
-
-  const handleReviewMistakes = () => {
-    if (sessionResults && sessionResults.mistakes.length > 0) {
-      const mistakenWords = sessionResults.mistakes.map((mistake) => mistake.word);
-      const shuffledWords = shuffleArray([...mistakenWords]);
-      setReviewWords(shuffledWords);
-      handleStartPractice(selectedCategory, sessionLength);
-    }
-  };
-
-  // Practice mode rendering
   if (sessionMode === 'practice') {
     return (
       <ArticlesPractice
-        onComplete={handleSessionComplete}
+        onComplete={handleSessionComplete as (results: ArticlesSessionResult) => void}
         onExit={handleSessionExit}
         sessionLength={sessionLength}
         focusCategory={selectedCategory}
@@ -221,7 +39,6 @@ const Articles: React.FC = () => {
     );
   }
 
-  // Learning mode rendering
   if (sessionMode === 'learning') {
     return (
       <ArticlesLearning
@@ -232,7 +49,6 @@ const Articles: React.FC = () => {
     );
   }
 
-  // Results mode rendering
   if (sessionMode === 'results' && sessionResults) {
     const resultsForDisplay = {
       ...sessionResults,
@@ -254,7 +70,6 @@ const Articles: React.FC = () => {
     );
   }
 
-  // Menu mode rendering
   const explanationBanner = (
     <GradientCard gradient="yellow-orange" className="border border-yellow-200">
       <div className="flex items-start space-x-4">
@@ -275,234 +90,146 @@ const Articles: React.FC = () => {
     </GradientCard>
   );
 
+  const practiceModes = [
+    {
+      title: 'Quick Practice',
+      description: '20 random essential words',
+      icon: '🚀',
+      buttonText: 'Start Now',
+      color: 'bg-blue-600',
+      onClick: () => handleStartPractice('', 20),
+    },
+    {
+      title: 'Intensive Session',
+      description: '50 words for comprehensive practice',
+      icon: '💪',
+      buttonText: 'Start Intensive',
+      color: 'bg-purple-600',
+      onClick: () => handleStartPractice('', 50),
+    },
+    {
+      title: 'Speed Round',
+      description: '10 words for quick review',
+      icon: '⚡',
+      buttonText: 'Speed Practice',
+      color: 'bg-green-600',
+      onClick: () => handleStartPractice('', 10),
+    },
+  ];
+
+  const learningModes = [
+    {
+      title: 'Visual Learning',
+      description: '30 words with auto-advance',
+      icon: '🧠',
+      buttonText: 'Start Learning',
+      color: 'bg-indigo-600',
+      onClick: () => handleStartLearning('', 30),
+    },
+    {
+      title: 'Color Memory',
+      description: '50 words for intensive association',
+      icon: '🎨',
+      buttonText: 'Deep Learning',
+      color: 'bg-purple-600',
+      onClick: () => handleStartLearning('', 50),
+    },
+    {
+      title: 'Quick Review',
+      description: '20 words for fast visual review',
+      icon: '⚡',
+      buttonText: 'Quick Learn',
+      color: 'bg-teal-600',
+      onClick: () => handleStartLearning('', 20),
+    },
+  ];
+
+  const stats = [
+    {
+      label: 'DER words',
+      value: '68',
+      subtitle: 'masculine nouns',
+      color: 'text-blue-600',
+    },
+    {
+      label: 'DIE words',
+      value: '74',
+      subtitle: 'feminine nouns',
+      color: 'text-pink-600',
+    },
+    {
+      label: 'DAS words',
+      value: '58',
+      subtitle: 'neuter nouns',
+      color: 'text-gray-700',
+    },
+  ];
+
   return (
-    <div className="min-h-screen bg-gray-50">
-      <PageHero
-        title="German Articles"
-        subtitle="Master der, die, das with the 80-20 rule"
-        description="Focus on the most essential nouns for A1 exam success"
-        icon="🎯"
-        bannerContent={explanationBanner}
-      />
+    <PageLayout
+      pageData={{
+        title: 'German Articles',
+        subtitle: 'Master der, die, das with the 80-20 rule',
+        description: 'Focus on the most essential nouns for A1 exam success',
+        icon: '🎯',
+        gradient: 'from-yellow-400 to-orange-500',
+      }}
+      bannerContent={explanationBanner}
+    >
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-8 pb-8">
-        {/* Quick Start Options */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
-          <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6 hover:shadow-xl transition-shadow">
-            <div className="text-center">
-              <div className="text-3xl sm:text-4xl mb-3 sm:mb-4">🚀</div>
-              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">Quick Practice</h3>
-              <p className="text-sm sm:text-base text-gray-600 mb-4">
-                20 random essential words for quick practice
-              </p>
-              <button
-                onClick={() => handleStartPractice('', 20)}
-                className="w-full bg-blue-600 text-white py-2.5 sm:py-3 px-4 sm:px-6 rounded-lg hover:bg-blue-700 transition-colors font-medium text-sm sm:text-base touch-manipulation"
-              >
-                Start Now
-              </button>
-            </div>
-          </div>
+        <SectionGrid title="Practice Modes" className="mb-8">
+          {practiceModes.map((mode, index) => (
+            <PracticeCard
+              key={index}
+              title={mode.title}
+              description={mode.description}
+              icon={mode.icon}
+              buttonText={mode.buttonText}
+              color={mode.color}
+              onClick={mode.onClick}
+            />
+          ))}
+        </SectionGrid>
 
-          <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6 hover:shadow-xl transition-shadow">
-            <div className="text-center">
-              <div className="text-3xl sm:text-4xl mb-3 sm:mb-4">💪</div>
-              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">Intensive Session</h3>
-              <p className="text-sm sm:text-base text-gray-600 mb-4">
-                50 words for comprehensive practice
-              </p>
-              <button
-                onClick={() => handleStartPractice('', 50)}
-                className="w-full bg-purple-600 text-white py-2.5 sm:py-3 px-4 sm:px-6 rounded-lg hover:bg-purple-700 transition-colors font-medium text-sm sm:text-base touch-manipulation"
-              >
-                Start Intensive
-              </button>
-            </div>
-          </div>
+        <SectionGrid title="Learning Modes" className="mb-8">
+          {learningModes.map((mode, index) => (
+            <PracticeCard
+              key={index}
+              title={mode.title}
+              description={mode.description}
+              icon={mode.icon}
+              buttonText={mode.buttonText}
+              color={mode.color}
+              onClick={mode.onClick}
+            />
+          ))}
+        </SectionGrid>
 
-          <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6 hover:shadow-xl transition-shadow sm:col-span-2 lg:col-span-1">
-            <div className="text-center">
-              <div className="text-3xl sm:text-4xl mb-3 sm:mb-4">⚡</div>
-              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">Speed Round</h3>
-              <p className="text-sm sm:text-base text-gray-600 mb-4">
-                10 words for quick review
-              </p>
-              <button
-                onClick={() => handleStartPractice('', 10)}
-                className="w-full bg-green-600 text-white py-2.5 sm:py-3 px-4 sm:px-6 rounded-lg hover:bg-green-700 transition-colors font-medium text-sm sm:text-base touch-manipulation"
-              >
-                Speed Practice
-              </button>
-            </div>
-          </div>
-        </div>
+        <SectionGrid title="Study by Category" className="mb-8">
+          {articleCategories.map((category) => (
+            <CategoryCard
+              key={category.name}
+              category={category}
+              onLearn={() => handleStartLearning(category.name, 20)}
+              onPractice={() => handleStartPractice(category.name, 15)}
+            />
+          ))}
+        </SectionGrid>
 
-        {/* Learning Mode Options */}
-        <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl p-4 sm:p-6 mb-6 sm:mb-8 border border-indigo-200">
-          <h3 className="text-xl sm:text-2xl font-bold text-indigo-900 mb-3 sm:mb-4 text-center">
-            📚 Learning Mode - Study with Colors
-          </h3>
-          <p className="text-center text-indigo-700 mb-4 sm:mb-6 text-sm sm:text-base px-2">
-            See articles with their gender colors automatically - perfect for visual learners!
-          </p>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
-            <div className="bg-white rounded-lg shadow-md p-3 sm:p-4 hover:shadow-lg transition-shadow">
-              <div className="text-center">
-                <div className="text-2xl sm:text-3xl mb-2">🧠</div>
-                <h4 className="font-bold text-gray-900 mb-2 text-sm sm:text-base">Visual Learning</h4>
-                <p className="text-xs sm:text-sm text-gray-600 mb-3 sm:mb-4">
-                  30 words with auto-advance and color coding
-                </p>
-                <button
-                  onClick={() => handleStartLearning('', 30)}
-                  className="w-full bg-indigo-600 text-white py-2 px-3 sm:px-4 rounded-md hover:bg-indigo-700 transition-colors text-xs sm:text-sm font-medium touch-manipulation"
-                >
-                  Start Learning
-                </button>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-lg shadow-md p-3 sm:p-4 hover:shadow-lg transition-shadow">
-              <div className="text-center">
-                <div className="text-2xl sm:text-3xl mb-2">🎨</div>
-                <h4 className="font-bold text-gray-900 mb-2 text-sm sm:text-base">Color Memory</h4>
-                <p className="text-xs sm:text-sm text-gray-600 mb-3 sm:mb-4">
-                  50 words for intensive color association
-                </p>
-                <button
-                  onClick={() => handleStartLearning('', 50)}
-                  className="w-full bg-purple-600 text-white py-2 px-3 sm:px-4 rounded-md hover:bg-purple-700 transition-colors text-xs sm:text-sm font-medium touch-manipulation"
-                >
-                  Deep Learning
-                </button>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-lg shadow-md p-3 sm:p-4 hover:shadow-lg transition-shadow sm:col-span-2 lg:col-span-1">
-              <div className="text-center">
-                <div className="text-2xl sm:text-3xl mb-2">⚡</div>
-                <h4 className="font-bold text-gray-900 mb-2 text-sm sm:text-base">Quick Review</h4>
-                <p className="text-xs sm:text-sm text-gray-600 mb-3 sm:mb-4">
-                  20 words for fast visual review
-                </p>
-                <button
-                  onClick={() => handleStartLearning('', 20)}
-                  className="w-full bg-teal-600 text-white py-2 px-3 sm:px-4 rounded-md hover:bg-teal-700 transition-colors text-xs sm:text-sm font-medium touch-manipulation"
-                >
-                  Quick Learn
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Category-Based Practice */}
-        <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6 mb-6 sm:mb-8">
-          <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4 text-center">
-            Study by Category
-          </h3>
-          <p className="text-center text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base px-2">
-            Choose practice mode or learning mode for each category
-          </p>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4">
-            {articleCategories.map((category) => (
-              <div
-                key={category.name}
-                className="flex flex-col items-center p-3 sm:p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
-              >
-                <div className="text-xl sm:text-2xl mb-2">{category.icon}</div>
-                <div className="text-xs sm:text-sm font-medium text-gray-700 mb-3 capitalize text-center leading-tight">
-                  {category.name.replace(/_/g, ' ')}
-                </div>
-                <div className="flex flex-col gap-1.5 sm:gap-2 w-full">
-                  <button
-                    onClick={() => handleStartLearning(category.name, 20)}
-                    className="text-xs bg-indigo-500 text-white px-2 py-1.5 rounded hover:bg-indigo-600 transition-colors font-medium touch-manipulation"
-                  >
-                    Learn
-                  </button>
-                  <button
-                    onClick={() => handleStartPractice(category.name, 15)}
-                    className="text-xs bg-blue-500 text-white px-2 py-1.5 rounded hover:bg-blue-600 transition-colors font-medium touch-manipulation"
-                  >
-                    Practice
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Statistics */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
-          <div className="bg-blue-100 rounded-lg p-4 sm:p-6 text-center border border-blue-200">
-            <div className="text-2xl sm:text-3xl font-bold text-blue-700 mb-1 sm:mb-2">68</div>
-            <div className="text-xs sm:text-sm text-blue-600 font-medium">DER words</div>
-            <div className="text-xs text-blue-500">masculine nouns</div>
-          </div>
-          <div className="bg-pink-100 rounded-lg p-4 sm:p-6 text-center border border-pink-200">
-            <div className="text-2xl sm:text-3xl font-bold text-pink-700 mb-1 sm:mb-2">74</div>
-            <div className="text-xs sm:text-sm text-pink-600 font-medium">DIE words</div>
-            <div className="text-xs text-pink-500">feminine nouns</div>
-          </div>
-          <div className="bg-gray-200 rounded-lg p-4 sm:p-6 text-center border border-gray-400">
-            <div className="text-2xl sm:text-3xl font-bold text-gray-900 mb-1 sm:mb-2">58</div>
-            <div className="text-xs sm:text-sm text-gray-700 font-medium">DAS words</div>
-            <div className="text-xs text-gray-600">neuter nouns</div>
-          </div>
-        </div>
-
-        {/* Tips Section */}
-        <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6">
-          <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 text-center">
-            💡 Tips for Success
-          </h3>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
-            <div className="space-y-3">
-              <div className="flex items-start space-x-3">
-                <div className="text-blue-600 font-bold text-sm sm:text-base">1.</div>
-                <div className="text-gray-700 text-sm sm:text-base">
-                  <strong>Focus on patterns:</strong> Many words ending in -ung, -heit, -keit are feminine (die)
-                </div>
-              </div>
-              <div className="flex items-start space-x-3">
-                <div className="text-blue-600 font-bold text-sm sm:text-base">2.</div>
-                <div className="text-gray-700 text-sm sm:text-base">
-                  <strong>Practice daily:</strong> 10-15 minutes of consistent practice beats cramming
-                </div>
-              </div>
-              <div className="flex items-start space-x-3">
-                <div className="text-blue-600 font-bold text-sm sm:text-base">3.</div>
-                <div className="text-gray-700 text-sm sm:text-base">
-                  <strong>Use mnemonics:</strong> Create memorable associations with each word
-                </div>
-              </div>
-            </div>
-            <div className="space-y-3">
-              <div className="flex items-start space-x-3">
-                <div className="text-blue-600 font-bold text-sm sm:text-base">4.</div>
-                <div className="text-gray-700 text-sm sm:text-base">
-                  <strong>Review mistakes:</strong> Focus extra attention on words you get wrong
-                </div>
-              </div>
-              <div className="flex items-start space-x-3">
-                <div className="text-blue-600 font-bold text-sm sm:text-base">5.</div>
-                <div className="text-gray-700 text-sm sm:text-base">
-                  <strong>Think in phrases:</strong> Learn "der Tisch" as one unit, not separately
-                </div>
-              </div>
-              <div className="flex items-start space-x-3">
-                <div className="text-blue-600 font-bold text-sm sm:text-base">6.</div>
-                <div className="text-gray-700 text-sm sm:text-base">
-                  <strong>Use in context:</strong> Try to use new words in sentences
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <SectionGrid title="Article Statistics" className="mb-8">
+          {stats.map((stat, index) => (
+            <StatCard
+              key={index}
+              title={stat.label}
+              value={stat.value}
+              subtitle={stat.subtitle}
+              color={stat.color}
+            />
+          ))}
+        </SectionGrid>
       </div>
-    </div>
+    </PageLayout>
   );
 };
 

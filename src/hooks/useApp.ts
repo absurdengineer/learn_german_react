@@ -28,3 +28,8 @@ export function useAchievements() {
   const { state } = useApp();
   return state.achievements;
 }
+
+// Export all hooks for easy access
+export * from './useNavigation';
+export * from './usePageData';
+

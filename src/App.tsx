@@ -16,7 +16,6 @@ import StudyPlan from './presentation/pages/StudyPlan';
 import StudyPlanComplete from './presentation/pages/StudyPlanComplete';
 import Tests from './presentation/pages/Tests';
 import Vocabulary from './presentation/pages/Vocabulary';
-import Writing from './presentation/pages/Writing';
 
 function App() {
   return (
@@ -141,21 +140,6 @@ function App() {
             />
             <Route path="/speaking/recording" element={<Speaking />} />
             <Route path="/speaking/recording/playback" element={<Speaking />} />
-            
-            {/* Writing Routes */}
-            <Route path="/writing" element={<Writing />} />
-            <Route path="/writing/practice" element={<Writing />} />
-            <Route path="/writing/practice/:exercise" element={<Writing />} />
-            <Route 
-              path="/writing/practice/:exercise/results" 
-              element={
-                <ProtectedRoute sessionKey="writing_session">
-                  <Writing />
-                </ProtectedRoute>
-              } 
-            />
-            <Route path="/writing/templates" element={<Writing />} />
-            <Route path="/writing/templates/:template" element={<Writing />} />
             
             {/* Tests Routes */}
             <Route path="/tests" element={<Tests />} />

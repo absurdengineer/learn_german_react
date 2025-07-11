@@ -3,17 +3,25 @@ export { default as AchievementCard } from './AchievementCard';
 export { default as Badge } from './Badge';
 export { default as Button } from './Button';
 export { default as Card } from './Card';
+export { CategoryCard } from './CategoryCard';
 export { default as EmptyState } from './EmptyState';
 export { default as ExitButton } from './ExitButton';
+export { default as FeatureCard } from './FeatureCard';
 export { default as GradientCard } from './GradientCard';
+export { GrammarLessonCard } from './GrammarLessonCard';
 export { default as HeaderWithActions } from './HeaderWithActions';
 export { default as LoadingSpinner } from './LoadingSpinner';
 export { default as LoadingState } from './LoadingState';
+export { PracticeCard } from './PracticeCard';
 export { default as ProgressBar } from './ProgressBar';
 export { default as ProgressCard } from './ProgressCard';
 export { default as QuickActionCard } from './QuickActionCard';
 export { default as SessionHeader } from './SessionHeader';
+export { default as StatCard } from './StatCard';
 export { default as StatsCard } from './StatsCard';
+export { TestTypeCard } from './TestTypeCard';
+export { VocabularyCard } from './VocabularyCard';
+export { WordDetailModal } from './WordDetailModal';
 
 // New Generic Components
 export { default as CategoryFilter } from './CategoryFilter';
@@ -28,4 +36,8 @@ export { default as ResultSummary } from './ResultSummary';
 export { default as SectionHeader } from './SectionHeader';
 export { default as SessionNavigation } from './SessionNavigation';
 export { default as SpeedControls } from './SpeedControls';
+
+// Layout Components
+export { default as PageLayout } from '../layout/PageLayout';
+export { default as SectionGrid } from '../layout/SectionGrid';
 
