@@ -1,14 +1,15 @@
 
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { loadGrammarLessons } from '../../data/grammarLessons';
 import { loadRandomGrammarPractice } from '../../data/grammarPractice';
 import { GrammarLesson } from '../../domain/entities/Grammar';
-import GrammarPractice from '../components/GrammarPractice';
-import GrammarQuiz from '../components/GrammarQuiz';
-import GrammarSessionResults from '../components/GrammarSessionResults';
+import GrammarFlashcards from '../components/GrammarFlashcards';
+import QuizSession from '../components/QuizSession';
+import SessionResults from '../components/SessionResults';
+import FlashcardSessionResults from '../components/FlashcardSessionResults';
 import MarkdownRenderer from '../components/MarkdownRenderer';
-import { PageHero, QuickActionCard } from '../components/ui';
+import { PageHero, PracticeModeCard, QuickActionCard, SectionHeader } from '../components/ui';
 import GrammarLessonPage from './GrammarLessonPage';
 
 interface GrammarSessionResult {
@@ -25,7 +26,7 @@ const Grammar: React.FC = () => {
   const { day } = useParams<{ day?: string }>();
 
   const [sessionResults, setSessionResults] = useState<GrammarSessionResult | null>(null);
-  const [sessionType, setSessionType] = useState<'practice' | 'quiz' | null>(null);
+  const [sessionType, setSessionType] = useState<'flashcards' | 'quiz' | null>(null);
   const [selectedWeek, setSelectedWeek] = useState<number>(1);
 
   const grammarLessons = useMemo(() => {
@@ -53,6 +54,11 @@ const Grammar: React.FC = () => {
     navigate('/grammar/results');
   };
 
+  const startSession = (type: 'flashcards' | 'quiz', count: number) => {
+    setSessionType(type);
+    navigate(`/grammar/${type}`, { state: { count } });
+  };
+
   if (day) {
     const lesson = grammarLessons.find((l) => l.day === parseInt(day, 10));
     if (!lesson) {
@@ -72,20 +78,39 @@ const Grammar: React.FC = () => {
     );
   }
 
-  if (location.pathname.endsWith('/practice')) {
-    return <GrammarPractice questions={loadRandomGrammarPractice(20)} onComplete={handleSessionComplete} onExit={() => navigate('/grammar')} />;
+  if (location.pathname.endsWith('/flashcards')) {
+    const count = location.state?.count || 20;
+    return <GrammarFlashcards questions={loadRandomGrammarPractice(count)} onComplete={handleSessionComplete} onExit={() => navigate('/grammar')} />;
   }
 
   if (location.pathname.endsWith('/quiz')) {
-    return <GrammarQuiz questions={loadRandomGrammarPractice(20)} onComplete={handleSessionComplete} onExit={() => navigate('/grammar')} />;
+    const count = location.state?.count || 20;
+    const questions = loadRandomGrammarPractice(count).map(q => ({
+      id: q.id.toString(),
+      prompt: q.prompt,
+      options: q.options,
+      correctAnswer: q.correctAnswer,
+      category: q.category,
+      helperText: q.helperText,
+    }));
+    return <QuizSession questions={questions} title="Grammar Quiz" onComplete={handleSessionComplete} onExit={() => navigate('/grammar')} />;
   }
 
   if (location.pathname.endsWith('/results')) {
+    if (sessionType === 'flashcards') {
+      return (
+        <FlashcardSessionResults
+          results={sessionResults}
+          onRestart={() => navigate('/grammar/flashcards', { state: { count: sessionResults?.totalQuestions } })}
+          onExit={() => navigate('/grammar')}
+        />
+      );
+    }
     return (
-      <GrammarSessionResults
+      <SessionResults
         results={sessionResults}
         sessionType={sessionType || ''}
-        onRestart={() => navigate(sessionType === 'practice' ? '/grammar/practice' : '/grammar/quiz')}
+        onRestart={() => navigate(sessionType === 'practice' ? '/grammar/practice' : '/grammar/quiz', { state: { count: sessionResults?.totalQuestions } })}
         onReviewMistakes={() => {}} // Placeholder for now
         onExit={() => navigate('/grammar')}
       />
@@ -127,7 +152,7 @@ const Grammar: React.FC = () => {
                         {lesson.title}
                       </h3>
                       <div className="prose prose-sm text-gray-600 mt-2">
-                        <MarkdownRenderer content={lesson.mission.replace(/\n/g, '\n')} />
+                        <MarkdownRenderer content={lesson.mission.replace(/\\n/g, '\n')} />
                       </div>
                     </div>
                   </div>
@@ -148,6 +173,12 @@ const Grammar: React.FC = () => {
     );
   }
 
+  const sessionOptions = [
+    { name: 'Quick', count: 10, icon: '⚡' },
+    { name: 'Normal', count: 20, icon: '💪' },
+    { name: 'Intensive', count: 30, icon: '🚀' },
+  ];
+
   return (
     <div>
       <PageHero
@@ -156,7 +187,7 @@ const Grammar: React.FC = () => {
         description="From basic concepts to advanced topics, learn step-by-step."
         icon="📝"
       />
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+      <div className="space-y-12 mt-8">
         <QuickActionCard
           title="All Lessons"
           description="Browse all grammar lessons by week."
@@ -164,20 +195,52 @@ const Grammar: React.FC = () => {
           onClick={() => navigate('/grammar/lessons')}
           color="blue"
         />
-        <QuickActionCard
-          title="Practice"
-          description="Hone your skills with targeted exercises."
-          icon="💪"
-          onClick={() => { setSessionType('practice'); navigate('/grammar/practice'); }}
-          color="purple"
-        />
-        <QuickActionCard
-          title="Take a Quiz"
-          description="Test your knowledge with a quiz."
-          icon="🧪"
-          onClick={() => { setSessionType('quiz'); navigate('/grammar/quiz'); }}
-          color="green"
-        />
+        <div>
+          <SectionHeader
+            title="Flashcards"
+            description="Hone your skills with targeted exercises."
+            icon="💪"
+            size="md"
+            alignment="left"
+            className="mb-6"
+          />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {sessionOptions.map((session) => (
+              <PracticeModeCard
+                key={session.name}
+                title={`${session.name} Flashcards`}
+                description={`${session.count} questions`}
+                icon={session.icon}
+                buttonText={`Start ${session.name}`}
+                onStart={() => startSession('flashcards', session.count)}
+                color="purple"
+              />
+            ))}
+          </div>
+        </div>
+        <div>
+          <SectionHeader
+            title="Take a Quiz"
+            description="Test your knowledge with a quiz."
+            icon="🧪"
+            size="md"
+            alignment="left"
+            className="mb-6"
+          />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {sessionOptions.map((session) => (
+              <PracticeModeCard
+                key={session.name}
+                title={`${session.name} Quiz`}
+                description={`${session.count} questions`}
+                icon={session.icon}
+                buttonText={`Start ${session.name}`}
+                onStart={() => startSession('quiz', session.count)}
+                color="green"
+              />
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );

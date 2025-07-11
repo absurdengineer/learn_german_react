@@ -1,10 +1,9 @@
-
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { loadGrammarPracticeByDay } from '../../data/grammarPractice';
 import { GrammarLesson } from '../../domain/entities/Grammar';
-import GrammarPractice from '../components/GrammarPractice';
-import GrammarQuiz from '../components/GrammarQuiz';
+import GrammarFlashcards from '../components/GrammarFlashcards';
+import QuizSession from '../components/QuizSession';
 import MarkdownRenderer from '../components/MarkdownRenderer';
 
 interface GrammarLessonPageProps {
@@ -21,20 +20,27 @@ const GrammarLessonPage: React.FC<GrammarLessonPageProps> = ({
   prevLesson,
 }) => {
   const navigate = useNavigate();
-  const [sessionMode, setSessionMode] = useState<'lesson' | 'practice' | 'quiz'>('lesson');
+  const [sessionMode, setSessionMode] = useState<'lesson' | 'flashcards' | 'quiz'>('lesson');
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [lesson, sessionMode]);
 
-  if (sessionMode === 'practice') {
+  if (sessionMode === 'flashcards') {
     const questions = loadGrammarPracticeByDay(lesson.day);
-    return <GrammarPractice questions={questions} onComplete={() => {}} onExit={() => setSessionMode('lesson')} />;
+    return <GrammarFlashcards questions={questions} onComplete={() => {}} onExit={() => setSessionMode('lesson')} />;
   }
 
   if (sessionMode === 'quiz') {
-    const questions = loadGrammarPracticeByDay(lesson.day, 20);
-    return <GrammarQuiz questions={questions} onComplete={() => {}} onExit={() => setSessionMode('lesson')} />;
+    const questions = loadGrammarPracticeByDay(lesson.day, 20).map(q => ({
+      id: q.id.toString(),
+      prompt: q.prompt,
+      options: q.options,
+      correctAnswer: q.correctAnswer,
+      category: q.category,
+      helperText: q.helperText,
+    }));
+    return <QuizSession questions={questions} title="Grammar Quiz" onComplete={() => {}} onExit={() => setSessionMode('lesson')} />;
   }
 
   // Process content to ensure newlines are handled correctly by the Markdown parser
@@ -108,10 +114,10 @@ const GrammarLessonPage: React.FC<GrammarLessonPageProps> = ({
       {/* --- Action Buttons --- */}
       <div className="mt-10 flex justify-center gap-4">
         <button
-          onClick={() => setSessionMode('practice')}
+          onClick={() => setSessionMode('flashcards')}
           className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-md hover:shadow-lg"
         >
-          Practice This Topic
+          Practice with Flashcards
         </button>
         <button
           onClick={() => setSessionMode('quiz')}

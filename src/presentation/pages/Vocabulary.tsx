@@ -10,8 +10,8 @@ import {
 import { type LevelType } from '../../domain/entities/User';
 import { VocabularyWord, type Gender, type WordType } from '../../domain/entities/Vocabulary';
 import { shuffleArray } from '../../utils/testGenerator';
-import PracticeSessionResults from '../components/PracticeSessionResults';
-import VocabularySession from '../components/VocabularySession';
+import SessionResults from '../components/SessionResults';
+import QuizSession from '../components/QuizSession';
 import { GradientCard, PageHero } from '../components/ui';
 
 interface SessionResult {
@@ -147,7 +147,7 @@ const Vocabulary: React.FC = () => {
 
   const handleReviewMistakes = () => {
     if (sessionResults && sessionResults.mistakes.length > 0) {
-      const mistakeWords = sessionResults.mistakes.map((m) => m.word);
+      const mistakeWords = sessionResults.mistakes.map((m) => m.data as VocabularyWord);
       const shuffledWords = shuffleArray([...mistakeWords]);
       setSessionWords(shuffledWords);
       setSessionMode('session');
@@ -181,10 +181,22 @@ const Vocabulary: React.FC = () => {
 
   // Session mode rendering
   if (sessionMode === 'session' && sessionWords.length > 0) {
+    const questions = sessionWords.map((word, index) => {
+      const otherWords = getRandomVocabularyWords(3, [word.german]);
+      const options = shuffleArray([word.english, ...otherWords.map(w => w.english)]);
+      return {
+        id: `v-q${index + 1}`,
+        prompt: `What is the English translation of "${word.german}"?`,
+        options,
+        correctAnswer: word.english,
+        data: word, // Pass the full word object
+      };
+    });
+
     return (
-      <VocabularySession
-        words={sessionWords}
-        sessionType={sessionType}
+      <QuizSession
+        questions={questions}
+        title="Vocabulary Quiz"
         onComplete={handleSessionComplete}
         onExit={handleSessionExit}
       />
@@ -193,7 +205,7 @@ const Vocabulary: React.FC = () => {
 
   if (sessionMode === 'results' && sessionResults) {
     return (
-      <PracticeSessionResults
+      <SessionResults
         results={sessionResults}
         sessionType={sessionType}
         onRestart={handleRestart}

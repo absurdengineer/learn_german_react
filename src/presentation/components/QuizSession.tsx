@@ -1,34 +1,32 @@
+
 import React, { useEffect, useState } from 'react';
-import { GrammarPracticeQuestion } from '../../domain/entities/GrammarPractice';
 import { NavigationHeader } from './ui';
+import { VocabularyWord } from '../../domain/entities/Vocabulary';
 
-interface GrammarMistake {
-  question: string;
-  userAnswer: string;
+export interface QuizQuestion {
+  id: string;
+  prompt: string;
+  options: string[];
   correctAnswer: string;
+  category?: string;
+  helperText?: string;
+  word?: VocabularyWord; // Optional: for vocabulary quizzes
 }
 
-interface GrammarSessionResult {
-  totalQuestions: number;
-  correctAnswers: number;
-  wrongAnswers: number;
-  timeSpent: number;
-  mistakes: GrammarMistake[];
-}
-
-interface GrammarQuizProps {
-  questions: GrammarPracticeQuestion[];
-  onComplete: (results: GrammarSessionResult) => void;
+interface QuizSessionProps {
+  questions: QuizQuestion[];
+  title: string;
+  onComplete: (results: any) => void;
   onExit: () => void;
 }
 
-const GrammarQuiz: React.FC<GrammarQuizProps> = ({ questions, onComplete, onExit }) => {
+const QuizSession: React.FC<QuizSessionProps> = ({ questions, title, onComplete, onExit }) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [userAnswer, setUserAnswer] = useState('');
   const [showResult, setShowResult] = useState(false);
   const [sessionStartTime] = useState(Date.now());
-  const [mistakes, setMistakes] = useState<GrammarMistake[]>([]);
+  const [mistakes, setMistakes] = useState<any[]>([]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -46,9 +44,8 @@ const GrammarQuiz: React.FC<GrammarQuizProps> = ({ questions, onComplete, onExit
       setMistakes([
         ...mistakes,
         {
-          question: currentQuestion.prompt,
+          ...currentQuestion,
           userAnswer: answer,
-          correctAnswer: currentQuestion.correctAnswer,
         },
       ]);
     }
@@ -78,7 +75,7 @@ const GrammarQuiz: React.FC<GrammarQuizProps> = ({ questions, onComplete, onExit
     return (
       <div className="min-h-screen bg-gray-50 p-4 flex items-center justify-center">
         <div className="text-center">
-          <p className="text-lg text-gray-600">No quiz questions available.</p>
+          <p className="text-lg text-gray-600">No questions available.</p>
           <button onClick={onExit} className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">
             Back
           </button>
@@ -91,7 +88,7 @@ const GrammarQuiz: React.FC<GrammarQuizProps> = ({ questions, onComplete, onExit
     <div className="min-h-screen bg-gray-50 p-4">
       <div className="max-w-4xl mx-auto">
         <NavigationHeader
-          title="Grammar Quiz"
+          title={title}
           subtitle={`Question ${currentQuestionIndex + 1} of ${questions.length}`}
           onBack={onExit}
           backLabel="Exit"
@@ -99,7 +96,7 @@ const GrammarQuiz: React.FC<GrammarQuizProps> = ({ questions, onComplete, onExit
         />
         <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 mt-8">
           <div className="text-center mb-8">
-            <p className="text-sm text-gray-500 mb-2">{currentQuestion.category}</p>
+            {currentQuestion.category && <p className="text-sm text-gray-500 mb-2">{currentQuestion.category}</p>}
             <p className="text-lg sm:text-xl text-gray-800">{currentQuestion.prompt}</p>
             {currentQuestion.helperText && <p className="text-sm text-gray-500 mt-2 italic">{currentQuestion.helperText}</p>}
           </div>
@@ -128,4 +125,4 @@ const GrammarQuiz: React.FC<GrammarQuizProps> = ({ questions, onComplete, onExit
   );
 };
 
-export default GrammarQuiz;
+export default QuizSession;

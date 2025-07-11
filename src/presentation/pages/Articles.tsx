@@ -4,7 +4,7 @@ import { VocabularyWord } from '../../domain/entities/Vocabulary';
 import { shuffleArray } from '../../utils/testGenerator';
 import ArticlesLearning from '../components/ArticlesLearning';
 import ArticlesPractice from '../components/ArticlesPractice';
-import PracticeSessionResults from '../components/PracticeSessionResults';
+import SessionResults from '../components/SessionResults';
 import { GradientCard, PageHero } from '../components/ui';
 
 interface ArticlesSessionResult {
@@ -124,9 +124,18 @@ const Articles: React.FC = () => {
 
   // Results mode rendering
   if (sessionMode === 'results' && sessionResults) {
+    const resultsForDisplay = {
+      ...sessionResults,
+      mistakes: sessionResults.mistakes.map(m => ({
+        question: `What is the article for "${m.word.german}"?`,
+        userAnswer: m.userAnswer,
+        correctAnswer: m.correctAnswer,
+        word: m.word,
+      })),
+    };
     return (
-      <PracticeSessionResults
-        results={sessionResults}
+      <SessionResults
+        results={resultsForDisplay}
         sessionType="multiple-choice"
         onRestart={handleRestart}
         onReviewMistakes={handleReviewMistakes}
