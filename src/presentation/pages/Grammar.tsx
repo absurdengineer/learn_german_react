@@ -4,28 +4,21 @@ import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { loadGrammarLessons } from '../../data/grammarLessons';
 import { loadRandomGrammarPractice } from '../../data/grammarPractice';
 import { GrammarLesson } from '../../domain/entities/Grammar';
-import GrammarFlashcards from '../components/GrammarFlashcards';
-import QuizSession from '../components/QuizSession';
-import SessionResults from '../components/SessionResults';
+import { grammarFlashcardRenderer, grammarToFlashcardAdapter } from '../components/FlashcardAdapters';
+import FlashcardSession, { type FlashcardSessionResult } from '../components/FlashcardSession';
 import FlashcardSessionResults from '../components/FlashcardSessionResults';
 import MarkdownRenderer from '../components/MarkdownRenderer';
+import QuizSession from '../components/QuizSession';
+import SessionResults from '../components/SessionResults';
 import { PageHero, PracticeModeCard, QuickActionCard, SectionHeader } from '../components/ui';
 import GrammarLessonPage from './GrammarLessonPage';
-
-interface GrammarSessionResult {
-  totalQuestions: number;
-  correctAnswers: number;
-  wrongAnswers: number;
-  timeSpent: number;
-  mistakes: any[];
-}
 
 const Grammar: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { day } = useParams<{ day?: string }>();
 
-  const [sessionResults, setSessionResults] = useState<GrammarSessionResult | null>(null);
+  const [sessionResults, setSessionResults] = useState<FlashcardSessionResult | null>(null);
   const [sessionType, setSessionType] = useState<'flashcards' | 'quiz' | null>(null);
   const [selectedWeek, setSelectedWeek] = useState<number>(1);
 
@@ -49,7 +42,7 @@ const Grammar: React.FC = () => {
     };
   }, [grammarLessons]);
 
-  const handleSessionComplete = (results: GrammarSessionResult) => {
+  const handleSessionComplete = (results: FlashcardSessionResult) => {
     setSessionResults(results);
     navigate('/grammar/results');
   };
@@ -80,7 +73,19 @@ const Grammar: React.FC = () => {
 
   if (location.pathname.endsWith('/flashcards')) {
     const count = location.state?.count || 20;
-    return <GrammarFlashcards questions={loadRandomGrammarPractice(count)} onComplete={handleSessionComplete} onExit={() => navigate('/grammar')} />;
+    const questions = loadRandomGrammarPractice(count);
+    const flashcardItems = grammarToFlashcardAdapter(questions);
+    
+    return (
+      <FlashcardSession
+        items={flashcardItems}
+        title="Grammar Flashcards"
+        onComplete={handleSessionComplete}
+        onExit={() => navigate('/grammar')}
+        customRenderer={grammarFlashcardRenderer}
+        showProgress={true}
+      />
+    );
   }
 
   if (location.pathname.endsWith('/quiz')) {
@@ -97,20 +102,31 @@ const Grammar: React.FC = () => {
   }
 
   if (location.pathname.endsWith('/results')) {
+    if (!sessionResults) {
+      navigate('/grammar');
+      return null;
+    }
+
     if (sessionType === 'flashcards') {
       return (
         <FlashcardSessionResults
           results={sessionResults}
-          onRestart={() => navigate('/grammar/flashcards', { state: { count: sessionResults?.totalQuestions } })}
+          onRestart={() => navigate('/grammar/flashcards', { state: { count: sessionResults.totalQuestions } })}
           onExit={() => navigate('/grammar')}
         />
       );
     }
     return (
       <SessionResults
-        results={sessionResults}
-        sessionType={sessionType || ''}
-        onRestart={() => navigate(sessionType === 'practice' ? '/grammar/practice' : '/grammar/quiz', { state: { count: sessionResults?.totalQuestions } })}
+        results={{
+          totalQuestions: sessionResults.totalQuestions,
+          correctAnswers: sessionResults.correctAnswers,
+          wrongAnswers: sessionResults.wrongAnswers,
+          timeSpent: sessionResults.timeSpent,
+          mistakes: [] // Convert later if needed
+        }}
+        sessionType={sessionType || 'quiz'}
+        onRestart={() => navigate('/grammar/quiz', { state: { count: sessionResults.totalQuestions } })}
         onReviewMistakes={() => {}} // Placeholder for now
         onExit={() => navigate('/grammar')}
       />
@@ -122,6 +138,7 @@ const Grammar: React.FC = () => {
       <div>
         <PageHero
           title="All Grammar Lessons"
+          description="Browse your structured path to mastering German grammar."
           subtitle="Browse your structured path to mastering German grammar."
           icon="📚"
         />

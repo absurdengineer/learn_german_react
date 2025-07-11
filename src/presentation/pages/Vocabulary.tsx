@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
-    getRandomVocabularyWords,
-    getVocabularyWordsByCategory,
-    loadVocabulary,
-    loadVocabularyCategories,
-    searchVocabularyWords
+  getRandomVocabularyWords,
+  getVocabularyWordsByCategory,
+  loadVocabulary,
+  loadVocabularyCategories,
+  searchVocabularyWords
 } from '../../data';
 import { type LevelType } from '../../domain/entities/User';
 import { VocabularyWord, type Gender, type WordType } from '../../domain/entities/Vocabulary';
 import { shuffleArray } from '../../utils/testGenerator';
-import SessionResults from '../components/SessionResults';
+import { vocabularyFlashcardRenderer, vocabularyToFlashcardAdapter } from '../components/FlashcardAdapters';
+import FlashcardSession from '../components/FlashcardSession';
 import QuizSession from '../components/QuizSession';
+import SessionResults from '../components/SessionResults';
 import { GradientCard, PageHero } from '../components/ui';
 
 interface SessionResult {
@@ -147,7 +149,7 @@ const Vocabulary: React.FC = () => {
 
   const handleReviewMistakes = () => {
     if (sessionResults && sessionResults.mistakes.length > 0) {
-      const mistakeWords = sessionResults.mistakes.map((m) => m.data as VocabularyWord);
+      const mistakeWords = sessionResults.mistakes.map((m) => m.word);
       const shuffledWords = shuffleArray([...mistakeWords]);
       setSessionWords(shuffledWords);
       setSessionMode('session');
@@ -181,6 +183,32 @@ const Vocabulary: React.FC = () => {
 
   // Session mode rendering
   if (sessionMode === 'session' && sessionWords.length > 0) {
+    if (sessionType === 'flashcards') {
+      const flashcardItems = vocabularyToFlashcardAdapter(sessionWords);
+      
+      return (
+        <FlashcardSession
+          items={flashcardItems}
+          title="Vocabulary Flashcards"
+          onComplete={(results) => {
+            const sessionResult: SessionResult = {
+              totalQuestions: results.totalQuestions,
+              correctAnswers: results.correctAnswers,
+              wrongAnswers: results.wrongAnswers,
+              timeSpent: results.timeSpent,
+              wordsStudied: sessionWords,
+              mistakes: [] // Convert from flashcard mistakes if needed
+            };
+            handleSessionComplete(sessionResult);
+          }}
+          onExit={handleSessionExit}
+          customRenderer={vocabularyFlashcardRenderer}
+          showProgress={true}
+        />
+      );
+    }
+    
+    // Other session types use QuizSession
     const questions = sessionWords.map((word, index) => {
       const otherWords = getRandomVocabularyWords(3, [word.german]);
       const options = shuffleArray([word.english, ...otherWords.map(w => w.english)]);
@@ -204,9 +232,22 @@ const Vocabulary: React.FC = () => {
   }
 
   if (sessionMode === 'results' && sessionResults) {
+    const adaptedResults = {
+      totalQuestions: sessionResults.totalQuestions,
+      correctAnswers: sessionResults.correctAnswers,
+      wrongAnswers: sessionResults.wrongAnswers,
+      timeSpent: sessionResults.timeSpent,
+      mistakes: sessionResults.mistakes.map(mistake => ({
+        question: `What is "${mistake.word.german}"?`,
+        userAnswer: mistake.userAnswer,
+        correctAnswer: mistake.correctAnswer,
+        data: mistake.word
+      }))
+    };
+
     return (
       <SessionResults
-        results={sessionResults}
+        results={adaptedResults}
         sessionType={sessionType}
         onRestart={handleRestart}
         onReviewMistakes={handleReviewMistakes}

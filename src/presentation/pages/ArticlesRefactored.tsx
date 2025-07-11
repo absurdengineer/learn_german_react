@@ -3,7 +3,7 @@ import { loadArticleCategories } from '../../data';
 import { VocabularyWord } from '../../domain/entities/Vocabulary';
 import ArticlesLearning from '../components/ArticlesLearning';
 import ArticlesPractice from '../components/ArticlesPractice';
-import PracticeSessionResults from '../components/PracticeSessionResults';
+import PracticeSessionResults from '../components/FlashcardSessionResults';
 import {
     CategoryFilter,
     GradientCard,

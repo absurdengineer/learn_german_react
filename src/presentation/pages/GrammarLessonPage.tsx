@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { loadGrammarPracticeByDay } from '../../data/grammarPractice';
 import { GrammarLesson } from '../../domain/entities/Grammar';
-import GrammarFlashcards from '../components/GrammarFlashcards';
-import QuizSession from '../components/QuizSession';
+import { grammarFlashcardRenderer, grammarToFlashcardAdapter } from '../components/FlashcardAdapters';
+import FlashcardSession from '../components/FlashcardSession';
 import MarkdownRenderer from '../components/MarkdownRenderer';
+import QuizSession from '../components/QuizSession';
 
 interface GrammarLessonPageProps {
   lesson: GrammarLesson;
@@ -28,7 +29,18 @@ const GrammarLessonPage: React.FC<GrammarLessonPageProps> = ({
 
   if (sessionMode === 'flashcards') {
     const questions = loadGrammarPracticeByDay(lesson.day);
-    return <GrammarFlashcards questions={questions} onComplete={() => {}} onExit={() => setSessionMode('lesson')} />;
+    const flashcardItems = grammarToFlashcardAdapter(questions);
+    
+    return (
+      <FlashcardSession
+        items={flashcardItems}
+        title={`${lesson.title} - Flashcards`}
+        onComplete={() => setSessionMode('lesson')}
+        onExit={() => setSessionMode('lesson')}
+        customRenderer={grammarFlashcardRenderer}
+        showProgress={true}
+      />
+    );
   }
 
   if (sessionMode === 'quiz') {
