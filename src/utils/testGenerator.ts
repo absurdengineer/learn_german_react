@@ -1,5 +1,5 @@
 import { A1_VOCABULARY_WORDS, loadArticleNouns } from '../data';
-import { getRandomGrammarQuestions } from '../data/grammarData';
+import { loadRandomGrammarPractice } from '../data/grammarPractice';
 
 export const shuffleArray = <T>(array: T[]): T[] => {
   for (let i = array.length - 1; i > 0; i--) {
@@ -65,15 +65,15 @@ export const generateArticlesTest = (count = 10) => {
 };
 
 export const generateGrammarTest = (count = 10) => {
-  const allQuestions = getRandomGrammarQuestions(count * 3); // Get more questions to shuffle from
+  const allQuestions = loadRandomGrammarPractice(count * 3); // Get more questions to shuffle from
   const selectedQuestions = shuffleArray([...allQuestions]).slice(0, count);
 
   const questions = selectedQuestions.map((q, index) => {
     return {
       id: `g-q${index + 1}`,
-      question: q.question,
-      options: shuffleArray([...q.options]),
-      answer: q.answer,
+      question: q.prompt,
+      options: q.options,
+      answer: q.correctAnswer,
     };
   });
 

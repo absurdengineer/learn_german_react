@@ -30,6 +30,11 @@ function App() {
             <Route path="/vocabulary" element={<Vocabulary />} />
             <Route path="/articles" element={<Articles />} />
             <Route path="/grammar" element={<Grammar />} />
+            <Route path="/grammar/lessons" element={<Grammar />} />
+            <Route path="/grammar/lessons/:day" element={<Grammar />} />
+            <Route path="/grammar/practice" element={<Grammar />} />
+            <Route path="/grammar/quiz" element={<Grammar />} />
+            <Route path="/grammar/results" element={<Grammar />} />
             <Route path="/speaking" element={<Speaking />} />
             <Route path="/writing" element={<Writing />} />
             <Route path="/progress" element={<Progress />} />
