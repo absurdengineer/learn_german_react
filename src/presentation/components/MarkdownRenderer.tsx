@@ -12,8 +12,9 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => {
     <ReactMarkdown
       remarkPlugins={[remarkGfm]}
       components={{
-        p: ({ node, ...props }) => <p className="m-0" {...props} />,
-        code({node, inline, className, children, ...props}) {
+        p: ({ ...props }) => <p className="m-0" {...props} />,
+        code({ className, children, ...props }: any) {
+          const inline = !className?.includes('language-');
           return !inline ? (
             <code className={className} {...props}>
               {children}
@@ -24,13 +25,13 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => {
             </code>
           )
         },
-        ol({ node, ...props }) {
+        ol({ ...props }) {
           return <ol className="list-decimal pl-5 space-y-1" {...props} />;
         },
-        ul({ node, ...props }) {
+        ul({ ...props }) {
           return <ul className="list-disc pl-5 space-y-1" {...props} />;
         },
-        li({ node, ...props }) {
+        li({ ...props }) {
           return <li className="text-gray-600" {...props} />;
         }
       }}

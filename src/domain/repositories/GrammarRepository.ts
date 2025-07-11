@@ -1,5 +1,4 @@
-import type { GrammarCategory } from '../entities/Grammar.js';
-import { GrammarId, GrammarLesson, GrammarProgress, GrammarRule, LessonId } from '../entities/Grammar.js';
+import type { GrammarCategory, GrammarId, GrammarLesson, GrammarProgress, GrammarRule, LessonId } from '../entities/Grammar.js';
 import type { LevelType } from '../entities/User.js';
 
 export interface GrammarRepository {

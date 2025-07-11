@@ -1,4 +1,25 @@
 
+// Type definitions for Grammar domain
+export type GrammarId = string;
+export type LessonId = string;
+export type GrammarCategory = 'articles' | 'verbs' | 'adjectives' | 'pronouns' | 'prepositions' | 'sentence-structure';
+
+export interface GrammarRule {
+  id: GrammarId;
+  category: GrammarCategory;
+  title: string;
+  description: string;
+  examples: string[];
+  difficulty: number;
+}
+
+export interface GrammarProgress {
+  userId: string;
+  completedLessons: LessonId[];
+  currentWeek: number;
+  overallProgress: number;
+}
+
 interface GrammarLessonProps {
   day: number;
   title: string;
