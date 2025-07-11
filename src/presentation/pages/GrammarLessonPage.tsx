@@ -26,6 +26,14 @@ const GrammarLessonPage: React.FC<GrammarLessonPageProps> = ({ lesson, onExit, n
       showBackButton
       onBack={onExit}
     >
+      <div className="mb-8">
+        <button
+          onClick={onExit}
+          className="text-blue-600 hover:text-blue-800 transition-colors"
+        >
+          &larr; Back to Learning Path
+        </button>
+      </div>
       <div className="space-y-8">
         <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Mission</h2>

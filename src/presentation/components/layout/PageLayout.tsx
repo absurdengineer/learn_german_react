@@ -30,7 +30,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
       />
 
       {/* Main Content */}
-      <main className="max-w-8xl mx-auto py-8">
+      <main className="max-w-4xl mx-auto py-8">
         {children}
       </main>
     </div>

@@ -4,24 +4,22 @@ import FlashcardSession from '../components/FlashcardSession';
 import QuizSession from '../components/QuizSession';
 import SessionResults from '../components/SessionResults';
 import PageLayout from '../components/layout/PageLayout';
-import { PracticeModeCard, QuickActionCard, GrammarLessonCard } from '../components/ui';
+import { PracticeModeCard, StartLearningPathCard } from '../components/ui';
 import SectionGrid from '../components/layout/SectionGrid';
 import { grammarFlashcardRenderer, grammarToFlashcardAdapter } from '../components/FlashcardAdapters';
 import { loadRandomGrammarPractice } from '../../data/grammarPractice';
 import FlashcardSessionResults from '../components/FlashcardSessionResults';
 import { SESSION_KEYS, SessionManager } from '../../utils/sessionManager';
 import GrammarLessonPage from './GrammarLessonPage';
+import LessonMap from '../components/LessonMap';
 
 const Grammar: React.FC = () => {
   const {
     day,
     sessionResults,
     sessionType,
-    selectedWeek,
-    setSelectedWeek,
+    currentLesson,
     grammarLessons,
-    lessonsByWeek,
-    availableWeeks,
     handleSessionComplete,
     handleQuizComplete,
     startSession,
@@ -128,35 +126,16 @@ const Grammar: React.FC = () => {
 
   if (location.pathname.endsWith('/lessons')) {
     return (
-      <PageLayout pageData={{
-        title: 'All Grammar Lessons',
-        subtitle: 'Browse your structured path to mastering German grammar.',
-        description: 'Browse your structured path to mastering German grammar.',
-        icon: '📚',
-        gradient: 'from-blue-500 to-purple-600',
-      }}>
-        <div className="flex justify-end my-6">
-          <select
-            value={selectedWeek}
-            onChange={(e) => setSelectedWeek(Number(e.target.value))}
-            className="px-4 py-2 pr-8 border border-gray-300 rounded-lg bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-          >
-            {availableWeeks.map((week) => (
-              <option key={week} value={week}>
-                Week {week}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div className="space-y-4">
-          {(lessonsByWeek[selectedWeek] || []).map((lesson) => (
-            <GrammarLessonCard
-              key={lesson.day}
-              lesson={lesson}
-              onStart={() => navigate(`/grammar/lessons/${lesson.day}`)}
-            />
-          ))}
-        </div>
+      <PageLayout
+        pageData={{
+          title: 'Grammar Learning Path',
+          subtitle: 'Your structured path to mastering German grammar.',
+          description: '',
+          icon: '🗺️',
+          gradient: 'from-blue-500 to-purple-600',
+        }}
+      >
+        <LessonMap lessons={grammarLessons} currentLesson={currentLesson} />
       </PageLayout>
     );
   }
@@ -176,12 +155,9 @@ const Grammar: React.FC = () => {
       gradient: 'from-blue-500 to-purple-600',
     }}>
       <div className="space-y-8">
-        <QuickActionCard
-          title="All Lessons"
-          description="Browse all grammar lessons by week."
-          icon="📚"
-          onClick={() => navigate('/grammar/lessons')}
-          color="from-blue-500 to-purple-600"
+        <StartLearningPathCard
+          currentLesson={currentLesson}
+          totalLessons={grammarLessons.length}
         />
         <SectionGrid
           title="Flashcards"

@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { loadGrammarLessons } from '../data/grammarLessons';
-import type { GrammarLesson } from '../domain/entities/Grammar';
 import { SESSION_KEYS, SessionManager } from '../utils/sessionManager';
 import type { FlashcardSessionResult } from '../presentation/components/FlashcardSession';
 import type { QuizResults } from '../presentation/components/QuizSession';
@@ -13,7 +12,7 @@ export const useGrammar = () => {
 
   const [sessionResults, setSessionResults] = useState<FlashcardSessionResult | null>(null);
   const [sessionType, setSessionType] = useState<'flashcards' | 'quiz' | null>(null);
-  const [selectedWeek, setSelectedWeek] = useState<number>(1);
+  const [currentLesson, setCurrentLesson] = useState(1);
 
   useEffect(() => {
     if (location.pathname.endsWith('/results')) {
@@ -52,21 +51,6 @@ export const useGrammar = () => {
     const lessons = loadGrammarLessons();
     return lessons.sort((a, b) => a.week - b.week || a.day - b.day);
   }, []);
-
-  const { lessonsByWeek, availableWeeks } = useMemo(() => {
-    const grouped = grammarLessons.reduce((acc, lesson) => {
-      const week = lesson.week;
-      if (!acc[week]) {
-        acc[week] = [];
-      }
-      acc[week].push(lesson);
-      return acc;
-    }, {} as Record<number, GrammarLesson[]>);
-    return {
-      lessonsByWeek: grouped,
-      availableWeeks: Object.keys(grouped).map(Number).sort((a, b) => a - b),
-    };
-  }, [grammarLessons]);
 
   const handleSessionComplete = (results: FlashcardSessionResult) => {
     setSessionResults(results);
@@ -149,11 +133,9 @@ export const useGrammar = () => {
     day,
     sessionResults,
     sessionType,
-    selectedWeek,
-    setSelectedWeek,
+    currentLesson,
+    setCurrentLesson,
     grammarLessons,
-    lessonsByWeek,
-    availableWeeks,
     handleSessionComplete,
     handleQuizComplete,
     startSession,

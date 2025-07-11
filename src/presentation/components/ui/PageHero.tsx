@@ -13,7 +13,7 @@ const PageHero: React.FC<PageHeroProps> = ({
   subtitle,
   description,
   icon,
-  bannerContent
+  bannerContent,
 }) => {
   return (
     <div className="bg-white border-b border-gray-200">

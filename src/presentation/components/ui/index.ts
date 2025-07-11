@@ -19,6 +19,7 @@ export { default as QuickActionCard } from './QuickActionCard';
 export { default as SessionHeader } from './SessionHeader';
 export { default as StatCard } from './StatCard';
 export { default as StatsCard } from './StatsCard';
+export { default as StartLearningPathCard } from './StartLearningPathCard';
 export { TestTypeCard } from './TestTypeCard';
 export { VocabularyCard } from './VocabularyCard';
 export { WordDetailModal } from './WordDetailModal';
