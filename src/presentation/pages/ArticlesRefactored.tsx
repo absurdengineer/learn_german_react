@@ -5,11 +5,11 @@ import ArticlesLearning from '../components/ArticlesLearning';
 import ArticlesPractice from '../components/ArticlesPractice';
 import PracticeSessionResults from '../components/FlashcardSessionResults';
 import {
-    CategoryFilter,
-    GradientCard,
-    PageHero,
-    PracticeModeCard,
-    SectionHeader
+  CategoryFilter,
+  GradientCard,
+  PageHero,
+  PracticeModeCard,
+  SectionHeader
 } from '../components/ui';
 
 interface ArticlesSessionResult {

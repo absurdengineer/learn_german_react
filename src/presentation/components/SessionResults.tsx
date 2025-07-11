@@ -1,10 +1,11 @@
 import React from 'react';
+import { VocabularyWord } from '../../domain/entities/Vocabulary';
 
 interface Mistake {
   question: string;
   userAnswer: string;
   correctAnswer: string;
-  data?: any;
+  data?: VocabularyWord;
 }
 
 interface SessionResult {
@@ -30,6 +31,30 @@ const SessionResults: React.FC<SessionResultsProps> = ({
   onReviewMistakes,
   onExit,
 }) => {
+  // Add defensive check for results
+  if (!results) {
+    return (
+      <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-3xl mx-auto">
+          <div className="bg-white shadow-2xl rounded-2xl p-8">
+            <div className="text-center">
+              <h1 className="text-4xl font-extrabold text-red-600">Error</h1>
+              <p className="mt-2 text-lg text-gray-600">
+                Session results are not available.
+              </p>
+              <button
+                onClick={onExit}
+                className="mt-4 bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700"
+              >
+                Go Back
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   const {
     totalQuestions,
     correctAnswers,

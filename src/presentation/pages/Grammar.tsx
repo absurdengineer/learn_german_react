@@ -8,7 +8,7 @@ import { grammarFlashcardRenderer, grammarToFlashcardAdapter } from '../componen
 import FlashcardSession, { type FlashcardSessionResult } from '../components/FlashcardSession';
 import FlashcardSessionResults from '../components/FlashcardSessionResults';
 import MarkdownRenderer from '../components/MarkdownRenderer';
-import QuizSession from '../components/QuizSession';
+import QuizSession, { type QuizResults } from '../components/QuizSession';
 import SessionResults from '../components/SessionResults';
 import { PageHero, PracticeModeCard, QuickActionCard, SectionHeader } from '../components/ui';
 import GrammarLessonPage from './GrammarLessonPage';
@@ -45,6 +45,28 @@ const Grammar: React.FC = () => {
   const handleSessionComplete = (results: FlashcardSessionResult) => {
     setSessionResults(results);
     navigate('/grammar/results');
+  };
+
+  const handleQuizComplete = (results: QuizResults) => {
+    // Transform QuizResults to FlashcardSessionResult format
+    const flashcardResult: FlashcardSessionResult = {
+      totalQuestions: results.totalQuestions,
+      correctAnswers: results.correctAnswers,
+      wrongAnswers: results.wrongAnswers,
+      timeSpent: results.timeSpent,
+      mistakes: results.mistakes.map(mistake => ({
+        item: {
+          id: mistake.id,
+          front: mistake.prompt,
+          back: mistake.correctAnswer,
+          category: mistake.category || 'grammar',
+        },
+        userAction: mistake.userAnswer,
+      })),
+      completedItems: [], // Grammar doesn't track completed items the same way
+    };
+    
+    handleSessionComplete(flashcardResult);
   };
 
   const startSession = (type: 'flashcards' | 'quiz', count: number) => {
@@ -98,7 +120,7 @@ const Grammar: React.FC = () => {
       category: q.category,
       helperText: q.helperText,
     }));
-    return <QuizSession questions={questions} title="Grammar Quiz" onComplete={handleSessionComplete} onExit={() => navigate('/grammar')} />;
+    return <QuizSession questions={questions} title="Grammar Quiz" onComplete={handleQuizComplete} onExit={() => navigate('/grammar')} />;
   }
 
   if (location.pathname.endsWith('/results')) {

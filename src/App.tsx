@@ -2,16 +2,16 @@ import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import PWAInstallPrompt from './components/PWAInstallPrompt';
 import { AppProvider } from './context/AppContext.jsx';
 import Layout from './presentation/components/Layout';
+import TestResults from './presentation/components/TestResults';
+import TestSession from './presentation/components/TestSession';
 import Articles from './presentation/pages/Articles';
+import DayView from './presentation/pages/DayView';
 import Grammar from './presentation/pages/Grammar';
 import Home from './presentation/pages/Home';
 import Progress from './presentation/pages/Progress';
 import Settings from './presentation/pages/Settings';
 import Speaking from './presentation/pages/Speaking';
 import StudyPlan from './presentation/pages/StudyPlan';
-import DayView from './presentation/pages/DayView';
-import SessionResults from './presentation/components/SessionResults';
-import TestSession from './presentation/components/TestSession';
 import StudyPlanComplete from './presentation/pages/StudyPlanComplete';
 import Tests from './presentation/pages/Tests';
 import Vocabulary from './presentation/pages/Vocabulary';
@@ -40,7 +40,7 @@ function App() {
             <Route path="/progress" element={<Progress />} />
             <Route path="/tests" element={<Tests />} />
             <Route path="/tests/session" element={<TestSession />} />
-            <Route path="/tests/results" element={<SessionResults />} />
+            <Route path="/tests/results" element={<TestResults />} />
             <Route path="/settings" element={<Settings />} />
           </Routes>
         </Layout>

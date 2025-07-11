@@ -12,7 +12,7 @@ import { VocabularyWord, type Gender, type WordType } from '../../domain/entitie
 import { shuffleArray } from '../../utils/testGenerator';
 import { vocabularyFlashcardRenderer, vocabularyToFlashcardAdapter } from '../components/FlashcardAdapters';
 import FlashcardSession from '../components/FlashcardSession';
-import QuizSession from '../components/QuizSession';
+import QuizSession, { type QuizResults } from '../components/QuizSession';
 import SessionResults from '../components/SessionResults';
 import { GradientCard, PageHero } from '../components/ui';
 
@@ -46,6 +46,88 @@ const Vocabulary: React.FC = () => {
   const [sessionResults, setSessionResults] = useState<SessionResult | null>(null);
   const [loading, setLoading] = useState(true);
   const [loadingError, setLoadingError] = useState<string | null>(null);
+  
+  // Store generated flashcard items to prevent regeneration on re-renders
+  const [flashcardItems, setFlashcardItems] = useState<import('../components/FlashcardSession').FlashcardItem[]>([]);
+  
+  // Store generated quiz questions to prevent regeneration on re-renders
+  const [quizQuestions, setQuizQuestions] = useState<Array<{
+    id: string;
+    prompt: string;
+    options: string[];
+    correctAnswer: string;
+    data: VocabularyWord;
+  }>>([]);
+
+  // Helper function to get session title
+  const getSessionTitle = (type: string): string => {
+    switch (type) {
+      case 'translation-de-en':
+        return 'German → English Translation';
+      case 'translation-en-de':
+        return 'English → German Translation';
+      case 'multiple-choice-de-en':
+        return 'Multiple Choice: German Words';
+      case 'multiple-choice-en-de':
+        return 'Multiple Choice: English Words';
+      default:
+        return 'Vocabulary Practice';
+    }
+  };
+
+  // Generate questions based on session type
+  const generateSessionQuestions = (
+    type: 'flashcards' | 'translation-de-en' | 'multiple-choice-de-en' | 'translation-en-de' | 'multiple-choice-en-de',
+    words: VocabularyWord[]
+  ) => {
+    if (type === 'flashcards') {
+      const generatedFlashcards = vocabularyToFlashcardAdapter(words);
+      setFlashcardItems(generatedFlashcards);
+      setQuizQuestions([]); // Clear quiz questions
+    } else {
+      // Generate quiz questions based on type
+      const questions = words.map((word, index) => {
+        let prompt: string;
+        let correctAnswer: string;
+        let wrongOptions: string[];
+
+        switch (type) {
+          case 'translation-de-en':
+          case 'multiple-choice-de-en':
+            prompt = `What is the English translation of "${word.german}"?`;
+            correctAnswer = word.english;
+            wrongOptions = getRandomVocabularyWords(3, [word.german]).map(w => w.english);
+            break;
+          case 'translation-en-de':
+          case 'multiple-choice-en-de':
+            prompt = `What is the German translation of "${word.english}"?`;
+            correctAnswer = word.german;
+            wrongOptions = getRandomVocabularyWords(3, [word.german]).map(w => w.german);
+            break;
+          default:
+            prompt = `What is the English translation of "${word.german}"?`;
+            correctAnswer = word.english;
+            wrongOptions = getRandomVocabularyWords(3, [word.german]).map(w => w.english);
+        }
+
+        const options = type.includes('multiple-choice') 
+          ? shuffleArray([correctAnswer, ...wrongOptions])
+          : [];
+
+        return {
+          id: `v-q${index + 1}`,
+          prompt,
+          options,
+          correctAnswer,
+          data: word,
+        };
+      });
+
+      setQuizQuestions(questions);
+      setFlashcardItems([]); // Clear flashcard items
+    }
+  };
+  
   const navigate = useNavigate();
 
   // Load vocabulary data and categories on component mount
@@ -128,6 +210,10 @@ const Vocabulary: React.FC = () => {
     setSessionType(type);
     setSessionWords(words);
     setSessionLength(words.length);
+    
+    // Generate all session questions once when session starts
+    generateSessionQuestions(type, words);
+    
     setSessionMode('session');
   };
 
@@ -136,14 +222,39 @@ const Vocabulary: React.FC = () => {
     setSessionMode('results');
   };
 
+  const handleQuizComplete = (results: QuizResults) => {
+    // Transform QuizResults to SessionResult format
+    const sessionResult: SessionResult = {
+      totalQuestions: results.totalQuestions,
+      correctAnswers: results.correctAnswers,
+      wrongAnswers: results.wrongAnswers,
+      timeSpent: results.timeSpent,
+      wordsStudied: sessionWords,
+      mistakes: results.mistakes.map(mistake => ({
+        word: mistake.word || sessionWords.find(w => w.german === mistake.correctAnswer || w.english === mistake.correctAnswer) || sessionWords[0],
+        userAnswer: mistake.userAnswer,
+        correctAnswer: mistake.correctAnswer,
+      })),
+    };
+    
+    handleSessionComplete(sessionResult);
+  };
+
   const handleSessionExit = () => {
     setSessionMode('browse');
     setSessionResults(null);
+    // Clear stored questions and flashcards
+    setFlashcardItems([]);
+    setQuizQuestions([]);
   };
 
   const handleRestart = () => {
     const newWords = getRandomVocabularyWords(sessionLength);
     setSessionWords(newWords);
+    
+    // Regenerate questions for new words
+    generateSessionQuestions(sessionType, newWords);
+    
     setSessionMode('session');
   };
 
@@ -152,6 +263,10 @@ const Vocabulary: React.FC = () => {
       const mistakeWords = sessionResults.mistakes.map((m) => m.word);
       const shuffledWords = shuffleArray([...mistakeWords]);
       setSessionWords(shuffledWords);
+      
+      // Regenerate questions for mistake words
+      generateSessionQuestions(sessionType, shuffledWords);
+      
       setSessionMode('session');
     }
   };
@@ -184,11 +299,13 @@ const Vocabulary: React.FC = () => {
   // Session mode rendering
   if (sessionMode === 'session' && sessionWords.length > 0) {
     if (sessionType === 'flashcards') {
-      const flashcardItems = vocabularyToFlashcardAdapter(sessionWords);
+      // Use the stored flashcard items instead of generating them on every render
+      // If no flashcard items, generate them as fallback
+      const itemsToUse = flashcardItems.length > 0 ? flashcardItems : vocabularyToFlashcardAdapter(sessionWords);
       
       return (
         <FlashcardSession
-          items={flashcardItems}
+          items={itemsToUse}
           title="Vocabulary Flashcards"
           onComplete={(results) => {
             const sessionResult: SessionResult = {
@@ -208,8 +325,9 @@ const Vocabulary: React.FC = () => {
       );
     }
     
-    // Other session types use QuizSession
-    const questions = sessionWords.map((word, index) => {
+    // Other session types use QuizSession with pre-generated questions
+    // Use stored questions if available, otherwise generate as fallback
+    const questionsToUse = quizQuestions.length > 0 ? quizQuestions : sessionWords.map((word, index) => {
       const otherWords = getRandomVocabularyWords(3, [word.german]);
       const options = shuffleArray([word.english, ...otherWords.map(w => w.english)]);
       return {
@@ -217,15 +335,15 @@ const Vocabulary: React.FC = () => {
         prompt: `What is the English translation of "${word.german}"?`,
         options,
         correctAnswer: word.english,
-        data: word, // Pass the full word object
+        data: word,
       };
     });
 
     return (
       <QuizSession
-        questions={questions}
-        title="Vocabulary Quiz"
-        onComplete={handleSessionComplete}
+        questions={questionsToUse}
+        title={getSessionTitle(sessionType)}
+        onComplete={handleQuizComplete}
         onExit={handleSessionExit}
       />
     );
@@ -233,14 +351,14 @@ const Vocabulary: React.FC = () => {
 
   if (sessionMode === 'results' && sessionResults) {
     const adaptedResults = {
-      totalQuestions: sessionResults.totalQuestions,
-      correctAnswers: sessionResults.correctAnswers,
-      wrongAnswers: sessionResults.wrongAnswers,
-      timeSpent: sessionResults.timeSpent,
-      mistakes: sessionResults.mistakes.map(mistake => ({
-        question: `What is "${mistake.word.german}"?`,
-        userAnswer: mistake.userAnswer,
-        correctAnswer: mistake.correctAnswer,
+      totalQuestions: sessionResults.totalQuestions || 0,
+      correctAnswers: sessionResults.correctAnswers || 0,
+      wrongAnswers: sessionResults.wrongAnswers || 0,
+      timeSpent: sessionResults.timeSpent || 0,
+      mistakes: (sessionResults.mistakes || []).map(mistake => ({
+        question: `What is "${mistake.word?.german || 'unknown'}"?`,
+        userAnswer: mistake.userAnswer || '',
+        correctAnswer: mistake.correctAnswer || '',
         data: mistake.word
       }))
     };
@@ -248,7 +366,7 @@ const Vocabulary: React.FC = () => {
     return (
       <SessionResults
         results={adaptedResults}
-        sessionType={sessionType}
+        sessionType={getSessionTitle(sessionType)}
         onRestart={handleRestart}
         onReviewMistakes={handleReviewMistakes}
         onExit={handleSessionExit}
@@ -426,8 +544,8 @@ const Vocabulary: React.FC = () => {
                 <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                 </svg>
-                <span className="hidden sm:inline">Write in English</span>
-                <span className="sm:hidden">Eng</span>
+                <span className="hidden sm:inline">German → English</span>
+                <span className="sm:hidden">DE→EN</span>
               </button>
               <button
                 onClick={() => {
@@ -440,8 +558,8 @@ const Vocabulary: React.FC = () => {
                 <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                 </svg>
-                <span className="hidden sm:inline">Write in German</span>
-                <span className="sm:hidden">Ger</span>
+                <span className="hidden sm:inline">English → German</span>
+                <span className="sm:hidden">EN→DE</span>
               </button>
               <button
                 onClick={() => {
@@ -454,8 +572,8 @@ const Vocabulary: React.FC = () => {
                 <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
                 </svg>
-                <span className="hidden sm:inline">English Quiz</span>
-                <span className="sm:hidden">Eng Quiz</span>
+                <span className="hidden sm:inline">Multiple Choice: German</span>
+                <span className="sm:hidden">MC: DE</span>
               </button>
               <button
                 onClick={() => {
@@ -468,8 +586,8 @@ const Vocabulary: React.FC = () => {
                 <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
                 </svg>
-                <span className="hidden sm:inline">German Quiz</span>
-                <span className="sm:hidden">Ger Quiz</span>
+                <span className="hidden sm:inline">Multiple Choice: English</span>
+                <span className="sm:hidden">MC: EN</span>
               </button>
               <button
                 onClick={() => {
