@@ -36,7 +36,14 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   }, [location.pathname]);
 
   const isActiveRoute = (path: string) => {
-    return location.pathname === path;
+    // Exact match for home route
+    if (path === '/') {
+      return location.pathname === path;
+    }
+    
+    // For other routes, check if current path starts with the menu item path
+    // This ensures subroutes stay highlighted (e.g., /grammar/flashcards highlights Grammar)
+    return location.pathname.startsWith(path);
   };
 
   const handleNavigate = (path: string) => {
@@ -46,7 +53,17 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
   // Get current page name
   const getCurrentPageName = () => {
-    const currentItem = menuItems.find(item => item.path === location.pathname);
+    // For home route, exact match
+    if (location.pathname === '/') {
+      return 'Home';
+    }
+    
+    // For other routes, find the menu item whose path the current path starts with
+    const currentItem = menuItems.find(item => {
+      if (item.path === '/') return false; // Skip home for this logic
+      return location.pathname.startsWith(item.path);
+    });
+    
     return currentItem ? currentItem.text : 'Home';
   };
 

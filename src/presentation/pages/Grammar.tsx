@@ -1,9 +1,10 @@
 
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { loadGrammarLessons } from '../../data/grammarLessons';
 import { loadRandomGrammarPractice } from '../../data/grammarPractice';
 import { GrammarLesson } from '../../domain/entities/Grammar';
+import { SESSION_KEYS, SessionManager } from '../../utils/sessionManager';
 import { grammarFlashcardRenderer, grammarToFlashcardAdapter } from '../components/FlashcardAdapters';
 import FlashcardSession, { type FlashcardSessionResult } from '../components/FlashcardSession';
 import FlashcardSessionResults from '../components/FlashcardSessionResults';
@@ -21,6 +22,44 @@ const Grammar: React.FC = () => {
   const [sessionResults, setSessionResults] = useState<FlashcardSessionResult | null>(null);
   const [sessionType, setSessionType] = useState<'flashcards' | 'quiz' | null>(null);
   const [selectedWeek, setSelectedWeek] = useState<number>(1);
+
+  // Load session results from storage when component mounts or route changes
+  useEffect(() => {
+    if (location.pathname.endsWith('/results')) {
+      // Check if we have results in location state first
+      if (location.state?.results) {
+        setSessionResults(location.state.results);
+        setSessionType(location.state.sessionType || 'quiz');
+      } else {
+        // Try to get results from session storage
+        const storedResults = SessionManager.getResults(SESSION_KEYS.GRAMMAR);
+        if (storedResults) {
+          // Convert stored results to FlashcardSessionResult format
+          const flashcardResults: FlashcardSessionResult = {
+            totalQuestions: storedResults.totalQuestions,
+            correctAnswers: storedResults.correctAnswers,
+            wrongAnswers: storedResults.wrongAnswers,
+            timeSpent: storedResults.timeSpent,
+            mistakes: storedResults.mistakes?.map(mistake => ({
+              item: {
+                id: mistake.question || 'unknown',
+                front: mistake.question || '',
+                back: mistake.correctAnswer || '',
+                category: 'grammar',
+              },
+              userAction: mistake.userAnswer || '',
+            })) || [],
+            completedItems: [],
+          };
+          setSessionResults(flashcardResults);
+          
+          // Determine session type from stored session data
+          const storedSession = SessionManager.getSession(SESSION_KEYS.GRAMMAR);
+          setSessionType(storedSession?.mode as 'flashcards' | 'quiz' || 'quiz');
+        }
+      }
+    }
+  }, [location.pathname, location.state]);
 
   const grammarLessons = useMemo(() => {
     const lessons = loadGrammarLessons();
@@ -44,7 +83,27 @@ const Grammar: React.FC = () => {
 
   const handleSessionComplete = (results: FlashcardSessionResult) => {
     setSessionResults(results);
-    navigate('/grammar/results');
+    
+    // Save results to session storage
+    SessionManager.setResults(SESSION_KEYS.GRAMMAR, {
+      sessionId: SessionManager.generateSessionId(),
+      totalQuestions: results.totalQuestions,
+      correctAnswers: results.correctAnswers,
+      wrongAnswers: results.wrongAnswers,
+      timeSpent: results.timeSpent,
+      completedAt: Date.now(),
+      mistakes: results.mistakes.map(mistake => ({
+        question: mistake.item.front,
+        userAnswer: mistake.userAction || '',
+        correctAnswer: mistake.item.back,
+      }))
+    });
+    
+    // Navigate to results with state
+    navigate('/grammar/flashcards/results', { 
+      state: { results, sessionType: 'flashcards' }, 
+      replace: true 
+    });
   };
 
   const handleQuizComplete = (results: QuizResults) => {
@@ -66,11 +125,42 @@ const Grammar: React.FC = () => {
       completedItems: [], // Grammar doesn't track completed items the same way
     };
     
-    handleSessionComplete(flashcardResult);
+    setSessionResults(flashcardResult);
+    
+    // Save results to session storage
+    SessionManager.setResults(SESSION_KEYS.GRAMMAR, {
+      sessionId: SessionManager.generateSessionId(),
+      totalQuestions: results.totalQuestions,
+      correctAnswers: results.correctAnswers,
+      wrongAnswers: results.wrongAnswers,
+      timeSpent: results.timeSpent,
+      completedAt: Date.now(),
+      mistakes: results.mistakes.map(mistake => ({
+        question: mistake.prompt,
+        userAnswer: mistake.userAnswer || '',
+        correctAnswer: mistake.correctAnswer,
+      }))
+    });
+    
+    // Navigate to results with state
+    navigate('/grammar/quiz/results', { 
+      state: { results: flashcardResult, sessionType: 'quiz' }, 
+      replace: true 
+    });
   };
 
   const startSession = (type: 'flashcards' | 'quiz', count: number) => {
     setSessionType(type);
+    
+    // Save session data
+    SessionManager.setSession(SESSION_KEYS.GRAMMAR, {
+      sessionId: SessionManager.generateSessionId(),
+      startTime: Date.now(),
+      type: 'grammar',
+      mode: type,
+      config: { count }
+    });
+    
     navigate(`/grammar/${type}`, { state: { count } });
   };
 
@@ -125,6 +215,7 @@ const Grammar: React.FC = () => {
 
   if (location.pathname.endsWith('/results')) {
     if (!sessionResults) {
+      // If no results available, redirect to grammar home
       navigate('/grammar');
       return null;
     }
@@ -133,11 +224,18 @@ const Grammar: React.FC = () => {
       return (
         <FlashcardSessionResults
           results={sessionResults}
-          onRestart={() => navigate('/grammar/flashcards', { state: { count: sessionResults.totalQuestions } })}
-          onExit={() => navigate('/grammar')}
+          onRestart={() => {
+            SessionManager.clearSession(SESSION_KEYS.GRAMMAR);
+            navigate('/grammar/flashcards', { state: { count: sessionResults.totalQuestions } });
+          }}
+          onExit={() => {
+            SessionManager.clearSession(SESSION_KEYS.GRAMMAR);
+            navigate('/grammar');
+          }}
         />
       );
     }
+    
     return (
       <SessionResults
         results={{
@@ -145,12 +243,22 @@ const Grammar: React.FC = () => {
           correctAnswers: sessionResults.correctAnswers,
           wrongAnswers: sessionResults.wrongAnswers,
           timeSpent: sessionResults.timeSpent,
-          mistakes: [] // Convert later if needed
+          mistakes: sessionResults.mistakes.map(mistake => ({
+            question: mistake.item.front,
+            userAnswer: mistake.userAction || '',
+            correctAnswer: mistake.item.back,
+          }))
         }}
         sessionType={sessionType || 'quiz'}
-        onRestart={() => navigate('/grammar/quiz', { state: { count: sessionResults.totalQuestions } })}
+        onRestart={() => {
+          SessionManager.clearSession(SESSION_KEYS.GRAMMAR);
+          navigate('/grammar/quiz', { state: { count: sessionResults.totalQuestions } });
+        }}
         onReviewMistakes={() => {}} // Placeholder for now
-        onExit={() => navigate('/grammar')}
+        onExit={() => {
+          SessionManager.clearSession(SESSION_KEYS.GRAMMAR);
+          navigate('/grammar');
+        }}
       />
     );
   }
