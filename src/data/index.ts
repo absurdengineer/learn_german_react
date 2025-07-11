@@ -5,6 +5,9 @@ import { parseArticlesCSV } from './articles';
 import studyPlanData from './studyPlan.json';
 import { generateVocabularyCategoriesFromCSV, getCSVVocabularyStats, parseVocabularyCSV } from './vocabulary';
 
+// Re-export standardized data system
+export * from './standardized';
+
 // Type definitions
 export type { ArticleNoun };
 export interface VocabularyItem {
