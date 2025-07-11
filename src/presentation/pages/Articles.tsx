@@ -177,8 +177,8 @@ const Articles: React.FC = () => {
       bannerContent={explanationBanner}
     >
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-8 pb-8">
-        <SectionGrid title="Practice Modes" className="mb-8">
+      <div className="space-y-8">
+        <SectionGrid title="Practice Modes">
           {practiceModes.map((mode, index) => (
             <PracticeCard
               key={index}
@@ -192,7 +192,7 @@ const Articles: React.FC = () => {
           ))}
         </SectionGrid>
 
-        <SectionGrid title="Learning Modes" className="mb-8">
+        <SectionGrid title="Learning Modes">
           {learningModes.map((mode, index) => (
             <PracticeCard
               key={index}
@@ -206,7 +206,7 @@ const Articles: React.FC = () => {
           ))}
         </SectionGrid>
 
-        <SectionGrid title="Study by Category" className="mb-8">
+        <SectionGrid title="Study by Category" columns={6}>
           {articleCategories.map((category) => (
             <CategoryCard
               key={category.name}
@@ -217,7 +217,7 @@ const Articles: React.FC = () => {
           ))}
         </SectionGrid>
 
-        <SectionGrid title="Article Statistics" className="mb-8">
+        <SectionGrid title="Article Statistics">
           {stats.map((stat, index) => (
             <StatCard
               key={index}

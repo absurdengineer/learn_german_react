@@ -17,7 +17,7 @@ const PageHero: React.FC<PageHeroProps> = ({
 }) => {
   return (
     <div className="bg-white border-b border-gray-200">
-      <div className="max-w-6xl mx-auto px-3 sm:px-4 lg:px-6 py-6 sm:py-8 lg:py-12">
+      <div className="max-w-4xl mx-auto px-3 sm:px-4 lg:px-6 py-6 sm:py-8 lg:py-12">
         <div className="text-center">
           <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-3 sm:mb-4 text-gray-900 leading-tight">
             {icon} {title}

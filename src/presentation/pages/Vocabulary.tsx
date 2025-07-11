@@ -166,107 +166,105 @@ const Vocabulary: React.FC = () => {
       bannerContent={articlesBanner}
     >
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-8 pb-8">
-        <div className="bg-white rounded-2xl shadow-lg p-4 sm:p-6 mb-8">
-          <div className="space-y-4">
-            <div className="flex flex-col sm:flex-row gap-4">
-              <div className="relative flex-1">
-                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <svg className="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                  </svg>
+      <div className="space-y-8">
+        <div className="space-y-4">
+          <div className="flex flex-col sm:flex-row gap-4">
+            <div className="relative flex-1">
+              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <svg className="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+              </div>
+              <input
+                type="text"
+                placeholder="Search vocabulary..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="block w-full pl-10 pr-10 py-3 border border-gray-300 rounded-xl leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+              />
+              {searchTerm && (
+                <div className="absolute inset-y-0 right-0 pr-3 flex items-center">
+                  <button
+                    onClick={() => setSearchTerm('')}
+                    className="text-gray-400 hover:text-gray-600"
+                  >
+                    <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </button>
                 </div>
-                <input
-                  type="text"
-                  placeholder="Search vocabulary..."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="block w-full pl-10 pr-10 py-3 border border-gray-300 rounded-xl leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                />
-                {searchTerm && (
-                  <div className="absolute inset-y-0 right-0 pr-3 flex items-center">
-                    <button
-                      onClick={() => setSearchTerm('')}
-                      className="text-gray-400 hover:text-gray-600"
-                    >
-                      <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                )}
-              </div>
-
-              <div className="flex-shrink-0 sm:w-48">
-                <select
-                  value={selectedCategory}
-                  onChange={(e) => setSelectedCategory(e.target.value)}
-                  className="block w-full px-4 py-3 border border-gray-300 rounded-xl bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                >
-                  <option value="all">All Categories</option>
-                  {Object.entries(availableCategories)
-                    .sort(([, a], [, b]) => a.name.localeCompare(b.name))
-                    .map(([key, category]) => (
-                      <option key={key} value={key}>
-                        {category.name}
-                      </option>
-                    ))}
-                </select>
-              </div>
+              )}
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-              <button
-                onClick={() => startPractice('flashcards', getRandomVocabularyWords(20))}
-                className="bg-blue-600 text-white px-4 py-3 rounded-xl hover:bg-blue-700 transition-all duration-200 flex items-center justify-center gap-2 font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+            <div className="flex-shrink-0 sm:w-48">
+              <select
+                value={selectedCategory}
+                onChange={(e) => setSelectedCategory(e.target.value)}
+                className="block w-full px-4 py-3 border border-gray-300 rounded-xl bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
               >
-                <span className="hidden sm:inline">Flashcards</span>
-                <span className="sm:hidden">Flash</span>
-              </button>
-              <button
-                onClick={() => startPractice('translation-de-en', getRandomVocabularyWords(15))}
-                className="bg-purple-600 text-white px-4 py-3 rounded-xl hover:bg-purple-700 transition-all duration-200 flex items-center justify-center gap-2 font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-              >
-                <span className="hidden sm:inline">German → English</span>
-                <span className="sm:hidden">DE→EN</span>
-              </button>
-              <button
-                onClick={() => startPractice('translation-en-de', getRandomVocabularyWords(15))}
-                className="bg-green-600 text-white px-4 py-3 rounded-xl hover:bg-green-700 transition-all duration-200 flex items-center justify-center gap-2 font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-              >
-                <span className="hidden sm:inline">English → German</span>
-                <span className="sm:hidden">EN→DE</span>
-              </button>
-              <button
-                onClick={() => startPractice('multiple-choice-de-en', getRandomVocabularyWords(12))}
-                className="bg-orange-600 text-white px-4 py-3 rounded-xl hover:bg-orange-700 transition-all duration-200 flex items-center justify-center gap-2 font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-              >
-                <span className="hidden sm:inline">Multiple Choice: German</span>
-                <span className="sm:hidden">MC: DE</span>
-              </button>
-              <button
-                onClick={() => startPractice('multiple-choice-en-de', getRandomVocabularyWords(12))}
-                className="bg-red-600 text-white px-4 py-3 rounded-xl hover:bg-red-700 transition-all duration-200 flex items-center justify-center gap-2 font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-              >
-                <span className="hidden sm:inline">Multiple Choice: English</span>
-                <span className="sm:hidden">MC: EN</span>
-              </button>
-              <button
-                onClick={handleRandomWords}
-                className="bg-gray-700 text-white px-4 py-3 rounded-xl hover:bg-gray-800 transition-all duration-200 flex items-center justify-center gap-2 font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-              >
-                <span className="hidden sm:inline">Random Words</span>
-                <span className="sm:hidden">Random</span>
-              </button>
+                <option value="all">All Categories</option>
+                {Object.entries(availableCategories)
+                  .sort(([, a], [, b]) => a.name.localeCompare(b.name))
+                  .map(([key, category]) => (
+                    <option key={key} value={key}>
+                      {category.name}
+                    </option>
+                  ))}
+              </select>
             </div>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+            <button
+              onClick={() => startPractice('flashcards', getRandomVocabularyWords(20))}
+              className="bg-blue-600 text-white px-4 py-3 rounded-xl hover:bg-blue-700 transition-all duration-200 flex items-center justify-center gap-2 font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+            >
+              <span className="hidden sm:inline">Flashcards</span>
+              <span className="sm:hidden">Flash</span>
+            </button>
+            <button
+              onClick={() => startPractice('translation-de-en', getRandomVocabularyWords(15))}
+              className="bg-purple-600 text-white px-4 py-3 rounded-xl hover:bg-purple-700 transition-all duration-200 flex items-center justify-center gap-2 font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+            >
+              <span className="hidden sm:inline">German → English</span>
+              <span className="sm:hidden">DE→EN</span>
+            </button>
+            <button
+              onClick={() => startPractice('translation-en-de', getRandomVocabularyWords(15))}
+              className="bg-green-600 text-white px-4 py-3 rounded-xl hover:bg-green-700 transition-all duration-200 flex items-center justify-center gap-2 font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+            >
+              <span className="hidden sm:inline">English → German</span>
+              <span className="sm:hidden">EN→DE</span>
+            </button>
+            <button
+              onClick={() => startPractice('multiple-choice-de-en', getRandomVocabularyWords(12))}
+              className="bg-orange-600 text-white px-4 py-3 rounded-xl hover:bg-orange-700 transition-all duration-200 flex items-center justify-center gap-2 font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+            >
+              <span className="hidden sm:inline">Multiple Choice: German</span>
+              <span className="sm:hidden">MC: DE</span>
+            </button>
+            <button
+              onClick={() => startPractice('multiple-choice-en-de', getRandomVocabularyWords(12))}
+              className="bg-red-600 text-white px-4 py-3 rounded-xl hover:bg-red-700 transition-all duration-200 flex items-center justify-center gap-2 font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+            >
+              <span className="hidden sm:inline">Multiple Choice: English</span>
+              <span className="sm:hidden">MC: EN</span>
+            </button>
+            <button
+              onClick={handleRandomWords}
+              className="bg-gray-700 text-white px-4 py-3 rounded-xl hover:bg-gray-800 transition-all duration-200 flex items-center justify-center gap-2 font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+            >
+              <span className="hidden sm:inline">Random Words</span>
+              <span className="sm:hidden">Random</span>
+            </button>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <StatCard title="Total Words" value={allWords.length.toString()} />
           <StatCard title="Filtered" value={filteredWords.length.toString()} />
           <StatCard title="Category" value={selectedCategory} />

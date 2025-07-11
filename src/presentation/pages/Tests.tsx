@@ -6,10 +6,10 @@ import PageLayout from '../components/layout/PageLayout';
 import {
   GradientCard,
   QuickActionCard,
-  SectionHeader,
   StatsCard,
   TestTypeCard,
 } from '../components/ui';
+import SectionGrid from '../components/layout/SectionGrid';
 
 const Tests: React.FC = () => {
   const {
@@ -62,15 +62,11 @@ const Tests: React.FC = () => {
     bannerContent={explanationBanner}
     >
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-8 pb-8">
-        <SectionHeader 
+      <div className="space-y-8">
+        <SectionGrid
           title="Quick Start Tests"
-          subtitle="Jump right into practice with these popular test formats"
-          className="mb-6 sm:mb-8"
-          size="md"
-        />
-        
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
+          description="Jump right into practice with these popular test formats"
+        >
           <QuickActionCard
             title="Quick Test"
             description="10 mixed questions for rapid assessment"
@@ -94,47 +90,37 @@ const Tests: React.FC = () => {
             color="from-purple-500 to-pink-600"
             onClick={() => startTest(generateA1Test, 30, 'comprehensive')}
           />
-        </div>
+        </SectionGrid>
 
-        <div className="bg-gradient-to-r from-yellow-50 to-orange-50 rounded-xl p-6 sm:p-8 mb-8 sm:mb-12 border border-yellow-200">
-          <SectionHeader 
-            title="🎭 Specialized Tests"
-            subtitle="Focus on Specific Skills"
-            description="Target specific areas where you want to improve your A1 German skills"
-            className="mb-6 sm:mb-8"
-            size="md"
+        <SectionGrid
+          title="🎭 Specialized Tests"
+          description="Target specific areas where you want to improve your A1 German skills"
+        >
+          <TestTypeCard
+            title="Vocabulary Test"
+            description="Focus on German-English word translations"
+            icon="📚"
+            onStart={(count) => startTest(generateVocabularyTest, count, 'vocabulary')}
           />
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-            <TestTypeCard
-              title="Vocabulary Test"
-              description="Focus on German-English word translations"
-              icon="📚"
-              onStart={(count) => startTest(generateVocabularyTest, count, 'vocabulary')}
-            />
-            <TestTypeCard
-              title="Articles Test"
-              description="Master der, die, das with targeted practice"
-              icon="🎯"
-              onStart={(count) => startTest(generateArticlesTest, count, 'articles')}
-            />
-            <TestTypeCard
-              title="Grammar Test"
-              description="Test your knowledge of German grammar rules"
-              icon="📝"
-              onStart={(count) => startTest(generateGrammarTest, count, 'grammar')}
-            />
-          </div>
-        </div>
+          <TestTypeCard
+            title="Articles Test"
+            description="Master der, die, das with targeted practice"
+            icon="🎯"
+            onStart={(count) => startTest(generateArticlesTest, count, 'articles')}
+          />
+          <TestTypeCard
+            title="Grammar Test"
+            description="Test your knowledge of German grammar rules"
+            icon="📝"
+            onStart={(count) => startTest(generateGrammarTest, count, 'grammar')}
+          />
+        </SectionGrid>
 
-        <SectionHeader 
+        <SectionGrid
           title="📊 Test Coverage"
-          subtitle="Comprehensive question database"
-          className="mb-6 sm:mb-8"
-          size="md"
-        />
-        
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8 sm:mb-12">
+          description="Comprehensive question database"
+          columns={4}
+        >
           <StatsCard
             title="Vocabulary"
             value={`${dataStats.vocabulary.total}+`}
@@ -159,7 +145,7 @@ const Tests: React.FC = () => {
             subtitle="never repeat"
             icon="🔄"
           />
-        </div>
+        </SectionGrid>
       </div>
     </PageLayout>
   );
