@@ -2,7 +2,7 @@ id,day_reference,category,question_type,prompt,correct_answer,option_b,option_c,
 1,1,Greetings,multiple_choice,"You meet your new boss, Herr Schmidt, in the morning. What do you say?","Guten Morgen, Herr Schmidt.","Hallo, Herr Schmidt.","Tschüss, Herr Schmidt.","Formal greeting for the morning."
 2,1,Greetings,multiple_choice,"How do you say 'Bye' to a friend?","Tschüss","Auf Wiedersehen","Guten Tag","Informal farewell."
 3,1,Alphabet,fill_in_blank,"How do you pronounce the letter 'J' in German?","yot","jay","yacht","Sounds like 'y' in 'yes'."
-4.1,Alphabet,fill_in_blank,"How do you pronounce the letter 'V' in German?","fow","vee","vow","Pronounced like an 'F'."
+4,1,Alphabet,fill_in_blank,"How do you pronounce the letter 'V' in German?","fow","vee","vow","Pronounced like an 'F'."
 5,1,Alphabet,fill_in_blank,"How do you pronounce the letter 'W' in German?","vay","double-u","way","Pronounced like a 'V'."
 6,1,Greetings,multiple_choice,"What is a common greeting in Southern Germany and Austria?","Grüß Gott","Guten Tag","Hallo","A regional, formal greeting."
 7,1,Alphabet,multiple_choice,"Which letter is the 'Eszett' (ß)?","ß","B","ss","Represents a sharp 'ss' sound."

@@ -75,19 +75,19 @@ const Tests = () => {
         icon="🧪"
       />
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-8 pb-8">
-        <div className="space-y-12">
+      <div className="max-w-6xl mx-auto px-3 sm:px-4 lg:px-6 pt-6 sm:pt-8 pb-6 sm:pb-8">
+        <div className="space-y-8 sm:space-y-12">
           {testTypes.map((testType) => (
-            <div key={testType.title} className="space-y-6">
+            <div key={testType.title} className="space-y-4 sm:space-y-6">
               <SectionHeader
                 title={testType.title}
                 description={testType.description}
                 icon={testType.icon}
                 size="md"
                 alignment="left"
-                className="mb-6"
+                className="mb-4 sm:mb-6"
               />
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
                 {sessionOptions.map((session) => (
                   <PracticeModeCard
                     key={session.name}

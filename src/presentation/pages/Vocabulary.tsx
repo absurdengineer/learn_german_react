@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
-  getRandomVocabularyWords,
-  getVocabularyWordsByCategory,
-  loadVocabulary,
-  loadVocabularyCategories,
-  searchVocabularyWords
+    getRandomVocabularyWords,
+    getVocabularyWordsByCategory,
+    loadVocabulary,
+    loadVocabularyCategories,
+    searchVocabularyWords
 } from '../../data';
 import { type LevelType } from '../../domain/entities/User';
 import { VocabularyWord, type Gender, type WordType } from '../../domain/entities/Vocabulary';
@@ -96,22 +96,31 @@ const Vocabulary: React.FC = () => {
           case 'multiple-choice-de-en':
             prompt = `What is the English translation of "${word.german}"?`;
             correctAnswer = word.english;
-            wrongOptions = getRandomVocabularyWords(3, [word.german]).map(w => w.english);
+            wrongOptions = getRandomVocabularyWords(3, [word.german])
+              .map(w => w.english)
+              .filter(option => option && option.trim() !== '' && option !== correctAnswer)
+              .slice(0, 3);
             break;
           case 'translation-en-de':
           case 'multiple-choice-en-de':
             prompt = `What is the German translation of "${word.english}"?`;
             correctAnswer = word.german;
-            wrongOptions = getRandomVocabularyWords(3, [word.german]).map(w => w.german);
+            wrongOptions = getRandomVocabularyWords(3, [word.german])
+              .map(w => w.german)
+              .filter(option => option && option.trim() !== '' && option !== correctAnswer)
+              .slice(0, 3);
             break;
           default:
             prompt = `What is the English translation of "${word.german}"?`;
             correctAnswer = word.english;
-            wrongOptions = getRandomVocabularyWords(3, [word.german]).map(w => w.english);
+            wrongOptions = getRandomVocabularyWords(3, [word.german])
+              .map(w => w.english)
+              .filter(option => option && option.trim() !== '' && option !== correctAnswer)
+              .slice(0, 3);
         }
 
         const options = type.includes('multiple-choice') 
-          ? shuffleArray([correctAnswer, ...wrongOptions])
+          ? shuffleArray([correctAnswer, ...wrongOptions]).slice(0, 4) // Ensure max 4 options
           : [];
 
         return {
@@ -329,7 +338,11 @@ const Vocabulary: React.FC = () => {
     // Use stored questions if available, otherwise generate as fallback
     const questionsToUse = quizQuestions.length > 0 ? quizQuestions : sessionWords.map((word, index) => {
       const otherWords = getRandomVocabularyWords(3, [word.german]);
-      const options = shuffleArray([word.english, ...otherWords.map(w => w.english)]);
+      const wrongOptions = otherWords
+        .map(w => w.english)
+        .filter(option => option && option.trim() !== '' && option !== word.english)
+        .slice(0, 3);
+      const options = shuffleArray([word.english, ...wrongOptions]).slice(0, 4);
       return {
         id: `v-q${index + 1}`,
         prompt: `What is the English translation of "${word.german}"?`,

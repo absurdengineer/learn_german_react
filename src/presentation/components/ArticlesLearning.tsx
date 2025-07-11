@@ -109,78 +109,79 @@ const ArticlesLearning: React.FC<ArticlesLearningProps> = ({
   const progress = ((currentIndex + 1) / shuffledWords.length) * 100;
 
   return (
-    <div className="min-h-screen bg-gray-50 p-4">
+    <div className="min-h-screen bg-gray-50 p-2 sm:p-4">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <NavigationHeader
           title="Articles Learning"
-          subtitle={`Word ${currentIndex + 1} of ${shuffledWords.length} • Words studied: ${wordsStudied}`}
+          subtitle={`${currentIndex + 1}/${shuffledWords.length} • Studied: ${wordsStudied}`}
           onBack={onExit}
           backLabel="Exit"
         />
 
         {/* Progress Bar */}
-        <div className="mb-6">
+        <div className="mb-4 sm:mb-6">
           <div className="flex justify-between items-center mb-2">
-            <span className="text-sm text-gray-600">Progress</span>
-            <span className="text-sm text-gray-600">
+            <span className="text-sm sm:text-base text-gray-600 font-medium">Progress</span>
+            <span className="text-sm sm:text-base text-gray-600 font-medium">
               {Math.round(progress)}%
             </span>
           </div>
-          <div className="w-full bg-gray-200 rounded-full h-2">
+          <div className="w-full bg-gray-200 rounded-full h-3 sm:h-4">
             <div
-              className="bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full transition-all duration-300"
+              className="bg-gradient-to-r from-blue-500 to-purple-500 h-3 sm:h-4 rounded-full transition-all duration-300"
               style={{ width: `${progress}%` }}
             />
           </div>
         </div>
 
         {/* Gender Legend */}
-        <div className="mb-6">
-          <GenderLegend className="bg-white rounded-lg p-4 shadow-sm" />
+        <div className="mb-4 sm:mb-6">
+          <GenderLegend className="bg-white rounded-lg p-3 sm:p-4 shadow-sm" />
         </div>
 
         {/* Main Learning Card */}
         <div
-          className={`rounded-xl shadow-lg p-8 mb-6 transition-all duration-500 ${genderColor.bg} ${genderColor.border} border-2`}
+          className={`rounded-lg sm:rounded-xl shadow-lg p-6 sm:p-8 lg:p-10 mb-4 sm:mb-6 transition-all duration-500 ${genderColor.bg} ${genderColor.border} border-2 min-h-[350px] sm:min-h-[450px] flex flex-col justify-center`}
         >
-          <div className="text-center mb-8">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <h1 className={`text-6xl font-bold ${genderColor.text}`}>
+          <div className="text-center mb-6 sm:mb-8">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-4 sm:mb-6 px-2">
+              <h1 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold ${genderColor.text} break-words hyphens-auto max-w-full`}>
                 {currentWord.gender}
               </h1>
-              <h1 className={`text-6xl font-bold ${genderColor.text}`}>
+              <h1 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold ${genderColor.text} break-words hyphens-auto leading-tight max-w-full overflow-wrap-anywhere`}>
                 {currentWord.german}
               </h1>
             </div>
 
-            <p className={`text-2xl mb-2 ${genderColor.text} opacity-80`}>
+            <p className={`text-lg sm:text-xl md:text-2xl lg:text-3xl mb-3 sm:mb-4 ${genderColor.text} opacity-80 break-words leading-relaxed px-2 max-w-full overflow-wrap-anywhere`}>
               {currentWord.english}
             </p>
             {currentWord.pronunciation && (
-              <p className={`text-lg mb-4 ${genderColor.text} opacity-70`}>
+              <p className={`text-base sm:text-lg lg:text-xl mb-4 sm:mb-6 ${genderColor.text} opacity-70 px-2`}>
                 /{currentWord.pronunciation}/
               </p>
             )}
 
             <div
-              className={`inline-block px-4 py-2 rounded-lg border-2 ${genderColor.border} ${genderColor.bg}`}
+              className={`inline-block px-4 sm:px-5 py-2 sm:py-3 mx-2 rounded-lg border-2 ${genderColor.border} ${genderColor.bg} max-w-full`}
             >
-              <span className={`text-sm font-medium ${genderColor.text}`}>
+              <span className={`text-sm sm:text-base lg:text-lg font-medium ${genderColor.text} break-words`}>
                 {currentWord.category} • {genderColor.name}
               </span>
             </div>
           </div>
 
           {/* Play Controls */}
-          <div className="flex justify-center items-center space-x-4">
+          <div className="flex justify-center items-center space-x-4 sm:space-x-6 px-4">
             <button
               onClick={goToPrevious}
               disabled={currentIndex === 0}
-              className="p-3 bg-white rounded-full shadow-md hover:shadow-lg transition-shadow disabled:opacity-50 disabled:cursor-not-allowed"
+              className="p-3 sm:p-4 bg-white rounded-full shadow-md hover:shadow-lg transition-shadow disabled:opacity-50 disabled:cursor-not-allowed touch-manipulation min-w-[52px] min-h-[52px] sm:min-w-[56px] sm:min-h-[56px] flex items-center justify-center"
+              aria-label="Previous word"
             >
               <svg
-                className="w-6 h-6 text-gray-600"
+                className="w-6 h-6 sm:w-7 sm:h-7 text-gray-600"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -196,15 +197,16 @@ const ArticlesLearning: React.FC<ArticlesLearningProps> = ({
 
             <button
               onClick={togglePlayPause}
-              className={`p-4 rounded-full shadow-lg hover:shadow-xl transition-all ${
+              className={`p-4 sm:p-5 rounded-full shadow-lg hover:shadow-xl transition-all touch-manipulation min-w-[64px] min-h-[64px] sm:min-w-[72px] sm:min-h-[72px] flex items-center justify-center ${
                 isPlaying
                   ? "bg-red-500 hover:bg-red-600"
                   : "bg-green-500 hover:bg-green-600"
               } text-white`}
+              aria-label={isPlaying ? "Pause learning" : "Start learning"}
             >
               {isPlaying ? (
                 <svg
-                  className="w-8 h-8"
+                  className="w-7 h-7 sm:w-9 sm:h-9"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -218,7 +220,7 @@ const ArticlesLearning: React.FC<ArticlesLearningProps> = ({
                 </svg>
               ) : (
                 <svg
-                  className="w-8 h-8"
+                  className="w-7 h-7 sm:w-9 sm:h-9"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
@@ -229,10 +231,11 @@ const ArticlesLearning: React.FC<ArticlesLearningProps> = ({
 
             <button
               onClick={goToNext}
-              className="p-3 bg-white rounded-full shadow-md hover:shadow-lg transition-shadow"
+              className="p-3 sm:p-4 bg-white rounded-full shadow-md hover:shadow-lg transition-shadow touch-manipulation min-w-[52px] min-h-[52px] sm:min-w-[56px] sm:min-h-[56px] flex items-center justify-center"
+              aria-label="Next word"
             >
               <svg
-                className="w-6 h-6 text-gray-600"
+                className="w-6 h-6 sm:w-7 sm:h-7 text-gray-600"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -249,10 +252,10 @@ const ArticlesLearning: React.FC<ArticlesLearningProps> = ({
         </div>
 
         {/* Speed Controls */}
-        <div className="bg-white rounded-lg p-4 shadow-sm">
-          <div className="flex items-center justify-between">
-            <span className="text-sm font-medium text-gray-700">Speed:</span>
-            <div className="flex space-x-2">
+        <div className="bg-white rounded-lg p-4 sm:p-5 shadow-sm">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0">
+            <span className="text-base sm:text-lg font-medium text-gray-700">Learning Speed:</span>
+            <div className="flex flex-wrap gap-2 sm:gap-3 w-full sm:w-auto">
               {[
                 { speed: 5000, label: "Slow" },
                 { speed: 3000, label: "Normal" },
@@ -262,11 +265,12 @@ const ArticlesLearning: React.FC<ArticlesLearningProps> = ({
                 <button
                   key={speed}
                   onClick={() => setCurrentSpeed(speed)}
-                  className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
+                  className={`px-4 py-3 rounded-full text-sm sm:text-base font-medium transition-colors touch-manipulation min-h-[44px] flex-1 sm:flex-none ${
                     currentSpeed === speed
-                      ? "bg-blue-500 text-white"
+                      ? "bg-blue-500 text-white shadow-md"
                       : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                   }`}
+                  aria-label={`Set speed to ${label.toLowerCase()}`}
                 >
                   {label}
                 </button>

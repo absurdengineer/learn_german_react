@@ -145,7 +145,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
         {/* Page content */}
         <main ref={mainRef} className="flex-1 overflow-auto bg-gray-50">
-          <div className="p-6 lg:p-6 p-4">
+          <div className="p-3 sm:p-4 lg:p-6">
             {children}
           </div>
         </main>

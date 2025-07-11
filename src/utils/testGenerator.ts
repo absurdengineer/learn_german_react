@@ -21,11 +21,20 @@ export const generateVocabularyTest = (count = 10) => {
   const questions = selectedWords.map((word, index) => {
     const otherWords = uniqueWords.filter((w) => w.english !== word.english);
     const wrongOptions = new Set<string>();
-    while (wrongOptions.size < 3 && otherWords.length > 0) {
+    
+    // Ensure we get exactly 3 unique wrong options
+    while (wrongOptions.size < 3 && otherWords.length > wrongOptions.size) {
       const randomIndex = Math.floor(Math.random() * otherWords.length);
-      wrongOptions.add(otherWords.splice(randomIndex, 1)[0].english);
+      const option = otherWords[randomIndex].english;
+      if (option && option.trim() !== '' && option !== word.english) {
+        wrongOptions.add(option);
+      }
+      // Remove used option to avoid duplicates
+      otherWords.splice(randomIndex, 1);
     }
-    const options = shuffleArray([...Array.from(wrongOptions), word.english]);
+    
+    // Create exactly 4 options: 1 correct + 3 wrong, then shuffle
+    const options = shuffleArray([word.english, ...Array.from(wrongOptions)]).slice(0, 4);
 
     return {
       id: `v-q${index + 1}`,
@@ -69,10 +78,14 @@ export const generateGrammarTest = (count = 10) => {
   const selectedQuestions = shuffleArray([...allQuestions]).slice(0, count);
 
   const questions = selectedQuestions.map((q, index) => {
+    // Filter out empty options and ensure max 4 options
+    const validOptions = q.options.filter(option => option && option.trim() !== '');
+    const finalOptions = validOptions.slice(0, 4); // Limit to max 4 options
+    
     return {
       id: `g-q${index + 1}`,
       question: q.prompt,
-      options: q.options,
+      options: finalOptions,
       answer: q.correctAnswer,
     };
   });

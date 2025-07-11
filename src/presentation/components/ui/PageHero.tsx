@@ -17,21 +17,21 @@ const PageHero: React.FC<PageHeroProps> = ({
 }) => {
   return (
     <div className="bg-white border-b border-gray-200">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+      <div className="max-w-6xl mx-auto px-3 sm:px-4 lg:px-6 py-6 sm:py-8 lg:py-12">
         <div className="text-center">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-gray-900">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-3 sm:mb-4 text-gray-900 leading-tight">
             {icon} {title}
           </h1>
-          <p className="text-lg sm:text-xl text-gray-600 mb-2">
+          <p className="text-base sm:text-lg lg:text-xl text-gray-600 mb-2 leading-relaxed">
             {subtitle}
           </p>
-          <p className="text-sm sm:text-base text-gray-500">
+          <p className="text-xs sm:text-sm lg:text-base text-gray-500 max-w-2xl mx-auto leading-relaxed">
             {description}
           </p>
         </div>
         
         {bannerContent && (
-          <div className="mt-6 sm:mt-8">
+          <div className="mt-4 sm:mt-6 lg:mt-8">
             {bannerContent}
           </div>
         )}

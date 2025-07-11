@@ -145,7 +145,7 @@ const QuizSession: React.FC<QuizSessionProps> = ({ questions, title, onComplete,
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 p-4">
+    <div className="min-h-screen bg-gray-50 p-2 sm:p-4">
       <div className="max-w-4xl mx-auto">
         <NavigationHeader
           title={title}
@@ -154,38 +154,38 @@ const QuizSession: React.FC<QuizSessionProps> = ({ questions, title, onComplete,
           backLabel="Exit"
           score={{ current: score, total: questions.length }}
         />
-        <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 mt-8">
-          <div className="text-center mb-8">
-            {currentQuestion.category && <p className="text-sm text-gray-500 mb-2">{currentQuestion.category}</p>}
-            <p className="text-lg sm:text-xl text-gray-800">{currentQuestion.prompt}</p>
-            {currentQuestion.helperText && <p className="text-sm text-gray-500 mt-2 italic">{currentQuestion.helperText}</p>}
+        <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 lg:p-8 mt-4 sm:mt-8">
+          <div className="text-center mb-6 sm:mb-8">
+            {currentQuestion.category && <p className="text-xs sm:text-sm text-gray-500 mb-2">{currentQuestion.category}</p>}
+            <p className="text-base sm:text-lg lg:text-xl text-gray-800 leading-relaxed px-2">{currentQuestion.prompt}</p>
+            {currentQuestion.helperText && <p className="text-xs sm:text-sm text-gray-500 mt-2 italic">{currentQuestion.helperText}</p>}
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-4">
             {currentQuestion.options.length > 0 ? (
               // Multiple choice questions
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 gap-3 sm:gap-4">
                 {currentQuestion.options.map((option) => (
                   <button
                     key={option}
                     onClick={() => handleAnswer(option)}
                     disabled={showResult}
-                    className={`p-4 rounded-lg border transition-all ${
+                    className={`p-3 sm:p-4 rounded-lg border transition-all text-left w-full ${
                       showResult && option === currentQuestion.correctAnswer
                         ? 'bg-green-100 border-green-500 text-green-700'
                         : showResult && option === userAnswer && option !== currentQuestion.correctAnswer
                         ? 'bg-red-100 border-red-500 text-red-700'
-                        : 'bg-gray-50 border-gray-200 hover:bg-gray-100'
+                        : 'bg-gray-50 border-gray-200 hover:bg-gray-100 active:bg-gray-200'
                     }`}
                   >
-                    {option}
+                    <span className="text-sm sm:text-base">{option}</span>
                   </button>
                 ))}
               </div>
             ) : (
               // Translation questions with text input
-              <div className="max-w-md mx-auto">
-                <div className="space-y-4">
+              <div className="max-w-lg mx-auto">
+                <div className="space-y-3 sm:space-y-4">
                   <input
                     ref={textInputRef}
                     type="text"
@@ -194,7 +194,7 @@ const QuizSession: React.FC<QuizSessionProps> = ({ questions, title, onComplete,
                     onKeyPress={handleKeyPress}
                     disabled={showResult}
                     placeholder="Type your answer..."
-                    className={`w-full p-4 text-lg border rounded-lg focus:outline-none focus:ring-2 ${
+                    className={`w-full p-3 sm:p-4 text-base sm:text-lg border rounded-lg focus:outline-none focus:ring-2 ${
                       showResult
                         ? isAnswerCorrect(textInput, currentQuestion.correctAnswer)
                           ? 'border-green-500 bg-green-50 text-green-700'
@@ -207,7 +207,7 @@ const QuizSession: React.FC<QuizSessionProps> = ({ questions, title, onComplete,
                     <button
                       onClick={handleTextSubmit}
                       disabled={!textInput.trim()}
-                      className="w-full py-3 px-6 bg-blue-500 text-white rounded-lg hover:bg-blue-600 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
+                      className="w-full py-3 sm:py-4 px-6 bg-blue-500 text-white rounded-lg hover:bg-blue-600 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors font-medium text-sm sm:text-base"
                     >
                       Submit Answer
                     </button>
@@ -215,7 +215,7 @@ const QuizSession: React.FC<QuizSessionProps> = ({ questions, title, onComplete,
                   
                   {showResult && (
                     <div className="text-center space-y-2">
-                      <p className={`font-medium ${
+                      <p className={`font-medium text-sm sm:text-base ${
                         isAnswerCorrect(textInput, currentQuestion.correctAnswer)
                           ? 'text-green-600'
                           : 'text-red-600'
@@ -225,7 +225,7 @@ const QuizSession: React.FC<QuizSessionProps> = ({ questions, title, onComplete,
                           : '✗ Incorrect'}
                       </p>
                       {!isAnswerCorrect(textInput, currentQuestion.correctAnswer) && (
-                        <p className="text-gray-600">
+                        <p className="text-xs sm:text-sm text-gray-600">
                           Correct answer: <span className="font-medium text-green-600">{currentQuestion.correctAnswer}</span>
                         </p>
                       )}

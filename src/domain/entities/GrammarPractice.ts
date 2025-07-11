@@ -34,7 +34,15 @@ export class GrammarPracticeQuestion {
   }
 
   public static create(props: GrammarPracticeQuestionProps): GrammarPracticeQuestion {
-    const shuffledOptions = [props.correctAnswer, props.optionB, props.optionC].sort(() => Math.random() - 0.5);
+    // Filter out empty options and ensure we have valid choices
+    const allOptions = [props.correctAnswer, props.optionB, props.optionC]
+      .filter(option => option && option.trim() !== '');
+    
+    // For build_sentence questions, only use the correct answer if no other options exist
+    const shuffledOptions = allOptions.length > 1 
+      ? allOptions.sort(() => Math.random() - 0.5)
+      : [props.correctAnswer];
+    
     return new GrammarPracticeQuestion(props, shuffledOptions);
   }
 }

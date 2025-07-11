@@ -20,9 +20,9 @@ const Card: React.FC<CardProps> = ({
   shadow = 'sm'
 }) => {
   const paddingClasses = {
-    sm: 'p-4',
-    md: 'p-6',
-    lg: 'p-8'
+    sm: 'p-3 sm:p-4',
+    md: 'p-4 sm:p-6',
+    lg: 'p-6 sm:p-8'
   };
 
   const shadowClasses = {
@@ -32,9 +32,9 @@ const Card: React.FC<CardProps> = ({
     xl: 'shadow-xl'
   };
 
-  const baseClasses = `bg-white rounded-xl border border-gray-200 transition-all duration-200 ${paddingClasses[padding]} ${shadowClasses[shadow]}`;
+  const baseClasses = `bg-white rounded-lg sm:rounded-xl border border-gray-200 transition-all duration-200 ${paddingClasses[padding]} ${shadowClasses[shadow]}`;
   
-  const hoverClasses = hover || clickable ? 'hover:shadow-md hover:-translate-y-1' : '';
+  const hoverClasses = hover || clickable ? 'hover:shadow-md sm:hover:-translate-y-1' : '';
   const clickableClasses = clickable ? 'cursor-pointer active:scale-95' : '';
 
   return (

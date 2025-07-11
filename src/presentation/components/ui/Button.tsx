@@ -36,9 +36,9 @@ const Button: React.FC<ButtonProps> = ({
   };
 
   const sizeClasses = {
-    sm: 'px-3 py-2 text-sm',
-    md: 'px-4 py-2 text-sm',
-    lg: 'px-6 py-3 text-base'
+    sm: 'px-3 py-2 text-sm min-h-[40px]', // Ensure minimum touch target
+    md: 'px-4 py-2.5 text-sm min-h-[44px]', // 44px is recommended minimum touch target
+    lg: 'px-6 py-3 text-base min-h-[48px]'
   };
 
   const widthClass = fullWidth ? 'w-full' : '';
