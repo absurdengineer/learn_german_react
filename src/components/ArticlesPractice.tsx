@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { loadArticleNouns, type ArticleNoun } from '../data';
-import { VocabularyWord } from '../types/Vocabulary';
-import { GENDER_COLORS } from '../lib/genderColors';
-import GenderLegend from './GenderLegend';
+import React, { useEffect, useState } from "react";
+import { loadArticleNouns, type ArticleNoun } from "../data";
+import { VocabularyWord } from "../types/Vocabulary";
+import { GENDER_COLORS } from "../lib/genderColors";
+import GenderLegend from "./GenderLegend";
+import { PronunciationButton } from ".";
+import { useLocation } from "react-router-dom";
 
 interface ArticlesPracticeProps {
   onComplete: (results: ArticlesSessionResult) => void;
@@ -29,18 +31,19 @@ interface ArticlesSessionResult {
 // Load essential A1 nouns from JSON
 const ESSENTIAL_A1_NOUNS: ArticleNoun[] = loadArticleNouns();
 
-import SessionLayout from './layout/SessionLayout';
+import SessionLayout from "./layout/SessionLayout";
 
 const ArticlesPractice: React.FC<ArticlesPracticeProps> = ({
   onComplete,
   onExit,
   sessionLength = 30,
   focusCategory,
-  reviewWords,
+  reviewWords: propReviewWords,
 }) => {
+  const location = useLocation();
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
-  const [userAnswer, setUserAnswer] = useState('');
+  const [userAnswer, setUserAnswer] = useState("");
   const [showResult, setShowResult] = useState(false);
   const [sessionStartTime] = useState(Date.now());
   const [sessionWords, setSessionWords] = useState<ArticleNoun[]>([]);
@@ -52,11 +55,14 @@ const ArticlesPractice: React.FC<ArticlesPracticeProps> = ({
     }>
   >([]);
 
+  // Get reviewWords from props or navigation state
+  const reviewWords = propReviewWords || location.state?.reviewWords;
+
   useEffect(() => {
     setTimeout(() => {
       window.scrollTo({
         top: 0,
-        behavior: 'smooth',
+        behavior: "smooth",
       });
     }, 100);
   }, []);
@@ -66,12 +72,12 @@ const ArticlesPractice: React.FC<ArticlesPracticeProps> = ({
     let wordsToUse: ArticleNoun[] = [];
 
     if (reviewWords && reviewWords.length > 0) {
-      wordsToUse = reviewWords.map((word) => ({
+      wordsToUse = reviewWords.map((word: VocabularyWord) => ({
         id: word.id.toString(),
         german: word.german,
         english: word.english,
-        gender: word.gender as 'der' | 'die' | 'das',
-        category: word.tags[0] || 'unknown',
+        gender: word.gender as "der" | "die" | "das",
+        category: word.tags[0] || "unknown",
         frequency: word.frequency || 0,
       }));
     } else {
@@ -104,8 +110,8 @@ const ArticlesPractice: React.FC<ArticlesPracticeProps> = ({
           word: VocabularyWord.create({
             german: currentWord.german,
             english: currentWord.english,
-            type: 'noun',
-            level: 'A1',
+            type: "noun",
+            level: "A1",
             gender: currentWord.gender,
             tags: [currentWord.category],
             frequency: currentWord.frequency,
@@ -121,7 +127,7 @@ const ArticlesPractice: React.FC<ArticlesPracticeProps> = ({
     setTimeout(() => {
       if (currentQuestionIndex < sessionWords.length - 1) {
         setCurrentQuestionIndex(currentQuestionIndex + 1);
-        setUserAnswer('');
+        setUserAnswer("");
         setShowResult(false);
       } else {
         // Session complete
@@ -137,8 +143,8 @@ const ArticlesPractice: React.FC<ArticlesPracticeProps> = ({
             VocabularyWord.create({
               german: noun.german,
               english: noun.english,
-              type: 'noun',
-              level: 'A1',
+              type: "noun",
+              level: "A1",
               gender: noun.gender,
               tags: [noun.category],
               frequency: noun.frequency,
@@ -152,8 +158,8 @@ const ArticlesPractice: React.FC<ArticlesPracticeProps> = ({
                   word: VocabularyWord.create({
                     german: currentWord.german,
                     english: currentWord.english,
-                    type: 'noun',
-                    level: 'A1',
+                    type: "noun",
+                    level: "A1",
                     gender: currentWord.gender,
                     tags: [currentWord.category],
                     frequency: currentWord.frequency,
@@ -169,14 +175,14 @@ const ArticlesPractice: React.FC<ArticlesPracticeProps> = ({
 
   const getButtonColor = (gender: string) => {
     switch (gender) {
-      case 'der':
-        return 'bg-blue-500';
-      case 'die':
-        return 'bg-pink-500';
-      case 'das':
-        return 'bg-green-500';
+      case "der":
+        return "bg-blue-500";
+      case "die":
+        return "bg-pink-500";
+      case "das":
+        return "bg-green-500";
       default:
-        return 'bg-gray-500';
+        return "bg-gray-500";
     }
   };
 
@@ -191,9 +197,10 @@ const ArticlesPractice: React.FC<ArticlesPracticeProps> = ({
     );
   }
 
-  const cardBgColor = showResult && currentWord
-    ? GENDER_COLORS[currentWord.gender]?.bg
-    : 'bg-slate-100';
+  const cardBgColor =
+    showResult && currentWord
+      ? GENDER_COLORS[currentWord.gender]?.bg
+      : "bg-slate-100";
 
   return (
     <SessionLayout title="Articles Practice" onExit={onExit}>
@@ -237,8 +244,14 @@ const ArticlesPractice: React.FC<ArticlesPracticeProps> = ({
             {currentWord?.english}
           </div>
           {currentWord?.pronunciation && (
-            <div className="text-md sm:text-lg text-gray-500">
-              /{currentWord.pronunciation}/
+            <div className="flex items-center justify-center gap-2">
+              <div className="text-md sm:text-lg text-gray-500">
+                /{currentWord.pronunciation}/
+              </div>
+              <PronunciationButton
+                text={currentWord.german}
+                className="flex-shrink-0"
+              />
             </div>
           )}
           <div className="text-sm text-gray-500 mt-2 capitalize">
@@ -247,14 +260,14 @@ const ArticlesPractice: React.FC<ArticlesPracticeProps> = ({
         </div>
 
         <div className="flex justify-center space-x-2 sm:space-x-4 mb-8">
-          {(['der', 'die', 'das'] as const).map((article) => (
+          {(["der", "die", "das"] as const).map((article) => (
             <button
               key={article}
               onClick={() => setUserAnswer(article)}
               className={`px-6 py-3 sm:px-8 sm:py-4 rounded-xl font-bold text-white transition-all duration-200 transform hover:scale-105 ${
                 userAnswer === article
                   ? getButtonColor(article)
-                  : 'bg-gray-300 hover:bg-gray-400'
+                  : "bg-gray-300 hover:bg-gray-400"
               }`}
               disabled={showResult}
             >
@@ -266,24 +279,20 @@ const ArticlesPractice: React.FC<ArticlesPracticeProps> = ({
         {showResult && (
           <div
             className={`text-center p-4 rounded-lg ${
-              userAnswer === currentWord?.gender
-                ? 'bg-green-100'
-                : 'bg-red-100'
+              userAnswer === currentWord?.gender ? "bg-green-100" : "bg-red-100"
             }`}
           >
             <div
               className={`text-lg font-bold ${
                 userAnswer === currentWord?.gender
-                  ? 'text-green-600'
-                  : 'text-red-600'
+                  ? "text-green-600"
+                  : "text-red-600"
               }`}
             >
-              {userAnswer === currentWord?.gender
-                ? '✓ Correct!'
-                : '✗ Wrong!'}
+              {userAnswer === currentWord?.gender ? "✓ Correct!" : "✗ Wrong!"}
             </div>
             <div className="text-sm text-gray-700 mt-2">
-              The correct answer is:{' '}
+              The correct answer is:{" "}
               <span
                 className={`font-bold ${
                   currentWord && GENDER_COLORS[currentWord.gender]?.text
@@ -302,8 +311,8 @@ const ArticlesPractice: React.FC<ArticlesPracticeProps> = ({
               disabled={!userAnswer}
               className={`px-8 py-3 rounded-xl font-bold text-white transition-all duration-200 ${
                 userAnswer
-                  ? 'bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 transform hover:scale-105'
-                  : 'bg-gray-300 cursor-not-allowed'
+                  ? "bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 transform hover:scale-105"
+                  : "bg-gray-300 cursor-not-allowed"
               }`}
             >
               Submit Answer

@@ -1,24 +1,26 @@
-import { useEffect, useMemo, useState } from 'react';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
-import { loadGrammarLessons } from '../data/grammarLessons';
-import { SESSION_KEYS, SessionManager } from '../lib/sessionManager';
-import type { FlashcardSessionResult } from '../components/FlashcardSession';
-import type { QuizResults } from '../components/QuizSession';
+import { useEffect, useMemo, useState } from "react";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { loadGrammarLessons } from "../data/grammarLessons";
+import { SESSION_KEYS, SessionManager } from "../lib/sessionManager";
+import type { FlashcardSessionResult, QuizResults } from "../types/Flashcard";
 
 export const useGrammar = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { day } = useParams<{ day?: string }>();
 
-  const [sessionResults, setSessionResults] = useState<FlashcardSessionResult | null>(null);
-  const [sessionType, setSessionType] = useState<'flashcards' | 'quiz' | null>(null);
+  const [sessionResults, setSessionResults] =
+    useState<FlashcardSessionResult | null>(null);
+  const [sessionType, setSessionType] = useState<"flashcards" | "quiz" | null>(
+    null
+  );
   const [currentLesson, setCurrentLesson] = useState(1);
 
   useEffect(() => {
-    if (location.pathname.endsWith('/results')) {
+    if (location.pathname.endsWith("/results")) {
       if (location.state?.results) {
         setSessionResults(location.state.results);
-        setSessionType(location.state.sessionType || 'quiz');
+        setSessionType(location.state.sessionType || "quiz");
       } else {
         const storedResults = SessionManager.getResults(SESSION_KEYS.GRAMMAR);
         if (storedResults) {
@@ -27,21 +29,24 @@ export const useGrammar = () => {
             correctAnswers: storedResults.correctAnswers,
             wrongAnswers: storedResults.wrongAnswers,
             timeSpent: storedResults.timeSpent,
-            mistakes: storedResults.mistakes?.map(mistake => ({
-              item: {
-                id: mistake.question || 'unknown',
-                front: mistake.question || '',
-                back: mistake.correctAnswer || '',
-                category: 'grammar',
-              },
-              userAction: mistake.userAnswer || '',
-            })) || [],
+            mistakes:
+              storedResults.mistakes?.map((mistake) => ({
+                item: {
+                  id: mistake.question || "unknown",
+                  front: mistake.question || "",
+                  back: mistake.correctAnswer || "",
+                  category: "grammar",
+                },
+                userAction: mistake.userAnswer || "",
+              })) || [],
             completedItems: [],
           };
           setSessionResults(flashcardResults);
-          
+
           const storedSession = SessionManager.getSession(SESSION_KEYS.GRAMMAR);
-          setSessionType(storedSession?.mode as 'flashcards' | 'quiz' || 'quiz');
+          setSessionType(
+            (storedSession?.mode as "flashcards" | "quiz") || "quiz"
+          );
         }
       }
     }
@@ -54,7 +59,7 @@ export const useGrammar = () => {
 
   const handleSessionComplete = (results: FlashcardSessionResult) => {
     setSessionResults(results);
-    
+
     SessionManager.setResults(SESSION_KEYS.GRAMMAR, {
       sessionId: SessionManager.generateSessionId(),
       totalQuestions: results.totalQuestions,
@@ -62,16 +67,16 @@ export const useGrammar = () => {
       wrongAnswers: results.wrongAnswers,
       timeSpent: results.timeSpent,
       completedAt: Date.now(),
-      mistakes: results.mistakes.map(mistake => ({
+      mistakes: results.mistakes.map((mistake) => ({
         question: mistake.item.front,
-        userAnswer: mistake.userAction || '',
+        userAnswer: mistake.userAction || "",
         correctAnswer: mistake.item.back,
-      }))
+      })),
     });
-    
-    navigate('/grammar/flashcards/results', { 
-      state: { results, sessionType: 'flashcards' }, 
-      replace: true 
+
+    navigate("/grammar/flashcards/results", {
+      state: { results, sessionType: "flashcards" },
+      replace: true,
     });
   };
 
@@ -81,20 +86,20 @@ export const useGrammar = () => {
       correctAnswers: results.correctAnswers,
       wrongAnswers: results.wrongAnswers,
       timeSpent: results.timeSpent,
-      mistakes: results.mistakes.map(mistake => ({
+      mistakes: results.mistakes.map((mistake) => ({
         item: {
           id: mistake.id,
           front: mistake.prompt,
           back: mistake.correctAnswer,
-          category: mistake.category || 'grammar',
+          category: mistake.category || "grammar",
         },
         userAction: mistake.userAnswer,
       })),
       completedItems: [],
     };
-    
+
     setSessionResults(flashcardResult);
-    
+
     SessionManager.setResults(SESSION_KEYS.GRAMMAR, {
       sessionId: SessionManager.generateSessionId(),
       totalQuestions: results.totalQuestions,
@@ -102,30 +107,30 @@ export const useGrammar = () => {
       wrongAnswers: results.wrongAnswers,
       timeSpent: results.timeSpent,
       completedAt: Date.now(),
-      mistakes: results.mistakes.map(mistake => ({
+      mistakes: results.mistakes.map((mistake) => ({
         question: mistake.prompt,
-        userAnswer: mistake.userAnswer || '',
+        userAnswer: mistake.userAnswer || "",
         correctAnswer: mistake.correctAnswer,
-      }))
+      })),
     });
-    
-    navigate('/grammar/quiz/results', { 
-      state: { results: flashcardResult, sessionType: 'quiz' }, 
-      replace: true 
+
+    navigate("/grammar/quiz/results", {
+      state: { results: flashcardResult, sessionType: "quiz" },
+      replace: true,
     });
   };
 
-  const startSession = (type: 'flashcards' | 'quiz', count: number) => {
+  const startSession = (type: "flashcards" | "quiz", count: number) => {
     setSessionType(type);
-    
+
     SessionManager.setSession(SESSION_KEYS.GRAMMAR, {
       sessionId: SessionManager.generateSessionId(),
       startTime: Date.now(),
-      type: 'grammar',
+      type: "grammar",
       mode: type,
-      config: { count }
+      config: { count },
     });
-    
+
     navigate(`/grammar/${type}`, { state: { count } });
   };
 

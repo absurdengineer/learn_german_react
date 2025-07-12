@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { getGenderColor } from "../lib/genderColors";
 import GenderLegend from "./GenderLegend";
-import {
-  ESSENTIAL_A1_NOUNS,
-  DEFAULT_SESSION_LENGTH,
-  DEFAULT_AUTO_ADVANCE_SPEED,
-} from "../data/constants";
+import PronunciationButton from "./PronunciationButton";
+import { ESSENTIAL_A1_NOUNS } from "../data/constants";
+import SessionLayout from "./layout/SessionLayout";
 
 interface ArticlesLearningProps {
   onExit: () => void;
@@ -13,8 +11,6 @@ interface ArticlesLearningProps {
   focusCategory?: string;
   autoAdvanceSpeed?: number; // milliseconds
 }
-
-import SessionLayout from "./layout/SessionLayout";
 
 const ArticlesLearning: React.FC<ArticlesLearningProps> = ({
   onExit,
@@ -132,14 +128,14 @@ const ArticlesLearning: React.FC<ArticlesLearningProps> = ({
         className={`rounded-lg sm:rounded-xl shadow-lg p-6 sm:p-8 lg:p-10 mb-4 sm:mb-6 transition-all duration-500 ${genderColor.bg} ${genderColor.border} border-2 min-h-[350px] sm:min-h-[450px] flex flex-col justify-center`}
       >
         <div className="text-center mb-6 sm:mb-8">
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-4 sm:mb-6 px-2">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 mb-4 sm:mb-6 px-2">
             <h1
               className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold ${genderColor.text} break-words hyphens-auto max-w-full`}
             >
               {currentWord.gender}
             </h1>
             <h1
-              className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold ${genderColor.text} break-words hyphens-auto leading-tight max-w-full overflow-wrap-anywhere`}
+              className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold ${genderColor.text} break-words leading-tight max-w-full overflow-wrap-anywhere`}
             >
               {currentWord.german}
             </h1>
@@ -151,11 +147,17 @@ const ArticlesLearning: React.FC<ArticlesLearningProps> = ({
             {currentWord.english}
           </p>
           {currentWord.pronunciation && (
-            <p
-              className={`text-base sm:text-lg lg:text-xl mb-4 sm:mb-6 ${genderColor.text} opacity-70 px-2`}
-            >
-              /{currentWord.pronunciation}/
-            </p>
+            <div className="flex items-center justify-center gap-2 mb-4">
+              <p
+                className={`text-base sm:text-lg lg:text-xl ${genderColor.text} opacity-70 px-2`}
+              >
+                /{currentWord.pronunciation}/
+              </p>
+              <PronunciationButton
+                text={currentWord.german}
+                className="flex-shrink-0"
+              />
+            </div>
           )}
 
           <div

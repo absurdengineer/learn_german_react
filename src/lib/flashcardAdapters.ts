@@ -2,7 +2,6 @@ import type { GrammarPracticeQuestion } from "../types/GrammarPractice";
 import type { VocabularyWord } from "../types/Vocabulary";
 import type { FlashcardItem } from "../types/Flashcard";
 import { VocabularyQuestionType } from "../types/Flashcard";
-import { getGenderColor, getGenderDisplayName } from "./genderColors";
 
 /**
  * Converts Grammar Practice Questions to Flashcard Items
@@ -36,7 +35,7 @@ export const generateVocabularyQuestion = (
   switch (questionType) {
     case VocabularyQuestionType.GERMAN_TO_ENGLISH:
       return {
-        front: word.german,
+        front: `What is the English word for "${word.german}"?`,
         back: word.english,
         category: `🇩🇪→🇺🇸 ${word.type}`,
         helperText: word.pronunciation ? `/${word.pronunciation}/` : undefined,
@@ -44,10 +43,10 @@ export const generateVocabularyQuestion = (
 
     case VocabularyQuestionType.ENGLISH_TO_GERMAN:
       return {
-        front: word.english,
+        front: `What is the German word for "${word.english}"?`,
         back: word.german,
         category: `🇺🇸→🇩🇪 ${word.type}`,
-        helperText: "What is the German word?",
+        helperText: undefined,
       };
 
     case VocabularyQuestionType.GENDER_PRACTICE:
@@ -193,9 +192,19 @@ export const vocabularyToFlashcardAdapter = (
 ): FlashcardItem[] => {
   return words.map((word) => {
     const questionData = generateVocabularyQuestion(word);
+    // Fallback: always use explicit question
+    let front = questionData.front;
+    if (!front) {
+      // Guess direction by comparing back to english/german
+      if (questionData.back === word.english) {
+        front = `What is the English word for "${word.german}"?`;
+      } else {
+        front = `What is the German word for "${word.english}"?`;
+      }
+    }
     return {
       id: word.id?.toString() || Math.random().toString(36).substr(2, 9),
-      front: questionData.front || word.german,
+      front,
       back: questionData.back || word.english,
       category: questionData.category || `🇩🇪 ${word.type}`,
       helperText: questionData.helperText,
@@ -221,7 +230,7 @@ export const vocabularyToFlashcardAdapterWithType = (
 
   const usedTypes = new Set<VocabularyQuestionType>();
 
-  return words.map((word, index) => {
+  return words.map((word) => {
     let selectedType: VocabularyQuestionType;
 
     if (forceVariety && usedTypes.size < preferredTypes.length) {
@@ -237,10 +246,18 @@ export const vocabularyToFlashcardAdapterWithType = (
     }
 
     const questionData = generateVocabularyQuestion(word, selectedType);
-
+    // Fallback: always use explicit question
+    let front = questionData.front;
+    if (!front) {
+      if (questionData.back === word.english) {
+        front = `What is the English word for "${word.german}"?`;
+      } else {
+        front = `What is the German word for "${word.english}"?`;
+      }
+    }
     return {
       id: word.id?.toString() || Math.random().toString(36).substr(2, 9),
-      front: questionData.front || word.german,
+      front,
       back: questionData.back || word.english,
       category: questionData.category || `🇩🇪 ${word.type}`,
       helperText: questionData.helperText,

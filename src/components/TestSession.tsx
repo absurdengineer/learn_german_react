@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import type { Test, TestQuestion, TestResult } from "../types/Flashcard";
-import { calculateTestScore, saveTestResult } from "../lib/quizUtils";
+import type { Test } from "../types/Flashcard";
 
 import SessionLayout from "./layout/SessionLayout";
 

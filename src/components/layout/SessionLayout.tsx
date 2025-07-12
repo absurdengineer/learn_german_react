@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface SessionLayoutProps {
   title: string;
@@ -6,13 +6,19 @@ interface SessionLayoutProps {
   children: React.ReactNode;
 }
 
-const SessionLayout: React.FC<SessionLayoutProps> = ({ title, onExit, children }) => {
+const SessionLayout: React.FC<SessionLayoutProps> = ({
+  title,
+  onExit,
+  children,
+}) => {
   return (
     <div className="min-h-screen bg-gray-50 py-8">
-      <div className="max-w-8xl mx-auto">
-        <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8">
+      <div className="w-full max-w-4xl mx-auto">
+        <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8 w-full">
           <div className="flex justify-between items-center mb-6">
-            <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">{title}</h1>
+            <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">
+              {title}
+            </h1>
             <button
               onClick={onExit}
               className="text-gray-500 hover:text-gray-700 transition-colors"
@@ -32,7 +38,7 @@ const SessionLayout: React.FC<SessionLayoutProps> = ({ title, onExit, children }
               </svg>
             </button>
           </div>
-          <div>{children}</div>
+          {children}
         </div>
       </div>
     </div>

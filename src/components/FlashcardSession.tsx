@@ -104,12 +104,6 @@ const FlashcardSession: React.FC<FlashcardSessionProps> = ({
     }
   }, [showAnswer, autoAdvanceDelay, handleNext]);
 
-  const currentItem = items[currentItemIndex];
-
-  const handleShowAnswer = () => {
-    setShowAnswer(true);
-  };
-
   const handlePrevious = () => {
     if (currentItemIndex > 0) {
       setCurrentItemIndex(currentItemIndex - 1);
@@ -117,13 +111,7 @@ const FlashcardSession: React.FC<FlashcardSessionProps> = ({
     }
   };
 
-  const handleMarkCorrect = () => {
-    handleNext(true);
-  };
-
-  const handleMarkIncorrect = () => {
-    handleNext(false);
-  };
+  const currentItem = items[currentItemIndex];
 
   // Handle empty items
   if (items.length === 0) {
@@ -189,86 +177,76 @@ const FlashcardSession: React.FC<FlashcardSessionProps> = ({
         </div>
       )}
 
-      <div className="bg-slate-100 border border-slate-200 rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 mb-6 sm:mb-8">
-        <div className="text-center">
-          {customRenderer ? (
-            customRenderer(currentItem, showAnswer)
-          ) : (
-            <>
-              {currentItem.category && (
-                <div className="mb-3 sm:mb-4">
-                  <span className="inline-block px-2 sm:px-3 py-1 bg-blue-100 text-blue-800 text-xs sm:text-sm font-medium rounded-full">
-                    {currentItem.category}
-                  </span>
-                </div>
-              )}
-
-              <div className="mb-6 sm:mb-8">
-                <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-800 mb-3 sm:mb-4 leading-tight">
-                  {currentItem.front}
-                </h2>
-                {currentItem.helperText && !showAnswer && (
-                  <p className="text-xs sm:text-sm text-gray-500 italic">
-                    {currentItem.helperText}
-                  </p>
-                )}
+      {/* Render flashcard directly, no extra card */}
+      <div className="flex flex-col items-center">
+        {customRenderer ? (
+          customRenderer(currentItem, showAnswer)
+        ) : (
+          <>
+            {currentItem.category && (
+              <div className="mb-3 sm:mb-4">
+                <span className="inline-block px-2 sm:px-3 py-1 bg-blue-100 text-blue-800 text-xs sm:text-sm font-medium rounded-full">
+                  {currentItem.category}
+                </span>
               </div>
-
-              {showAnswer && (
-                <div className="space-y-3 sm:space-y-4">
-                  <h3 className="text-lg sm:text-xl lg:text-2xl font-semibold text-green-600 mb-3 sm:mb-4">
-                    {currentItem.back}
-                  </h3>
-                  {currentItem.additionalInfo && (
-                    <div className="text-gray-700">
-                      {currentItem.additionalInfo}
-                    </div>
-                  )}
-                </div>
-              )}
-            </>
-          )}
-
-          {!showAnswer ? (
-            <button
-              onClick={handleShowAnswer}
-              className="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
-            >
-              Show Answer
-            </button>
-          ) : (
-            <div className="flex flex-col sm:flex-row gap-3 justify-center mt-4 sm:mt-6">
-              {enableScoring ? (
-                <>
-                  <button
-                    onClick={handleMarkIncorrect}
-                    className="px-4 sm:px-6 py-2.5 sm:py-3 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors font-medium text-sm sm:text-base"
-                  >
-                    ❌ Incorrect
-                  </button>
-                  <button
-                    onClick={handleMarkCorrect}
-                    className="px-4 sm:px-6 py-2.5 sm:py-3 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors font-medium text-sm sm:text-base"
-                  >
-                    ✅ Correct
-                  </button>
-                </>
-              ) : (
-                <button
-                  onClick={() => handleNext()}
-                  className="px-6 sm:px-8 py-2.5 sm:py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-medium text-sm sm:text-base"
-                >
-                  {currentItemIndex < items.length - 1
-                    ? "Next Card"
-                    : "Finish Session"}
-                </button>
+            )}
+            <div className="mb-4 sm:mb-6">
+              <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800 mb-2 sm:mb-3 leading-tight">
+                {currentItem.front}
+              </h2>
+              {currentItem.helperText && !showAnswer && (
+                <p className="text-xs sm:text-sm text-gray-500 italic">
+                  {currentItem.helperText}
+                </p>
               )}
             </div>
-          )}
-        </div>
+            {showAnswer && (
+              <div className="text-lg sm:text-xl font-semibold text-green-600 mb-2">
+                {currentItem.back}
+              </div>
+            )}
+          </>
+        )}
       </div>
 
-      <div className="flex justify-between items-center">
+      {/* Controls below the card */}
+      <div className="flex flex-col sm:flex-row gap-3 justify-center mt-6">
+        {!showAnswer ? (
+          <button
+            onClick={() => setShowAnswer(true)}
+            className="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
+          >
+            Show Answer
+          </button>
+        ) : enableScoring ? (
+          <>
+            <button
+              onClick={() => handleNext(false)}
+              className="px-4 sm:px-6 py-2.5 sm:py-3 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors font-medium text-sm sm:text-base"
+            >
+              ❌ Incorrect
+            </button>
+            <button
+              onClick={() => handleNext(true)}
+              className="px-4 sm:px-6 py-2.5 sm:py-3 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors font-medium text-sm sm:text-base"
+            >
+              ✅ Correct
+            </button>
+          </>
+        ) : (
+          <button
+            onClick={() => handleNext()}
+            className="px-6 sm:px-8 py-2.5 sm:py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-medium text-sm sm:text-base"
+          >
+            {currentItemIndex < items.length - 1
+              ? "Next Card"
+              : "Finish Session"}
+          </button>
+        )}
+      </div>
+
+      {/* Navigation below controls */}
+      <div className="flex justify-between items-center mt-6">
         <button
           onClick={handlePrevious}
           disabled={currentItemIndex === 0}
@@ -289,7 +267,6 @@ const FlashcardSession: React.FC<FlashcardSessionProps> = ({
           </svg>
           <span>Previous</span>
         </button>
-
         <div className="text-center">
           <div className="text-sm text-gray-500">
             Card {currentItemIndex + 1} of {items.length}

@@ -15,6 +15,7 @@ export { default as LoadingState } from "./LoadingState";
 export { PracticeCard } from "./PracticeCard";
 export { default as ProgressBar } from "./ProgressBar";
 export { default as ProgressCard } from "./ProgressCard";
+export { default as PronunciationButton } from "./PronunciationButton";
 export { default as QuickActionCard } from "./QuickActionCard";
 export { default as SessionHeader } from "./SessionHeader";
 export { default as StatCard } from "./StatCard";

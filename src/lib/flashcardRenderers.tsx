@@ -2,6 +2,7 @@ import React from "react";
 import type { FlashcardItem } from "../types/Flashcard";
 import type { VocabularyWord } from "../types/Vocabulary";
 import { getGenderColor, getGenderDisplayName } from "./genderColors";
+import PronunciationButton from "../components/PronunciationButton";
 
 /**
  * Component to render additional vocabulary information
@@ -88,49 +89,41 @@ export const vocabularyFlashcardRenderer = (
 ): React.ReactNode => {
   const getQuestionTypeStyles = () => {
     const category = item.category || "";
-
     if (category.includes("🇩🇪→🇺🇸")) {
       return {
-        bg: "bg-gradient-to-br from-blue-50 to-indigo-50",
-        border: "border-blue-200",
+        accent: "text-blue-700 bg-blue-50",
         text: "text-blue-800",
-        accent: "text-blue-600",
+        answerBg: "bg-blue-50",
       };
     } else if (category.includes("🇺🇸→🇩🇪")) {
       return {
-        bg: "bg-gradient-to-br from-green-50 to-emerald-50",
-        border: "border-green-200",
+        accent: "text-green-700 bg-green-50",
         text: "text-green-800",
-        accent: "text-green-600",
+        answerBg: "bg-green-50",
       };
     } else if (category.includes("🗣️")) {
       return {
-        bg: "bg-gradient-to-br from-purple-50 to-violet-50",
-        border: "border-purple-200",
+        accent: "text-purple-700 bg-purple-50",
         text: "text-purple-800",
-        accent: "text-purple-600",
+        answerBg: "bg-purple-50",
       };
     } else if (category.includes("📖")) {
       return {
-        bg: "bg-gradient-to-br from-orange-50 to-amber-50",
-        border: "border-orange-200",
+        accent: "text-orange-700 bg-orange-50",
         text: "text-orange-800",
-        accent: "text-orange-600",
+        answerBg: "bg-orange-50",
       };
     } else if (category.includes("🔧")) {
       return {
-        bg: "bg-gradient-to-br from-teal-50 to-cyan-50",
-        border: "border-teal-200",
+        accent: "text-teal-700 bg-teal-50",
         text: "text-teal-800",
-        accent: "text-teal-600",
+        answerBg: "bg-teal-50",
       };
     }
-
     return {
-      bg: "bg-gradient-to-br from-gray-50 to-slate-50",
-      border: "border-gray-200",
+      accent: "text-gray-700 bg-gray-100",
       text: "text-gray-800",
-      accent: "text-gray-600",
+      answerBg: "bg-gray-100",
     };
   };
 
@@ -138,51 +131,65 @@ export const vocabularyFlashcardRenderer = (
   const word = item.metadata?.originalWord as VocabularyWord;
 
   return (
-    <div
-      className={`${styles.bg} ${styles.border} border-2 rounded-xl p-6 sm:p-8 lg:p-10 min-h-[300px] sm:min-h-[400px] flex flex-col justify-center`}
-    >
-      <div className="text-center">
-        {/* Category badge */}
-        {item.category && (
-          <div className="mb-4 sm:mb-6">
-            <span
-              className={`inline-block px-3 sm:px-4 py-1 sm:py-2 text-xs sm:text-sm font-medium rounded-full ${styles.bg} ${styles.text} border ${styles.border}`}
-            >
-              {item.category}
-            </span>
-          </div>
-        )}
-
-        {/* Question */}
-        <div className="mb-6 sm:mb-8">
-          <h2
-            className={`text-xl sm:text-2xl lg:text-3xl font-bold ${styles.text} mb-3 sm:mb-4 leading-tight whitespace-pre-line`}
-          >
-            {item.front}
-          </h2>
-          {item.helperText && !showAnswer && (
-            <p className={`text-xs sm:text-sm ${styles.accent} italic`}>
-              {item.helperText}
-            </p>
-          )}
+    <div className="w-full max-w-xl mx-auto bg-white border border-gray-200 rounded-xl shadow p-4 sm:p-6 flex flex-col items-center">
+      {/* Category badge */}
+      {item.category && (
+        <div className="mb-2">
+          <span className="inline-block px-2 py-1 text-xs font-medium rounded-full bg-gray-50 border border-gray-200 text-gray-600">
+            {item.category}
+          </span>
         </div>
+      )}
 
-        {/* Answer */}
-        {showAnswer && (
-          <div className="space-y-4 sm:space-y-6">
-            <div className="bg-white rounded-lg p-4 sm:p-6 border border-gray-200 shadow-sm">
-              <h3
-                className={`text-lg sm:text-xl lg:text-2xl font-semibold ${styles.accent} mb-3 sm:mb-4`}
+      {/* Card content area with fixed min-height */}
+      <div className="w-full text-center min-h-[160px] sm:min-h-[200px] flex flex-col justify-center">
+        {/* Question */}
+        <h2
+          className={`text-lg sm:text-xl font-semibold ${styles.text} mb-3 leading-tight whitespace-pre-line`}
+        >
+          {item.front}
+        </h2>
+        {/* Divider */}
+        <div className="w-full flex justify-center items-center my-2">
+          <div className="h-1 w-8 rounded-full bg-gray-200" />
+        </div>
+        {/* Answer with fade-in animation */}
+        <div
+          className={`transition-opacity duration-300 ${
+            showAnswer
+              ? "opacity-100"
+              : "opacity-0 pointer-events-none select-none"
+          }`}
+        >
+          {showAnswer && (
+            <div
+              className={`inline-block w-full px-4 py-3 rounded-lg ${styles.answerBg} shadow-sm mb-2 animate-fade-in`}
+            >
+              <div
+                className={`text-2xl sm:text-3xl font-bold ${styles.accent} break-words`}
               >
                 {item.back}
-              </h3>
-
-              {/* Additional vocabulary info */}
-              {word && <VocabularyAdditionalInfo word={word} />}
+              </div>
+              {/* Pronunciation (IPA + button) if available */}
+              {word?.pronunciation && (
+                <div className="flex items-center justify-center gap-2 mt-2">
+                  <span className="text-base text-gray-500 italic">
+                    /{word.pronunciation}/
+                  </span>
+                  <PronunciationButton
+                    text={word.german}
+                    className="flex-shrink-0"
+                  />
+                </div>
+              )}
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
+      <style>{`
+        @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+        .animate-fade-in { animation: fade-in 0.4s ease; }
+      `}</style>
     </div>
   );
 };
@@ -195,20 +202,20 @@ export const grammarFlashcardRenderer = (
   showAnswer: boolean
 ): React.ReactNode => {
   return (
-    <div className="bg-gradient-to-br from-indigo-50 to-purple-50 border-2 border-indigo-200 rounded-xl p-6 sm:p-8 lg:p-10 min-h-[300px] sm:min-h-[400px] flex flex-col justify-center">
+    <div className="bg-gradient-to-br from-indigo-50 to-purple-50 border-2 border-indigo-200 rounded-xl p-4 sm:p-6 lg:p-8 min-h-[200px] sm:min-h-[250px] flex flex-col justify-center">
       <div className="text-center">
         {/* Category badge */}
         {item.category && (
-          <div className="mb-4 sm:mb-6">
-            <span className="inline-block px-3 sm:px-4 py-1 sm:py-2 text-xs sm:text-sm font-medium rounded-full bg-indigo-100 text-indigo-800 border border-indigo-200">
+          <div className="mb-3 sm:mb-4">
+            <span className="inline-block px-2 sm:px-3 py-1 text-xs sm:text-sm font-medium rounded-full bg-indigo-100 text-indigo-800 border border-indigo-200">
               {item.category}
             </span>
           </div>
         )}
 
         {/* Question */}
-        <div className="mb-6 sm:mb-8">
-          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-indigo-800 mb-3 sm:mb-4 leading-tight">
+        <div className="mb-4 sm:mb-6">
+          <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-indigo-800 mb-2 sm:mb-3 leading-tight">
             {item.front}
           </h2>
           {item.helperText && !showAnswer && (
@@ -220,19 +227,15 @@ export const grammarFlashcardRenderer = (
 
         {/* Answer */}
         {showAnswer && (
-          <div className="space-y-4 sm:space-y-6">
-            <div className="bg-white rounded-lg p-4 sm:p-6 border border-gray-200 shadow-sm">
-              <h3 className="text-lg sm:text-xl lg:text-2xl font-semibold text-green-600 mb-3 sm:mb-4">
-                {item.back}
-              </h3>
+          <div className="bg-white rounded-lg p-3 sm:p-4 border border-gray-200 shadow-sm">
+            <h3 className="text-base sm:text-lg lg:text-xl font-semibold text-green-600 mb-2">
+              {item.back}
+            </h3>
 
-              {/* Additional grammar info if available */}
-              {item.additionalInfo && (
-                <div className="text-sm text-gray-700">
-                  {item.additionalInfo}
-                </div>
-              )}
-            </div>
+            {/* Additional grammar info if available */}
+            {item.additionalInfo && (
+              <div className="text-sm text-gray-700">{item.additionalInfo}</div>
+            )}
           </div>
         )}
       </div>

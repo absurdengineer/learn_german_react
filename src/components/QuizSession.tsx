@@ -136,7 +136,39 @@ const QuizSession: React.FC<QuizSessionProps> = ({
 
   return (
     <SessionLayout title={title} onExit={onExit}>
-      <div className="bg-slate-100 border border-slate-200 rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 mt-4 sm:mt-8">
+      {/* Progress Bar */}
+      <div className="mb-6 sm:mb-8">
+        <div className="flex justify-between text-xs sm:text-sm text-gray-600 mb-2">
+          <span>Progress</span>
+          <span>
+            {Math.round(((currentQuestionIndex + 1) / questions.length) * 100)}%
+          </span>
+        </div>
+        <div className="w-full bg-gray-200 rounded-full h-2">
+          <div
+            className="bg-gradient-to-r from-blue-500 to-purple-600 h-2 rounded-full transition-all duration-300"
+            style={{
+              width: `${
+                ((currentQuestionIndex + 1) / questions.length) * 100
+              }%`,
+            }}
+          />
+        </div>
+      </div>
+
+      {/* Score and Question Counter */}
+      <div className="mb-6 sm:mb-8">
+        <div className="flex justify-between items-center text-sm sm:text-base text-gray-600">
+          <span>
+            Question {currentQuestionIndex + 1} of {questions.length}
+          </span>
+          <span>
+            Score: {score}/{currentQuestionIndex + 1}
+          </span>
+        </div>
+      </div>
+
+      <div className="bg-slate-100 border border-slate-200 rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8">
         <div className="text-center mb-6 sm:mb-8">
           {currentQuestion.category && (
             <p className="text-xs sm:text-sm text-gray-500 mb-2">

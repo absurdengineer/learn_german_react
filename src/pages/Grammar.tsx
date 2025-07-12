@@ -1,17 +1,20 @@
-import React from 'react';
-import { useGrammar } from '../hooks/useGrammar';
-import FlashcardSession from '../components/FlashcardSession';
-import QuizSession from '../components/QuizSession';
-import SessionResults from '../components/SessionResults';
-import PageLayout from '../components/layout/PageLayout';
-import { PracticeModeCard, StartLearningPathCard } from '../components';
-import SectionGrid from '../components/layout/SectionGrid';
-import { grammarFlashcardRenderer, grammarToFlashcardAdapter } from '../components/FlashcardAdapters';
-import { loadRandomGrammarPractice } from '../data/grammarPractice';
-import FlashcardSessionResults from '../components/FlashcardSessionResults';
-import { SESSION_KEYS, SessionManager } from '../lib/sessionManager';
-import GrammarLessonPage from './GrammarLessonPage';
-import LessonMap from '../components/LessonMap';
+import React from "react";
+import { useGrammar } from "../hooks/useGrammar";
+import FlashcardSession from "../components/FlashcardSession";
+import QuizSession from "../components/QuizSession";
+import SessionResults from "../components/SessionResults";
+import PageLayout from "../components/layout/PageLayout";
+import { PracticeModeCard, StartLearningPathCard } from "../components";
+import SectionGrid from "../components/layout/SectionGrid";
+import {
+  grammarFlashcardRenderer,
+  grammarToFlashcardAdapter,
+} from "../components/FlashcardAdapters";
+import { loadRandomGrammarPractice } from "../data/grammarPractice";
+import FlashcardSessionResults from "../components/FlashcardSessionResults";
+import { SESSION_KEYS, SessionManager } from "../lib/sessionManager";
+import GrammarLessonPage from "./GrammarLessonPage";
+import LessonMap from "../components/LessonMap";
 
 const Grammar: React.FC = () => {
   const {
@@ -32,39 +35,43 @@ const Grammar: React.FC = () => {
     if (!lesson) {
       return <div>Lesson not found</div>;
     }
-    const nextLesson = grammarLessons.find((l: any) => l.day === parseInt(day, 10) + 1);
-    const prevLesson = grammarLessons.find((l: any) => l.day === parseInt(day, 10) - 1);
- 
+    const nextLesson = grammarLessons.find(
+      (l: any) => l.day === parseInt(day, 10) + 1
+    );
+    const prevLesson = grammarLessons.find(
+      (l: any) => l.day === parseInt(day, 10) - 1
+    );
+
     return (
       <GrammarLessonPage
         lesson={lesson}
-        onExit={() => navigate('/grammar/lessons')}
+        onExit={() => navigate("/grammar/lessons")}
         nextLesson={nextLesson}
         prevLesson={prevLesson}
       />
     );
   }
 
-  if (location.pathname.endsWith('/flashcards')) {
+  if (location.pathname.endsWith("/flashcards")) {
     const count = location.state?.count || 20;
     const questions = loadRandomGrammarPractice(count);
     const flashcardItems = grammarToFlashcardAdapter(questions);
-    
+
     return (
       <FlashcardSession
         items={flashcardItems}
         title="Grammar Flashcards"
         onComplete={handleSessionComplete}
-        onExit={() => navigate('/grammar')}
+        onExit={() => navigate("/grammar")}
         customRenderer={grammarFlashcardRenderer}
         showProgress={true}
       />
     );
   }
 
-  if (location.pathname.endsWith('/quiz')) {
+  if (location.pathname.endsWith("/quiz")) {
     const count = location.state?.count || 20;
-    const questions = loadRandomGrammarPractice(count).map(q => ({
+    const questions = loadRandomGrammarPractice(count).map((q) => ({
       id: q.id.toString(),
       prompt: q.prompt,
       options: q.options,
@@ -72,31 +79,40 @@ const Grammar: React.FC = () => {
       category: q.category,
       helperText: q.helperText,
     }));
-    return <QuizSession questions={questions} title="Grammar Quiz" onComplete={handleQuizComplete} onExit={() => navigate('/grammar')} />;
+    return (
+      <QuizSession
+        questions={questions}
+        title="Grammar Quiz"
+        onComplete={handleQuizComplete}
+        onExit={() => navigate("/grammar")}
+      />
+    );
   }
 
-  if (location.pathname.endsWith('/results')) {
+  if (location.pathname.endsWith("/results")) {
     if (!sessionResults) {
-      navigate('/grammar');
+      navigate("/grammar");
       return null;
     }
 
-    if (sessionType === 'flashcards') {
+    if (sessionType === "flashcards") {
       return (
         <FlashcardSessionResults
           results={sessionResults}
           onRestart={() => {
             SessionManager.clearSession(SESSION_KEYS.GRAMMAR);
-            navigate('/grammar/flashcards', { state: { count: sessionResults.totalQuestions } });
+            navigate("/grammar/flashcards", {
+              state: { count: sessionResults.totalQuestions },
+            });
           }}
           onExit={() => {
             SessionManager.clearSession(SESSION_KEYS.GRAMMAR);
-            navigate('/grammar');
+            navigate("/grammar");
           }}
         />
       );
     }
-    
+
     return (
       <SessionResults
         results={{
@@ -104,38 +120,42 @@ const Grammar: React.FC = () => {
           correctAnswers: sessionResults.correctAnswers,
           wrongAnswers: sessionResults.wrongAnswers,
           timeSpent: sessionResults.timeSpent,
-          mistakes: sessionResults.mistakes.map(mistake => ({
+          mistakes: sessionResults.mistakes.map((mistake) => ({
             question: mistake.item.front,
-            userAnswer: mistake.userAction || '',
+            userAnswer: mistake.userAction || "",
             correctAnswer: mistake.item.back,
-          }))
+          })),
         }}
-        sessionType={sessionType || 'quiz'}
+        sessionType={sessionType || "quiz"}
         onRestart={() => {
           SessionManager.clearSession(SESSION_KEYS.GRAMMAR);
-          navigate('/grammar/quiz', { state: { count: sessionResults.totalQuestions } });
+          navigate("/grammar/quiz", {
+            state: { count: sessionResults.totalQuestions },
+          });
         }}
         onReviewMistakes={() => {}}
         onExit={() => {
           SessionManager.clearSession(SESSION_KEYS.GRAMMAR);
-          navigate('/grammar');
+          navigate("/grammar");
         }}
       />
     );
   }
 
-  if (location.pathname.endsWith('/lessons')) {
+  if (location.pathname.endsWith("/lessons")) {
     return (
-      <PageLayout pageData={{
-        title: 'Grammar Learning Path',
-        subtitle: 'Your structured path to mastering German grammar.',
-        description: '',
-        icon: '🗺️',
-        gradient: 'from-blue-500 to-purple-600',
-      }}>
+      <PageLayout
+        pageData={{
+          title: "Grammar Learning Path",
+          subtitle: "Your structured path to mastering German grammar.",
+          description: "",
+          icon: "🗺️",
+          gradient: "from-blue-500 to-purple-600",
+        }}
+      >
         <div className="mb-8">
           <button
-            onClick={() => navigate('/grammar')}
+            onClick={() => navigate("/grammar")}
             className="text-blue-600 hover:text-blue-800 transition-colors"
           >
             &larr; Back to Grammar
@@ -147,19 +167,22 @@ const Grammar: React.FC = () => {
   }
 
   const sessionOptions = [
-    { name: 'Quick', count: 10, icon: '⚡' },
-    { name: 'Normal', count: 20, icon: '💪' },
-    { name: 'Intensive', count: 30, icon: '🚀' },
+    { name: "Quick", count: 10, icon: "⚡" },
+    { name: "Normal", count: 20, icon: "💪" },
+    { name: "Intensive", count: 30, icon: "🚀" },
   ];
 
   return (
-    <PageLayout pageData={{
-      title: 'German Grammar',
-      subtitle: 'Master German grammar with structured lessons',
-      description: 'From basic concepts to advanced topics, learn step-by-step.',
-      icon: '📝',
-      gradient: 'from-blue-500 to-purple-600',
-    }}>
+    <PageLayout
+      pageData={{
+        title: "German Grammar",
+        subtitle: "Master German grammar with structured lessons",
+        description:
+          "From basic concepts to advanced topics, learn step-by-step.",
+        icon: "📝",
+        gradient: "from-blue-500 to-purple-600",
+      }}
+    >
       <div className="space-y-8">
         <StartLearningPathCard
           currentLesson={currentLesson}
@@ -176,7 +199,7 @@ const Grammar: React.FC = () => {
               description={`${session.count} questions`}
               icon={session.icon}
               buttonText={`Start ${session.name}`}
-              onStart={() => startSession('flashcards', session.count)}
+              onStart={() => startSession("flashcards", session.count)}
             />
           ))}
         </SectionGrid>
@@ -191,7 +214,7 @@ const Grammar: React.FC = () => {
               description={`${session.count} questions`}
               icon={session.icon}
               buttonText={`Start ${session.name}`}
-              onStart={() => startSession('quiz', session.count)}
+              onStart={() => startSession("quiz", session.count)}
             />
           ))}
         </SectionGrid>

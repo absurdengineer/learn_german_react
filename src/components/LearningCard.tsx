@@ -1,4 +1,5 @@
-import React from 'react';
+import React from "react";
+import { PronunciationButton } from ".";
 
 interface LearningCardProps {
   word: string;
@@ -7,7 +8,7 @@ interface LearningCardProps {
   example?: string;
   exampleTranslation?: string;
   category?: string;
-  gender?: 'der' | 'die' | 'das';
+  gender?: "der" | "die" | "das";
   showAnswer: boolean;
   onFlip: () => void;
   genderColors?: {
@@ -31,16 +32,17 @@ const LearningCard: React.FC<LearningCardProps> = ({
   showAnswer,
   onFlip,
   genderColors,
-  className = '',
+  className = "",
   frontContent,
-  backContent
+  backContent,
 }) => {
-  const cardBgColor = genderColors && !showAnswer 
-    ? `${genderColors.bg} ${genderColors.border} border-2` 
-    : 'bg-white';
+  const cardBgColor =
+    genderColors && !showAnswer
+      ? `${genderColors.bg} ${genderColors.border} border-2`
+      : "bg-white";
 
   return (
-    <div 
+    <div
       className={`rounded-xl shadow-lg p-8 transition-all duration-300 cursor-pointer ${cardBgColor} ${className}`}
       onClick={onFlip}
     >
@@ -50,27 +52,34 @@ const LearningCard: React.FC<LearningCardProps> = ({
             {/* Front side - German word */}
             <div className="text-4xl font-bold text-gray-900 mb-4">
               {gender && (
-                <span className={`text-2xl mr-2 ${genderColors?.text || 'text-gray-600'}`}>
+                <span
+                  className={`text-2xl mr-2 ${
+                    genderColors?.text || "text-gray-600"
+                  }`}
+                >
                   {gender}
                 </span>
               )}
               {word}
             </div>
-            
+
             {pronunciation && (
-              <div className="text-lg text-gray-600 mb-4 italic">
-                /{pronunciation}/
+              <div className="flex items-center justify-center gap-2 mb-4">
+                <div className="text-lg text-gray-600 italic">
+                  /{pronunciation}/
+                </div>
+                <PronunciationButton text={word} className="flex-shrink-0" />
               </div>
             )}
-            
+
             {category && (
               <div className="inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium mb-4">
-                {category.replace(/_/g, ' ')}
+                {category.replace(/_/g, " ")}
               </div>
             )}
-            
+
             {frontContent}
-            
+
             <div className="text-sm text-gray-500 mt-6">
               Click to reveal translation
             </div>
@@ -81,7 +90,7 @@ const LearningCard: React.FC<LearningCardProps> = ({
             <div className="text-3xl font-bold text-blue-600 mb-4">
               {translation}
             </div>
-            
+
             {example && (
               <div className="mb-4">
                 <div className="text-lg text-gray-700 italic mb-2">
@@ -94,9 +103,9 @@ const LearningCard: React.FC<LearningCardProps> = ({
                 )}
               </div>
             )}
-            
+
             {backContent}
-            
+
             <div className="text-sm text-gray-500 mt-6">
               Click to show German word
             </div>
