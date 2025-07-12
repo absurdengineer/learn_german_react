@@ -1,5 +1,4 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { NavigationHeader } from './ui';
 
 // Generic flashcard item interface
 export interface FlashcardItem {
@@ -36,6 +35,8 @@ interface FlashcardSessionProps {
   enableScoring?: boolean;
   customRenderer?: (item: FlashcardItem, showAnswer: boolean) => React.ReactNode;
 }
+
+import SessionLayout from './layout/SessionLayout';
 
 const FlashcardSession: React.FC<FlashcardSessionProps> = ({
   items,
@@ -151,149 +152,120 @@ const FlashcardSession: React.FC<FlashcardSessionProps> = ({
   const progress = showProgress ? ((currentItemIndex + 1) / items.length) * 100 : 0;
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Navigation Header */}
-      <NavigationHeader
-        title={title}
-        subtitle={`Card ${currentItemIndex + 1} of ${items.length}`}
-        onBack={onExit}
-        backLabel="Exit"
-        showProgress={false}
-      />
-
-      {/* Progress Bar */}
+    <SessionLayout title={title} onExit={onExit}>
       {showProgress && (
-        <div className="bg-white border-b border-gray-200">
-          <div className="max-w-4xl mx-auto px-3 sm:px-4 lg:px-8 py-3 sm:py-4">
-            <div className="flex justify-between text-xs sm:text-sm text-gray-600 mb-2">
-              <span>Progress: {currentItemIndex + 1} of {items.length}</span>
-              {enableScoring && (
-                <span>Score: {correctAnswers}/{correctAnswers + wrongAnswers}</span>
-              )}
-            </div>
-            <div className="w-full bg-gray-200 rounded-full h-2">
-              <div 
-                className="bg-blue-600 h-2 rounded-full transition-all duration-300"
-                style={{ width: `${progress}%` }}
-              />
-            </div>
+        <div className="mb-8">
+          <div className="flex justify-between text-xs sm:text-sm text-gray-600 mb-2">
+            <span>Progress: {currentItemIndex + 1} of {items.length}</span>
+            {enableScoring && (
+              <span>Score: {correctAnswers}/{correctAnswers + wrongAnswers}</span>
+            )}
+          </div>
+          <div className="w-full bg-gray-200 rounded-full h-2">
+            <div 
+              className="bg-blue-600 h-2 rounded-full transition-all duration-300"
+              style={{ width: `${progress}%` }}
+            />
           </div>
         </div>
       )}
 
-      {/* Main Content */}
-      <div className="max-w-4xl mx-auto px-3 sm:px-4 lg:px-8 py-6 sm:py-8">
-        {/* Flashcard */}
-        <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 lg:p-8 mb-6 sm:mb-8">
-          <div className="text-center">
-            {/* Custom or default content rendering */}
-            {customRenderer ? (
-              customRenderer(currentItem, showAnswer)
-            ) : (
-              <>
-                {/* Category */}
-                {currentItem.category && (
-                  <div className="mb-3 sm:mb-4">
-                    <span className="inline-block px-2 sm:px-3 py-1 bg-blue-100 text-blue-800 text-xs sm:text-sm font-medium rounded-full">
-                      {currentItem.category}
-                    </span>
-                  </div>
-                )}
-
-                {/* Front of card */}
-                <div className="mb-6 sm:mb-8">
-                  <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-800 mb-3 sm:mb-4 leading-tight">
-                    {currentItem.front}
-                  </h2>
-                  {currentItem.helperText && !showAnswer && (
-                    <p className="text-xs sm:text-sm text-gray-500 italic">
-                      {currentItem.helperText}
-                    </p>
-                  )}
+      <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 lg:p-8 mb-6 sm:mb-8">
+        <div className="text-center">
+          {customRenderer ? (
+            customRenderer(currentItem, showAnswer)
+          ) : (
+            <>
+              {currentItem.category && (
+                <div className="mb-3 sm:mb-4">
+                  <span className="inline-block px-2 sm:px-3 py-1 bg-blue-100 text-blue-800 text-xs sm:text-sm font-medium rounded-full">
+                    {currentItem.category}
+                  </span>
                 </div>
+              )}
 
-                {/* Answer content when shown */}
-                {showAnswer && (
-                  <div className="space-y-3 sm:space-y-4">
-                    <h3 className="text-lg sm:text-xl lg:text-2xl font-semibold text-green-600 mb-3 sm:mb-4">
-                      {currentItem.back}
-                    </h3>
-                    {currentItem.additionalInfo && (
-                      <div className="text-gray-700">
-                        {currentItem.additionalInfo}
-                      </div>
-                    )}
-                  </div>
-                )}
-              </>
-            )}
-
-            {/* Button section - always handled by FlashcardSession */}
-            {!showAnswer ? (
-              <button
-                onClick={handleShowAnswer}
-                className="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
-              >
-                Show Answer
-              </button>
-            ) : (
-              <div className="flex flex-col sm:flex-row gap-3 justify-center mt-4 sm:mt-6">
-                {enableScoring ? (
-                  <>
-                    <button
-                      onClick={handleMarkIncorrect}
-                      className="px-4 sm:px-6 py-2.5 sm:py-3 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors font-medium text-sm sm:text-base"
-                    >
-                      ❌ Incorrect
-                    </button>
-                    <button
-                      onClick={handleMarkCorrect}
-                      className="px-4 sm:px-6 py-2.5 sm:py-3 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors font-medium text-sm sm:text-base"
-                    >
-                      ✅ Correct
-                    </button>
-                  </>
-                ) : (
-                  <button
-                    onClick={() => handleNext()}
-                    className="px-6 sm:px-8 py-2.5 sm:py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-medium text-sm sm:text-base"
-                  >
-                    {currentItemIndex < items.length - 1 ? 'Next Card' : 'Finish Session'}
-                  </button>
+              <div className="mb-6 sm:mb-8">
+                <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-800 mb-3 sm:mb-4 leading-tight">
+                  {currentItem.front}
+                </h2>
+                {currentItem.helperText && !showAnswer && (
+                  <p className="text-xs sm:text-sm text-gray-500 italic">
+                    {currentItem.helperText}
+                  </p>
                 )}
               </div>
-            )}
-          </div>
-        </div>
 
-        {/* Navigation Controls */}
-        <div className="flex justify-between items-center">
-          <button
-            onClick={handlePrevious}
-            disabled={currentItemIndex === 0}
-            className="flex items-center space-x-1 sm:space-x-2 px-3 sm:px-4 py-2 text-gray-600 hover:text-gray-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors text-sm sm:text-base"
-          >
-            <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-            <span>Previous</span>
-          </button>
+              {showAnswer && (
+                <div className="space-y-3 sm:space-y-4">
+                  <h3 className="text-lg sm:text-xl lg:text-2xl font-semibold text-green-600 mb-3 sm:mb-4">
+                    {currentItem.back}
+                  </h3>
+                  {currentItem.additionalInfo && (
+                    <div className="text-gray-700">
+                      {currentItem.additionalInfo}
+                    </div>
+                  )}
+                </div>
+              )}
+            </>
+          )}
 
-          <div className="text-center">
-            <div className="text-sm text-gray-500">
-              Card {currentItemIndex + 1} of {items.length}
+          {!showAnswer ? (
+            <button
+              onClick={handleShowAnswer}
+              className="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
+            >
+              Show Answer
+            </button>
+          ) : (
+            <div className="flex flex-col sm:flex-row gap-3 justify-center mt-4 sm:mt-6">
+              {enableScoring ? (
+                <>
+                  <button
+                    onClick={handleMarkIncorrect}
+                    className="px-4 sm:px-6 py-2.5 sm:py-3 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors font-medium text-sm sm:text-base"
+                  >
+                    ❌ Incorrect
+                  </button>
+                  <button
+                    onClick={handleMarkCorrect}
+                    className="px-4 sm:px-6 py-2.5 sm:py-3 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors font-medium text-sm sm:text-base"
+                  >
+                    ✅ Correct
+                  </button>
+                </>
+              ) : (
+                <button
+                  onClick={() => handleNext()}
+                  className="px-6 sm:px-8 py-2.5 sm:py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-medium text-sm sm:text-base"
+                >
+                  {currentItemIndex < items.length - 1 ? 'Next Card' : 'Finish Session'}
+                </button>
+              )}
             </div>
-          </div>
-
-          <button
-            onClick={onExit}
-            className="px-4 py-2 text-gray-600 hover:text-gray-800 transition-colors"
-          >
-            Exit Session
-          </button>
+          )}
         </div>
       </div>
-    </div>
+
+      <div className="flex justify-between items-center">
+        <button
+          onClick={handlePrevious}
+          disabled={currentItemIndex === 0}
+          className="flex items-center space-x-1 sm:space-x-2 px-3 sm:px-4 py-2 text-gray-600 hover:text-gray-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors text-sm sm:text-base"
+        >
+          <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+          <span>Previous</span>
+        </button>
+
+        <div className="text-center">
+          <div className="text-sm text-gray-500">
+            Card {currentItemIndex + 1} of {items.length}
+          </div>
+        </div>
+      </div>
+    </SessionLayout>
   );
 };
 

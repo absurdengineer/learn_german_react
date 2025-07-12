@@ -1,7 +1,6 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { VocabularyWord } from '../../domain/entities/Vocabulary';
-import { NavigationHeader } from './ui';
 
 export interface QuizResults {
   totalQuestions: number;
@@ -36,6 +35,8 @@ interface QuizSessionProps {
   onComplete: (results: QuizResults) => void;
   onExit: () => void;
 }
+
+import SessionLayout from './layout/SessionLayout';
 
 const QuizSession: React.FC<QuizSessionProps> = ({ questions, title, onComplete, onExit }) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -145,99 +146,90 @@ const QuizSession: React.FC<QuizSessionProps> = ({ questions, title, onComplete,
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 p-2 sm:p-4">
-      <div className="max-w-4xl mx-auto">
-        <NavigationHeader
-          title={title}
-          subtitle={`Question ${currentQuestionIndex + 1} of ${questions.length}`}
-          onBack={onExit}
-          backLabel="Exit"
-          score={{ current: score, total: questions.length }}
-        />
-        <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 lg:p-8 mt-4 sm:mt-8">
-          <div className="text-center mb-6 sm:mb-8">
-            {currentQuestion.category && <p className="text-xs sm:text-sm text-gray-500 mb-2">{currentQuestion.category}</p>}
-            <p className="text-base sm:text-lg lg:text-xl text-gray-800 leading-relaxed px-2">{currentQuestion.prompt}</p>
-            {currentQuestion.helperText && <p className="text-xs sm:text-sm text-gray-500 mt-2 italic">{currentQuestion.helperText}</p>}
-          </div>
+    <SessionLayout title={title} onExit={onExit}>
+      <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 lg:p-8 mt-4 sm:mt-8">
+        <div className="text-center mb-6 sm:mb-8">
+          {currentQuestion.category && <p className="text-xs sm:text-sm text-gray-500 mb-2">{currentQuestion.category}</p>}
+          <p className="text-base sm:text-lg lg:text-xl text-gray-800 leading-relaxed px-2">{currentQuestion.prompt}</p>
+          {currentQuestion.helperText && <p className="text-xs sm:text-sm text-gray-500 mt-2 italic">{currentQuestion.helperText}</p>}
+        </div>
 
-          <div className="space-y-3 sm:space-y-4">
-            {currentQuestion.options.length > 0 ? (
-              // Multiple choice questions
-              <div className="grid grid-cols-1 gap-3 sm:gap-4">
-                {currentQuestion.options.map((option) => (
+        <div className="space-y-3 sm:space-y-4">
+          {currentQuestion.options.length > 0 ? (
+            // Multiple choice questions
+            <div className="grid grid-cols-1 gap-3 sm:gap-4">
+              {currentQuestion.options.map((option) => (
+                <button
+                  key={option}
+                  onClick={() => handleAnswer(option)}
+                  disabled={showResult}
+                  className={`p-3 sm:p-4 rounded-lg border transition-all text-left w-full ${
+                    showResult && option === currentQuestion.correctAnswer
+                      ? 'bg-green-100 border-green-500 text-green-700'
+                      : showResult && option === userAnswer && option !== currentQuestion.correctAnswer
+                      ? 'bg-red-100 border-red-500 text-red-700'
+                      : 'bg-gray-50 border-gray-200 hover:bg-gray-100 active:bg-gray-200'
+                  }`}
+                >
+                  <span className="text-sm sm:text-base">{option}</span>
+                </button>
+              ))}
+            </div>
+          ) : (
+            // Translation questions with text input
+            <div className="max-w-lg mx-auto">
+              <div className="space-y-3 sm:space-y-4">
+                <input
+                  ref={textInputRef}
+                  type="text"
+                  value={textInput}
+                  onChange={(e) => setTextInput(e.target.value)}
+                  onKeyPress={handleKeyPress}
+                  disabled={showResult}
+                  placeholder="Type your answer..."
+                  className={`w-full p-3 sm:p-4 text-base sm:text-lg border rounded-lg focus:outline-none focus:ring-2 ${
+                    showResult
+                      ? isAnswerCorrect(textInput, currentQuestion.correctAnswer)
+                        ? 'border-green-500 bg-green-50 text-green-700'
+                        : 'border-red-500 bg-red-50 text-red-700'
+                      : 'border-gray-300 focus:ring-blue-500 focus:border-blue-500'
+                  }`}
+                />
+                
+                {!showResult && (
                   <button
-                    key={option}
-                    onClick={() => handleAnswer(option)}
-                    disabled={showResult}
-                    className={`p-3 sm:p-4 rounded-lg border transition-all text-left w-full ${
-                      showResult && option === currentQuestion.correctAnswer
-                        ? 'bg-green-100 border-green-500 text-green-700'
-                        : showResult && option === userAnswer && option !== currentQuestion.correctAnswer
-                        ? 'bg-red-100 border-red-500 text-red-700'
-                        : 'bg-gray-50 border-gray-200 hover:bg-gray-100 active:bg-gray-200'
-                    }`}
+                    onClick={handleTextSubmit}
+                    disabled={!textInput.trim()}
+                    className="w-full py-3 sm:py-4 px-6 bg-blue-500 text-white rounded-lg hover:bg-blue-600 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors font-medium text-sm sm:text-base"
                   >
-                    <span className="text-sm sm:text-base">{option}</span>
+                    Submit Answer
                   </button>
-                ))}
-              </div>
-            ) : (
-              // Translation questions with text input
-              <div className="max-w-lg mx-auto">
-                <div className="space-y-3 sm:space-y-4">
-                  <input
-                    ref={textInputRef}
-                    type="text"
-                    value={textInput}
-                    onChange={(e) => setTextInput(e.target.value)}
-                    onKeyPress={handleKeyPress}
-                    disabled={showResult}
-                    placeholder="Type your answer..."
-                    className={`w-full p-3 sm:p-4 text-base sm:text-lg border rounded-lg focus:outline-none focus:ring-2 ${
-                      showResult
-                        ? isAnswerCorrect(textInput, currentQuestion.correctAnswer)
-                          ? 'border-green-500 bg-green-50 text-green-700'
-                          : 'border-red-500 bg-red-50 text-red-700'
-                        : 'border-gray-300 focus:ring-blue-500 focus:border-blue-500'
-                    }`}
-                  />
-                  
-                  {!showResult && (
-                    <button
-                      onClick={handleTextSubmit}
-                      disabled={!textInput.trim()}
-                      className="w-full py-3 sm:py-4 px-6 bg-blue-500 text-white rounded-lg hover:bg-blue-600 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors font-medium text-sm sm:text-base"
-                    >
-                      Submit Answer
-                    </button>
-                  )}
-                  
-                  {showResult && (
-                    <div className="text-center space-y-2">
-                      <p className={`font-medium text-sm sm:text-base ${
-                        isAnswerCorrect(textInput, currentQuestion.correctAnswer)
-                          ? 'text-green-600'
-                          : 'text-red-600'
-                      }`}>
-                        {isAnswerCorrect(textInput, currentQuestion.correctAnswer)
-                          ? '✓ Correct!'
-                          : '✗ Incorrect'}
+                )}
+                
+                {showResult && (
+                  <div className="text-center space-y-2">
+                    <p className={`font-medium text-sm sm:text-base ${
+                      isAnswerCorrect(textInput, currentQuestion.correctAnswer)
+                        ? 'text-green-600'
+                        : 'text-red-600'
+                    }`}>
+                      {isAnswerCorrect(textInput, currentQuestion.correctAnswer)
+                        ? '✓ Correct!'
+                        : '✗ Incorrect'}
+                    </p>
+                    {!isAnswerCorrect(textInput, currentQuestion.correctAnswer) && (
+                      <p className="text-xs sm:text-sm text-gray-600">
+                        Correct answer: <span className="font-medium text-green-600">{currentQuestion.correctAnswer}</span>
                       </p>
-                      {!isAnswerCorrect(textInput, currentQuestion.correctAnswer) && (
-                        <p className="text-xs sm:text-sm text-gray-600">
-                          Correct answer: <span className="font-medium text-green-600">{currentQuestion.correctAnswer}</span>
-                        </p>
-                      )}
-                    </div>
-                  )}
-                </div>
+                    )}
+                  </div>
+                )}
               </div>
-            )}
-          </div>
+            </div>
+          )}
         </div>
       </div>
-    </div>
+    </SessionLayout>
   );
 };
 

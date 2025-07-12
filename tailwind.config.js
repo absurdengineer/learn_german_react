@@ -74,6 +74,9 @@ export default {
           '50%': { opacity: '0.7' },
         },
       },
+      maxWidth: {
+        '8xl': '90rem',
+      }
     },
   },
   plugins: [

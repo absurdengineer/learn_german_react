@@ -3,7 +3,6 @@ import { loadArticleNouns, type ArticleNoun } from '../../data';
 import { VocabularyWord } from '../../domain/entities/Vocabulary';
 import { GENDER_COLORS } from '../../utils/genderColors';
 import GenderLegend from './GenderLegend';
-import { NavigationHeader } from './ui';
 
 interface ArticlesPracticeProps {
   onComplete: (results: ArticlesSessionResult) => void;
@@ -29,6 +28,8 @@ interface ArticlesSessionResult {
 
 // Load essential A1 nouns from JSON
 const ESSENTIAL_A1_NOUNS: ArticleNoun[] = loadArticleNouns();
+
+import SessionLayout from './layout/SessionLayout';
 
 const ArticlesPractice: React.FC<ArticlesPracticeProps> = ({
   onComplete,
@@ -195,142 +196,122 @@ const ArticlesPractice: React.FC<ArticlesPracticeProps> = ({
     : 'bg-white';
 
   return (
-    <div className="min-h-screen bg-gray-50 p-4">
-      <div className="max-w-4xl mx-auto">
-        {/* Header */}
-        <NavigationHeader
-          title="🇩🇪 Articles Practice (80-20 Rule)"
-          subtitle={`Question ${currentQuestionIndex + 1} of ${sessionWords.length}`}
-          onBack={onExit}
-          backLabel="Exit"
-          score={{
-            current: score,
-            total: sessionWords.length
-          }}
-        />
-
-        {/* Progress Bar */}
-        <div className="mb-8">
-          <div className="flex justify-between text-sm text-gray-600 mb-2">
-            <span>Progress</span>
-            <span>
-              {Math.round(
-                ((currentQuestionIndex + 1) / sessionWords.length) * 100
-              )}
-              %
-            </span>
-          </div>
-          <div className="w-full bg-gray-200 rounded-full h-2">
-            <div
-              className="bg-gradient-to-r from-blue-500 to-purple-600 h-2 rounded-full transition-all duration-300"
-              style={{
-                width: `${
-                  ((currentQuestionIndex + 1) / sessionWords.length) * 100
-                }%`,
-              }}
-            />
-          </div>
-        </div>
-
-        {/* Gender Legend */}
-        <div className="mb-8">
-          <GenderLegend />
-        </div>
-
-        {/* Question Card */}
-        <div
-          className={`rounded-2xl shadow-lg p-6 sm:p-8 mb-6 transition-colors duration-500 ${cardBgColor}`}
-        >
-          <div className="text-center mb-8">
-            <div className="text-sm text-gray-600 mb-2">
-              What is the correct article for:
-            </div>
-            <div className="text-3xl sm:text-4xl font-bold text-gray-800 mb-2">
-              {currentWord?.german}
-            </div>
-            <div className="text-lg sm:text-xl text-gray-600">
-              {currentWord?.english}
-            </div>
-            {currentWord?.pronunciation && (
-              <div className="text-md sm:text-lg text-gray-500">
-                /{currentWord.pronunciation}/
-              </div>
+    <SessionLayout title="Articles Practice" onExit={onExit}>
+      <div className="mb-8">
+        <div className="flex justify-between text-sm text-gray-600 mb-2">
+          <span>Progress</span>
+          <span>
+            {Math.round(
+              ((currentQuestionIndex + 1) / sessionWords.length) * 100
             )}
-            <div className="text-sm text-gray-500 mt-2 capitalize">
-              Category: {currentWord?.category}
-            </div>
-          </div>
-
-          {/* Answer Options */}
-          <div className="flex justify-center space-x-2 sm:space-x-4 mb-8">
-            {(['der', 'die', 'das'] as const).map((article) => (
-              <button
-                key={article}
-                onClick={() => setUserAnswer(article)}
-                className={`px-6 py-3 sm:px-8 sm:py-4 rounded-xl font-bold text-white transition-all duration-200 transform hover:scale-105 ${
-                  userAnswer === article
-                    ? getButtonColor(article)
-                    : 'bg-gray-300 hover:bg-gray-400'
-                }`}
-                disabled={showResult}
-              >
-                {article}
-              </button>
-            ))}
-          </div>
-
-          {/* Result Display */}
-          {showResult && (
-            <div
-              className={`text-center p-4 rounded-lg ${
-                userAnswer === currentWord?.gender
-                  ? 'bg-green-100'
-                  : 'bg-red-100'
-              }`}
-            >
-              <div
-                className={`text-lg font-bold ${
-                  userAnswer === currentWord?.gender
-                    ? 'text-green-600'
-                    : 'text-red-600'
-                }`}
-              >
-                {userAnswer === currentWord?.gender
-                  ? '✓ Correct!'
-                  : '✗ Wrong!'}
-              </div>
-              <div className="text-sm text-gray-700 mt-2">
-                The correct answer is:{' '}
-                <span
-                  className={`font-bold ${
-                    currentWord && GENDER_COLORS[currentWord.gender]?.text
-                  }`}
-                >
-                  {currentWord?.gender}
-                </span>
-              </div>
-            </div>
-          )}
-
-          {/* Submit Button */}
-          {!showResult && (
-            <div className="text-center">
-              <button
-                onClick={handleSubmit}
-                disabled={!userAnswer}
-                className={`px-8 py-3 rounded-xl font-bold text-white transition-all duration-200 ${
-                  userAnswer
-                    ? 'bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 transform hover:scale-105'
-                    : 'bg-gray-300 cursor-not-allowed'
-                }`}
-              >
-                Submit Answer
-              </button>
-            </div>
-          )}
+            %
+          </span>
+        </div>
+        <div className="w-full bg-gray-200 rounded-full h-2">
+          <div
+            className="bg-gradient-to-r from-blue-500 to-purple-600 h-2 rounded-full transition-all duration-300"
+            style={{
+              width: `${
+                ((currentQuestionIndex + 1) / sessionWords.length) * 100
+              }%`,
+            }}
+          />
         </div>
       </div>
-    </div>
+
+      <div className="mb-8">
+        <GenderLegend />
+      </div>
+
+      <div
+        className={`rounded-2xl shadow-lg p-6 sm:p-8 mb-6 transition-colors duration-500 ${cardBgColor}`}
+      >
+        <div className="text-center mb-8">
+          <div className="text-sm text-gray-600 mb-2">
+            What is the correct article for:
+          </div>
+          <div className="text-3xl sm:text-4xl font-bold text-gray-800 mb-2">
+            {currentWord?.german}
+          </div>
+          <div className="text-lg sm:text-xl text-gray-600">
+            {currentWord?.english}
+          </div>
+          {currentWord?.pronunciation && (
+            <div className="text-md sm:text-lg text-gray-500">
+              /{currentWord.pronunciation}/
+            </div>
+          )}
+          <div className="text-sm text-gray-500 mt-2 capitalize">
+            Category: {currentWord?.category}
+          </div>
+        </div>
+
+        <div className="flex justify-center space-x-2 sm:space-x-4 mb-8">
+          {(['der', 'die', 'das'] as const).map((article) => (
+            <button
+              key={article}
+              onClick={() => setUserAnswer(article)}
+              className={`px-6 py-3 sm:px-8 sm:py-4 rounded-xl font-bold text-white transition-all duration-200 transform hover:scale-105 ${
+                userAnswer === article
+                  ? getButtonColor(article)
+                  : 'bg-gray-300 hover:bg-gray-400'
+              }`}
+              disabled={showResult}
+            >
+              {article}
+            </button>
+          ))}
+        </div>
+
+        {showResult && (
+          <div
+            className={`text-center p-4 rounded-lg ${
+              userAnswer === currentWord?.gender
+                ? 'bg-green-100'
+                : 'bg-red-100'
+            }`}
+          >
+            <div
+              className={`text-lg font-bold ${
+                userAnswer === currentWord?.gender
+                  ? 'text-green-600'
+                  : 'text-red-600'
+              }`}
+            >
+              {userAnswer === currentWord?.gender
+                ? '✓ Correct!'
+                : '✗ Wrong!'}
+            </div>
+            <div className="text-sm text-gray-700 mt-2">
+              The correct answer is:{' '}
+              <span
+                className={`font-bold ${
+                  currentWord && GENDER_COLORS[currentWord.gender]?.text
+                }`}
+              >
+                {currentWord?.gender}
+              </span>
+            </div>
+          </div>
+        )}
+
+        {!showResult && (
+          <div className="text-center">
+            <button
+              onClick={handleSubmit}
+              disabled={!userAnswer}
+              className={`px-8 py-3 rounded-xl font-bold text-white transition-all duration-200 ${
+                userAnswer
+                  ? 'bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 transform hover:scale-105'
+                  : 'bg-gray-300 cursor-not-allowed'
+              }`}
+            >
+              Submit Answer
+            </button>
+          </div>
+        )}
+      </div>
+    </SessionLayout>
   );
 };
 

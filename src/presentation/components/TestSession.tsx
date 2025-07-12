@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { NavigationHeader } from './ui';
 
 interface Question {
   id: string;
@@ -15,6 +14,8 @@ interface Test {
   type: string;
   questions: Question[];
 }
+
+import SessionLayout from './layout/SessionLayout';
 
 const TestSession = () => {
   const { state } = useLocation();
@@ -171,67 +172,51 @@ const TestSession = () => {
   const question = test.questions[currentQuestionIndex];
 
   return (
-    <div className="min-h-screen bg-gray-50 p-2 sm:p-4">
-      <div className="max-w-4xl mx-auto">
-        {/* Header */}
-        <NavigationHeader
-          title={`🧪 ${test.title}`}
-          subtitle={`Question ${currentQuestionIndex + 1} of ${test.questions.length}`}
-          onBack={handleExitClick}
-          backLabel="Exit Test"
-          timeLeft={timeLeft}
-          showProgress={true}
-        />
-
-        {/* Timer Progress Bar */}
-        <div className="mb-6 sm:mb-8">
-          <div className="flex justify-between text-xs sm:text-sm text-gray-600 mb-2">
-            <span>Time Remaining</span>
-            <span>{timeLeft}s</span>
-          </div>
-          <div className="w-full bg-gray-200 rounded-full h-2">
-            <div
-              className={`h-2 rounded-full transition-all duration-1000 ${
-                timeLeft <= 5 ? 'bg-red-500' : timeLeft <= 10 ? 'bg-yellow-500' : 'bg-green-500'
-              }`}
-              style={{ width: `${(timeLeft / 20) * 100}%` }}
-            />
-          </div>
+    <SessionLayout title={`🧪 ${test.title}`} onExit={handleExitClick}>
+      <div className="mb-6 sm:mb-8">
+        <div className="flex justify-between text-xs sm:text-sm text-gray-600 mb-2">
+          <span>Time Remaining</span>
+          <span>{timeLeft}s</span>
         </div>
-
-        {/* Question Card */}
-        <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 lg:p-8 mb-4 sm:mb-6">
-          <div className="text-center mb-6 sm:mb-8">
-            <div className="text-xs sm:text-sm text-gray-600 mb-2">
-              Question {currentQuestionIndex + 1} of {test.questions.length}
-            </div>
-            <p className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800 mb-4 leading-relaxed px-2">{question.question}</p>
-          </div>
-
-          {/* Answer Options */}
-          <div className="grid grid-cols-1 gap-3 sm:gap-4 mb-6 sm:mb-8">
-            {question.options.map((option) => {
-              const isSelected = selectedOption === option;
-              return (
-                <button
-                  key={option}
-                  onClick={() => handleAnswer(question.id, option)}
-                  disabled={!!selectedOption}
-                  className={`w-full p-3 sm:p-4 text-center rounded-lg sm:rounded-xl font-medium transition-all duration-200 text-sm sm:text-base ${
-                    isSelected
-                      ? 'bg-blue-500 text-white border-2 border-blue-600 shadow-lg'
-                      : 'bg-gray-50 hover:bg-gray-100 active:bg-gray-200 border-2 border-gray-200 text-gray-700'
-                  } ${!!selectedOption && !isSelected ? 'opacity-50' : ''}`}
-                >
-                  {option}
-                </button>
-              );
-            })}
-          </div>
+        <div className="w-full bg-gray-200 rounded-full h-2">
+          <div
+            className={`h-2 rounded-full transition-all duration-1000 ${
+              timeLeft <= 5 ? 'bg-red-500' : timeLeft <= 10 ? 'bg-yellow-500' : 'bg-green-500'
+            }`}
+            style={{ width: `${(timeLeft / 20) * 100}%` }}
+          />
         </div>
       </div>
 
-      {/* Exit Confirmation Modal */}
+      <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 lg:p-8 mb-4 sm:mb-6">
+        <div className="text-center mb-6 sm:mb-8">
+          <div className="text-xs sm:text-sm text-gray-600 mb-2">
+            Question {currentQuestionIndex + 1} of {test.questions.length}
+          </div>
+          <p className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800 mb-4 leading-relaxed px-2">{question.question}</p>
+        </div>
+
+        <div className="grid grid-cols-1 gap-3 sm:gap-4 mb-6 sm:mb-8">
+          {question.options.map((option) => {
+            const isSelected = selectedOption === option;
+            return (
+              <button
+                key={option}
+                onClick={() => handleAnswer(question.id, option)}
+                disabled={!!selectedOption}
+                className={`w-full p-3 sm:p-4 text-center rounded-lg sm:rounded-xl font-medium transition-all duration-200 text-sm sm:text-base ${
+                  isSelected
+                    ? 'bg-blue-500 text-white border-2 border-blue-600 shadow-lg'
+                    : 'bg-gray-50 hover:bg-gray-100 active:bg-gray-200 border-2 border-gray-200 text-gray-700'
+                } ${!!selectedOption && !isSelected ? 'opacity-50' : ''}`}
+              >
+                {option}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
       {showExitConfirm && (
         <div 
           className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
@@ -269,7 +254,7 @@ const TestSession = () => {
           </div>
         </div>
       )}
-    </div>
+    </SessionLayout>
   );
 };
 

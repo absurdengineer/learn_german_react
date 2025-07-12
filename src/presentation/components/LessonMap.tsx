@@ -34,31 +34,45 @@ const LessonNode: React.FC<{
 
   return (
     <div
-      className={`flex items-center w-full ${align === 'left' ? 'justify-start' : 'justify-end'}`}
+      className={`flex items-center w-full ${
+        align === 'left' ? 'md:justify-start' : 'justify-center'
+      } ${align === 'right' ? 'md:justify-end' : 'justify-center'}`}
     >
       <div
-        className={`relative w-1/2 ${align === 'left' ? 'pr-8' : 'pl-8'}`}
+        className={`relative w-full md:w-1/2 ${
+          align === 'left' ? 'md:pr-8' : 'md:pl-8'
+        }`}
         onClick={() => isClickable && navigate(`/grammar/lessons/${lesson.day}`)}
       >
         <div
           className={`p-4 rounded-lg transition-all duration-200 ${
-            isClickable ? 'bg-white shadow-sm hover:shadow-md cursor-pointer' : 'bg-gray-100'
+            isClickable
+              ? 'bg-white shadow-sm hover:shadow-md cursor-pointer'
+              : 'bg-gray-100'
           }`}
         >
-          <h3 className={`font-semibold ${status === 'locked' ? 'text-gray-500' : 'text-gray-900'}`}>
+          <h3
+            className={`font-semibold ${
+              status === 'locked' ? 'text-gray-500' : 'text-gray-900'
+            }`}
+          >
             Day {lesson.day}: {lesson.title}
           </h3>
-          <p className={`text-sm ${status === 'locked' ? 'text-gray-400' : 'text-gray-600'}`}>
+          <p
+            className={`text-sm ${
+              status === 'locked' ? 'text-gray-400' : 'text-gray-600'
+            }`}
+          >
             {lesson.mission}
           </p>
         </div>
       </div>
-      <div className="absolute left-1/2 -translate-x-1/2 z-10">
+      <div className="hidden md:block absolute left-1/2 -translate-x-1/2 z-10">
         <NodeIcon />
       </div>
       {!isLast && (
         <div
-          className={`absolute left-1/2 -translate-x-1/2 h-full top-0 w-0.5 ${
+          className={`hidden md:block absolute left-1/2 -translate-x-1/2 h-full top-0 w-0.5 ${
             status === 'completed' ? 'bg-green-500' : 'bg-gray-300'
           }`}
         ></div>

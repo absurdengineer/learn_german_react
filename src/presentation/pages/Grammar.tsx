@@ -126,15 +126,21 @@ const Grammar: React.FC = () => {
 
   if (location.pathname.endsWith('/lessons')) {
     return (
-      <PageLayout
-        pageData={{
-          title: 'Grammar Learning Path',
-          subtitle: 'Your structured path to mastering German grammar.',
-          description: '',
-          icon: '🗺️',
-          gradient: 'from-blue-500 to-purple-600',
-        }}
-      >
+      <PageLayout pageData={{
+        title: 'Grammar Learning Path',
+        subtitle: 'Your structured path to mastering German grammar.',
+        description: '',
+        icon: '🗺️',
+        gradient: 'from-blue-500 to-purple-600',
+      }}>
+        <div className="mb-8">
+          <button
+            onClick={() => navigate('/grammar')}
+            className="text-blue-600 hover:text-blue-800 transition-colors"
+          >
+            &larr; Back to Grammar
+          </button>
+        </div>
         <LessonMap lessons={grammarLessons} currentLesson={currentLesson} />
       </PageLayout>
     );

@@ -66,7 +66,7 @@ const TestResults: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-3xl mx-auto">
+      <div className="max-w-8xl mx-auto">
         <div className="bg-white shadow-2xl rounded-2xl p-8">
           <div className="text-center">
             <div className="text-6xl mb-4">
