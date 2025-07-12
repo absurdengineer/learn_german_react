@@ -1,5 +1,5 @@
-import { formatCategoryName, getCategoryColor } from '../utils/categoryUtils';
-import { parseCSVLine } from '../utils/csvParser';
+import { formatCategoryName, getCategoryColor } from '../lib/categoryUtils';
+import { parseCSVLine } from '../lib/csvParser';
 import type { Category, VocabularyItem } from './index';
 import vocabularyCSV from './vocabulary.csv?raw';
 

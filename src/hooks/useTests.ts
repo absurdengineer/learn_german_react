@@ -3,11 +3,11 @@ import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import {
   StandardizedTestGenerator,
   getDataStatistics,
-} from '../data/standardized';
-import { SESSION_KEYS, SessionManager } from '../utils/sessionManager';
+} from '../lib/parsers';
+import { SESSION_KEYS, SessionManager } from '../lib/sessionManager';
 import {
   generateA1Test,
-} from '../utils/testGenerator';
+} from '../lib/testGenerator';
 
 interface Question {
   id: string;

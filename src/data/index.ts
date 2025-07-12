@@ -1,12 +1,11 @@
-import { type LevelType } from '../domain/entities/User';
-import { VocabularyWord, type Gender, type WordType } from '../domain/entities/Vocabulary';
+import { type LevelType } from '../types/User';
+import { VocabularyWord, type Gender, type WordType } from '../types/Vocabulary';
 import type { ArticleNoun } from './articles';
 import { parseArticlesCSV } from './articles';
-import studyPlanData from './studyPlan.json';
 import { generateVocabularyCategoriesFromCSV, getCSVVocabularyStats, parseVocabularyCSV } from './vocabulary';
 
 // Re-export standardized data system
-export * from './standardized';
+export * from '../lib/parsers';
 
 // Type definitions
 export type { ArticleNoun };
@@ -89,24 +88,12 @@ export const loadArticleCategories = (): Record<string, Category> => {
   return categories;
 };
 
-export const loadStudyPlan = (): StudyDay[] => {
-  return studyPlanData.STUDY_PLAN as StudyDay[];
-};
-
-export const loadStudyWeeks = (): Week[] => {
-  return studyPlanData.weeks as Week[];
-};
-
 export interface ExerciseType {
   name: string;
   description: string;
   icon: string;
   color: string;
 }
-
-export const loadExerciseTypes = (): Record<string, ExerciseType> => {
-  return studyPlanData.exerciseTypes as Record<string, ExerciseType>;
-};
 
 // Conversion utilities
 export const convertToVocabularyWord = (item: VocabularyItem): VocabularyWord => {
@@ -190,16 +177,6 @@ export const searchArticles = (searchTerm: string): ArticleNoun[] => {
   );
 };
 
-export const getStudyDayById = (dayId: number): StudyDay | undefined => {
-  const studyPlan = loadStudyPlan();
-  return studyPlan.find(day => day.day === dayId);
-};
-
-export const getStudyWeekById = (weekId: number): Week | undefined => {
-  const weeks = loadStudyWeeks();
-  return weeks.find(week => week.week === weekId);
-};
-
 export const getVocabularyByIds = (ids: string[]): VocabularyItem[] => {
   const vocabulary = loadVocabulary();
   return vocabulary.filter(item => ids.includes(item.id));
@@ -239,36 +216,9 @@ export const getArticleStats = () => {
   };
 };
 
-export const getStudyPlanStats = () => {
-  const studyPlan = loadStudyPlan();
-  const weeks = loadStudyWeeks();
-  const exerciseTypes = loadExerciseTypes();
-  
-  const totalDays = studyPlan.length;
-  const totalTime = studyPlan.reduce((sum, day) => sum + day.estimatedTime, 0);
-  const averageTime = Math.round(totalTime / totalDays);
-
-  const difficultyStats = ['easy', 'medium', 'hard'].map(difficulty => ({
-    difficulty,
-    count: studyPlan.filter(day => day.difficulty === difficulty).length,
-    percentage: Math.round((studyPlan.filter(day => day.difficulty === difficulty).length / totalDays) * 100)
-  }));
-
-  return {
-    totalDays,
-    totalTime,
-    averageTime,
-    difficultyStats,
-    weeks: weeks.length,
-    exerciseTypes: Object.keys(exerciseTypes).length,
-    metadata: studyPlanData.metadata
-  };
-};
-
 // Export data objects for backward compatibility
 export const A1_VOCABULARY = loadVocabulary();
 export const ESSENTIAL_A1_NOUNS = loadArticleNouns();
-export const STUDY_PLAN = loadStudyPlan();
 export const VOCABULARY_CATEGORIES = Object.keys(loadVocabularyCategories());
 export const ARTICLE_CATEGORIES = Object.keys(loadArticleCategories());
 

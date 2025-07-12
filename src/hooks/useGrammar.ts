@@ -1,9 +1,9 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { loadGrammarLessons } from '../data/grammarLessons';
-import { SESSION_KEYS, SessionManager } from '../utils/sessionManager';
-import type { FlashcardSessionResult } from '../presentation/components/FlashcardSession';
-import type { QuizResults } from '../presentation/components/QuizSession';
+import { SESSION_KEYS, SessionManager } from '../lib/sessionManager';
+import type { FlashcardSessionResult } from '../components/FlashcardSession';
+import type { QuizResults } from '../components/QuizSession';
 
 export const useGrammar = () => {
   const navigate = useNavigate();

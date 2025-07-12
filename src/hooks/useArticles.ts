@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { loadArticleCategories } from '../data';
-import { VocabularyWord } from '../domain/entities/Vocabulary';
-import { SESSION_KEYS, SessionManager } from '../utils/sessionManager';
-import { shuffleArray } from '../utils/testGenerator';
+import { VocabularyWord } from '../types/Vocabulary';
+import { SESSION_KEYS, SessionManager } from '../lib/sessionManager';
+import { shuffleArray } from '../lib/testGenerator';
 
 export interface ArticlesSessionResult {
   totalQuestions: number;

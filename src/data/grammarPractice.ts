@@ -1,7 +1,7 @@
 
-import { GrammarPracticeQuestion } from '../domain/entities/GrammarPractice';
-import type { QuestionType } from '../domain/types/GrammarPracticeTypes';
-import { parseCSVLine } from '../utils/csvParser';
+import { GrammarPracticeQuestion } from '../types/GrammarPractice';
+import type { QuestionType } from '../types/GrammarPracticeTypes';
+import { parseCSVLine } from '../lib/csvParser';
 import grammarPracticeCSV from './grammar_practice.csv?raw';
 
 let allQuestions: GrammarPracticeQuestion[] | null = null;

@@ -1,5 +1,5 @@
-import { GrammarLesson } from '../domain/entities/Grammar';
-import { parseCSVLine } from '../utils/csvParser';
+import { GrammarLesson } from '../types/Grammar';
+import { parseCSVLine } from '../lib/csvParser';
 import grammarLessonsCSV from './grammar_lessons.csv?raw';
 
 export const parseGrammarLessonsCSV = (): GrammarLesson[] => {

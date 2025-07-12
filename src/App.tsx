@@ -1,21 +1,20 @@
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-import PWAInstallPrompt from './components/PWAInstallPrompt';
-import { AppProvider } from './context/AppContext.jsx';
-import Layout from './presentation/components/Layout';
-import ProtectedRoute from './presentation/components/ProtectedRoute';
-import TestResults from './presentation/components/TestResults';
-import TestSession from './presentation/components/TestSession';
-import Articles from './presentation/pages/Articles';
-import DayView from './presentation/pages/DayView';
-import Grammar from './presentation/pages/Grammar';
-import Home from './presentation/pages/Home';
-import Progress from './presentation/pages/Progress';
-import Settings from './presentation/pages/Settings';
-import Speaking from './presentation/pages/Speaking';
-import StudyPlan from './presentation/pages/StudyPlan';
-import StudyPlanComplete from './presentation/pages/StudyPlanComplete';
-import Tests from './presentation/pages/Tests';
-import Vocabulary from './presentation/pages/Vocabulary';
+import { AppProvider } from './store/AppContext.tsx';
+import Layout from './components/Layout';
+import ProtectedRoute from './components/ProtectedRoute';
+import TestResults from './components/TestResults';
+import TestSession from './components/TestSession';
+import Articles from './pages/Articles';
+import DayView from './pages/DayView';
+import Grammar from './pages/Grammar';
+import Home from './pages/Home';
+import Progress from './pages/Progress';
+import Settings from './pages/Settings';
+import Speaking from './pages/Speaking';
+import StudyPlan from './pages/StudyPlan';
+import StudyPlanComplete from './pages/StudyPlanComplete';
+import Tests from './pages/Tests';
+import Vocabulary from './pages/Vocabulary';
 
 function App() {
   return (
@@ -185,7 +184,6 @@ function App() {
             <Route path="/settings/data" element={<Settings />} />
           </Routes>
         </Layout>
-        <PWAInstallPrompt />
       </Router>
     </AppProvider>
   );

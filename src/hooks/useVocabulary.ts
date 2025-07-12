@@ -7,11 +7,12 @@ import {
   loadVocabularyCategories,
   searchVocabularyWords
 } from '../data';
-import { type LevelType } from '../domain/entities/User';
-import { VocabularyWord, type Gender, type WordType } from '../domain/entities/Vocabulary';
-import { shuffleArray } from '../utils/testGenerator';
-import { vocabularyToFlashcardAdapter } from '../presentation/components/FlashcardAdapters';
-import type { QuizResults } from '../presentation/components/QuizSession';
+import { type LevelType } from '../types/User';
+import { VocabularyWord, type Gender, type WordType } from '../types/Vocabulary';
+import { shuffleArray } from '../lib/testGenerator';
+import { vocabularyToFlashcardAdapter } from '../components/FlashcardAdapters';
+import type { QuizResults, QuizMistake } from '../components/QuizSession';
+import type { FlashcardItem, FlashcardSessionResult } from '../components/FlashcardSession';
 
 export interface SessionResult {
   totalQuestions: number;
@@ -43,8 +44,7 @@ export const useVocabulary = () => {
   const [sessionResults, setSessionResults] = useState<SessionResult | null>(null);
   const [loading, setLoading] = useState(true);
   const [loadingError, setLoadingError] = useState<string | null>(null);
-  
-  const [flashcardItems, setFlashcardItems] = useState<import('../presentation/components/FlashcardSession').FlashcardItem[]>([]);
+  const [flashcardItems, setFlashcardItems] = useState<FlashcardItem[]>([]);
   const [quizQuestions, setQuizQuestions] = useState<Array<{
     id: string;
     prompt: string;
@@ -217,7 +217,7 @@ export const useVocabulary = () => {
       wrongAnswers: results.wrongAnswers,
       timeSpent: results.timeSpent,
       wordsStudied: sessionWords,
-      mistakes: results.mistakes.map(mistake => ({
+      mistakes: results.mistakes.map((mistake: QuizMistake) => ({
         word: mistake.word || sessionWords.find(w => w.german === mistake.correctAnswer || w.english === mistake.correctAnswer) || sessionWords[0],
         userAnswer: mistake.userAnswer,
         correctAnswer: mistake.correctAnswer,
@@ -227,7 +227,7 @@ export const useVocabulary = () => {
     handleSessionComplete(sessionResult);
   };
 
-  const handleFlashcardSessionComplete = (results: import('../presentation/components/FlashcardSession').FlashcardSessionResult) => {
+  const handleFlashcardSessionComplete = (results: FlashcardSessionResult) => {
     const sessionResult: SessionResult = {
       totalQuestions: results.totalQuestions,
       correctAnswers: results.correctAnswers,
