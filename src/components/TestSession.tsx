@@ -1,21 +1,9 @@
-import { useEffect, useRef, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useEffect, useRef, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import type { Test, TestQuestion, TestResult } from "../types/Flashcard";
+import { calculateTestScore, saveTestResult } from "../lib/quizUtils";
 
-interface Question {
-  id: string;
-  question: string;
-  options: string[];
-  answer: string;
-}
-
-interface Test {
-  id: string;
-  title: string;
-  type: string;
-  questions: Question[];
-}
-
-import SessionLayout from './layout/SessionLayout';
+import SessionLayout from "./layout/SessionLayout";
 
 const TestSession = () => {
   const { state } = useLocation();
@@ -26,7 +14,7 @@ const TestSession = () => {
   const [userAnswers, setUserAnswers] = useState<{ [key: string]: string }>({});
   const [timeLeft, setTimeLeft] = useState(20);
   const [totalTime, setTotalTime] = useState(0);
-  const [selectedOption, setSelectedOption] = useState('');
+  const [selectedOption, setSelectedOption] = useState("");
   const [showExitConfirm, setShowExitConfirm] = useState(false);
   const questionStartTime = useRef(Date.now());
   const timerRef = useRef<NodeJS.Timeout | null>(null);
@@ -49,17 +37,18 @@ const TestSession = () => {
     // Prevent accidental navigation away from test
     const handleBeforeUnload = (e: BeforeUnloadEvent) => {
       e.preventDefault();
-      e.returnValue = 'Are you sure you want to leave? Your test progress will be lost.';
-      return 'Are you sure you want to leave? Your test progress will be lost.';
+      e.returnValue =
+        "Are you sure you want to leave? Your test progress will be lost.";
+      return "Are you sure you want to leave? Your test progress will be lost.";
     };
 
-    window.addEventListener('beforeunload', handleBeforeUnload);
+    window.addEventListener("beforeunload", handleBeforeUnload);
 
     return () => {
       if (timerRef.current) {
         clearInterval(timerRef.current);
       }
-      window.removeEventListener('beforeunload', handleBeforeUnload);
+      window.removeEventListener("beforeunload", handleBeforeUnload);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [test]);
@@ -72,7 +61,7 @@ const TestSession = () => {
     if (timerRef.current) {
       clearInterval(timerRef.current);
     }
-    navigate('/tests');
+    navigate("/tests");
   };
 
   const handleCancelExit = () => {
@@ -82,20 +71,20 @@ const TestSession = () => {
   // Handle ESC key to close modal
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && showExitConfirm) {
+      if (e.key === "Escape" && showExitConfirm) {
         setShowExitConfirm(false);
       }
     };
 
     if (showExitConfirm) {
-      document.addEventListener('keydown', handleKeyDown);
+      document.addEventListener("keydown", handleKeyDown);
       // Prevent scrolling when modal is open
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     }
 
     return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'unset';
+      document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "unset";
     };
   }, [showExitConfirm]);
 
@@ -125,7 +114,7 @@ const TestSession = () => {
 
     if (currentQuestionIndex < test.questions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
-      setSelectedOption('');
+      setSelectedOption("");
       questionStartTime.current = Date.now();
       resetTimer();
     } else {
@@ -163,10 +152,15 @@ const TestSession = () => {
       date: new Date().toISOString(),
     };
 
-    const pastResults = JSON.parse(localStorage.getItem('testResults') || '[]');
-    localStorage.setItem('testResults', JSON.stringify([...pastResults, result]));
+    const pastResults = JSON.parse(localStorage.getItem("testResults") || "[]");
+    localStorage.setItem(
+      "testResults",
+      JSON.stringify([...pastResults, result])
+    );
 
-    navigate(`/tests/results`, { state: { userAnswers: finalAnswers, test, result } });
+    navigate(`/tests/results`, {
+      state: { userAnswers: finalAnswers, test, result },
+    });
   };
 
   const question = test.questions[currentQuestionIndex];
@@ -181,7 +175,11 @@ const TestSession = () => {
         <div className="w-full bg-gray-200 rounded-full h-2">
           <div
             className={`h-2 rounded-full transition-all duration-1000 ${
-              timeLeft <= 5 ? 'bg-red-500' : timeLeft <= 10 ? 'bg-yellow-500' : 'bg-green-500'
+              timeLeft <= 5
+                ? "bg-red-500"
+                : timeLeft <= 10
+                ? "bg-yellow-500"
+                : "bg-green-500"
             }`}
             style={{ width: `${(timeLeft / 20) * 100}%` }}
           />
@@ -193,7 +191,9 @@ const TestSession = () => {
           <div className="text-xs sm:text-sm text-gray-600 mb-2">
             Question {currentQuestionIndex + 1} of {test.questions.length}
           </div>
-          <p className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800 mb-4 leading-relaxed px-2">{question.question}</p>
+          <p className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800 mb-4 leading-relaxed px-2">
+            {question.question}
+          </p>
         </div>
 
         <div className="grid grid-cols-1 gap-3 sm:gap-4 mb-6 sm:mb-8">
@@ -206,9 +206,9 @@ const TestSession = () => {
                 disabled={!!selectedOption}
                 className={`w-full p-3 sm:p-4 text-center rounded-lg sm:rounded-xl font-medium transition-all duration-200 text-sm sm:text-base ${
                   isSelected
-                    ? 'bg-blue-500 text-white border-2 border-blue-600 shadow-lg'
-                    : 'bg-gray-50 hover:bg-gray-100 active:bg-gray-200 border-2 border-gray-200 text-gray-700'
-                } ${!!selectedOption && !isSelected ? 'opacity-50' : ''}`}
+                    ? "bg-blue-500 text-white border-2 border-blue-600 shadow-lg"
+                    : "bg-gray-50 hover:bg-gray-100 active:bg-gray-200 border-2 border-gray-200 text-gray-700"
+                } ${!!selectedOption && !isSelected ? "opacity-50" : ""}`}
               >
                 {option}
               </button>
@@ -218,11 +218,11 @@ const TestSession = () => {
       </div>
 
       {showExitConfirm && (
-        <div 
+        <div
           className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
           onClick={handleCancelExit}
         >
-          <div 
+          <div
             className="bg-white rounded-lg sm:rounded-xl p-4 sm:p-6 max-w-sm sm:max-w-md mx-auto w-full"
             onClick={(e) => e.stopPropagation()}
             role="dialog"
@@ -231,9 +231,18 @@ const TestSession = () => {
           >
             <div className="text-center">
               <div className="text-2xl mb-3 sm:mb-4">⚠️</div>
-              <h3 id="exit-dialog-title" className="text-lg sm:text-xl font-bold text-gray-900 mb-2">Exit Test?</h3>
-              <p id="exit-dialog-description" className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">
-                Are you sure you want to exit? Your test progress will be lost and cannot be recovered.
+              <h3
+                id="exit-dialog-title"
+                className="text-lg sm:text-xl font-bold text-gray-900 mb-2"
+              >
+                Exit Test?
+              </h3>
+              <p
+                id="exit-dialog-description"
+                className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6"
+              >
+                Are you sure you want to exit? Your test progress will be lost
+                and cannot be recovered.
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
                 <button

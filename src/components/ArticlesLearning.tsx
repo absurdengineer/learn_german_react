@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { loadArticleNouns, type ArticleNoun } from "../data";
 import { getGenderColor } from "../lib/genderColors";
 import GenderLegend from "./GenderLegend";
+import {
+  ESSENTIAL_A1_NOUNS,
+  DEFAULT_SESSION_LENGTH,
+  DEFAULT_AUTO_ADVANCE_SPEED,
+} from "../data/constants";
 
 interface ArticlesLearningProps {
   onExit: () => void;
@@ -10,10 +14,7 @@ interface ArticlesLearningProps {
   autoAdvanceSpeed?: number; // milliseconds
 }
 
-// Load essential A1 nouns from JSON
-const ESSENTIAL_A1_NOUNS: ArticleNoun[] = loadArticleNouns();
-
-import SessionLayout from './layout/SessionLayout';
+import SessionLayout from "./layout/SessionLayout";
 
 const ArticlesLearning: React.FC<ArticlesLearningProps> = ({
   onExit,
@@ -32,7 +33,7 @@ const ArticlesLearning: React.FC<ArticlesLearningProps> = ({
     setTimeout(() => {
       window.scrollTo({
         top: 0,
-        behavior: 'smooth',
+        behavior: "smooth",
       });
     }, 100);
   }, []);
@@ -108,7 +109,9 @@ const ArticlesLearning: React.FC<ArticlesLearningProps> = ({
     <SessionLayout title="Articles Learning" onExit={onExit}>
       <div className="mb-4 sm:mb-6">
         <div className="flex justify-between items-center mb-2">
-          <span className="text-sm sm:text-base text-gray-600 font-medium">Progress</span>
+          <span className="text-sm sm:text-base text-gray-600 font-medium">
+            Progress
+          </span>
           <span className="text-sm sm:text-base text-gray-600 font-medium">
             {Math.round(progress)}%
           </span>
@@ -130,19 +133,27 @@ const ArticlesLearning: React.FC<ArticlesLearningProps> = ({
       >
         <div className="text-center mb-6 sm:mb-8">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-4 sm:mb-6 px-2">
-            <h1 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold ${genderColor.text} break-words hyphens-auto max-w-full`}>
+            <h1
+              className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold ${genderColor.text} break-words hyphens-auto max-w-full`}
+            >
               {currentWord.gender}
             </h1>
-            <h1 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold ${genderColor.text} break-words hyphens-auto leading-tight max-w-full overflow-wrap-anywhere`}>
+            <h1
+              className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold ${genderColor.text} break-words hyphens-auto leading-tight max-w-full overflow-wrap-anywhere`}
+            >
               {currentWord.german}
             </h1>
           </div>
 
-          <p className={`text-lg sm:text-xl md:text-2xl lg:text-3xl mb-3 sm:mb-4 ${genderColor.text} opacity-80 break-words leading-relaxed px-2 max-w-full overflow-wrap-anywhere`}>
+          <p
+            className={`text-lg sm:text-xl md:text-2xl lg:text-3xl mb-3 sm:mb-4 ${genderColor.text} opacity-80 break-words leading-relaxed px-2 max-w-full overflow-wrap-anywhere`}
+          >
             {currentWord.english}
           </p>
           {currentWord.pronunciation && (
-            <p className={`text-base sm:text-lg lg:text-xl mb-4 sm:mb-6 ${genderColor.text} opacity-70 px-2`}>
+            <p
+              className={`text-base sm:text-lg lg:text-xl mb-4 sm:mb-6 ${genderColor.text} opacity-70 px-2`}
+            >
               /{currentWord.pronunciation}/
             </p>
           )}
@@ -150,7 +161,9 @@ const ArticlesLearning: React.FC<ArticlesLearningProps> = ({
           <div
             className={`inline-block px-4 sm:px-5 py-2 sm:py-3 mx-2 rounded-lg border-2 ${genderColor.border} ${genderColor.bg} max-w-full`}
           >
-            <span className={`text-sm sm:text-base lg:text-lg font-medium ${genderColor.text} break-words`}>
+            <span
+              className={`text-sm sm:text-base lg:text-lg font-medium ${genderColor.text} break-words`}
+            >
               {currentWord.category} • {genderColor.name}
             </span>
           </div>
@@ -236,7 +249,9 @@ const ArticlesLearning: React.FC<ArticlesLearningProps> = ({
 
       <div className="bg-white rounded-lg p-4 sm:p-5 shadow-sm">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0">
-          <span className="text-base sm:text-lg font-medium text-gray-700">Learning Speed:</span>
+          <span className="text-base sm:text-lg font-medium text-gray-700">
+            Learning Speed:
+          </span>
           <div className="flex flex-wrap gap-2 sm:gap-3 w-full sm:w-auto">
             {[
               { speed: 5000, label: "Slow" },
