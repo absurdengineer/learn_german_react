@@ -35,11 +35,11 @@ export const VocabularyCard: React.FC<VocabularyCardProps> = ({ word, onClick })
   return (
     <div
       onClick={onClick}
-      className="bg-white rounded-xl shadow-sm p-6 cursor-pointer hover:shadow-lg transition-all duration-200 transform hover:-translate-y-1 border border-gray-100"
+      className="bg-white rounded-xl p-6 cursor-pointer hover:bg-gray-50 hover:shadow-sm transition-all duration-200 transform hover:-translate-y-1 border border-gray-100"
     >
       <div className="flex justify-between items-start mb-3">
         <div>
-          <h3 className="text-xl font-bold text-gray-900">{word.german}</h3>
+          <h3 className="text-xl font-bold text-gray-800">{word.german}</h3>
           {word.pronunciation && (
             <p className="text-sm text-blue-600 italic mt-1">
               {word.pronunciation}

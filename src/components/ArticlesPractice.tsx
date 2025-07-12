@@ -193,7 +193,7 @@ const ArticlesPractice: React.FC<ArticlesPracticeProps> = ({
 
   const cardBgColor = showResult && currentWord
     ? GENDER_COLORS[currentWord.gender]?.bg
-    : 'bg-white';
+    : 'bg-slate-100';
 
   return (
     <SessionLayout title="Articles Practice" onExit={onExit}>
@@ -224,7 +224,7 @@ const ArticlesPractice: React.FC<ArticlesPracticeProps> = ({
       </div>
 
       <div
-        className={`rounded-2xl shadow-lg p-6 sm:p-8 mb-6 transition-colors duration-500 ${cardBgColor}`}
+        className={`rounded-2xl p-6 sm:p-8 mb-6 transition-colors duration-500 border border-slate-200 ${cardBgColor}`}
       >
         <div className="text-center mb-8">
           <div className="text-sm text-gray-600 mb-2">

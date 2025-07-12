@@ -147,7 +147,7 @@ const QuizSession: React.FC<QuizSessionProps> = ({ questions, title, onComplete,
 
   return (
     <SessionLayout title={title} onExit={onExit}>
-      <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 lg:p-8 mt-4 sm:mt-8">
+      <div className="bg-slate-100 border border-slate-200 rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 mt-4 sm:mt-8">
         <div className="text-center mb-6 sm:mb-8">
           {currentQuestion.category && <p className="text-xs sm:text-sm text-gray-500 mb-2">{currentQuestion.category}</p>}
           <p className="text-base sm:text-lg lg:text-xl text-gray-800 leading-relaxed px-2">{currentQuestion.prompt}</p>

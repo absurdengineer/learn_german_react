@@ -169,7 +169,7 @@ const FlashcardSession: React.FC<FlashcardSessionProps> = ({
         </div>
       )}
 
-      <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 lg:p-8 mb-6 sm:mb-8">
+      <div className="bg-slate-100 border border-slate-200 rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 mb-6 sm:mb-8">
         <div className="text-center">
           {customRenderer ? (
             customRenderer(currentItem, showAnswer)
