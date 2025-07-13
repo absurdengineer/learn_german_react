@@ -5,6 +5,7 @@ import type {
   QuizResults,
   QuizMistake,
 } from "../types/Flashcard";
+import MCQOptions from "./MCQOptions";
 
 interface MCQSessionProps {
   questions: QuizQuestion[];
@@ -156,24 +157,14 @@ const MCQSession: React.FC<MCQSessionProps> = ({
         </div>
 
         {/* Multiple Choice Options */}
-        <div className="grid grid-cols-1 gap-3 sm:gap-4">
-          {currentQuestion.options.map((option: string) => (
-            <button
-              key={option}
-              onClick={() => handleAnswer(option)}
-              disabled={showResult}
-              className={`p-3 sm:p-4 rounded-lg border transition-all text-left w-full ${
-                showResult && option === answer
-                  ? "bg-green-100 border-green-500 text-green-700"
-                  : showResult && option === userAnswer && option !== answer
-                  ? "bg-red-100 border-red-500 text-red-700"
-                  : "bg-gray-50 border-gray-200 hover:bg-gray-100 active:bg-gray-200"
-              }`}
-            >
-              <span className="text-sm sm:text-base">{option}</span>
-            </button>
-          ))}
-        </div>
+        <MCQOptions
+          options={currentQuestion.options}
+          answer={answer}
+          userAnswer={userAnswer}
+          showResult={showResult}
+          onSelect={handleAnswer}
+          disabled={showResult}
+        />
 
         {/* Result Feedback */}
         {showResult && (

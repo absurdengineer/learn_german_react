@@ -10,6 +10,8 @@ export function useArticles() {
   const [sessionResults, setSessionResults] = useState<any>(null);
   const [mistakes, setMistakes] = useState<any[]>([]);
 
+  let lastSessionMode: "practice" | "quiz" = "practice";
+
   // Load all articles
   const articles = useMemo(() => articlesLoader.load(), []);
 
@@ -18,6 +20,7 @@ export function useArticles() {
 
   // Handlers
   const startPractice = () => {
+    lastSessionMode = "practice";
     // Use MCQ-ready article questions
     const count = isTestMode ? 3 : 20;
     const questions = getArticleQuestions({ mode: "mc", count });
@@ -25,6 +28,7 @@ export function useArticles() {
     setSessionMode("practice");
   };
   const startQuiz = () => {
+    lastSessionMode = "quiz";
     const count = isTestMode ? 3 : 20;
     const questions = getArticleQuestions({ mode: "mc", count });
     setSessionQuestions(questions);
@@ -47,8 +51,11 @@ export function useArticles() {
     }
   };
   const handleRestart = () => {
-    setSessionMode("idle");
-    setSessionQuestions([]);
+    if (lastSessionMode === "quiz") {
+      startQuiz();
+    } else {
+      startPractice();
+    }
     setSessionResults(null);
   };
   const handleReviewMistakes = () => {

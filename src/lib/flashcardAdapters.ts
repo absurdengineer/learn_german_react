@@ -360,11 +360,13 @@ export function questionsToFlashcardItems(
  * Convert a Question object to QuizQuestion format for quiz sessions
  */
 export function questionToQuizQuestion(question: Question): QuizQuestion {
+  // If question has correctAnswer but not answer, use correctAnswer for answer
+  const answer = (question as any).answer ?? (question as any).correctAnswer;
   return {
     id: question.id,
     prompt: question.prompt,
     options: question.options || [],
-    answer: question.answer, // for compatibility
+    answer, // for compatibility
     category:
       (question as any).category ?? question.data?.category ?? question.type, // allow category from review objects
     helperText: question.helperText,

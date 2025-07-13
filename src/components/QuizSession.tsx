@@ -2,6 +2,7 @@ import React from "react";
 import type { QuizQuestion, QuizResults } from "../types/Flashcard";
 import SessionLayout from "./layout/SessionLayout";
 import { useQuizSession } from "../hooks/useQuizSession";
+import MCQOptions from "./MCQOptions";
 
 interface QuizSessionProps {
   questions: QuizQuestion[];
@@ -100,28 +101,14 @@ const QuizSession: React.FC<QuizSessionProps> = ({
 
         {/* Options or Text Input */}
         {currentQuestion.options.length > 0 ? (
-          <div className="flex flex-col space-y-3 max-w-lg mx-auto">
-            {currentQuestion.options.map((option) => (
-              <button
-                key={option}
-                className={`w-full p-3 sm:p-4 text-base sm:text-lg border rounded-lg transition-all duration-200 focus:outline-none focus:ring-2
-                  ${
-                    showResult
-                      ? option === currentQuestion.answer
-                        ? "border-green-500 bg-green-50 text-green-700"
-                        : option === userAnswer
-                        ? "border-red-500 bg-red-50 text-red-700"
-                        : "border-gray-300"
-                      : "border-gray-300 hover:border-blue-400"
-                  }
-                `}
-                disabled={showResult}
-                onClick={() => handleAnswer(option)}
-              >
-                {option}
-              </button>
-            ))}
-          </div>
+          <MCQOptions
+            options={currentQuestion.options}
+            answer={currentQuestion.answer}
+            userAnswer={userAnswer}
+            showResult={showResult}
+            onSelect={handleAnswer}
+            disabled={showResult}
+          />
         ) : (
           <div className="max-w-lg mx-auto">
             <input

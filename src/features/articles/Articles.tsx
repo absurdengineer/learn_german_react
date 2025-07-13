@@ -114,42 +114,7 @@ const Articles: React.FC = () => {
     );
   }
 
-  // Add review complete page
-  if (
-    sessionMode === "review" &&
-    sessionResults &&
-    sessionQuestions.length === 0
-  ) {
-    // Review is complete (no more questions)
-    return (
-      <PageLayout
-        pageData={{
-          title: "Review Complete",
-          subtitle: "You have finished reviewing your mistakes!",
-          description: "Great job! You have completed your review session.",
-          icon: "✅",
-          gradient: "from-green-500 to-blue-600",
-        }}
-      >
-        <div className="max-w-2xl mx-auto py-12 text-center">
-          <div className="text-6xl mb-4">✅</div>
-          <h3 className="text-2xl font-semibold text-gray-900 mb-2">
-            Review Complete!
-          </h3>
-          <p className="text-gray-600 mb-8">
-            You have finished reviewing your mistakes.
-          </p>
-          <button
-            onClick={handleSessionExit}
-            className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium"
-          >
-            Back to Articles
-          </button>
-        </div>
-      </PageLayout>
-    );
-  }
-
+  // Remove review complete page: just show results page after review as well
   if (sessionResults) {
     const accuracy = Math.round(
       (sessionResults.correctAnswers / sessionResults.totalQuestions) * 100
@@ -158,21 +123,37 @@ const Articles: React.FC = () => {
     return (
       <PageLayout
         pageData={{
-          title: "Session Results",
-          subtitle: "Practice completed",
-          description: "Review your article practice session",
-          icon: "🏷️",
-          gradient: "from-blue-500 to-purple-600",
+          title:
+            sessionMode === "review" ? "Review Results" : "Session Results",
+          subtitle:
+            sessionMode === "review"
+              ? "Review session completed"
+              : "Practice completed",
+          description:
+            sessionMode === "review"
+              ? "See your results for the review session."
+              : "Review your article practice session",
+          icon: sessionMode === "review" ? "✅" : "🏷️",
+          gradient:
+            sessionMode === "review"
+              ? "from-green-500 to-blue-600"
+              : "from-blue-500 to-purple-600",
         }}
       >
         <div className="max-w-4xl mx-auto py-8">
           <div className="text-center mb-8">
-            <div className="text-6xl mb-4">🎉</div>
+            <div className="text-6xl mb-4">
+              {sessionMode === "review" ? "✅" : "🎉"}
+            </div>
             <h3 className="text-2xl font-semibold text-gray-900 mb-2">
-              Session Complete!
+              {sessionMode === "review"
+                ? "Review Complete!"
+                : "Session Complete!"}
             </h3>
             <p className="text-gray-600">
-              Great job! Here's how you performed.
+              {sessionMode === "review"
+                ? "Here are your results for the review session."
+                : "Great job! Here's how you performed."}
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
@@ -251,7 +232,7 @@ const Articles: React.FC = () => {
             </button>
             <button
               onClick={handleSessionExit}
-              className="bg-gray-600 text-white px-6 py-3 rounded-lg hover:bg-gray-700 transition-colors font-medium"
+              className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium"
             >
               Back to Articles
             </button>

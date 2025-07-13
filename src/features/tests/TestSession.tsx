@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import SessionLayout from "../../components/layout/SessionLayout";
 import type { QuizResults, QuizMistake } from "../../types/Flashcard";
+import MCQOptions from "../../components/MCQOptions";
 
 interface TestSessionProps {
   questions: any[]; // Mixed question types
@@ -249,30 +250,14 @@ const TestSession: React.FC<TestSessionProps> = ({
 
         {/* MCQ Mode */}
         {isMCQ && (
-          <div className="grid grid-cols-1 gap-3 sm:gap-4">
-            {currentQuestion.options.map((option: string) => (
-              <button
-                key={option}
-                onClick={() => handleAnswer(option)}
-                disabled={answeredQuestions[currentQuestionIndex]}
-                className={`p-3 sm:p-4 rounded-lg border transition-all text-left w-full ${
-                  showResult &&
-                  option ===
-                    (currentQuestion.correctAnswer || currentQuestion.answer)
-                    ? "bg-green-100 border-green-500 text-green-700"
-                    : showResult &&
-                      option === userAnswer &&
-                      option !==
-                        (currentQuestion.correctAnswer ||
-                          currentQuestion.answer)
-                    ? "bg-red-100 border-red-500 text-red-700"
-                    : "bg-gray-50 border-gray-200 hover:bg-gray-100 active:bg-gray-200"
-                }`}
-              >
-                <span className="text-sm sm:text-base">{option}</span>
-              </button>
-            ))}
-          </div>
+          <MCQOptions
+            options={currentQuestion.options}
+            answer={currentQuestion.correctAnswer || currentQuestion.answer}
+            userAnswer={userAnswer}
+            showResult={showResult}
+            onSelect={handleAnswer}
+            disabled={answeredQuestions[currentQuestionIndex]}
+          />
         )}
 
         {/* Freestyle Input Mode */}
