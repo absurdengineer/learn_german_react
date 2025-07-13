@@ -31,11 +31,12 @@ const MCQSession: React.FC<MCQSessionProps> = ({
   }, [currentQuestionIndex]);
 
   const currentQuestion = questions[currentQuestionIndex];
+  // Fallback for compatibility
+  const answer = currentQuestion.answer;
 
-  const handleAnswer = (answer: string) => {
+  const handleAnswer = (selected: string) => {
     if (!currentQuestion) return;
-
-    const isCorrect = answer === currentQuestion.correctAnswer;
+    const isCorrect = selected === answer;
     if (isCorrect) {
       setScore(score + 1);
     } else {
@@ -44,15 +45,15 @@ const MCQSession: React.FC<MCQSessionProps> = ({
         {
           id: currentQuestion.id,
           prompt: currentQuestion.prompt,
-          correctAnswer: currentQuestion.correctAnswer,
-          userAnswer: answer,
+          correctAnswer: answer,
+          userAnswer: selected,
           category: currentQuestion.category,
-          word: currentQuestion.word,
+          options: currentQuestion.options,
         },
       ]);
     }
 
-    setUserAnswer(answer);
+    setUserAnswer(selected);
     setShowResult(true);
 
     setTimeout(() => {
@@ -62,12 +63,26 @@ const MCQSession: React.FC<MCQSessionProps> = ({
         setShowResult(false);
       } else {
         const endTime = Date.now();
+        // If the last answer was incorrect, add it to the mistakes array
+        const finalMistakes = isCorrect
+          ? mistakes
+          : [
+              ...mistakes,
+              {
+                id: currentQuestion.id,
+                prompt: currentQuestion.prompt,
+                correctAnswer: answer,
+                userAnswer: selected,
+                category: currentQuestion.category,
+                options: currentQuestion.options,
+              },
+            ];
         onComplete({
           totalQuestions: questions.length,
           correctAnswers: score + (isCorrect ? 1 : 0),
           wrongAnswers: questions.length - (score + (isCorrect ? 1 : 0)),
           timeSpent: endTime - sessionStartTime,
-          mistakes,
+          mistakes: finalMistakes,
         });
       }
     }, 1500);
@@ -142,17 +157,15 @@ const MCQSession: React.FC<MCQSessionProps> = ({
 
         {/* Multiple Choice Options */}
         <div className="grid grid-cols-1 gap-3 sm:gap-4">
-          {currentQuestion.options.map((option) => (
+          {currentQuestion.options.map((option: string) => (
             <button
               key={option}
               onClick={() => handleAnswer(option)}
               disabled={showResult}
               className={`p-3 sm:p-4 rounded-lg border transition-all text-left w-full ${
-                showResult && option === currentQuestion.correctAnswer
+                showResult && option === answer
                   ? "bg-green-100 border-green-500 text-green-700"
-                  : showResult &&
-                    option === userAnswer &&
-                    option !== currentQuestion.correctAnswer
+                  : showResult && option === userAnswer && option !== answer
                   ? "bg-red-100 border-red-500 text-red-700"
                   : "bg-gray-50 border-gray-200 hover:bg-gray-100 active:bg-gray-200"
               }`}
@@ -165,16 +178,14 @@ const MCQSession: React.FC<MCQSessionProps> = ({
         {/* Result Feedback */}
         {showResult && (
           <div className="mt-4 text-center">
-            {userAnswer === currentQuestion.correctAnswer ? (
+            {userAnswer === answer ? (
               <div className="text-green-600 font-medium">
                 ✅ Correct! Well done!
               </div>
             ) : (
               <div className="text-red-600 font-medium">
                 ❌ Incorrect. The correct answer is:{" "}
-                <span className="font-bold">
-                  {currentQuestion.correctAnswer}
-                </span>
+                <span className="font-bold">{answer}</span>
               </div>
             )}
           </div>

@@ -49,16 +49,25 @@ const generateVocabularyTest = (count: number): TestData => {
       id: q.id,
       question: q.prompt,
       options: q.options,
-      answer: q.correctAnswer,
+      answer: q.answer,
     })),
   };
 };
 
+const isTestMode = import.meta.env.VITE_TEST_MODE === "true";
 const generateArticlesTest = (count: number): TestData => {
+  const actualCount = isTestMode ? 3 : count;
+  console.log(
+    "[generateArticlesTest] VITE_TEST_MODE:",
+    isTestMode,
+    "actualCount:",
+    actualCount
+  );
   const questions = getArticleQuestions({
     mode: "mc",
-    count,
+    count: actualCount,
   });
+  console.log("[generateArticlesTest] questions:", questions);
 
   const quizQuestions = questionsToQuizQuestions(questions);
 
@@ -70,7 +79,7 @@ const generateArticlesTest = (count: number): TestData => {
       id: q.id,
       question: q.prompt,
       options: q.options,
-      answer: q.correctAnswer,
+      answer: q.answer,
     })),
   };
 };
@@ -91,7 +100,7 @@ const generateGrammarTest = (count: number): TestData => {
       id: q.id,
       question: q.prompt,
       options: q.options,
-      answer: q.correctAnswer,
+      answer: q.answer,
     })),
   };
 };
@@ -130,7 +139,7 @@ const generateA1Test = (count: number): TestData => {
       id: q.id,
       question: q.prompt,
       options: q.options,
-      answer: q.correctAnswer,
+      answer: q.answer,
     })),
   };
 };

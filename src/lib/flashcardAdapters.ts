@@ -13,8 +13,8 @@ export const grammarToFlashcardAdapter = (
 ): FlashcardItem[] => {
   return questions.map((question) => ({
     id: question.id?.toString() || Math.random().toString(36).substr(2, 9),
-    front: question.prompt,
-    back: question.correctAnswer,
+    prompt: question.prompt,
+    answer: question.correctAnswer,
     category: question.category,
     helperText: question.helperText,
     metadata: {
@@ -37,16 +37,16 @@ export const generateVocabularyQuestion = (
   switch (questionType) {
     case VocabularyQuestionType.GERMAN_TO_ENGLISH:
       return {
-        front: `What is the English word for "${word.german}"?`,
-        back: word.english,
+        prompt: `What is the English word for "${word.german}"?`,
+        answer: word.english,
         category: `🇩🇪→🇺🇸 ${word.type}`,
         helperText: word.pronunciation ? `/${word.pronunciation}/` : undefined,
       };
 
     case VocabularyQuestionType.ENGLISH_TO_GERMAN:
       return {
-        front: `What is the German word for "${word.english}"?`,
-        back: word.german,
+        prompt: `What is the German word for "${word.english}"?`,
+        answer: word.german,
         category: `🇺🇸→🇩🇪 ${word.type}`,
         helperText: undefined,
       };
@@ -63,8 +63,8 @@ export const generateVocabularyQuestion = (
     case VocabularyQuestionType.PRONUNCIATION:
       if (word.pronunciation) {
         return {
-          front: `How do you pronounce "${word.german}"?`,
-          back: `/${word.pronunciation}/`,
+          prompt: `How do you pronounce "${word.german}"?`,
+          answer: `/${word.pronunciation}/`,
           category: "🗣️ Pronunciation",
           helperText: `${word.english} (${word.type})`,
         };
@@ -121,8 +121,8 @@ export const generateVocabularyQuestion = (
           sentenceWithBlank.includes("____")
         ) {
           return {
-            front: `Fill in the blank:\n"${sentenceWithBlank}"`,
-            back: hiddenWord,
+            prompt: `Fill in the blank:\n"${sentenceWithBlank}"`,
+            answer: hiddenWord,
             category: "📖 Context Practice",
             helperText: `Translation: "${example.english}"`,
           };
@@ -136,8 +136,8 @@ export const generateVocabularyQuestion = (
     case VocabularyQuestionType.WORD_BUILDING:
       if (word.type === "verb") {
         return {
-          front: `What is the infinitive form?\n"${word.english}"`,
-          back: word.german,
+          prompt: `What is the infinitive form?\n"${word.english}"`,
+          answer: word.german,
           category: "🔧 Word Building",
           helperText: "Think about the verb form",
         };
@@ -194,20 +194,19 @@ export const vocabularyToFlashcardAdapter = (
 ): FlashcardItem[] => {
   return words.map((word) => {
     const questionData = generateVocabularyQuestion(word);
-    // Fallback: always use explicit question
-    let front = questionData.front;
-    if (!front) {
-      // Guess direction by comparing back to english/german
-      if (questionData.back === word.english) {
-        front = `What is the English word for "${word.german}"?`;
+    let prompt = (questionData.prompt || "") as string;
+    if (!prompt) {
+      if (questionData.answer === word.english) {
+        prompt = `What is the English word for "${word.german}"?`;
       } else {
-        front = `What is the German word for "${word.english}"?`;
+        prompt = `What is the German word for "${word.english}"?`;
       }
     }
+    let answer = (questionData.answer || word.english || "") as string;
     return {
       id: word.id?.toString() || Math.random().toString(36).substr(2, 9),
-      front,
-      back: questionData.back || word.english,
+      prompt,
+      answer,
       category: questionData.category || `🇩🇪 ${word.type}`,
       helperText: questionData.helperText,
       metadata: {
@@ -248,19 +247,19 @@ export const vocabularyToFlashcardAdapterWithType = (
     }
 
     const questionData = generateVocabularyQuestion(word, selectedType);
-    // Fallback: always use explicit question
-    let front = questionData.front;
-    if (!front) {
-      if (questionData.back === word.english) {
-        front = `What is the English word for "${word.german}"?`;
+    let prompt = (questionData.prompt || "") as string;
+    if (!prompt) {
+      if (questionData.answer === word.english) {
+        prompt = `What is the English word for "${word.german}"?`;
       } else {
-        front = `What is the German word for "${word.english}"?`;
+        prompt = `What is the German word for "${word.english}"?`;
       }
     }
+    let answer = (questionData.answer || word.english || "") as string;
     return {
       id: word.id?.toString() || Math.random().toString(36).substr(2, 9),
-      front,
-      back: questionData.back || word.english,
+      prompt,
+      answer,
       category: questionData.category || `🇩🇪 ${word.type}`,
       helperText: questionData.helperText,
       metadata: {
@@ -336,9 +335,9 @@ export const getQuestionTypeDescription = (
 export function questionToFlashcardItem(question: Question): FlashcardItem {
   return {
     id: question.id,
-    front: question.prompt,
-    back: question.answer,
-    category: question.data?.category || question.data?.type || question.type,
+    prompt: question.prompt,
+    answer: question.answer,
+    category: question.data?.category || question.type,
     helperText: question.helperText,
     additionalInfo: question.data?.additionalInfo,
     metadata: {
@@ -365,10 +364,12 @@ export function questionToQuizQuestion(question: Question): QuizQuestion {
     id: question.id,
     prompt: question.prompt,
     options: question.options || [],
-    correctAnswer: question.answer,
-    category: question.data?.category || question.data?.type || question.type,
+    answer: question.answer, // for compatibility
+    category:
+      (question as any).category ?? question.data?.category ?? question.type, // allow category from review objects
     helperText: question.helperText,
     word: question.data,
+    // ...any other fields you want to preserve
   };
 }
 

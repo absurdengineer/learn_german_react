@@ -73,13 +73,8 @@ const FlashcardSession: React.FC<FlashcardSessionProps> = ({
   };
 
   const currentItem = items[currentItemIndex];
-
-  // Debug log
-  console.log("FlashcardSession", {
-    showAnswer,
-    currentItemIndex,
-    currentItem,
-  });
+  const prompt = currentItem.prompt;
+  const answer = currentItem.answer;
 
   // Handle empty items
   if (items.length === 0) {
@@ -151,20 +146,20 @@ const FlashcardSession: React.FC<FlashcardSessionProps> = ({
         )}
         <div className="mb-4 sm:mb-6">
           <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800 mb-2 sm:mb-3 leading-tight">
-            {currentItem.front}
+            {prompt}
           </h2>
           {currentItem.helperText && (
             <div className="flex justify-center items-center gap-2 w-full">
               <p className="text-xs sm:text-sm text-gray-500 italic text-center">
                 {currentItem.helperText}
               </p>
-              <PronunciationButton text={currentItem.front} />
+              <PronunciationButton text={prompt} />
             </div>
           )}
         </div>
         {showAnswer && (
           <div className="text-lg sm:text-xl font-semibold text-green-600 mb-2">
-            {currentItem.back}
+            {answer}
           </div>
         )}
       </div>

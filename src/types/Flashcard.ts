@@ -3,8 +3,10 @@ import type { VocabularyWord } from "./Vocabulary";
 // Generic flashcard item interface
 export interface FlashcardItem {
   id: string;
-  front: string;
-  back: string;
+  /** The question prompt */
+  prompt: string;
+  /** The answer */
+  answer: string;
   category?: string;
   helperText?: string;
   additionalInfo?: React.ReactNode;
@@ -45,13 +47,16 @@ export interface QuizMistake {
   userAnswer: string;
   category?: string;
   word?: VocabularyWord;
+  helperText?: string;
+  options?: string[];
 }
 
 export interface QuizQuestion {
   id: string;
   prompt: string;
   options: string[];
-  correctAnswer: string;
+  /** The answer (use this instead of correctAnswer) */
+  answer: string;
   category?: string;
   helperText?: string;
   word?: VocabularyWord;

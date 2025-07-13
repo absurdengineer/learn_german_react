@@ -51,6 +51,3 @@ export { default as SpeedControls } from "./SpeedControls";
 // Layout Components
 export { default as PageLayout } from "./layout/PageLayout";
 export { default as SectionGrid } from "./layout/SectionGrid";
-
-// Re-export utilities for backward compatibility
-export * from "./FlashcardAdapters";

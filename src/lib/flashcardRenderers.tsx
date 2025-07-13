@@ -147,7 +147,7 @@ export const vocabularyFlashcardRenderer = (
         <h2
           className={`text-lg sm:text-xl font-semibold ${styles.text} mb-3 leading-tight whitespace-pre-line`}
         >
-          {item.front}
+          {item.prompt}
         </h2>
         {/* Divider */}
         <div className="w-full flex justify-center items-center my-2">
@@ -168,7 +168,7 @@ export const vocabularyFlashcardRenderer = (
               <div
                 className={`text-2xl sm:text-3xl font-bold ${styles.accent} break-words`}
               >
-                {item.back}
+                {item.answer}
               </div>
               {/* Pronunciation (IPA + button) if available */}
               {word?.pronunciation && (
@@ -216,7 +216,7 @@ export const grammarFlashcardRenderer = (
         {/* Question */}
         <div className="mb-4 sm:mb-6">
           <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-indigo-800 mb-2 sm:mb-3 leading-tight">
-            {item.front}
+            {item.prompt}
           </h2>
           {item.helperText && !showAnswer && (
             <p className="text-xs sm:text-sm text-indigo-600 italic">
@@ -229,7 +229,7 @@ export const grammarFlashcardRenderer = (
         {showAnswer && (
           <div className="bg-white rounded-lg p-3 sm:p-4 border border-gray-200 shadow-sm">
             <h3 className="text-base sm:text-lg lg:text-xl font-semibold text-green-600 mb-2">
-              {item.back}
+              {item.answer}
             </h3>
 
             {/* Additional grammar info if available */}

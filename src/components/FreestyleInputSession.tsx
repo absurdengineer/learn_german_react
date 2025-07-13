@@ -20,6 +20,7 @@ const FreestyleInputSession: React.FC<FreestyleInputSessionProps> = ({
   onExit,
 }) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  // Single score state: only increment for correct answers
   const [score, setScore] = useState(0);
 
   const [textInput, setTextInput] = useState("");
@@ -42,42 +43,44 @@ const FreestyleInputSession: React.FC<FreestyleInputSessionProps> = ({
   }, [currentQuestionIndex, showResult]);
 
   const currentQuestion = questions[currentQuestionIndex];
+  // Fallback for compatibility
+  const answer = currentQuestion.answer;
 
   const isAnswerCorrect = (
     userAnswer: string,
-    correctAnswer: string
+    answerValue: string
   ): boolean => {
     const normalizedUserAnswer = userAnswer.toLowerCase().trim();
-    const normalizedCorrectAnswer = correctAnswer.toLowerCase().trim();
+    const normalizedAnswer = answerValue.toLowerCase().trim();
 
     // Check if the correct answer contains alternative answers separated by "/"
-    if (normalizedCorrectAnswer.includes("/")) {
-      const alternatives = normalizedCorrectAnswer
-        .split("/")
-        .map((alt) => alt.trim());
+    if (normalizedAnswer.includes("/")) {
+      const alternatives = normalizedAnswer.split("/").map((alt) => alt.trim());
       return alternatives.some((alt) => alt === normalizedUserAnswer);
     }
 
     // Regular exact match
-    return normalizedUserAnswer === normalizedCorrectAnswer;
+    return normalizedUserAnswer === normalizedAnswer;
   };
 
-  const handleAnswer = (answer: string) => {
+  const handleAnswer = (userAnswer: string) => {
     if (!currentQuestion) return;
 
-    const isCorrect = isAnswerCorrect(answer, currentQuestion.correctAnswer);
+    const isCorrect = isAnswerCorrect(userAnswer, answer);
     if (isCorrect) {
-      setScore(score + 1);
+      setScore((prev) => prev + 1);
     } else {
       setMistakes([
         ...mistakes,
         {
           id: currentQuestion.id,
           prompt: currentQuestion.prompt,
-          correctAnswer: currentQuestion.correctAnswer,
-          userAnswer: answer,
+          correctAnswer: answer,
+          userAnswer: userAnswer,
           category: currentQuestion.category,
-          word: currentQuestion.word,
+          helperText: currentQuestion.helperText,
+          options: currentQuestion.options,
+          // Add any other fields you want to preserve
         },
       ]);
     }
@@ -91,12 +94,28 @@ const FreestyleInputSession: React.FC<FreestyleInputSessionProps> = ({
         setShowResult(false);
       } else {
         const endTime = Date.now();
+        // Use score for correct answers
+        const finalScore = isCorrect ? score + 1 : score;
         onComplete({
           totalQuestions: questions.length,
-          correctAnswers: score + (isCorrect ? 1 : 0),
-          wrongAnswers: questions.length - (score + (isCorrect ? 1 : 0)),
+          correctAnswers: finalScore,
+          wrongAnswers: questions.length - finalScore,
           timeSpent: endTime - sessionStartTime,
-          mistakes,
+          mistakes: !isCorrect
+            ? [
+                ...mistakes,
+                {
+                  id: currentQuestion.id,
+                  prompt: currentQuestion.prompt,
+                  correctAnswer: answer,
+                  userAnswer: userAnswer,
+                  category: currentQuestion.category,
+                  helperText: currentQuestion.helperText,
+                  options: currentQuestion.options,
+                  // Add any other fields you want to preserve
+                },
+              ]
+            : mistakes,
         });
       }
     }, 2000);
@@ -166,11 +185,9 @@ const FreestyleInputSession: React.FC<FreestyleInputSessionProps> = ({
 
       <div className="border border-slate-200 rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 bg-white">
         <div className="text-center mb-6 sm:mb-8">
-          {currentQuestion.category && (
-            <p className="text-xs sm:text-sm text-gray-500 mb-2">
-              {currentQuestion.category}
-            </p>
-          )}
+          <p className="text-xs sm:text-sm text-gray-500 mb-2">
+            {currentQuestion.category || "Uncategorized"}
+          </p>
           <p className="text-base sm:text-lg lg:text-xl text-gray-800 leading-relaxed px-2">
             {currentQuestion.prompt}
           </p>
@@ -194,7 +211,7 @@ const FreestyleInputSession: React.FC<FreestyleInputSessionProps> = ({
               placeholder="Type your answer..."
               className={`w-full p-3 sm:p-4 text-base sm:text-lg border rounded-lg focus:outline-none focus:ring-2 ${
                 showResult
-                  ? isAnswerCorrect(textInput, currentQuestion.correctAnswer)
+                  ? isAnswerCorrect(textInput, answer)
                     ? "border-green-500 bg-green-50 text-green-700"
                     : "border-red-500 bg-red-50 text-red-700"
                   : "border-gray-300 focus:ring-blue-500 focus:border-blue-500"
@@ -216,7 +233,7 @@ const FreestyleInputSession: React.FC<FreestyleInputSessionProps> = ({
         {/* Result Feedback */}
         {showResult && (
           <div className="mt-6 text-center">
-            {isAnswerCorrect(textInput, currentQuestion.correctAnswer) ? (
+            {isAnswerCorrect(textInput, answer) ? (
               <div className="text-green-600 font-medium text-lg">
                 ✅ Correct! Well done!
               </div>
@@ -234,9 +251,7 @@ const FreestyleInputSession: React.FC<FreestyleInputSessionProps> = ({
                   </div>
                   <div>
                     Correct answer:{" "}
-                    <span className="font-medium text-green-600">
-                      {currentQuestion.correctAnswer}
-                    </span>
+                    <span className="font-medium text-green-600">{answer}</span>
                   </div>
                 </div>
               </div>

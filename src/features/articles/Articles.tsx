@@ -1,74 +1,171 @@
-import React from "react";
-import { useArticles } from "./useArticles";
+import React, { useState } from "react";
+import { useArticles } from "../../hooks/useArticles";
+import MCQSession from "../../components/MCQSession";
 import PageLayout from "../../components/layout/PageLayout";
-import { GradientCard, StatCard } from "../../components";
-import { getArticleQuestions } from "../../core/question-engine/questionBuilder";
-import QuizSession from "../../components/QuizSession";
 import { questionsToQuizQuestions } from "../../lib/flashcardAdapters";
-import ArticleLearningSession from "./ArticleLearningSession";
+
+const genderColors: Record<string, string> = {
+  der: "bg-blue-100 text-blue-800 border-blue-300",
+  die: "bg-pink-100 text-pink-800 border-pink-300",
+  das: "bg-gray-100 text-gray-800 border-gray-300",
+};
+
+// ArticleDetailModal: simple modal for article details
+const ArticleDetailModal = ({
+  article,
+  onClose,
+}: {
+  article: any;
+  onClose: () => void;
+}) => (
+  <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40">
+    <div className="bg-white rounded-xl p-8 shadow-lg max-w-md w-full relative">
+      <button
+        className="absolute top-2 right-2 text-gray-400 hover:text-gray-600"
+        onClick={onClose}
+      >
+        <svg
+          className="h-6 w-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </svg>
+      </button>
+      <div className="flex items-center gap-4 mb-4">
+        <span
+          className={`inline-block px-3 py-1 rounded-full border text-sm font-semibold ${
+            genderColors[article.gender] ||
+            "bg-gray-100 text-gray-800 border-gray-300"
+          }`}
+        >
+          {article.gender}
+        </span>
+        <span className="text-2xl font-bold">{article.german}</span>
+      </div>
+      <div className="text-lg text-gray-700 mb-2">{article.english}</div>
+      <div className="text-sm text-gray-400">ID: {article.id}</div>
+    </div>
+  </div>
+);
 
 const Articles: React.FC = () => {
   const {
-    selectedCategory,
+    articles,
     sessionMode,
-    sessionType,
     sessionQuestions,
     sessionResults,
     startPractice,
-    handleQuizComplete,
+    startQuiz,
     handleSessionExit,
+    handleSessionComplete,
     handleRestart,
     handleReviewMistakes,
+    mistakes,
   } = useArticles();
 
-  // Helper to get questions for each mode
-  const getQuestionsForMode = (mode: string, count: number) => {
-    let category = selectedCategory !== "all" ? selectedCategory : undefined;
-    return getArticleQuestions({ mode, count, category });
-  };
+  // Search and filter state
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedGender, setSelectedGender] = useState("all");
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [selectedArticle, setSelectedArticle] = useState<any>(null);
 
-  if (sessionMode === "session" && sessionQuestions.length > 0) {
-    // If learning mode, use ArticleLearningSession; otherwise, use QuizSession for MCQ practice
-    if (sessionType === "learning") {
-      return (
-        <ArticleLearningSession
-          questions={sessionQuestions}
-          title="Articles Learning"
-          onExit={handleSessionExit}
-        />
-      );
-    } else {
-      // Practice mode uses QuizSession for MCQ (der/die/das selection)
-      const quizQuestions = questionsToQuizQuestions(sessionQuestions);
-      return (
-        <QuizSession
-          questions={quizQuestions}
-          title="Articles Practice"
-          onComplete={handleQuizComplete}
-          onExit={handleSessionExit}
-        />
-      );
-    }
+  // Filtered articles
+  const filteredArticles = articles.filter((a: any) => {
+    const matchesGender =
+      selectedGender === "all" || a.gender === selectedGender;
+    const term = searchTerm.toLowerCase();
+    const matchesSearch =
+      a.german.toLowerCase().includes(term) ||
+      a.english.toLowerCase().includes(term);
+    return matchesGender && matchesSearch;
+  });
+
+  if (
+    (sessionMode === "practice" || sessionMode === "quiz") &&
+    sessionQuestions.length > 0
+  ) {
+    const quizQuestions = questionsToQuizQuestions(sessionQuestions);
+    return (
+      <MCQSession
+        questions={quizQuestions}
+        title={sessionMode === "practice" ? "Article Practice" : "Article Quiz"}
+        onComplete={handleSessionComplete}
+        onExit={handleSessionExit}
+      />
+    );
   }
 
-  if (sessionMode === "results" && sessionResults) {
+  if (sessionMode === "review" && sessionQuestions.length > 0) {
+    const quizQuestions = questionsToQuizQuestions(sessionQuestions);
+    return (
+      <MCQSession
+        questions={quizQuestions}
+        title="Review Mistakes"
+        onComplete={handleSessionComplete}
+        onExit={handleSessionExit}
+      />
+    );
+  }
+
+  // Add review complete page
+  if (
+    sessionMode === "review" &&
+    sessionResults &&
+    sessionQuestions.length === 0
+  ) {
+    // Review is complete (no more questions)
+    return (
+      <PageLayout
+        pageData={{
+          title: "Review Complete",
+          subtitle: "You have finished reviewing your mistakes!",
+          description: "Great job! You have completed your review session.",
+          icon: "✅",
+          gradient: "from-green-500 to-blue-600",
+        }}
+      >
+        <div className="max-w-2xl mx-auto py-12 text-center">
+          <div className="text-6xl mb-4">✅</div>
+          <h3 className="text-2xl font-semibold text-gray-900 mb-2">
+            Review Complete!
+          </h3>
+          <p className="text-gray-600 mb-8">
+            You have finished reviewing your mistakes.
+          </p>
+          <button
+            onClick={handleSessionExit}
+            className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium"
+          >
+            Back to Articles
+          </button>
+        </div>
+      </PageLayout>
+    );
+  }
+
+  if (sessionResults) {
     const accuracy = Math.round(
       (sessionResults.correctAnswers / sessionResults.totalQuestions) * 100
     );
     const hasMistakes = sessionResults.mistakes.length > 0;
-
     return (
       <PageLayout
         pageData={{
           title: "Session Results",
           subtitle: "Practice completed",
-          description: "Review your articles practice session",
-          icon: "📊",
-          gradient: "from-green-500 to-blue-600",
+          description: "Review your article practice session",
+          icon: "🏷️",
+          gradient: "from-blue-500 to-purple-600",
         }}
       >
         <div className="max-w-4xl mx-auto py-8">
-          {/* Header */}
           <div className="text-center mb-8">
             <div className="text-6xl mb-4">🎉</div>
             <h3 className="text-2xl font-semibold text-gray-900 mb-2">
@@ -78,8 +175,6 @@ const Articles: React.FC = () => {
               Great job! Here's how you performed.
             </p>
           </div>
-
-          {/* Stats Grid */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
             <div className="bg-white rounded-lg p-4 shadow-sm border border-gray-100 text-center">
               <div className="text-2xl font-bold text-blue-600">
@@ -106,22 +201,20 @@ const Articles: React.FC = () => {
               <div className="text-sm text-gray-600">Accuracy</div>
             </div>
           </div>
-
-          {/* Mistakes Section */}
           {hasMistakes && (
             <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-100 mb-8">
               <h4 className="text-lg font-semibold text-gray-900 mb-4">
                 Mistakes ({sessionResults.mistakes.length})
               </h4>
               <div className="space-y-3 max-h-64 overflow-y-auto">
-                {sessionResults.mistakes.map((mistake, index) => (
+                {sessionResults.mistakes.map((mistake: any, index: number) => (
                   <div
                     key={index}
                     className="flex items-center justify-between p-3 bg-red-50 rounded-lg border border-red-200"
                   >
                     <div className="flex-1">
                       <div className="font-medium text-gray-900">
-                        {mistake.word.prompt}
+                        {mistake.prompt}
                       </div>
                       <div className="text-sm text-gray-600">
                         Your answer:{" "}
@@ -141,8 +234,6 @@ const Articles: React.FC = () => {
               </div>
             </div>
           )}
-
-          {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             {hasMistakes && (
               <button
@@ -170,180 +261,137 @@ const Articles: React.FC = () => {
     );
   }
 
-  const explanationBanner = (
-    <GradientCard gradient="yellow-orange" className="border border-yellow-200">
-      <div className="flex items-start space-x-4">
-        <div className="text-3xl">🎯</div>
-        <div>
-          <h3 className="text-xl font-bold mb-2">
-            80-20 Rule for German Articles
-          </h3>
-          <p className="mb-2">
-            Research shows that <strong>20% of German nouns</strong> account for{" "}
-            <strong>80% of daily usage</strong>. By mastering these essential
-            words, you'll handle most A1 exam situations with confidence!
-          </p>
-          <p className="text-sm opacity-90">
-            ✨ We've curated 200+ high-frequency nouns that appear most often in
-            A1 exams and real conversations.
-          </p>
-        </div>
-      </div>
-    </GradientCard>
-  );
-
-  const practiceModes = [
-    {
-      title: "Quick Practice",
-      description: "20 random essential words",
-      icon: "🚀",
-      buttonText: "Start Now",
-      color: "bg-blue-600",
-      onClick: () => startPractice("practice", getQuestionsForMode("mc", 20)),
-    },
-    {
-      title: "Intensive Session",
-      description: "50 words for comprehensive practice",
-      icon: "💪",
-      buttonText: "Start Intensive",
-      color: "bg-purple-600",
-      onClick: () => startPractice("intensive", getQuestionsForMode("mc", 50)),
-    },
-    {
-      title: "Speed Round",
-      description: "10 words for quick review",
-      icon: "⚡",
-      buttonText: "Speed Practice",
-      color: "bg-green-600",
-      onClick: () => startPractice("speed", getQuestionsForMode("mc", 10)),
-    },
-  ];
-
-  const learningModes = [
-    {
-      title: "Visual Learning",
-      description: "30 words with auto-advance",
-      icon: "🧠",
-      buttonText: "Start Learning",
-      color: "bg-indigo-600",
-      onClick: () =>
-        startPractice("learning", getQuestionsForMode("flashcard", 30)),
-    },
-    {
-      title: "Color Memory",
-      description: "50 words for intensive association",
-      icon: "🎨",
-      buttonText: "Deep Learning",
-      color: "bg-purple-600",
-      onClick: () =>
-        startPractice("learning", getQuestionsForMode("flashcard", 50)),
-    },
-    {
-      title: "Quick Review",
-      description: "20 words for fast visual review",
-      icon: "⚡",
-      buttonText: "Quick Learn",
-      color: "bg-teal-600",
-      onClick: () =>
-        startPractice("learning", getQuestionsForMode("flashcard", 20)),
-    },
-  ];
-
-  const stats = [
-    {
-      label: "DER words",
-      value: "68",
-      subtitle: "masculine nouns",
-      color: "text-blue-600",
-    },
-    {
-      label: "DIE words",
-      value: "74",
-      subtitle: "feminine nouns",
-      color: "text-pink-600",
-    },
-    {
-      label: "DAS words",
-      value: "58",
-      subtitle: "neuter nouns",
-      color: "text-gray-700",
-    },
-  ];
-
+  // Idle state: match Vocabulary UI
   return (
     <PageLayout
       pageData={{
         title: "German Articles",
-        subtitle: "Master der, die, das with the 80-20 rule",
-        description: "Focus on the most essential nouns for A1 exam success",
-        icon: "🎯",
-        gradient: "from-yellow-400 to-orange-500",
+        subtitle: "Master der, die, das for A1 level nouns",
+        description:
+          "Browse, search, and practice with interactive article exercises",
+        icon: "🏷️",
+        gradient: "from-blue-500 to-purple-600",
       }}
-      bannerContent={explanationBanner}
     >
       <div className="space-y-8">
-        {/* Practice Modes */}
-        <div className="space-y-4">
-          <h2 className="text-2xl font-bold text-gray-900">Practice Modes</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {practiceModes.map((mode, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow"
-              >
-                <div className="text-3xl mb-3">{mode.icon}</div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                  {mode.title}
-                </h3>
-                <p className="text-gray-600 mb-4 text-sm">{mode.description}</p>
-                <button
-                  onClick={mode.onClick}
-                  className={`w-full ${mode.color} text-white px-4 py-3 rounded-lg hover:opacity-90 transition-opacity font-medium`}
-                >
-                  {mode.buttonText}
-                </button>
-              </div>
-            ))}
-          </div>
+        <div className="flex flex-wrap gap-3 mt-8">
+          <button
+            onClick={() => startPractice()}
+            className="bg-blue-600 text-white px-4 py-3 rounded-xl hover:bg-blue-700 transition-all duration-200 font-medium"
+          >
+            Practice
+          </button>
+          <button
+            onClick={() => startQuiz()}
+            className="bg-purple-600 text-white px-4 py-3 rounded-xl hover:bg-purple-700 transition-all duration-200 font-medium"
+          >
+            Quiz
+          </button>
         </div>
-
-        {/* Learning Modes */}
-        <div className="space-y-4">
-          <h2 className="text-2xl font-bold text-gray-900">Learning Modes</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {learningModes.map((mode, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow"
-              >
-                <div className="text-3xl mb-3">{mode.icon}</div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                  {mode.title}
-                </h3>
-                <p className="text-gray-600 mb-4 text-sm">{mode.description}</p>
-                <button
-                  onClick={mode.onClick}
-                  className={`w-full ${mode.color} text-white px-4 py-3 rounded-lg hover:opacity-90 transition-opacity font-medium`}
-                >
-                  {mode.buttonText}
-                </button>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {stats.map((stat, index) => (
-            <StatCard
-              key={index}
-              title={stat.label}
-              value={stat.value}
-              subtitle={stat.subtitle}
-              color={stat.color}
+        <div className="flex flex-col sm:flex-row gap-4">
+          <div className="relative flex-1">
+            <input
+              type="text"
+              placeholder="Search articles..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="block w-full pl-4 pr-10 py-3 border border-gray-300 rounded-xl leading-5 bg-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
             />
+            {searchTerm && (
+              <div className="absolute inset-y-0 right-0 pr-3 flex items-center">
+                <button
+                  onClick={() => setSearchTerm("")}
+                  className="text-gray-400 hover:text-gray-600"
+                >
+                  <svg
+                    className="h-5 w-5"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </button>
+              </div>
+            )}
+          </div>
+          <div className="flex-shrink-0 sm:w-48">
+            <select
+              value={selectedGender}
+              onChange={(e) => setSelectedGender(e.target.value)}
+              className="block w-full px-4 py-3 border border-gray-300 rounded-xl bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+            >
+              <option value="all">All Genders</option>
+              <option value="der">der</option>
+              <option value="die">die</option>
+              <option value="das">das</option>
+            </select>
+          </div>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="bg-white rounded-lg p-4 shadow-sm border border-gray-100 text-center">
+            <div className="text-2xl font-bold text-blue-600">
+              {articles.length}
+            </div>
+            <div className="text-sm text-gray-600">Total Articles</div>
+          </div>
+          <div className="bg-white rounded-lg p-4 shadow-sm border border-gray-100 text-center">
+            <div className="text-2xl font-bold text-green-600">
+              {filteredArticles.length}
+            </div>
+            <div className="text-sm text-gray-600">Filtered</div>
+          </div>
+          <div className="bg-white rounded-lg p-4 shadow-sm border border-gray-100 text-center">
+            <div className="text-2xl font-bold text-purple-600">
+              {selectedGender}
+            </div>
+            <div className="text-sm text-gray-600">Gender</div>
+          </div>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {filteredArticles.map((article: any) => (
+            <div
+              key={article.id}
+              className="bg-white rounded-xl p-4 shadow-sm border border-gray-100 hover:shadow-md transition-shadow cursor-pointer"
+              onClick={() => {
+                setSelectedArticle(article);
+                setDialogOpen(true);
+              }}
+            >
+              <div className="flex items-center gap-2 mb-2">
+                <span
+                  className={`inline-block px-3 py-1 rounded-full border text-sm font-semibold ${
+                    genderColors[article.gender] ||
+                    "bg-gray-100 text-gray-800 border-gray-300"
+                  }`}
+                >
+                  {article.gender}
+                </span>
+                <span className="text-lg font-bold">{article.german}</span>
+              </div>
+              <div className="text-gray-600 mb-1">{article.english}</div>
+            </div>
           ))}
         </div>
+        {filteredArticles.length === 0 && (
+          <div className="text-center py-16">
+            <h3 className="text-xl font-semibold text-gray-900 mb-2">
+              No articles found
+            </h3>
+            <p className="text-gray-500">
+              Try adjusting your search or filter criteria.
+            </p>
+          </div>
+        )}
+        {dialogOpen && selectedArticle && (
+          <ArticleDetailModal
+            article={selectedArticle}
+            onClose={() => setDialogOpen(false)}
+          />
+        )}
       </div>
     </PageLayout>
   );

@@ -70,7 +70,7 @@ export const useGrammar = () => {
           sessionQuestions.find((q) => q.id === m.item.id) ||
           sessionQuestions[0],
         userAnswer: m.userAction || "",
-        correctAnswer: m.item.back,
+        correctAnswer: m.item.answer,
       })),
     };
     handleSessionComplete(sessionResult);
