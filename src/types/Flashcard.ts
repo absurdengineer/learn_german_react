@@ -27,10 +27,15 @@ export interface FlashcardSessionResult {
 // Quiz-related interfaces
 export interface QuizResults {
   totalQuestions: number;
-  correctAnswers: number;
-  wrongAnswers: number;
-  timeSpent: number;
+  correctAnswers?: number;
+  wrongAnswers?: number;
+  timeSpent?: number;
   mistakes: QuizMistake[];
+  userAnswers?: { [key: string]: string };
+  score?: number;
+  title?: string;
+  date?: string;
+  totalTime?: number;
 }
 
 export interface QuizMistake {

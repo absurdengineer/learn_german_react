@@ -22,6 +22,11 @@ const TestSession: React.FC<TestSessionProps> = ({
   const [showResult, setShowResult] = useState(false);
   const [sessionStartTime] = useState(Date.now());
   const [mistakes, setMistakes] = useState<QuizMistake[]>([]);
+  const [userAnswers, setUserAnswers] = useState<{ [key: string]: string }>({});
+  // Only allow one answer per question
+  const [answeredQuestions, setAnsweredQuestions] = useState<{
+    [key: number]: boolean;
+  }>({});
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -48,18 +53,25 @@ const TestSession: React.FC<TestSessionProps> = ({
     return normalizedUserAnswer === normalizedCorrectAnswer;
   };
 
+  // Remove immediate feedback: do not show correct/incorrect after each answer
+  // Only show next question after answering
   const handleAnswer = (answer: string) => {
     if (!currentQuestion) return;
+    if (answeredQuestions[currentQuestionIndex]) return; // Prevent multiple answers
 
     const isCorrect = isAnswerCorrect(
       answer,
       currentQuestion.correctAnswer || currentQuestion.answer
     );
+    setAnsweredQuestions((prev) => ({ ...prev, [currentQuestionIndex]: true }));
+    setUserAnswers((prev) => ({ ...prev, [currentQuestion.id]: answer }));
+    setUserAnswer(answer);
+
     if (isCorrect) {
-      setScore(score + 1);
+      setScore((prev) => prev + 1);
     } else {
-      setMistakes([
-        ...mistakes,
+      setMistakes((prev) => [
+        ...prev,
         {
           id: currentQuestion.id,
           prompt: currentQuestion.prompt,
@@ -72,9 +84,6 @@ const TestSession: React.FC<TestSessionProps> = ({
       ]);
     }
 
-    setUserAnswer(answer);
-    setShowResult(true);
-
     setTimeout(() => {
       if (currentQuestionIndex < questions.length - 1) {
         setCurrentQuestionIndex(currentQuestionIndex + 1);
@@ -84,14 +93,29 @@ const TestSession: React.FC<TestSessionProps> = ({
       } else {
         const endTime = Date.now();
         onComplete({
+          score: score + (isCorrect ? 1 : 0),
+          title,
+          date: new Date().toISOString(),
           totalQuestions: questions.length,
-          correctAnswers: score + (isCorrect ? 1 : 0),
-          wrongAnswers: questions.length - (score + (isCorrect ? 1 : 0)),
-          timeSpent: endTime - sessionStartTime,
-          mistakes,
+          userAnswers,
+          totalTime: endTime - sessionStartTime,
+          mistakes: isCorrect
+            ? mistakes
+            : [
+                ...mistakes,
+                {
+                  id: currentQuestion.id,
+                  prompt: currentQuestion.prompt,
+                  correctAnswer:
+                    currentQuestion.correctAnswer || currentQuestion.answer,
+                  userAnswer: answer,
+                  category: currentQuestion.category,
+                  word: currentQuestion.word,
+                },
+              ],
         });
       }
-    }, 1500);
+    }, 500);
   };
 
   const handleTextSubmit = () => {
@@ -113,10 +137,12 @@ const TestSession: React.FC<TestSessionProps> = ({
     } else {
       const endTime = Date.now();
       onComplete({
+        score,
+        title,
+        date: new Date().toISOString(),
         totalQuestions: questions.length,
-        correctAnswers: score,
-        wrongAnswers: questions.length - score,
-        timeSpent: endTime - sessionStartTime,
+        userAnswers,
+        totalTime: endTime - sessionStartTime,
         mistakes,
       });
     }
@@ -173,9 +199,6 @@ const TestSession: React.FC<TestSessionProps> = ({
           <span>
             Question {currentQuestionIndex + 1} of {questions.length}
           </span>
-          <span>
-            Score: {score}/{currentQuestionIndex + 1}
-          </span>
         </div>
       </div>
 
@@ -187,7 +210,7 @@ const TestSession: React.FC<TestSessionProps> = ({
             </p>
           )}
           <p className="text-base sm:text-lg lg:text-xl text-gray-800 leading-relaxed px-2">
-            {currentQuestion.prompt}
+            {currentQuestion.prompt || currentQuestion.question}
           </p>
           {currentQuestion.helperText && (
             <p className="text-xs sm:text-sm text-gray-500 mt-2 italic">
@@ -231,7 +254,7 @@ const TestSession: React.FC<TestSessionProps> = ({
               <button
                 key={option}
                 onClick={() => handleAnswer(option)}
-                disabled={showResult}
+                disabled={answeredQuestions[currentQuestionIndex]}
                 className={`p-3 sm:p-4 rounded-lg border transition-all text-left w-full ${
                   showResult &&
                   option ===
@@ -261,7 +284,7 @@ const TestSession: React.FC<TestSessionProps> = ({
                 value={textInput}
                 onChange={(e) => setTextInput(e.target.value)}
                 onKeyPress={handleKeyPress}
-                disabled={showResult}
+                disabled={answeredQuestions[currentQuestionIndex]}
                 placeholder="Type your answer..."
                 className={`w-full p-3 sm:p-4 text-base sm:text-lg border rounded-lg focus:outline-none focus:ring-2 ${
                   showResult
@@ -275,7 +298,7 @@ const TestSession: React.FC<TestSessionProps> = ({
                 }`}
               />
 
-              {!showResult && (
+              {!answeredQuestions[currentQuestionIndex] && (
                 <button
                   onClick={handleTextSubmit}
                   disabled={!textInput.trim()}
@@ -288,24 +311,7 @@ const TestSession: React.FC<TestSessionProps> = ({
           </div>
         )}
 
-        {/* Result Feedback for MCQ and Freestyle */}
-        {showResult && (isMCQ || isFreestyle) && (
-          <div className="mt-4 text-center">
-            {userAnswer ===
-            (currentQuestion.correctAnswer || currentQuestion.answer) ? (
-              <div className="text-green-600 font-medium">
-                ✅ Correct! Well done!
-              </div>
-            ) : (
-              <div className="text-red-600 font-medium">
-                ❌ Incorrect. The correct answer is:{" "}
-                <span className="font-bold">
-                  {currentQuestion.correctAnswer || currentQuestion.answer}
-                </span>
-              </div>
-            )}
-          </div>
-        )}
+        {/* Remove result feedback for MCQ and Freestyle */}
       </div>
     </SessionLayout>
   );

@@ -9,6 +9,8 @@ import {
   TestTypeCard,
 } from "../components";
 import SectionGrid from "../components/layout/SectionGrid";
+import { useLocation, useNavigate } from "react-router-dom";
+import TestSession from "../components/TestSession";
 
 const Tests: React.FC = () => {
   const {
@@ -20,11 +22,32 @@ const Tests: React.FC = () => {
     generateArticlesTest,
     generateGrammarTest,
   } = useTests();
+  const location = useLocation();
+  const navigate = useNavigate();
 
   if (sessionMode === "session") {
-    // This should be handled by the useTests hook which manages session state
-    // For now, return to menu since TestSession needs props
-    return null;
+    const test = location.state?.test;
+    if (!test) {
+      // If no test data, return to menu
+      navigate("/tests");
+      return null;
+    }
+    return (
+      <TestSession
+        questions={test.questions}
+        title={test.title}
+        onComplete={(result) => {
+          navigate("/tests/results", {
+            state: {
+              result,
+              test,
+              userAnswers: result.userAnswers || {},
+            },
+          });
+        }}
+        onExit={() => navigate("/tests")}
+      />
+    );
   }
 
   if (sessionMode === "results") {
@@ -69,65 +92,133 @@ const Tests: React.FC = () => {
       bannerContent={explanationBanner}
     >
       <div className="space-y-8">
+        {/* A1 Comprehensive Tests */}
         <SectionGrid
-          title="Quick Start Tests"
-          description="Jump right into practice with these popular test formats"
+          title="A1 Comprehensive Tests"
+          description="Full coverage of all A1 topics"
         >
           <QuickActionCard
-            title="Quick Test"
+            title="Quick A1 Test"
             description="10 mixed questions for rapid assessment"
             icon="⚡"
             color="from-green-500 to-teal-600"
-            onClick={() => startTest(generateA1Test, 10, "quick")}
+            onClick={() => startTest(generateA1Test, 10, "quick-a1")}
           />
-
           <QuickActionCard
-            title="Standard Test"
+            title="Standard A1 Test"
             description="20 questions covering all A1 topics"
             icon="🎯"
             color="from-blue-500 to-purple-600"
-            onClick={() => startTest(generateA1Test, 20, "standard")}
+            onClick={() => startTest(generateA1Test, 20, "standard-a1")}
           />
-
           <QuickActionCard
-            title="Comprehensive Test"
+            title="Comprehensive A1 Test"
             description="30 questions for thorough evaluation"
             icon="🚀"
             color="from-purple-500 to-pink-600"
-            onClick={() => startTest(generateA1Test, 30, "comprehensive")}
+            onClick={() => startTest(generateA1Test, 30, "comprehensive-a1")}
           />
         </SectionGrid>
 
+        {/* Vocabulary Tests */}
         <SectionGrid
-          title="🎭 Specialized Tests"
-          description="Target specific areas where you want to improve your A1 German skills"
+          title="Vocabulary Tests"
+          description="Test your German-English word knowledge"
         >
-          <TestTypeCard
-            title="Vocabulary Test"
-            description="Focus on German-English word translations"
+          <QuickActionCard
+            title="Quick Vocabulary Test"
+            description="10 vocabulary questions"
             icon="📚"
-            onStart={(count) =>
-              startTest(generateVocabularyTest, count, "vocabulary")
+            color="from-green-400 to-blue-400"
+            onClick={() => startTest(generateVocabularyTest, 10, "quick-vocab")}
+          />
+          <QuickActionCard
+            title="Standard Vocabulary Test"
+            description="20 vocabulary questions"
+            icon="📚"
+            color="from-blue-400 to-purple-400"
+            onClick={() =>
+              startTest(generateVocabularyTest, 20, "standard-vocab")
             }
           />
-          <TestTypeCard
-            title="Articles Test"
-            description="Master der, die, das with targeted practice"
-            icon="🎯"
-            onStart={(count) =>
-              startTest(generateArticlesTest, count, "articles")
-            }
-          />
-          <TestTypeCard
-            title="Grammar Test"
-            description="Test your knowledge of German grammar rules"
-            icon="📝"
-            onStart={(count) =>
-              startTest(generateGrammarTest, count, "grammar")
+          <QuickActionCard
+            title="Comprehensive Vocabulary Test"
+            description="30 vocabulary questions"
+            icon="📚"
+            color="from-purple-400 to-pink-400"
+            onClick={() =>
+              startTest(generateVocabularyTest, 30, "comprehensive-vocab")
             }
           />
         </SectionGrid>
 
+        {/* Articles Tests */}
+        <SectionGrid
+          title="Articles Tests"
+          description="Master der, die, das with targeted practice"
+        >
+          <QuickActionCard
+            title="Quick Articles Test"
+            description="10 articles questions"
+            icon="🎯"
+            color="from-green-400 to-blue-400"
+            onClick={() =>
+              startTest(generateArticlesTest, 10, "quick-articles")
+            }
+          />
+          <QuickActionCard
+            title="Standard Articles Test"
+            description="20 articles questions"
+            icon="🎯"
+            color="from-blue-400 to-purple-400"
+            onClick={() =>
+              startTest(generateArticlesTest, 20, "standard-articles")
+            }
+          />
+          <QuickActionCard
+            title="Comprehensive Articles Test"
+            description="30 articles questions"
+            icon="🎯"
+            color="from-purple-400 to-pink-400"
+            onClick={() =>
+              startTest(generateArticlesTest, 30, "comprehensive-articles")
+            }
+          />
+        </SectionGrid>
+
+        {/* Grammar Tests */}
+        <SectionGrid
+          title="Grammar Tests"
+          description="Test your knowledge of German grammar rules"
+        >
+          <QuickActionCard
+            title="Quick Grammar Test"
+            description="10 grammar questions"
+            icon="📝"
+            color="from-green-400 to-blue-400"
+            onClick={() => startTest(generateGrammarTest, 10, "quick-grammar")}
+          />
+          <QuickActionCard
+            title="Standard Grammar Test"
+            description="20 grammar questions"
+            icon="📝"
+            color="from-blue-400 to-purple-400"
+            onClick={() =>
+              startTest(generateGrammarTest, 20, "standard-grammar")
+            }
+          />
+          <QuickActionCard
+            title="Comprehensive Grammar Test"
+            description="30 grammar questions"
+            icon="📝"
+            color="from-purple-400 to-pink-400"
+            onClick={() =>
+              startTest(generateGrammarTest, 30, "comprehensive-grammar")
+            }
+          />
+        </SectionGrid>
+
+        {/* Test Coverage Stats */}
         <SectionGrid
           title="📊 Test Coverage"
           description="Comprehensive question database"

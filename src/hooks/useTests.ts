@@ -25,10 +25,18 @@ interface TestData {
 
 type TestGenerator = (count: number) => TestData;
 
+const vocabModes = [
+  "multiple-choice-de-en",
+  "multiple-choice-en-de",
+  "translation-de-en",
+  "translation-en-de",
+];
+
 const generateVocabularyTest = (count: number): TestData => {
-  const questions = getVocabularyQuestions({
-    mode: "multiple-choice-de-en",
-    count,
+  // Randomly assign a mode to each question
+  const questions = Array.from({ length: count }).map((_, i) => {
+    const mode = vocabModes[Math.floor(Math.random() * vocabModes.length)];
+    return getVocabularyQuestions({ mode, count: 1 })[0];
   });
 
   const quizQuestions = questionsToQuizQuestions(questions);
