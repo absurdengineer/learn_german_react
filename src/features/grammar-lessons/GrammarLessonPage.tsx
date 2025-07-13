@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { GrammarLesson } from "../../types/Grammar";
 import MarkdownRenderer from "../../components/MarkdownRenderer";
 import PageLayout from "../../components/layout/PageLayout";
+import Button from "../../components/Button";
 
 interface GrammarLessonPageProps {
   lesson: GrammarLesson;
@@ -78,22 +79,24 @@ const GrammarLessonPage: React.FC<GrammarLessonPageProps> = ({
       </div>
       <div className="flex justify-between mt-8">
         {prevLesson ? (
-          <button
+          <Button
             onClick={() => navigate(`/grammar/lessons/${prevLesson.day}`)}
-            className="bg-gray-200 text-gray-800 px-6 py-3 rounded-lg hover:bg-gray-300 transition-colors"
+            variant="ghost"
+            size="md"
           >
-            Previous Lesson
-          </button>
+            ← Previous Lesson
+          </Button>
         ) : (
           <div />
         )}
         {nextLesson && (
-          <button
+          <Button
             onClick={() => navigate(`/grammar/lessons/${nextLesson.day}`)}
-            className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+            variant="primary"
+            size="md"
           >
-            Next Lesson
-          </button>
+            Next Lesson →
+          </Button>
         )}
       </div>
     </PageLayout>

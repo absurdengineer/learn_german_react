@@ -3,6 +3,7 @@ import { useArticles } from "../../hooks/useArticles";
 import MCQSession from "../../components/MCQSession";
 import PageLayout from "../../components/layout/PageLayout";
 import { questionsToQuizQuestions } from "../../lib/flashcardAdapters";
+import Button from "../../components/Button";
 
 const genderColors: Record<string, string> = {
   der: "bg-blue-100 text-blue-800 border-blue-300",
@@ -217,25 +218,16 @@ const Articles: React.FC = () => {
           )}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             {hasMistakes && (
-              <button
-                onClick={handleReviewMistakes}
-                className="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition-colors font-medium"
-              >
-                Review Mistakes ({sessionResults.mistakes.length})
-              </button>
+              <Button onClick={handleReviewMistakes} variant="danger" size="lg">
+                Review Mistakes 🧐 ({sessionResults.mistakes.length})
+              </Button>
             )}
-            <button
-              onClick={handleRestart}
-              className="bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition-colors font-medium"
-            >
-              Try Again
-            </button>
-            <button
-              onClick={handleSessionExit}
-              className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium"
-            >
-              Back to Articles
-            </button>
+            <Button onClick={handleRestart} variant="primary" size="lg">
+              Try Again 🔄
+            </Button>
+            <Button onClick={handleSessionExit} variant="ghost" size="lg">
+              Back to Articles ❌
+            </Button>
           </div>
         </div>
       </PageLayout>
@@ -256,18 +248,12 @@ const Articles: React.FC = () => {
     >
       <div className="space-y-8">
         <div className="flex flex-wrap gap-3 mt-8">
-          <button
-            onClick={() => startPractice()}
-            className="bg-blue-600 text-white px-4 py-3 rounded-xl hover:bg-blue-700 transition-all duration-200 font-medium"
-          >
-            Practice
-          </button>
-          <button
-            onClick={() => startQuiz()}
-            className="bg-purple-600 text-white px-4 py-3 rounded-xl hover:bg-purple-700 transition-all duration-200 font-medium"
-          >
-            Quiz
-          </button>
+          <Button onClick={() => startPractice()} variant="primary" size="md">
+            🏷️ Practice
+          </Button>
+          <Button onClick={() => startQuiz()} variant="secondary" size="md">
+            ❓ Quiz
+          </Button>
         </div>
         <div className="flex flex-col sm:flex-row gap-4">
           <div className="relative flex-1">

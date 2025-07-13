@@ -5,6 +5,7 @@ import { WordDetailModal } from "../../components/WordDetailModal";
 import FlashcardSession from "../../components/FlashcardSession";
 import MCQSession from "../../components/MCQSession";
 import FreestyleInputSession from "../../components/FreestyleInputSession";
+import Button from "../../components/Button";
 import {
   questionsToFlashcardItems,
   questionsToQuizQuestions,
@@ -189,25 +190,20 @@ const Vocabulary: React.FC = () => {
           )}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             {hasMistakes && (
-              <button
+              <Button
                 onClick={() => handleReviewMistakes(sessionQuestions[0]?.mode)}
-                className="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition-colors font-medium"
+                variant="danger"
+                size="lg"
               >
-                Review Mistakes ({sessionResults.mistakes.length})
-              </button>
+                Review Mistakes 🧐 ({sessionResults.mistakes.length})
+              </Button>
             )}
-            <button
-              onClick={handleRestart}
-              className="bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition-colors font-medium"
-            >
-              Try Again
-            </button>
-            <button
-              onClick={handleSessionExit}
-              className="bg-gray-600 text-white px-6 py-3 rounded-lg hover:bg-gray-700 transition-colors font-medium"
-            >
-              Back to Vocabulary
-            </button>
+            <Button onClick={handleRestart} variant="primary" size="lg">
+              Try Again 🔄
+            </Button>
+            <Button onClick={handleSessionExit} variant="ghost" size="lg">
+              Back to Vocabulary ❌
+            </Button>
           </div>
         </div>
       </PageLayout>
@@ -226,58 +222,63 @@ const Vocabulary: React.FC = () => {
     >
       <div className="space-y-8">
         <div className="flex flex-wrap gap-3 mt-8">
-          <button
+          <Button
             onClick={() =>
               startPractice("flashcard", getQuestionsForMode("flashcard", 20))
             }
-            className="bg-purple-600 text-white px-4 py-3 rounded-xl hover:bg-purple-700 transition-all duration-200 font-medium"
+            variant="primary"
+            size="md"
           >
-            Flashcards
-          </button>
-          <button
+            🃏 Flashcards
+          </Button>
+          <Button
             onClick={() =>
               startPractice(
                 "translation-de-en",
                 getQuestionsForMode("translation-de-en", 15)
               )
             }
-            className="bg-green-600 text-white px-4 py-3 rounded-xl hover:bg-green-700 transition-all duration-200 font-medium"
+            variant="success"
+            size="md"
           >
-            German → English
-          </button>
-          <button
+            🇩🇪 German → English
+          </Button>
+          <Button
             onClick={() =>
               startPractice(
                 "translation-en-de",
                 getQuestionsForMode("translation-en-de", 15)
               )
             }
-            className="bg-indigo-600 text-white px-4 py-3 rounded-xl hover:bg-indigo-700 transition-all duration-200 font-medium"
+            variant="secondary"
+            size="md"
           >
-            English → German
-          </button>
-          <button
+            🇬🇧 English → German
+          </Button>
+          <Button
             onClick={() =>
               startPractice(
                 "multiple-choice-de-en",
                 getQuestionsForMode("multiple-choice-de-en", 12)
               )
             }
-            className="bg-orange-600 text-white px-4 py-3 rounded-xl hover:bg-orange-700 transition-all duration-200 font-medium"
+            variant="danger"
+            size="md"
           >
-            MC: German
-          </button>
-          <button
+            📝 MC: German
+          </Button>
+          <Button
             onClick={() =>
               startPractice(
                 "multiple-choice-en-de",
                 getQuestionsForMode("multiple-choice-en-de", 12)
               )
             }
-            className="bg-red-600 text-white px-4 py-3 rounded-xl hover:bg-red-700 transition-all duration-200 font-medium"
+            variant="ghost"
+            size="md"
           >
-            MC: English
-          </button>
+            📝 MC: English
+          </Button>
         </div>
         <div className="flex flex-col sm:flex-row gap-4">
           <div className="relative flex-1">
@@ -290,22 +291,13 @@ const Vocabulary: React.FC = () => {
             />
             {searchTerm && (
               <div className="absolute inset-y-0 right-0 pr-3 flex items-center">
-                <button
+                <Button
                   onClick={() => setSearchTerm("")}
-                  className="text-gray-400 hover:text-gray-600"
+                  variant="ghost"
+                  size="sm"
                 >
-                  <svg
-                    className="h-5 w-5"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </button>
+                  ✖️
+                </Button>
               </div>
             )}
           </div>

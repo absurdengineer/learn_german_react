@@ -1,6 +1,7 @@
 import React from "react";
 import { VocabularyWord } from "../types/Vocabulary";
 import PronunciationButton from "./PronunciationButton";
+import Button from "./Button";
 
 interface WordDetailModalProps {
   word: VocabularyWord;
@@ -57,24 +58,14 @@ export const WordDetailModal: React.FC<WordDetailModalProps> = ({
                 </div>
               )}
             </div>
-            <button
+            <Button
               onClick={onClose}
-              className="text-gray-400 hover:text-gray-600 p-2 rounded-lg hover:bg-gray-100 transition-all duration-200 flex-shrink-0"
+              variant="ghost"
+              size="sm"
+              className="flex-shrink-0"
             >
-              <svg
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
+              ✖️
+            </Button>
           </div>
 
           <div className="space-y-6">

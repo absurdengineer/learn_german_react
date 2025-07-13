@@ -1,4 +1,5 @@
-import React from 'react';
+import React from "react";
+import Button from "./Button";
 
 interface SessionNavigationProps {
   onNext?: () => void;
@@ -18,47 +19,44 @@ const SessionNavigation: React.FC<SessionNavigationProps> = ({
   onNext,
   onPrevious,
   onExit,
-  nextLabel = 'Next',
-  previousLabel = 'Previous',
-  exitLabel = 'Exit',
+  nextLabel = "Next",
+  previousLabel = "Previous",
+  exitLabel = "Exit",
   nextDisabled = false,
   previousDisabled = false,
   showNext = true,
   showPrevious = true,
-  className = ''
+  className = "",
 }) => {
   return (
     <div className={`flex items-center justify-between space-x-4 ${className}`}>
       {/* Previous button */}
       {showPrevious && onPrevious ? (
-        <button
+        <Button
           onClick={onPrevious}
           disabled={previousDisabled}
-          className="px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed font-medium"
+          variant="ghost"
+          size="md"
         >
           ← {previousLabel}
-        </button>
+        </Button>
       ) : (
         <div></div> // Spacer for layout
       )}
-
       {/* Exit button */}
-      <button
-        onClick={onExit}
-        className="px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors font-medium"
-      >
-        {exitLabel}
-      </button>
-
+      <Button onClick={onExit} variant="danger" size="md">
+        Exit ❌
+      </Button>
       {/* Next button */}
       {showNext && onNext ? (
-        <button
+        <Button
           onClick={onNext}
           disabled={nextDisabled}
-          className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed font-medium"
+          variant="primary"
+          size="md"
         >
           {nextLabel} →
-        </button>
+        </Button>
       ) : (
         <div></div> // Spacer for layout
       )}

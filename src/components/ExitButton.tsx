@@ -1,4 +1,5 @@
-import React from 'react';
+import React from "react";
+import Button from "./Button";
 
 interface ExitButtonProps {
   onExit: () => void;
@@ -8,29 +9,18 @@ interface ExitButtonProps {
 
 const ExitButton: React.FC<ExitButtonProps> = ({
   onExit,
-  label = 'Exit',
-  className = ''
+  label = "Exit",
+  className = "",
 }) => {
   return (
-    <button
+    <Button
       onClick={onExit}
-      className={`flex items-center space-x-2 px-4 py-2 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow ${className}`}
+      variant="ghost"
+      size="sm"
+      className={`flex items-center space-x-2 ${className}`}
     >
-      <svg
-        className="w-5 h-5 text-gray-600"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={2}
-          d="M6 18L18 6M6 6l12 12"
-        />
-      </svg>
-      <span className="text-gray-700">{label}</span>
-    </button>
+      <span className="text-gray-700">❌ {label}</span>
+    </Button>
   );
 };
 

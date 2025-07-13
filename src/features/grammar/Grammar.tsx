@@ -13,6 +13,7 @@ import {
 import { StatCard, LessonMap } from "../../components";
 import { getAllGrammarLessons } from "./grammarLessons";
 import GrammarLessonPage from "../grammar-lessons/GrammarLessonPage";
+import Button from "../../components/Button";
 
 const Grammar: React.FC = () => {
   const { day } = useParams<{ day: string }>();
@@ -216,25 +217,16 @@ const Grammar: React.FC = () => {
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             {hasMistakes && (
-              <button
-                onClick={handleReviewMistakes}
-                className="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition-colors font-medium"
-              >
-                Review Mistakes ({sessionResults.mistakes.length})
-              </button>
+              <Button onClick={handleReviewMistakes} variant="danger" size="lg">
+                Review Mistakes 🧐 ({sessionResults.mistakes.length})
+              </Button>
             )}
-            <button
-              onClick={handleRestart}
-              className="bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition-colors font-medium"
-            >
-              Try Again
-            </button>
-            <button
-              onClick={handleSessionExit}
-              className="bg-gray-600 text-white px-6 py-3 rounded-lg hover:bg-gray-700 transition-colors font-medium"
-            >
-              Back to Grammar
-            </button>
+            <Button onClick={handleRestart} variant="primary" size="lg">
+              Try Again 🔄
+            </Button>
+            <Button onClick={handleSessionExit} variant="ghost" size="lg">
+              Back to Grammar ❌
+            </Button>
           </div>
         </div>
       </PageLayout>
@@ -275,17 +267,18 @@ const Grammar: React.FC = () => {
                 <p className="text-gray-600 mb-4 text-sm">
                   Practice with {count} grammar flashcards
                 </p>
-                <button
+                <Button
                   onClick={() =>
                     startPractice(
                       "flashcards",
                       getQuestionsForMode("flashcards", count)
                     )
                   }
-                  className={`w-full bg-purple-600 text-white px-4 py-3 rounded-lg hover:opacity-90 transition-opacity font-medium`}
+                  variant="primary"
+                  size="md"
                 >
-                  Start Flashcards
-                </button>
+                  Start Flashcards 🚀
+                </Button>
               </div>
             ))}
           </div>
@@ -307,17 +300,18 @@ const Grammar: React.FC = () => {
                 <p className="text-gray-600 mb-4 text-sm">
                   {session.count} questions
                 </p>
-                <button
+                <Button
                   onClick={() =>
                     startPractice(
                       session.mode,
                       getQuestionsForMode(session.mode, session.count)
                     )
                   }
-                  className={`w-full bg-blue-600 text-white px-4 py-3 rounded-lg hover:opacity-90 transition-opacity font-medium`}
+                  variant="primary"
+                  size="md"
                 >
-                  Start Quiz
-                </button>
+                  Start Quiz 🚀
+                </Button>
               </div>
             ))}
           </div>
@@ -339,12 +333,13 @@ const Grammar: React.FC = () => {
                   </p>
                 </div>
               </div>
-              <button
+              <Button
                 onClick={() => navigate("/grammar/lessons")}
-                className="bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition-colors font-medium"
+                variant="primary"
+                size="md"
               >
-                View Lessons
-              </button>
+                View Lessons 📚
+              </Button>
             </div>
           </div>
         </div>
