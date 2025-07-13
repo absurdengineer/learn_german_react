@@ -1,17 +1,17 @@
 import React from "react";
-import { useVocabulary } from "../hooks/useVocabulary";
-import PageLayout from "../components/layout/PageLayout";
-import { GradientCard, StatCard } from "../components";
-import { VocabularyCard } from "../components/VocabularyCard";
-import { WordDetailModal } from "../components/WordDetailModal";
-import FlashcardSession from "../components/FlashcardSession";
-import MCQSession from "../components/MCQSession";
-import FreestyleInputSession from "../components/FreestyleInputSession";
+import { useVocabulary } from "./useVocabulary";
+import PageLayout from "../../components/layout/PageLayout";
+import { GradientCard, StatCard } from "../../components";
+import { VocabularyCard } from "./VocabularyCard";
+import { WordDetailModal } from "../../components/WordDetailModal";
+import FlashcardSession from "../../components/FlashcardSession";
+import MCQSession from "../../components/MCQSession";
+import FreestyleInputSession from "../../components/FreestyleInputSession";
 import {
   questionsToFlashcardItems,
   questionsToQuizQuestions,
-} from "../lib/flashcardAdapters";
-import { getVocabularyQuestions } from "../features/question-engine/questionBuilder";
+} from "../../lib/flashcardAdapters";
+import { getVocabularyQuestions } from "../../core/question-engine/questionBuilder";
 
 const Vocabulary: React.FC = () => {
   const {

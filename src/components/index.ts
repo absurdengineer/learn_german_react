@@ -24,20 +24,15 @@ export { default as StatCard } from "./StatCard";
 export { default as StatsCard } from "./StatsCard";
 export { default as StartLearningPathCard } from "./StartLearningPathCard";
 export { TestTypeCard } from "./TestTypeCard";
-export { VocabularyCard } from "./VocabularyCard";
 export { WordDetailModal } from "./WordDetailModal";
 
 // Session Components
-export { default as ArticlesLearning } from "./ArticlesLearning";
-export { default as ArticlesPractice } from "./ArticlesPractice";
 export { default as FlashcardSession } from "./FlashcardSession";
 export { default as MCQSession } from "./MCQSession";
 export { default as FreestyleInputSession } from "./FreestyleInputSession";
-export { default as TestSession } from "./TestSession";
 export { default as LearningSession } from "./LearningSession";
 export { default as FlashcardSessionResults } from "./FlashcardSessionResults";
 export { default as QuizSession } from "./QuizSession";
-export { default as TestResults } from "./TestResults";
 
 // New Generic Components
 export { default as CategoryFilter } from "./CategoryFilter";

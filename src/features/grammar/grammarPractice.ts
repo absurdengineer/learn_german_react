@@ -1,6 +1,6 @@
-import { GrammarPracticeQuestion } from "../types/GrammarPractice";
-import type { QuestionType } from "../types/GrammarPracticeTypes";
-import { parseCSVLine } from "../lib/csvParser";
+import { GrammarPracticeQuestion } from "../../types/GrammarPractice";
+import type { QuestionType } from "../../types/GrammarPracticeTypes";
+import { parseCSVLine } from "../../lib/csvParser";
 import grammarPracticeCSV from "./grammar_practice.csv?raw";
 
 // Memoized cache for parsed grammar practice questions

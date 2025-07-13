@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { getGenderColor } from "../lib/genderColors";
-import GenderLegend from "./GenderLegend";
-import PronunciationButton from "./PronunciationButton";
-import SessionLayout from "./layout/SessionLayout";
-import type { Question } from "../features/question-engine/questionTypes";
-import type { StandardizedArticle } from "../lib/parsers/DataLoader";
+import { getGenderColor } from "../../lib/genderColors";
+import GenderLegend from "../../components/GenderLegend";
+import PronunciationButton from "../../components/PronunciationButton";
+import SessionLayout from "../../components/layout/SessionLayout";
+import type { Question } from "../../core/question-engine/questionTypes";
+import type { StandardizedArticle } from "../../lib/parsers/DataLoader";
 
 interface ArticlesLearningProps {
   onExit: () => void;

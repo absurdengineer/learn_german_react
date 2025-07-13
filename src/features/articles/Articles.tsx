@@ -1,11 +1,11 @@
 import React from "react";
-import { useArticles } from "../hooks/useArticles";
-import PageLayout from "../components/layout/PageLayout";
-import { GradientCard, StatCard } from "../components";
-import { getArticleQuestions } from "../features/question-engine/questionBuilder";
-import QuizSession from "../components/QuizSession";
-import { questionsToQuizQuestions } from "../lib/flashcardAdapters";
-import ArticleLearningSession from "../components/ArticleLearningSession";
+import { useArticles } from "./useArticles";
+import PageLayout from "../../components/layout/PageLayout";
+import { GradientCard, StatCard } from "../../components";
+import { getArticleQuestions } from "../../core/question-engine/questionBuilder";
+import QuizSession from "../../components/QuizSession";
+import { questionsToQuizQuestions } from "../../lib/flashcardAdapters";
+import ArticleLearningSession from "./ArticleLearningSession";
 
 const Articles: React.FC = () => {
   const {

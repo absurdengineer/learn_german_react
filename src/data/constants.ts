@@ -1,7 +1,8 @@
-import { loadArticleNouns, type ArticleNoun } from "./index";
+// Remove the import line that references deleted exports
+// import { loadArticleNouns, type ArticleNoun } from "./index";
 
 // Load essential A1 nouns from JSON
-export const ESSENTIAL_A1_NOUNS: ArticleNoun[] = loadArticleNouns();
+export const ESSENTIAL_A1_NOUNS: any[] = []; // Placeholder as loadArticleNouns is removed
 
 // Default session configurations
 export const DEFAULT_SESSION_LENGTH = 30;

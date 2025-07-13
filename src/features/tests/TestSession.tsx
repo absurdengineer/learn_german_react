@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import SessionLayout from "./layout/SessionLayout";
-import type { QuizResults, QuizMistake } from "../types/Flashcard";
+import SessionLayout from "../../components/layout/SessionLayout";
+import type { QuizResults, QuizMistake } from "../../types/Flashcard";
 
 interface TestSessionProps {
   questions: any[]; // Mixed question types

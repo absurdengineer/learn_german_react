@@ -2,18 +2,18 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { AppProvider } from "./store/AppContext.tsx";
 import Layout from "./components/Layout";
 import ProtectedRoute from "./components/ProtectedRoute";
-import TestResults from "./components/TestResults";
-import Articles from "./pages/Articles";
+import TestResults from "./features/tests/TestResults.tsx";
+import Articles from "./features/articles/Articles.tsx";
 import DayView from "./pages/DayView";
-import Grammar from "./pages/Grammar";
-import Home from "./pages/Home";
+import Grammar from "./features/grammar/Grammar";
+import Home from "./features/home/Home";
 import Progress from "./pages/Progress";
 import Settings from "./pages/Settings";
 import Speaking from "./pages/Speaking";
 import StudyPlan from "./pages/StudyPlan";
 import StudyPlanComplete from "./pages/StudyPlanComplete";
-import Tests from "./pages/Tests";
-import Vocabulary from "./pages/Vocabulary";
+import Tests from "./features/tests/Tests.tsx";
+import Vocabulary from "./features/vocabulary/Vocabulary.tsx";
 
 function App() {
   return (

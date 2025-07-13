@@ -1,6 +1,6 @@
 import React from "react";
-import { VocabularyWord } from "../types/Vocabulary";
-import PronunciationButton from "./PronunciationButton";
+import { VocabularyWord } from "../../types/Vocabulary";
+import PronunciationButton from "../../components/PronunciationButton";
 
 interface VocabularyCardProps {
   word: VocabularyWord;

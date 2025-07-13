@@ -1,7 +1,7 @@
 import type { GrammarPracticeQuestion } from "../types/GrammarPractice";
 import type { VocabularyWord } from "../types/Vocabulary";
 import type { FlashcardItem } from "../types/Flashcard";
-import type { Question } from "../features/question-engine/questionTypes";
+import type { Question } from "../core/question-engine/questionTypes";
 import type { QuizQuestion } from "../types/Flashcard";
 import { VocabularyQuestionType } from "../types/Flashcard";
 

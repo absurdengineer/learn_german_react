@@ -1,16 +1,11 @@
 import React from "react";
-import { useTests } from "../hooks/useTests";
-import TestResults from "../components/TestResults";
-import PageLayout from "../components/layout/PageLayout";
-import {
-  GradientCard,
-  QuickActionCard,
-  StatsCard,
-  TestTypeCard,
-} from "../components";
-import SectionGrid from "../components/layout/SectionGrid";
+import { useTests } from "./useTests";
+import TestResults from "./TestResults";
+import PageLayout from "../../components/layout/PageLayout";
+import { GradientCard, QuickActionCard, StatsCard } from "../../components";
+import SectionGrid from "../../components/layout/SectionGrid";
 import { useLocation, useNavigate } from "react-router-dom";
-import TestSession from "../components/TestSession";
+import TestSession from "./TestSession";
 
 const Tests: React.FC = () => {
   const {

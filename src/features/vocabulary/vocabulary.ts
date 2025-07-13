@@ -1,16 +1,17 @@
-import { formatCategoryName, getCategoryColor } from "../lib/categoryUtils";
-import { parseCSVLine } from "../lib/csvParser";
-import type { Category, VocabularyItem } from "./index";
-import vocabularyCSV from "./vocabulary.csv?raw";
+import { formatCategoryName, getCategoryColor } from "../../lib/categoryUtils";
+import { parseCSVLine } from "../../lib/csvParser";
+import { VocabularyWord, VocabularyId } from "../../types/Vocabulary";
+import type { WordType, Gender } from "../../types/Vocabulary";
+import vocabularyCSV from "../../data/vocabulary.csv?raw";
 
 // Memoized cache for parsed vocabulary
-let vocabularyCache: VocabularyItem[] | null = null;
+let vocabularyCache: VocabularyWord[] | null = null;
 
 /**
- * Parse and normalize the vocabulary CSV into a typed array of VocabularyItem objects.
+ * Parse and normalize the vocabulary CSV into a typed array of VocabularyWord objects.
  * Memoized for performance.
  */
-export function getAllVocabulary(): VocabularyItem[] {
+export function getAllVocabulary(): VocabularyWord[] {
   if (vocabularyCache) return vocabularyCache;
   const lines = vocabularyCSV.trim().split("\n");
   const headers = parseCSVLine(lines[0]);
@@ -28,7 +29,7 @@ export function getAllVocabulary(): VocabularyItem[] {
     console.error("CSV headers do not match expected format:", headers);
     return [];
   }
-  const vocabulary: VocabularyItem[] = [];
+  const vocabulary: VocabularyWord[] = [];
   for (let i = 1; i < lines.length; i++) {
     const line = lines[i].trim();
     if (!line) continue;
@@ -47,15 +48,17 @@ export function getAllVocabulary(): VocabularyItem[] {
       row[header] = columns[index] || "";
     });
     // Extract gender from tags if it's a noun
-    let gender: string | undefined;
+    let gender: Gender | undefined;
     const tags = row.tags.split("|").filter((tag) => tag.trim());
     if (row.type === "noun" || tags.includes("noun")) {
       if (tags.includes("masculine") || tags.includes("der")) {
-        gender = "masculine";
+        gender = "der";
       } else if (tags.includes("feminine") || tags.includes("die")) {
-        gender = "feminine";
+        gender = "die";
       } else if (tags.includes("neuter") || tags.includes("das")) {
-        gender = "neuter";
+        gender = "das";
+      } else if (tags.includes("plural")) {
+        gender = "plural";
       }
     }
     // Create examples array if example and translation exist
@@ -66,18 +69,20 @@ export function getAllVocabulary(): VocabularyItem[] {
         english: row.example_translation,
       });
     }
-    const vocabularyItem: VocabularyItem = {
-      id: `csv_${i}`,
-      german: row.german.trim(),
-      english: row.english.trim(),
-      pronunciation: row.pronunciation || undefined,
-      type: row.type,
-      level: "A1",
-      gender,
-      tags,
-      frequency: parseInt(row.frequency) || 1,
-      examples: examples.length > 0 ? examples : undefined,
-    };
+    const vocabularyItem = new VocabularyWord(
+      new VocabularyId(`csv_${i}`),
+      row.german.trim(),
+      row.english.trim(),
+      row.type as WordType,
+      "A1",
+      {
+        gender,
+        pronunciation: row.pronunciation || undefined,
+        tags,
+        frequency: parseInt(row.frequency) || 1,
+        exampleSentences: examples.length > 0 ? examples : [],
+      }
+    );
     vocabulary.push(vocabularyItem);
   }
   vocabularyCache = vocabulary;
@@ -87,16 +92,16 @@ export function getAllVocabulary(): VocabularyItem[] {
 /**
  * Get a vocabulary item by its ID.
  */
-export function getVocabularyById(id: string): VocabularyItem | undefined {
-  return getAllVocabulary().find((item) => item.id === id);
+export function getVocabularyById(id: string): VocabularyWord | undefined {
+  return getAllVocabulary().find((item) => item.id.value === id);
 }
 
 /**
  * Generate categories from the vocabulary data.
  */
-export function generateVocabularyCategories(): Record<string, Category> {
+export function generateVocabularyCategories(): Record<string, any> {
   const vocabulary = getAllVocabulary();
-  const categoryMap: Record<string, Category> = {};
+  const categoryMap: Record<string, any> = {};
   const allTags = new Set<string>();
   vocabulary.forEach((item) => {
     item.tags.forEach((tag) => allTags.add(tag));

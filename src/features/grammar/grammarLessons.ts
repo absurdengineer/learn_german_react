@@ -1,6 +1,6 @@
-import { GrammarLesson } from "../types/Grammar";
-import { parseCSVLine } from "../lib/csvParser";
-import grammarLessonsCSV from "./grammar_lessons.csv?raw";
+import { GrammarLesson } from "../../types/Grammar";
+import { parseCSVLine } from "../../lib/csvParser";
+import grammarLessonsCSV from "../../data/grammar_lessons.csv?raw";
 
 // Memoized cache for parsed grammar lessons
 let grammarLessonsCache: GrammarLesson[] | null = null;

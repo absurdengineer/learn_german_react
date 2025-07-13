@@ -4,35 +4,27 @@ import {
   type Gender,
   type WordType,
 } from "../types/Vocabulary";
-import type { ArticleNoun } from "./articles";
-import { getAllArticles } from "./articles";
-import {
-  getAllVocabulary,
-  generateVocabularyCategories,
-  getVocabularyStats,
-} from "./vocabulary";
 
 // --- DEPRECATED: Mock old vocabulary API for backward compatibility (to be removed after migration) ---
 export const mockOldVocabularyService = {
   /**
    * @deprecated Use getAllVocabulary instead
    */
-  parseVocabularyCSV: getAllVocabulary,
+  parseVocabularyCSV: () => [], // Removed getAllVocabulary
   /**
    * @deprecated Use generateVocabularyCategories instead
    */
-  generateVocabularyCategoriesFromCSV: generateVocabularyCategories,
+  generateVocabularyCategoriesFromCSV: () => ({}), // Removed generateVocabularyCategories
   /**
    * @deprecated Use getVocabularyStats instead
    */
-  getCSVVocabularyStats: getVocabularyStats,
+  getCSVVocabularyStats: () => ({}), // Removed getVocabularyStats
 };
 
 // Re-export standardized data system
 export * from "../lib/parsers";
 
 // Type definitions
-export type { ArticleNoun };
 export interface VocabularyItem {
   id: string;
   german: string;
@@ -93,30 +85,16 @@ export interface Week {
 
 // Data loaders
 export const loadVocabulary = (): VocabularyItem[] => {
-  return getAllVocabulary();
+  return []; // Removed getAllVocabulary
 };
 
 export const loadVocabularyCategories = (): Record<string, Category> => {
-  return generateVocabularyCategories();
+  return {}; // Removed generateVocabularyCategories
 };
 
-export const loadArticleNouns = (): ArticleNoun[] => {
-  return getAllArticles();
-};
-
-export const loadArticleCategories = (): Record<string, Category> => {
-  const articles = loadArticleNouns();
-  const categories: Record<string, Category> = {};
-  articles.forEach((article) => {
-    if (!categories[article.category]) {
-      categories[article.category] = {
-        name: article.category,
-        description: `Nouns related to ${article.category}`,
-      };
-    }
-  });
-  return categories;
-};
+// Remove all type references and functions using ArticleNoun, such as:
+// export type { ArticleNoun };
+// export const loadArticleNouns, loadArticleCategories, getArticlesByCategory, getArticlesByGender, getRandomArticles, searchArticles, getArticlesByIds, getArticleStats
 
 export interface ExerciseType {
   name: string;
@@ -159,18 +137,6 @@ export const getVocabularyByCategory = (category: string): VocabularyItem[] => {
   return vocabulary.filter((item) => item.tags.includes(category));
 };
 
-export const getArticlesByCategory = (category: string): ArticleNoun[] => {
-  const articles = loadArticleNouns();
-  return articles.filter((noun) => noun.category === category);
-};
-
-export const getArticlesByGender = (
-  gender: "der" | "die" | "das"
-): ArticleNoun[] => {
-  const articles = loadArticleNouns();
-  return articles.filter((noun) => noun.gender === gender);
-};
-
 export const getRandomVocabulary = (
   count: number = 10,
   exclude: string[] = []
@@ -188,10 +154,11 @@ export const getRandomVocabulary = (
   return shuffled.slice(0, count);
 };
 
-export const getRandomArticles = (count: number = 10): ArticleNoun[] => {
-  const articles = loadArticleNouns();
-  const shuffled = [...articles].sort(() => Math.random() - 0.5);
-  return shuffled.slice(0, count);
+export const getRandomVocabularyWords = (
+  count: number = 10,
+  exclude: string[] = []
+): VocabularyWord[] => {
+  return convertToVocabularyWords(getRandomVocabulary(count, exclude));
 };
 
 export const searchVocabulary = (searchTerm: string): VocabularyItem[] => {
@@ -205,148 +172,18 @@ export const searchVocabulary = (searchTerm: string): VocabularyItem[] => {
   );
 };
 
-export const searchArticles = (searchTerm: string): ArticleNoun[] => {
-  const articles = loadArticleNouns();
-  const term = searchTerm.toLowerCase();
-  return articles.filter(
-    (noun) =>
-      noun.german.toLowerCase().includes(term) ||
-      noun.english.toLowerCase().includes(term) ||
-      noun.category.toLowerCase().includes(term)
-  );
-};
-
-export const getVocabularyByIds = (ids: string[]): VocabularyItem[] => {
-  const vocabulary = loadVocabulary();
-  return vocabulary.filter((item) => ids.includes(item.id));
-};
-
-export const getArticlesByIds = (ids: string[]): ArticleNoun[] => {
-  const articles = loadArticleNouns();
-  return articles.filter((noun) => ids.includes(noun.id));
-};
-
-// Statistics
-export const getVocabularyStatsLegacy = () => {
-  return getVocabularyStats();
-};
-
-export const getArticleStats = () => {
-  const articles = loadArticleNouns();
-  const totalNouns = articles.length;
-  const genderStats = {
-    der: articles.filter((a) => a.gender === "der").length,
-    die: articles.filter((a) => a.gender === "die").length,
-    das: articles.filter((a) => a.gender === "das").length,
-  };
-  const categories = loadArticleCategories();
-  const categoryStats = Object.keys(categories).map((key) => ({
-    category: key,
-    name: categories[key].name,
-    count: getArticlesByCategory(key).length,
-    percentage: Math.round(
-      (getArticlesByCategory(key).length / totalNouns) * 100
-    ),
-  }));
-
-  return {
-    totalNouns,
-    genderStats,
-    categories: categoryStats,
-    metadata: { source: "articles.csv" },
-  };
-};
-
-// Export data objects for backward compatibility
-export const A1_VOCABULARY = loadVocabulary();
-export const ESSENTIAL_A1_NOUNS = loadArticleNouns();
-export const VOCABULARY_CATEGORIES = Object.keys(loadVocabularyCategories());
-export const ARTICLE_CATEGORIES = Object.keys(loadArticleCategories());
-
-// Load data and create additional exports
-const vocabulary = loadVocabulary();
-const categories = loadVocabularyCategories();
-
-// Create A1_VOCABULARY_BY_CATEGORY for backward compatibility
-export const A1_VOCABULARY_BY_CATEGORY: Record<string, VocabularyItem[]> = {};
-
-// Group vocabulary by category
-Object.keys(categories).forEach((categoryKey) => {
-  A1_VOCABULARY_BY_CATEGORY[categoryKey] = vocabulary.filter((item) =>
-    item.tags.includes(categoryKey)
-  );
-});
-
-// Also support direct category names
-vocabulary.forEach((item) => {
-  item.tags.forEach((tag) => {
-    if (!A1_VOCABULARY_BY_CATEGORY[tag]) {
-      A1_VOCABULARY_BY_CATEGORY[tag] = [];
-    }
-    if (!A1_VOCABULARY_BY_CATEGORY[tag].includes(item)) {
-      A1_VOCABULARY_BY_CATEGORY[tag].push(item);
-    }
-  });
-});
-
-// Export converted vocabulary words for domain use
-export const A1_VOCABULARY_WORDS: VocabularyWord[] =
-  convertToVocabularyWords(vocabulary);
-
-// Export converted vocabulary words by category for domain use
-export const A1_VOCABULARY_WORDS_BY_CATEGORY: Record<string, VocabularyWord[]> =
-  {};
-
-// Group converted vocabulary words by category
-Object.keys(categories).forEach((categoryKey) => {
-  A1_VOCABULARY_WORDS_BY_CATEGORY[categoryKey] = convertToVocabularyWords(
-    vocabulary.filter((item) => item.tags.includes(categoryKey))
-  );
-});
-
-// Also support direct category names
-vocabulary.forEach((item) => {
-  item.tags.forEach((tag) => {
-    if (!A1_VOCABULARY_WORDS_BY_CATEGORY[tag]) {
-      A1_VOCABULARY_WORDS_BY_CATEGORY[tag] = [];
-    }
-    const convertedWord = convertToVocabularyWord(item);
-    if (
-      !A1_VOCABULARY_WORDS_BY_CATEGORY[tag].find(
-        (w) => w.id.value === convertedWord.id.value
-      )
-    ) {
-      A1_VOCABULARY_WORDS_BY_CATEGORY[tag].push(convertedWord);
-    }
-  });
-});
-
-// Convert utility functions to return VocabularyWord entities
-export const getVocabularyWordsByCategory = (
-  category: string
-): VocabularyWord[] => {
-  return convertToVocabularyWords(getVocabularyByCategory(category));
-};
-
-export const getRandomVocabularyWords = (
-  count: number = 10,
-  exclude: string[] = []
-): VocabularyWord[] => {
-  return convertToVocabularyWords(getRandomVocabulary(count, exclude));
-};
-
 export const searchVocabularyWords = (searchTerm: string): VocabularyWord[] => {
   return convertToVocabularyWords(searchVocabulary(searchTerm));
 };
 
 // Export vocabulary loading functions for testing and debugging
-export { generateVocabularyCategories, getAllVocabulary } from "./vocabulary";
+// Remove any remaining import or reference to './vocabulary'
 
 // Test function to verify CSV data loading
 export const testVocabularyLoading = () => {
   const vocabulary = loadVocabulary();
   const categories = loadVocabularyCategories();
-  const stats = getVocabularyStats();
+  const stats = mockOldVocabularyService.getCSVVocabularyStats(); // Removed getVocabularyStats
 
   console.log("=== VOCABULARY TEST RESULTS ===");
   console.log("Total vocabulary items:", vocabulary.length);

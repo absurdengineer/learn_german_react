@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { VocabularyWord } from "../types/Vocabulary";
-import { GENDER_COLORS } from "../lib/genderColors";
-import GenderLegend from "./GenderLegend";
-import { PronunciationButton } from ".";
+import { VocabularyWord } from "../../types/Vocabulary";
+import { GENDER_COLORS } from "../../lib/genderColors";
+import GenderLegend from "../../components/GenderLegend";
+import PronunciationButton from "../../components/PronunciationButton";
 import { useLocation } from "react-router-dom";
-import type { Question } from "../features/question-engine/questionTypes";
-import type { StandardizedArticle } from "../lib/parsers/DataLoader";
+import type { Question } from "../../core/question-engine/questionTypes";
+import type { StandardizedArticle } from "../../lib/parsers/DataLoader";
 
 interface ArticlesPracticeProps {
   onComplete: (results: ArticlesSessionResult) => void;
@@ -30,7 +30,7 @@ interface ArticlesSessionResult {
   }>;
 }
 
-import SessionLayout from "./layout/SessionLayout";
+import SessionLayout from "../../components/layout/SessionLayout";
 
 const ArticlesPractice: React.FC<ArticlesPracticeProps> = ({
   onComplete,

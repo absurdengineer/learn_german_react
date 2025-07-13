@@ -1,13 +1,13 @@
-import { useCallback, useEffect, useState } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
-import { SESSION_KEYS, SessionManager } from "../lib/sessionManager";
+import { SESSION_KEYS, SessionManager } from "../../lib/sessionManager";
 import {
-  getVocabularyQuestions,
   getArticleQuestions,
+  getVocabularyQuestions,
   getGrammarQuestions,
-} from "../features/question-engine/questionBuilder";
-import { questionsToQuizQuestions } from "../lib/flashcardAdapters";
-import { DeutschMeisterDataManager } from "../lib/parsers/DataManager";
+} from "../../core/question-engine/questionBuilder";
+import { questionsToQuizQuestions } from "../../lib/flashcardAdapters";
+import { DeutschMeisterDataManager } from "../../lib/parsers/DataManager";
 
 interface Question {
   id: string;
@@ -34,7 +34,7 @@ const vocabModes = [
 
 const generateVocabularyTest = (count: number): TestData => {
   // Randomly assign a mode to each question
-  const questions = Array.from({ length: count }).map((_, i) => {
+  const questions = Array.from({ length: count }).map(() => {
     const mode = vocabModes[Math.floor(Math.random() * vocabModes.length)];
     return getVocabularyQuestions({ mode, count: 1 })[0];
   });

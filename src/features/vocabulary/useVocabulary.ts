@@ -1,9 +1,12 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { getVocabularyQuestions } from "../features/question-engine/questionBuilder";
-import { type Question } from "../features/question-engine/questionTypes";
-import { shuffleArray } from "../lib/utils";
-import type { QuizResults, FlashcardSessionResult } from "../types/Flashcard";
+import { getVocabularyQuestions } from "../../core/question-engine/questionBuilder";
+import { type Question } from "../../core/question-engine/questionTypes";
+import { shuffleArray } from "../../lib/utils";
+import type {
+  QuizResults,
+  FlashcardSessionResult,
+} from "../../types/Flashcard";
 
 export interface SessionResult {
   totalQuestions: number;
@@ -108,9 +111,9 @@ export const useVocabulary = () => {
   const handleQuizComplete = (results: QuizResults) => {
     const sessionResult: SessionResult = {
       totalQuestions: results.totalQuestions,
-      correctAnswers: results.correctAnswers,
-      wrongAnswers: results.wrongAnswers,
-      timeSpent: results.timeSpent,
+      correctAnswers: results.correctAnswers ?? 0,
+      wrongAnswers: results.wrongAnswers ?? 0,
+      timeSpent: results.timeSpent ?? 0,
       wordsStudied: sessionQuestions,
       mistakes: results.mistakes.map((m) => ({
         word:

@@ -1,8 +1,8 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { GrammarLesson } from '../types/Grammar';
-import MarkdownRenderer from '../components/MarkdownRenderer';
-import PageLayout from '../components/layout/PageLayout';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { GrammarLesson } from "../../types/Grammar";
+import MarkdownRenderer from "../../components/MarkdownRenderer";
+import PageLayout from "../../components/layout/PageLayout";
 
 interface GrammarLessonPageProps {
   lesson: GrammarLesson;
@@ -11,7 +11,12 @@ interface GrammarLessonPageProps {
   prevLesson?: GrammarLesson;
 }
 
-const GrammarLessonPage: React.FC<GrammarLessonPageProps> = ({ lesson, onExit, nextLesson, prevLesson }) => {
+const GrammarLessonPage: React.FC<GrammarLessonPageProps> = ({
+  lesson,
+  onExit,
+  nextLesson,
+  prevLesson,
+}) => {
   const navigate = useNavigate();
 
   return (
@@ -19,9 +24,9 @@ const GrammarLessonPage: React.FC<GrammarLessonPageProps> = ({ lesson, onExit, n
       pageData={{
         title: `Week ${lesson.week}, Day ${lesson.day}`,
         subtitle: lesson.title,
-        description: '',
-        icon: '📝',
-        gradient: 'from-blue-500 to-purple-600',
+        description: "",
+        icon: "📝",
+        gradient: "from-blue-500 to-purple-600",
       }}
       showBackButton
       onBack={onExit}
@@ -51,7 +56,9 @@ const GrammarLessonPage: React.FC<GrammarLessonPageProps> = ({ lesson, onExit, n
 
         {lesson.helpfulHint && (
           <div className="bg-blue-50 border-l-4 border-blue-400 p-6 rounded-r-lg">
-            <h3 className="text-xl font-bold text-blue-800 mb-2">💡 Helpful Hint</h3>
+            <h3 className="text-xl font-bold text-blue-800 mb-2">
+              💡 Helpful Hint
+            </h3>
             <div className="prose prose-blue max-w-none">
               <MarkdownRenderer content={lesson.helpfulHint} />
             </div>
@@ -60,7 +67,9 @@ const GrammarLessonPage: React.FC<GrammarLessonPageProps> = ({ lesson, onExit, n
 
         {lesson.funFact && (
           <div className="bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-r-lg">
-            <h3 className="text-xl font-bold text-yellow-800 mb-2">🎉 Fun Fact</h3>
+            <h3 className="text-xl font-bold text-yellow-800 mb-2">
+              🎉 Fun Fact
+            </h3>
             <div className="prose prose-yellow max-w-none">
               <MarkdownRenderer content={lesson.funFact} />
             </div>
@@ -92,4 +101,3 @@ const GrammarLessonPage: React.FC<GrammarLessonPageProps> = ({ lesson, onExit, n
 };
 
 export default GrammarLessonPage;
-

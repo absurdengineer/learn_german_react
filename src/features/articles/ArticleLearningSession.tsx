@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
-import type { Question } from "../features/question-engine/questionTypes";
-import { GENDER_COLORS } from "../lib/genderColors";
-import PronunciationButton from "./PronunciationButton";
+import type { Question } from "../../core/question-engine/questionTypes";
+import PronunciationButton from "../../components/PronunciationButton";
 
 interface ArticleLearningSessionProps {
   questions: Question[];
@@ -57,17 +56,12 @@ const ArticleLearningSession: React.FC<ArticleLearningSessionProps> = ({
     setPlaying((p) => !p);
   };
 
-  const handleSpeedChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSpeed(Number(e.target.value));
-  };
-
   const current = questions[currentIndex];
   const genderRaw = current.data?.gender;
   const gender: "der" | "die" | "das" =
     genderRaw === "der" || genderRaw === "die" || genderRaw === "das"
       ? genderRaw
       : "das";
-  const genderColor = GENDER_COLORS[gender];
   // Use even lighter gender colors for the card background
   let bgColor = "bg-gray-100 border-none text-gray-900";
   if (gender === "der") bgColor = "bg-blue-100 border-none text-blue-900";

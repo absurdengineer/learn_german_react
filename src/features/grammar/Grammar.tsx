@@ -1,18 +1,18 @@
 import React from "react";
 import { useParams, useLocation, useNavigate } from "react-router-dom";
-import { useGrammar } from "../hooks/useGrammar";
-import PageLayout from "../components/layout/PageLayout";
-import FlashcardSession from "../components/FlashcardSession";
-import MCQSession from "../components/MCQSession";
-import FreestyleInputSession from "../components/FreestyleInputSession";
-import { getGrammarQuestions } from "../features/question-engine/questionBuilder";
+import { useGrammar } from "./useGrammar";
+import PageLayout from "../../components/layout/PageLayout";
+import FlashcardSession from "../../components/FlashcardSession";
+import MCQSession from "../../components/MCQSession";
+import FreestyleInputSession from "../../components/FreestyleInputSession";
+import { getGrammarQuestions } from "../../core/question-engine/questionBuilder";
 import {
   questionsToFlashcardItems,
   questionsToQuizQuestions,
-} from "../lib/flashcardAdapters";
-import { StatCard, LessonMap } from "../components";
-import { getAllGrammarLessons } from "../data/grammarLessons";
-import GrammarLessonPage from "./GrammarLessonPage";
+} from "../../lib/flashcardAdapters";
+import { StatCard, LessonMap } from "../../components";
+import { getAllGrammarLessons } from "./grammarLessons";
+import GrammarLessonPage from "../grammar-lessons/GrammarLessonPage";
 
 const Grammar: React.FC = () => {
   const { day } = useParams<{ day: string }>();
