@@ -1,13 +1,13 @@
-import { useCallback, useEffect, useState } from 'react';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useCallback, useEffect, useState } from "react";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { SESSION_KEYS, SessionManager } from "../lib/sessionManager";
 import {
-  StandardizedTestGenerator,
-  getDataStatistics,
-} from '../lib/parsers';
-import { SESSION_KEYS, SessionManager } from '../lib/sessionManager';
-import {
-  generateA1Test,
-} from '../lib/testGenerator';
+  getVocabularyQuestions,
+  getArticleQuestions,
+  getGrammarQuestions,
+} from "../features/question-engine/questionBuilder";
+import { questionsToQuizQuestions } from "../lib/flashcardAdapters";
+import { DeutschMeisterDataManager } from "../lib/parsers/DataManager";
 
 interface Question {
   id: string;
@@ -26,47 +26,104 @@ interface TestData {
 type TestGenerator = (count: number) => TestData;
 
 const generateVocabularyTest = (count: number): TestData => {
-  const standardizedTest = StandardizedTestGenerator.generateVocabularyTest({ count });
+  const questions = getVocabularyQuestions({
+    mode: "multiple-choice-de-en",
+    count,
+  });
+
+  const quizQuestions = questionsToQuizQuestions(questions);
+
   return {
-    id: standardizedTest.id,
-    title: standardizedTest.title,
-    type: standardizedTest.type,
-    questions: standardizedTest.questions.map(q => ({
+    id: `vocab-test-${Date.now()}`,
+    title: "Vocabulary Test",
+    type: "vocabulary",
+    questions: quizQuestions.map((q) => ({
       id: q.id,
-      question: q.question,
+      question: q.prompt,
       options: q.options,
-      answer: q.answer
-    }))
+      answer: q.correctAnswer,
+    })),
   };
 };
 
 const generateArticlesTest = (count: number): TestData => {
-  const standardizedTest = StandardizedTestGenerator.generateArticlesTest({ count });
+  const questions = getArticleQuestions({
+    mode: "mc",
+    count,
+  });
+
+  const quizQuestions = questionsToQuizQuestions(questions);
+
   return {
-    id: standardizedTest.id,
-    title: standardizedTest.title,
-    type: standardizedTest.type,
-    questions: standardizedTest.questions.map(q => ({
+    id: `articles-test-${Date.now()}`,
+    title: "Articles Test",
+    type: "articles",
+    questions: quizQuestions.map((q) => ({
       id: q.id,
-      question: q.question,
+      question: q.prompt,
       options: q.options,
-      answer: q.answer
-    }))
+      answer: q.correctAnswer,
+    })),
   };
 };
 
 const generateGrammarTest = (count: number): TestData => {
-  const standardizedTest = StandardizedTestGenerator.generateGrammarTest({ count });
+  const questions = getGrammarQuestions({
+    mode: "mc",
+    count,
+  });
+
+  const quizQuestions = questionsToQuizQuestions(questions);
+
   return {
-    id: standardizedTest.id,
-    title: standardizedTest.title,
-    type: standardizedTest.type,
-    questions: standardizedTest.questions.map(q => ({
+    id: `grammar-test-${Date.now()}`,
+    title: "Grammar Test",
+    type: "grammar",
+    questions: quizQuestions.map((q) => ({
       id: q.id,
-      question: q.question,
+      question: q.prompt,
       options: q.options,
-      answer: q.answer
-    }))
+      answer: q.correctAnswer,
+    })),
+  };
+};
+
+const generateA1Test = (count: number): TestData => {
+  // Generate a mixed test with vocabulary, articles, and grammar
+  const vocabCount = Math.round(count * 0.5);
+  const articlesCount = Math.round(count * 0.25);
+  const grammarCount = count - vocabCount - articlesCount;
+
+  const vocabQuestions = getVocabularyQuestions({
+    mode: "multiple-choice-de-en",
+    count: vocabCount,
+  });
+  const articlesQuestions = getArticleQuestions({
+    mode: "mc",
+    count: articlesCount,
+  });
+  const grammarQuestions = getGrammarQuestions({
+    mode: "mc",
+    count: grammarCount,
+  });
+
+  const allQuestions = [
+    ...vocabQuestions,
+    ...articlesQuestions,
+    ...grammarQuestions,
+  ];
+  const quizQuestions = questionsToQuizQuestions(allQuestions);
+
+  return {
+    id: `a1-test-${Date.now()}`,
+    title: "A1 German Test",
+    type: "mixed",
+    questions: quizQuestions.map((q) => ({
+      id: q.id,
+      question: q.prompt,
+      options: q.options,
+      answer: q.correctAnswer,
+    })),
   };
 };
 
@@ -75,38 +132,47 @@ export const useTests = () => {
   const location = useLocation();
   const { testType } = useParams<{ testType?: string }>();
 
-  const getCurrentMode = useCallback((): 'menu' | 'session' | 'results' => {
+  const getCurrentMode = useCallback((): "menu" | "session" | "results" => {
     const pathname = location.pathname;
-    if (pathname.includes('/results')) return 'results';
-    if (pathname.includes('/session')) return 'session';
-    return 'menu';
+    if (pathname.includes("/results")) return "results";
+    if (pathname.includes("/session")) return "session";
+    return "menu";
   }, [location.pathname]);
 
-  const [sessionMode, setSessionMode] = useState<'menu' | 'session' | 'results'>(getCurrentMode());
+  const [sessionMode, setSessionMode] = useState<
+    "menu" | "session" | "results"
+  >(getCurrentMode());
 
   useEffect(() => {
     const mode = getCurrentMode();
     setSessionMode(mode);
   }, [location.pathname, getCurrentMode]);
 
-  const dataStats = getDataStatistics();
+  // Get data statistics from the unified data manager
+  const dataManager = DeutschMeisterDataManager.getInstance();
+  const dataStats = {
+    vocabulary: { total: dataManager.getVocabulary().length },
+    articles: { total: dataManager.getArticles().length },
+    grammarLessons: { total: dataManager.getGrammarLessons().length },
+    grammarPractice: { total: dataManager.getGrammarPractice().length },
+  };
 
   const startTest = (generator: TestGenerator, count: number, type: string) => {
     const test = generator(count);
-    
+
     const sessionData = {
       sessionId: SessionManager.generateSessionId(),
       startTime: Date.now(),
-      type: 'test' as const,
+      type: "test" as const,
       mode: type,
-      config: { count, testType: type }
+      config: { count, testType: type },
     };
     SessionManager.setSession(SESSION_KEYS.TEST, sessionData);
-    
+
     if (testType) {
       navigate(`/tests/${testType}/session`, { state: { test } });
     } else {
-      navigate('/tests/session', { state: { test } });
+      navigate("/tests/session", { state: { test } });
     }
   };
 

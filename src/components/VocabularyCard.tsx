@@ -87,7 +87,8 @@ export const VocabularyCard: React.FC<VocabularyCardProps> = ({
         ))}
       </div>
 
-      {word.exampleSentences.length > 0 && (
+      {/* Example sentence, if available */}
+      {(word.exampleSentences?.length ?? 0) > 0 && (
         <div className="text-sm text-gray-500 italic bg-gray-50 p-3 rounded-lg">
           "{word.exampleSentences[0].german}"
         </div>

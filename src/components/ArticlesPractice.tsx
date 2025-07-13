@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { loadArticleNouns, type ArticleNoun } from "../data";
 import { VocabularyWord } from "../types/Vocabulary";
 import { GENDER_COLORS } from "../lib/genderColors";
 import GenderLegend from "./GenderLegend";
 import { PronunciationButton } from ".";
 import { useLocation } from "react-router-dom";
+import type { Question } from "../features/question-engine/questionTypes";
+import type { StandardizedArticle } from "../lib/parsers/DataLoader";
 
 interface ArticlesPracticeProps {
   onComplete: (results: ArticlesSessionResult) => void;
@@ -13,6 +14,7 @@ interface ArticlesPracticeProps {
   focusCategory?: string;
   showCategoryFilter?: boolean;
   reviewWords?: VocabularyWord[];
+  questions?: Question[];
 }
 
 interface ArticlesSessionResult {
@@ -28,17 +30,14 @@ interface ArticlesSessionResult {
   }>;
 }
 
-// Load essential A1 nouns from JSON
-const ESSENTIAL_A1_NOUNS: ArticleNoun[] = loadArticleNouns();
-
 import SessionLayout from "./layout/SessionLayout";
 
 const ArticlesPractice: React.FC<ArticlesPracticeProps> = ({
   onComplete,
   onExit,
   sessionLength = 30,
-  focusCategory,
   reviewWords: propReviewWords,
+  questions: propQuestions,
 }) => {
   const location = useLocation();
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -46,7 +45,7 @@ const ArticlesPractice: React.FC<ArticlesPracticeProps> = ({
   const [userAnswer, setUserAnswer] = useState("");
   const [showResult, setShowResult] = useState(false);
   const [sessionStartTime] = useState(Date.now());
-  const [sessionWords, setSessionWords] = useState<ArticleNoun[]>([]);
+  const [sessionQuestions, setSessionQuestions] = useState<Question[]>([]);
   const [mistakes, setMistakes] = useState<
     Array<{
       word: VocabularyWord;
@@ -57,6 +56,7 @@ const ArticlesPractice: React.FC<ArticlesPracticeProps> = ({
 
   // Get reviewWords from props or navigation state
   const reviewWords = propReviewWords || location.state?.reviewWords;
+  const questions = propQuestions || location.state?.questions;
 
   useEffect(() => {
     setTimeout(() => {
@@ -67,40 +67,41 @@ const ArticlesPractice: React.FC<ArticlesPracticeProps> = ({
     }, 100);
   }, []);
 
-  // Initialize session words
+  // Initialize session questions
   useEffect(() => {
-    let wordsToUse: ArticleNoun[] = [];
-
-    if (reviewWords && reviewWords.length > 0) {
-      wordsToUse = reviewWords.map((word: VocabularyWord) => ({
+    if (questions && questions.length > 0) {
+      setSessionQuestions(questions);
+    } else if (reviewWords && reviewWords.length > 0) {
+      // Convert review words to questions
+      const reviewQuestions = reviewWords.map((word: VocabularyWord) => ({
         id: word.id.toString(),
-        german: word.german,
-        english: word.english,
-        gender: word.gender as "der" | "die" | "das",
-        category: word.tags[0] || "unknown",
-        frequency: word.frequency || 0,
+        type: "article" as const,
+        mode: "flashcard" as const,
+        prompt: `What is the article for "${word.german}"?`,
+        answer: word.gender as "der" | "die" | "das",
+        helperText: word.english,
+        color:
+          word.gender === "der"
+            ? "bg-blue-100"
+            : word.gender === "die"
+            ? "bg-pink-100"
+            : word.gender === "das"
+            ? "bg-gray-200"
+            : undefined,
+        data: word,
       }));
-    } else {
-      let filteredNouns = ESSENTIAL_A1_NOUNS;
-      if (focusCategory) {
-        filteredNouns = ESSENTIAL_A1_NOUNS.filter(
-          (noun) => noun.category === focusCategory
-        );
-      }
-      wordsToUse = filteredNouns;
+      setSessionQuestions(reviewQuestions.slice(0, sessionLength));
     }
+  }, [questions, reviewWords, sessionLength]);
 
-    const shuffled = [...wordsToUse].sort(() => Math.random() - 0.5);
-    setSessionWords(shuffled.slice(0, sessionLength));
-  }, [focusCategory, sessionLength, reviewWords]);
-
-  const currentWord = sessionWords[currentQuestionIndex];
+  const currentQuestion = sessionQuestions[currentQuestionIndex];
+  const currentArticle = currentQuestion?.data as StandardizedArticle;
 
   const handleSubmit = () => {
-    if (!currentWord) return;
+    if (!currentQuestion || !currentArticle) return;
 
     const isCorrect =
-      userAnswer.toLowerCase() === currentWord.gender.toLowerCase();
+      userAnswer.toLowerCase() === currentQuestion.answer.toLowerCase();
     if (isCorrect) {
       setScore(score + 1);
     } else {
@@ -108,16 +109,16 @@ const ArticlesPractice: React.FC<ArticlesPracticeProps> = ({
         ...mistakes,
         {
           word: VocabularyWord.create({
-            german: currentWord.german,
-            english: currentWord.english,
+            german: currentArticle.german,
+            english: currentArticle.english,
             type: "noun",
             level: "A1",
-            gender: currentWord.gender,
-            tags: [currentWord.category],
-            frequency: currentWord.frequency,
+            gender: currentArticle.gender,
+            tags: [currentArticle.category || "general"],
+            frequency: currentArticle.frequency || 1,
           }),
           userAnswer,
-          correctAnswer: currentWord.gender,
+          correctAnswer: currentQuestion.answer,
         },
       ]);
     }
@@ -125,7 +126,7 @@ const ArticlesPractice: React.FC<ArticlesPracticeProps> = ({
     setShowResult(true);
 
     setTimeout(() => {
-      if (currentQuestionIndex < sessionWords.length - 1) {
+      if (currentQuestionIndex < sessionQuestions.length - 1) {
         setCurrentQuestionIndex(currentQuestionIndex + 1);
         setUserAnswer("");
         setShowResult(false);
@@ -135,37 +136,38 @@ const ArticlesPractice: React.FC<ArticlesPracticeProps> = ({
         const totalTime = Math.round((endTime - sessionStartTime) / 1000);
 
         onComplete({
-          totalQuestions: sessionWords.length,
+          totalQuestions: sessionQuestions.length,
           correctAnswers: score + (isCorrect ? 1 : 0),
-          wrongAnswers: sessionWords.length - score - (isCorrect ? 1 : 0),
+          wrongAnswers: sessionQuestions.length - score - (isCorrect ? 1 : 0),
           timeSpent: totalTime,
-          wordsStudied: sessionWords.map((noun) =>
-            VocabularyWord.create({
-              german: noun.german,
-              english: noun.english,
+          wordsStudied: sessionQuestions.map((question) => {
+            const article = question.data as StandardizedArticle;
+            return VocabularyWord.create({
+              german: article.german,
+              english: article.english,
               type: "noun",
               level: "A1",
-              gender: noun.gender,
-              tags: [noun.category],
-              frequency: noun.frequency,
-            })
-          ),
+              gender: article.gender,
+              tags: [article.category || "general"],
+              frequency: article.frequency || 1,
+            });
+          }),
           mistakes: isCorrect
             ? mistakes
             : [
                 ...mistakes,
                 {
                   word: VocabularyWord.create({
-                    german: currentWord.german,
-                    english: currentWord.english,
+                    german: currentArticle.german,
+                    english: currentArticle.english,
                     type: "noun",
                     level: "A1",
-                    gender: currentWord.gender,
-                    tags: [currentWord.category],
-                    frequency: currentWord.frequency,
+                    gender: currentArticle.gender,
+                    tags: [currentArticle.category || "general"],
+                    frequency: currentArticle.frequency || 1,
                   }),
                   userAnswer,
-                  correctAnswer: currentWord.gender,
+                  correctAnswer: currentQuestion.answer,
                 },
               ],
         });
@@ -180,13 +182,13 @@ const ArticlesPractice: React.FC<ArticlesPracticeProps> = ({
       case "die":
         return "bg-pink-500";
       case "das":
-        return "bg-green-500";
+        return "bg-gray-500";
       default:
         return "bg-gray-500";
     }
   };
 
-  if (sessionWords.length === 0) {
+  if (sessionQuestions.length === 0) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
@@ -198,9 +200,9 @@ const ArticlesPractice: React.FC<ArticlesPracticeProps> = ({
   }
 
   const cardBgColor =
-    showResult && currentWord
-      ? GENDER_COLORS[currentWord.gender]?.bg
-      : "bg-slate-100";
+    showResult && currentArticle
+      ? GENDER_COLORS[currentArticle.gender]?.bg
+      : "bg-white";
 
   return (
     <SessionLayout title="Articles Practice" onExit={onExit}>
@@ -209,7 +211,7 @@ const ArticlesPractice: React.FC<ArticlesPracticeProps> = ({
           <span>Progress</span>
           <span>
             {Math.round(
-              ((currentQuestionIndex + 1) / sessionWords.length) * 100
+              ((currentQuestionIndex + 1) / sessionQuestions.length) * 100
             )}
             %
           </span>
@@ -219,7 +221,7 @@ const ArticlesPractice: React.FC<ArticlesPracticeProps> = ({
             className="bg-gradient-to-r from-blue-500 to-purple-600 h-2 rounded-full transition-all duration-300"
             style={{
               width: `${
-                ((currentQuestionIndex + 1) / sessionWords.length) * 100
+                ((currentQuestionIndex + 1) / sessionQuestions.length) * 100
               }%`,
             }}
           />
@@ -231,31 +233,31 @@ const ArticlesPractice: React.FC<ArticlesPracticeProps> = ({
       </div>
 
       <div
-        className={`rounded-2xl p-6 sm:p-8 mb-6 transition-colors duration-500 border border-slate-200 ${cardBgColor}`}
+        className={`rounded-2xl p-6 sm:p-8 mb-6 transition-colors duration-500 border border-slate-200 shadow-sm ${cardBgColor}`}
       >
         <div className="text-center mb-8">
           <div className="text-sm text-gray-600 mb-2">
             What is the correct article for:
           </div>
           <div className="text-3xl sm:text-4xl font-bold text-gray-800 mb-2">
-            {currentWord?.german}
+            {currentArticle?.german}
           </div>
           <div className="text-lg sm:text-xl text-gray-600">
-            {currentWord?.english}
+            {currentArticle?.english}
           </div>
-          {currentWord?.pronunciation && (
+          {currentArticle?.pronunciation && (
             <div className="flex items-center justify-center gap-2">
               <div className="text-md sm:text-lg text-gray-500">
-                /{currentWord.pronunciation}/
+                /{currentArticle.pronunciation}/
               </div>
               <PronunciationButton
-                text={currentWord.german}
+                text={currentArticle.german}
                 className="flex-shrink-0"
               />
             </div>
           )}
           <div className="text-sm text-gray-500 mt-2 capitalize">
-            Category: {currentWord?.category}
+            Category: {currentArticle?.category}
           </div>
         </div>
 
@@ -279,26 +281,28 @@ const ArticlesPractice: React.FC<ArticlesPracticeProps> = ({
         {showResult && (
           <div
             className={`text-center p-4 rounded-lg ${
-              userAnswer === currentWord?.gender ? "bg-green-100" : "bg-red-100"
+              userAnswer === currentArticle?.gender ? "bg-blue-50" : "bg-red-50"
             }`}
           >
             <div
               className={`text-lg font-bold ${
-                userAnswer === currentWord?.gender
-                  ? "text-green-600"
+                userAnswer === currentArticle?.gender
+                  ? "text-blue-600"
                   : "text-red-600"
               }`}
             >
-              {userAnswer === currentWord?.gender ? "✓ Correct!" : "✗ Wrong!"}
+              {userAnswer === currentArticle?.gender
+                ? "✓ Correct!"
+                : "✗ Wrong!"}
             </div>
             <div className="text-sm text-gray-700 mt-2">
               The correct answer is:{" "}
               <span
                 className={`font-bold ${
-                  currentWord && GENDER_COLORS[currentWord.gender]?.text
+                  currentArticle && GENDER_COLORS[currentArticle.gender]?.text
                 }`}
               >
-                {currentWord?.gender}
+                {currentArticle?.gender}
               </span>
             </div>
           </div>

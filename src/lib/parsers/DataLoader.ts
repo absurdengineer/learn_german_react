@@ -1,16 +1,16 @@
 /**
  * Standardized Data Loader for DeutschMeister
- * 
+ *
  * This module provides a unified interface for loading all learning resources:
  * - Vocabulary words from CSV
- * - Articles/nouns from CSV  
+ * - Articles/nouns from CSV
  * - Grammar lessons from CSV
  * - Grammar practice questions from CSV
- * 
+ *
  * All data is cached for performance and can be used directly outside the application.
  */
 
-import { parseCSVLine } from '../csvParser';
+import { parseCSVLine } from "../csvParser";
 
 // Base interfaces for all data types
 export interface BaseDataItem {
@@ -22,13 +22,13 @@ export interface BaseDataItem {
 }
 
 export interface StandardizedVocabulary extends BaseDataItem {
-  type: 'vocabulary';
+  type: "vocabulary";
   german: string;
   english: string;
   pronunciation?: string;
-  wordType: 'noun' | 'verb' | 'adjective' | 'adverb' | 'other';
-  gender?: 'masculine' | 'feminine' | 'neuter';
-  level: 'A1' | 'A2' | 'B1' | 'B2' | 'C1' | 'C2';
+  wordType: "noun" | "verb" | "adjective" | "adverb" | "other";
+  gender?: "masculine" | "feminine" | "neuter";
+  level: "A1" | "A2" | "B1" | "B2" | "C1" | "C2";
   examples?: Array<{
     german: string;
     english: string;
@@ -36,16 +36,16 @@ export interface StandardizedVocabulary extends BaseDataItem {
 }
 
 export interface StandardizedArticle extends BaseDataItem {
-  type: 'article';
+  type: "article";
   german: string;
   english: string;
   pronunciation?: string;
-  gender: 'der' | 'die' | 'das';
+  gender: "der" | "die" | "das";
   isPlural?: boolean;
 }
 
 export interface StandardizedGrammarLesson extends BaseDataItem {
-  type: 'grammar_lesson';
+  type: "grammar_lesson";
   day: number;
   week: number;
   title: string;
@@ -57,19 +57,19 @@ export interface StandardizedGrammarLesson extends BaseDataItem {
 }
 
 export interface StandardizedGrammarPractice extends BaseDataItem {
-  type: 'grammar_practice';
+  type: "grammar_practice";
   dayReference: number;
-  questionType: 'multiple_choice' | 'fill_in_blank' | 'true_false' | 'ordering';
+  questionType: "multiple_choice" | "fill_in_blank" | "true_false" | "ordering";
   prompt: string;
   correctAnswer: string;
   options: string[];
   helperText?: string;
 }
 
-export type StandardizedDataItem = 
-  | StandardizedVocabulary 
-  | StandardizedArticle 
-  | StandardizedGrammarLesson 
+export type StandardizedDataItem =
+  | StandardizedVocabulary
+  | StandardizedArticle
+  | StandardizedGrammarLesson
   | StandardizedGrammarPractice;
 
 // Data cache for performance
@@ -109,10 +109,13 @@ class DataCache {
 // Base CSV parser class
 export abstract class BaseCSVParser<T extends StandardizedDataItem> {
   protected abstract csvContent: string;
-  protected abstract parseRow(data: Record<string, string>, index: number): T | null;
+  protected abstract parseRow(
+    data: Record<string, string>,
+    index: number
+  ): T | null;
 
   protected parseCSV(): T[] {
-    const lines = this.csvContent.trim().split('\n');
+    const lines = this.csvContent.trim().split("\n");
     if (lines.length < 2) return [];
 
     const headers = parseCSVLine(lines[0]);
@@ -130,7 +133,7 @@ export abstract class BaseCSVParser<T extends StandardizedDataItem> {
 
       const row: Record<string, string> = {};
       headers.forEach((header, index) => {
-        row[header.trim()] = columns[index]?.trim() || '';
+        row[header.trim()] = columns[index]?.trim() || "";
       });
 
       const item = this.parseRow(row, i);
@@ -145,7 +148,7 @@ export abstract class BaseCSVParser<T extends StandardizedDataItem> {
   public load(): T[] {
     const cache = DataCache.getInstance();
     const cacheKey = this.constructor.name;
-    
+
     if (!cache.isExpired(cacheKey)) {
       const cached = cache.get(cacheKey);
       if (cached) {
@@ -161,31 +164,52 @@ export abstract class BaseCSVParser<T extends StandardizedDataItem> {
 
 // Utility functions for standardization
 export class DataStandardizer {
-  static normalizeGender(gender: string): 'masculine' | 'feminine' | 'neuter' | undefined {
+  static normalizeGender(
+    gender: string
+  ): "masculine" | "feminine" | "neuter" | undefined {
     const normalized = gender.toLowerCase().trim();
-    if (normalized === 'der' || normalized === 'masculine' || normalized === 'm') return 'masculine';
-    if (normalized === 'die' || normalized === 'feminine' || normalized === 'f') return 'feminine';
-    if (normalized === 'das' || normalized === 'neuter' || normalized === 'n') return 'neuter';
+    if (
+      normalized === "der" ||
+      normalized === "masculine" ||
+      normalized === "m"
+    )
+      return "masculine";
+    if (normalized === "die" || normalized === "feminine" || normalized === "f")
+      return "feminine";
+    if (normalized === "das" || normalized === "neuter" || normalized === "n")
+      return "neuter";
     return undefined;
   }
 
-  static normalizeWordType(type: string): 'noun' | 'verb' | 'adjective' | 'adverb' | 'other' {
+  static normalizeWordType(
+    type: string
+  ): "noun" | "verb" | "adjective" | "adverb" | "other" {
     const normalized = type.toLowerCase().trim();
-    if (normalized.includes('noun')) return 'noun';
-    if (normalized.includes('verb')) return 'verb';
-    if (normalized.includes('adjective') || normalized.includes('adj')) return 'adjective';
-    if (normalized.includes('adverb') || normalized.includes('adv')) return 'adverb';
-    return 'other';
+    if (normalized.includes("noun")) return "noun";
+    if (normalized.includes("verb")) return "verb";
+    if (normalized.includes("adjective") || normalized.includes("adj"))
+      return "adjective";
+    if (normalized.includes("adverb") || normalized.includes("adv"))
+      return "adverb";
+    return "other";
   }
 
   static parseTags(tagString: string): string[] {
     if (!tagString) return [];
-    return tagString.split('|').map(tag => tag.trim()).filter(tag => tag.length > 0);
+    return tagString
+      .split("|")
+      .map((tag) => tag.trim())
+      .filter((tag) => tag.length > 0);
   }
 
-  static parseOptions(prompt: string, correctAnswer: string, optionB?: string, optionC?: string): string[] {
+  static parseOptions(
+    prompt: string,
+    correctAnswer: string,
+    optionB?: string,
+    optionC?: string
+  ): string[] {
     const options = [correctAnswer];
-    
+
     if (optionB && optionB.trim()) {
       options.push(optionB.trim());
     }
@@ -194,22 +218,121 @@ export class DataStandardizer {
     }
 
     // For certain question types, add standard options
-    if (prompt.toLowerCase().includes('article') || prompt.toLowerCase().includes('der/die/das')) {
-      const articles = ['der', 'die', 'das'];
-      articles.forEach(article => {
+    if (
+      prompt.toLowerCase().includes("article") ||
+      prompt.toLowerCase().includes("der/die/das")
+    ) {
+      const articles = ["der", "die", "das"];
+      articles.forEach((article) => {
         if (!options.includes(article)) {
           options.push(article);
         }
       });
     }
 
-    // Shuffle options and ensure max 4
+    // Ensure we have at least 3-4 options by generating additional ones if needed
+    if (options.length < 4) {
+      // Generate additional options based on the question type
+      const additionalOptions = this.generateAdditionalOptions(
+        prompt,
+        correctAnswer,
+        options
+      );
+      options.push(...additionalOptions);
+    }
+
+    // Shuffle options and ensure exactly 4
     const shuffled = options.sort(() => Math.random() - 0.5);
     return shuffled.slice(0, 4);
   }
 
+  private static generateAdditionalOptions(
+    prompt: string,
+    _correctAnswer: string,
+    existingOptions: string[]
+  ): string[] {
+    const additionalOptions: string[] = [];
+
+    // Generate options based on question type
+    if (
+      prompt.toLowerCase().includes("greeting") ||
+      prompt.toLowerCase().includes("hallo")
+    ) {
+      const greetings = [
+        "Hallo",
+        "Guten Tag",
+        "Guten Morgen",
+        "Guten Abend",
+        "Tschüss",
+        "Auf Wiedersehen",
+      ];
+      greetings.forEach((greeting) => {
+        if (
+          !existingOptions.includes(greeting) &&
+          additionalOptions.length < 2
+        ) {
+          additionalOptions.push(greeting);
+        }
+      });
+    } else if (
+      prompt.toLowerCase().includes("verb") ||
+      prompt.toLowerCase().includes("conjugat")
+    ) {
+      const verbs = [
+        "mache",
+        "machst",
+        "macht",
+        "machen",
+        "bin",
+        "bist",
+        "ist",
+        "sind",
+        "habe",
+        "hast",
+        "hat",
+        "haben",
+      ];
+      verbs.forEach((verb) => {
+        if (!existingOptions.includes(verb) && additionalOptions.length < 2) {
+          additionalOptions.push(verb);
+        }
+      });
+    } else if (
+      prompt.toLowerCase().includes("pronoun") ||
+      prompt.toLowerCase().includes("ich") ||
+      prompt.toLowerCase().includes("du")
+    ) {
+      const pronouns = ["ich", "du", "er", "sie", "es", "wir", "ihr", "Sie"];
+      pronouns.forEach((pronoun) => {
+        if (
+          !existingOptions.includes(pronoun) &&
+          additionalOptions.length < 2
+        ) {
+          additionalOptions.push(pronoun);
+        }
+      });
+    } else {
+      // Generic fallback options
+      const genericOptions = [
+        "Ja",
+        "Nein",
+        "Vielleicht",
+        "Sicher",
+        "Gerne",
+        "Leider",
+      ];
+      genericOptions.forEach((option) => {
+        if (!existingOptions.includes(option) && additionalOptions.length < 2) {
+          additionalOptions.push(option);
+        }
+      });
+    }
+
+    return additionalOptions;
+  }
+
   static generateId(prefix: string, index: number): string {
-    return `${prefix}_${String(index).padStart(4, '0')}`;
+    return `${prefix}_${String(index).padStart(4, "0")}`;
   }
 
   static calculateWeek(day: number): number {

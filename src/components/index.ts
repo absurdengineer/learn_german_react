@@ -12,6 +12,8 @@ export { GrammarLessonCard } from "./GrammarLessonCard";
 export { default as HeaderWithActions } from "./HeaderWithActions";
 export { default as LoadingSpinner } from "./LoadingSpinner";
 export { default as LoadingState } from "./LoadingState";
+export { default as LessonPath } from "./LessonPath";
+export { default as LessonMap } from "./LessonMap";
 export { PracticeCard } from "./PracticeCard";
 export { default as ProgressBar } from "./ProgressBar";
 export { default as ProgressCard } from "./ProgressCard";
@@ -29,9 +31,12 @@ export { WordDetailModal } from "./WordDetailModal";
 export { default as ArticlesLearning } from "./ArticlesLearning";
 export { default as ArticlesPractice } from "./ArticlesPractice";
 export { default as FlashcardSession } from "./FlashcardSession";
+export { default as MCQSession } from "./MCQSession";
+export { default as FreestyleInputSession } from "./FreestyleInputSession";
+export { default as TestSession } from "./TestSession";
+export { default as LearningSession } from "./LearningSession";
 export { default as FlashcardSessionResults } from "./FlashcardSessionResults";
 export { default as QuizSession } from "./QuizSession";
-export { default as TestSession } from "./TestSession";
 export { default as TestResults } from "./TestResults";
 
 // New Generic Components

@@ -1,54 +1,48 @@
 /**
  * Standardized Data System - Main Export
- * 
+ *
  * This module exports all standardized data functionality for external use.
  * Can be imported directly in other projects or used for data analysis.
- * 
+ *
  * Usage Examples:
- * 
+ *
  * // Get all vocabulary
- * import { dataManager } from './standardized';
+ * import { dataManager } from './DataManager';
  * const vocabulary = dataManager.getVocabulary();
- * 
- * // Generate a test
- * import { StandardizedTestGenerator } from './standardized';
- * const test = StandardizedTestGenerator.generateVocabularyTest({ count: 20 });
- * 
+ *
  * // Get statistics
  * const stats = dataManager.getDataStatistics();
  */
 
 // Export main data manager
-export { dataManager, DeutschMeisterDataManager } from './DataManager';
+export { dataManager, DeutschMeisterDataManager } from "./DataManager";
 
 // Export individual parsers for advanced use
-export { articlesLoader, ArticlesParser } from './ArticlesParser';
-export { grammarLessonsLoader, GrammarLessonsParser } from './GrammarLessonsParser';
-export { grammarPracticeLoader, GrammarPracticeParser } from './GrammarPracticeParser';
-export { vocabularyLoader, VocabularyParser } from './VocabularyParser';
-
-// Export test generator
-export { StandardizedTestGenerator } from './TestGenerator';
+export { articlesLoader, ArticlesParser } from "./ArticlesParser";
+export {
+  grammarLessonsLoader,
+  GrammarLessonsParser,
+} from "./GrammarLessonsParser";
+export {
+  grammarPracticeLoader,
+  GrammarPracticeParser,
+} from "./GrammarPracticeParser";
+export { vocabularyLoader, VocabularyParser } from "./VocabularyParser";
 
 // Export types
 export type {
-    StandardizedArticle, StandardizedDataItem, StandardizedGrammarLesson,
-    StandardizedGrammarPractice, StandardizedVocabulary
-} from './DataLoader';
-
-export type {
-    GeneratedTest, TestQuestion
-} from './TestGenerator';
-
-// Export utility functions
-export { DataStandardizer } from './DataLoader';
+  StandardizedArticle,
+  StandardizedDataItem,
+  StandardizedGrammarLesson,
+  StandardizedGrammarPractice,
+  StandardizedVocabulary,
+} from "./DataLoader";
 
 /**
  * Quick access functions for common operations
  */
 
-import { dataManager } from './DataManager';
-import { StandardizedTestGenerator } from './TestGenerator';
+import { dataManager } from "./DataManager";
 
 // Quick data access
 export const getVocabulary = () => dataManager.getVocabulary();
@@ -58,30 +52,13 @@ export const getGrammarPractice = () => dataManager.getGrammarPractice();
 export const getAllData = () => dataManager.getAllData();
 export const getDataStatistics = () => dataManager.getDataStatistics();
 
-// Quick test generation
-export const generateVocabularyTest = (count = 10) => 
-  StandardizedTestGenerator.generateVocabularyTest({ count });
+/**
+ * Search and filter functions
+ */
 
-export const generateArticlesTest = (count = 10) => 
-  StandardizedTestGenerator.generateArticlesTest({ count });
-
-export const generateGrammarTest = (count = 10) => 
-  StandardizedTestGenerator.generateGrammarTest({ count });
-
-export const generateMixedTest = (count = 20) => 
-  StandardizedTestGenerator.generateMixedTest({ count });
-
-// Search and filter functions
-export const searchData = (query: string) => dataManager.searchData(query);
-export const getDataByCategory = (category: string) => dataManager.getDataByCategory(category);
-export const getVocabularyByWordType = (wordType: 'noun' | 'verb' | 'adjective' | 'adverb' | 'other') => 
-  dataManager.getVocabularyByWordType(wordType);
-export const getArticlesByGender = (gender: 'der' | 'die' | 'das') => 
-  dataManager.getArticlesByGender(gender);
-export const getGrammarLessonByDay = (day: number) => 
-  dataManager.getGrammarLessonByDay(day);
-export const getGrammarPracticeByDay = (day: number) => 
-  dataManager.getGrammarPracticeByDay(day);
+export const searchData = (query: string) => {
+  return dataManager.searchData(query);
+};
 
 /**
  * Data export functions for external tools
@@ -94,62 +71,78 @@ export const exportToJSON = () => {
     grammarLessons: dataManager.getGrammarLessons(),
     grammarPractice: dataManager.getGrammarPractice(),
     statistics: dataManager.getDataStatistics(),
-    exportDate: new Date().toISOString()
+    exportDate: new Date().toISOString(),
   };
 };
 
-export const exportToCSV = (type: 'vocabulary' | 'article' | 'grammar_lesson' | 'grammar_practice') => {
-  const data = dataManager.getDataByType(type);
-  
-  if (data.length === 0) return '';
-  
+export const exportToCSV = (
+  type:
+    | "vocabulary"
+    | "articles"
+    | "grammar_lessons"
+    | "grammar_practice"
+    | "all"
+) => {
+  // Simple CSV export implementation
+  let data: any[] = [];
+  if (type === "all") {
+    data = dataManager.getAllData();
+  } else if (type === "vocabulary") {
+    data = dataManager.getVocabulary();
+  } else if (type === "articles") {
+    data = dataManager.getArticles();
+  } else if (type === "grammar_lessons") {
+    data = dataManager.getGrammarLessons();
+  } else if (type === "grammar_practice") {
+    data = dataManager.getGrammarPractice();
+  }
+
+  if (data.length === 0) return "";
+
   // Get all unique keys from all objects
   const allKeys = new Set<string>();
-  data.forEach(item => {
-    Object.keys(item).forEach(key => allKeys.add(key));
+  data.forEach((item) => {
+    Object.keys(item).forEach((key) => allKeys.add(key));
   });
-  
+
   const headers = Array.from(allKeys).sort();
-  const csvHeaders = headers.join(',');
-  
-  const csvRows = data.map(item => {
-    return headers.map(header => {
-      const value = (item as any)[header];
-      if (Array.isArray(value)) return `"${value.join('|')}"`;
-      if (typeof value === 'object' && value !== null) return `"${JSON.stringify(value)}"`;
-      if (typeof value === 'string' && value.includes(',')) return `"${value}"`;
-      return value || '';
-    }).join(',');
+  const csvHeaders = headers.join(",");
+
+  const csvRows = data.map((item) => {
+    return headers
+      .map((header) => {
+        const value = (item as any)[header];
+        if (Array.isArray(value)) return `"${value.join("|")}"`;
+        if (typeof value === "object" && value !== null)
+          return `"${JSON.stringify(value)}"`;
+        if (typeof value === "string" && value.includes(","))
+          return `"${value}"`;
+        return value || "";
+      })
+      .join(",");
   });
-  
-  return [csvHeaders, ...csvRows].join('\n');
+
+  return [csvHeaders, ...csvRows].join("\n");
 };
 
-/**
- * Version information
- */
-export const VERSION = '1.0.0';
-export const LAST_UPDATED = new Date().toISOString();
+// Version information
+export const VERSION = "2.0.0";
+export const LAST_UPDATED = "2024-01-01";
 
 /**
  * Default export for simple imports
  */
 export default {
   dataManager,
-  StandardizedTestGenerator,
   getVocabulary,
   getArticles,
   getGrammarLessons,
   getGrammarPractice,
   getAllData,
   getDataStatistics,
-  generateVocabularyTest,
-  generateArticlesTest,
-  generateGrammarTest,
-  generateMixedTest,
   searchData,
   exportToJSON,
   exportToCSV,
   VERSION,
-  LAST_UPDATED
+  LAST_UPDATED,
 };

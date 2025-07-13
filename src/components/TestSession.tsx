@@ -1,267 +1,312 @@
-import { useEffect, useRef, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import type { Test } from "../types/Flashcard";
-
+import React, { useEffect, useState } from "react";
 import SessionLayout from "./layout/SessionLayout";
+import type { QuizResults, QuizMistake } from "../types/Flashcard";
 
-const TestSession = () => {
-  const { state } = useLocation();
-  const navigate = useNavigate();
-  const { test } = (state as { test: Test }) || {};
+interface TestSessionProps {
+  questions: any[]; // Mixed question types
+  title: string;
+  onComplete: (results: QuizResults) => void;
+  onExit: () => void;
+}
 
+const TestSession: React.FC<TestSessionProps> = ({
+  questions,
+  title,
+  onComplete,
+  onExit,
+}) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [userAnswers, setUserAnswers] = useState<{ [key: string]: string }>({});
-  const [timeLeft, setTimeLeft] = useState(20);
-  const [totalTime, setTotalTime] = useState(0);
-  const [selectedOption, setSelectedOption] = useState("");
-  const [showExitConfirm, setShowExitConfirm] = useState(false);
-  const questionStartTime = useRef(Date.now());
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const [score, setScore] = useState(0);
+  const [userAnswer, setUserAnswer] = useState("");
+  const [textInput, setTextInput] = useState("");
+  const [showResult, setShowResult] = useState(false);
+  const [sessionStartTime] = useState(Date.now());
+  const [mistakes, setMistakes] = useState<QuizMistake[]>([]);
 
   useEffect(() => {
-    if (!test) return;
+    window.scrollTo(0, 0);
+  }, [currentQuestionIndex]);
 
-    questionStartTime.current = Date.now();
-    timerRef.current = setInterval(() => {
-      setTimeLeft((prevTime) => {
-        if (prevTime <= 1) {
-          // Use a ref to capture current userAnswers to avoid dependency issues
-          handleNextQuestion(userAnswers);
-          return 20;
-        }
-        return prevTime - 1;
-      });
-    }, 1000);
+  const currentQuestion = questions[currentQuestionIndex];
 
-    // Prevent accidental navigation away from test
-    const handleBeforeUnload = (e: BeforeUnloadEvent) => {
-      e.preventDefault();
-      e.returnValue =
-        "Are you sure you want to leave? Your test progress will be lost.";
-      return "Are you sure you want to leave? Your test progress will be lost.";
-    };
+  const isAnswerCorrect = (
+    userAnswer: string,
+    correctAnswer: string
+  ): boolean => {
+    const normalizedUserAnswer = userAnswer.toLowerCase().trim();
+    const normalizedCorrectAnswer = correctAnswer.toLowerCase().trim();
 
-    window.addEventListener("beforeunload", handleBeforeUnload);
-
-    return () => {
-      if (timerRef.current) {
-        clearInterval(timerRef.current);
-      }
-      window.removeEventListener("beforeunload", handleBeforeUnload);
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [test]);
-
-  const handleExitClick = () => {
-    setShowExitConfirm(true);
-  };
-
-  const handleConfirmExit = () => {
-    if (timerRef.current) {
-      clearInterval(timerRef.current);
-    }
-    navigate("/tests");
-  };
-
-  const handleCancelExit = () => {
-    setShowExitConfirm(false);
-  };
-
-  // Handle ESC key to close modal
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape" && showExitConfirm) {
-        setShowExitConfirm(false);
-      }
-    };
-
-    if (showExitConfirm) {
-      document.addEventListener("keydown", handleKeyDown);
-      // Prevent scrolling when modal is open
-      document.body.style.overflow = "hidden";
+    // Check if the correct answer contains alternative answers separated by "/"
+    if (normalizedCorrectAnswer.includes("/")) {
+      const alternatives = normalizedCorrectAnswer
+        .split("/")
+        .map((alt) => alt.trim());
+      return alternatives.some((alt) => alt === normalizedUserAnswer);
     }
 
-    return () => {
-      document.removeEventListener("keydown", handleKeyDown);
-      document.body.style.overflow = "unset";
-    };
-  }, [showExitConfirm]);
-
-  if (!test) {
-    return <div>Test data is missing. Please start a new test.</div>;
-  }
-
-  const resetTimer = () => {
-    if (timerRef.current) {
-      clearInterval(timerRef.current);
-    }
-    setTimeLeft(20);
-    timerRef.current = setInterval(() => {
-      setTimeLeft((prevTime) => {
-        if (prevTime <= 1) {
-          handleNextQuestion(userAnswers);
-          return 20;
-        }
-        return prevTime - 1;
-      });
-    }, 1000);
+    // Regular exact match
+    return normalizedUserAnswer === normalizedCorrectAnswer;
   };
 
-  const handleNextQuestion = (currentAnswers: { [key: string]: string }) => {
-    const timeSpent = Date.now() - questionStartTime.current;
-    setTotalTime((prev) => prev + timeSpent);
+  const handleAnswer = (answer: string) => {
+    if (!currentQuestion) return;
 
-    if (currentQuestionIndex < test.questions.length - 1) {
-      setCurrentQuestionIndex(currentQuestionIndex + 1);
-      setSelectedOption("");
-      questionStartTime.current = Date.now();
-      resetTimer();
+    const isCorrect = isAnswerCorrect(
+      answer,
+      currentQuestion.correctAnswer || currentQuestion.answer
+    );
+    if (isCorrect) {
+      setScore(score + 1);
     } else {
-      handleSubmit(currentAnswers);
+      setMistakes([
+        ...mistakes,
+        {
+          id: currentQuestion.id,
+          prompt: currentQuestion.prompt,
+          correctAnswer:
+            currentQuestion.correctAnswer || currentQuestion.answer,
+          userAnswer: answer,
+          category: currentQuestion.category,
+          word: currentQuestion.word,
+        },
+      ]);
     }
-  };
 
-  const handleAnswer = (questionId: string, answer: string) => {
-    if (selectedOption) return; // Prevent changing answer
-
-    const newAnswers = { ...userAnswers, [questionId]: answer };
-    setUserAnswers(newAnswers);
-    setSelectedOption(answer);
+    setUserAnswer(answer);
+    setShowResult(true);
 
     setTimeout(() => {
-      handleNextQuestion(newAnswers);
-    }, 500); // Delay to show selection before moving to next question
+      if (currentQuestionIndex < questions.length - 1) {
+        setCurrentQuestionIndex(currentQuestionIndex + 1);
+        setUserAnswer("");
+        setTextInput("");
+        setShowResult(false);
+      } else {
+        const endTime = Date.now();
+        onComplete({
+          totalQuestions: questions.length,
+          correctAnswers: score + (isCorrect ? 1 : 0),
+          wrongAnswers: questions.length - (score + (isCorrect ? 1 : 0)),
+          timeSpent: endTime - sessionStartTime,
+          mistakes,
+        });
+      }
+    }, 1500);
   };
 
-  const handleSubmit = (finalAnswers: { [key: string]: string }) => {
-    if (timerRef.current) {
-      clearInterval(timerRef.current);
+  const handleTextSubmit = () => {
+    if (textInput.trim()) {
+      handleAnswer(textInput.trim());
     }
-    const score = test.questions.reduce((acc, question) => {
-      return finalAnswers[question.id] === question.answer ? acc + 1 : acc;
-    }, 0);
-
-    const result = {
-      testId: test.id,
-      title: test.title,
-      score,
-      totalQuestions: test.questions.length,
-      userAnswers: finalAnswers,
-      totalTime,
-      date: new Date().toISOString(),
-    };
-
-    const pastResults = JSON.parse(localStorage.getItem("testResults") || "[]");
-    localStorage.setItem(
-      "testResults",
-      JSON.stringify([...pastResults, result])
-    );
-
-    navigate(`/tests/results`, {
-      state: { userAnswers: finalAnswers, test, result },
-    });
   };
 
-  const question = test.questions[currentQuestionIndex];
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter" && textInput.trim()) {
+      handleTextSubmit();
+    }
+  };
+
+  const handleFlashcardNext = () => {
+    if (currentQuestionIndex < questions.length - 1) {
+      setCurrentQuestionIndex(currentQuestionIndex + 1);
+      setShowResult(false);
+    } else {
+      const endTime = Date.now();
+      onComplete({
+        totalQuestions: questions.length,
+        correctAnswers: score,
+        wrongAnswers: questions.length - score,
+        timeSpent: endTime - sessionStartTime,
+        mistakes,
+      });
+    }
+  };
+
+  if (questions.length === 0) {
+    return (
+      <div className="min-h-screen bg-gray-50 p-4 flex items-center justify-center">
+        <div className="text-center">
+          <p className="text-lg text-gray-600">No questions available.</p>
+          <button
+            onClick={onExit}
+            className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+          >
+            Back
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  // Determine question type and render appropriate UI
+  const questionType = currentQuestion.mode || currentQuestion.type || "mcq";
+  const isFlashcard =
+    questionType === "flashcards" || questionType === "flashcard";
+  const isMCQ = currentQuestion.options && currentQuestion.options.length > 0;
+  const isFreestyle = !isFlashcard && !isMCQ;
 
   return (
-    <SessionLayout title={`🧪 ${test.title}`} onExit={handleExitClick}>
+    <SessionLayout title={title} onExit={onExit}>
+      {/* Progress Bar */}
       <div className="mb-6 sm:mb-8">
         <div className="flex justify-between text-xs sm:text-sm text-gray-600 mb-2">
-          <span>Time Remaining</span>
-          <span>{timeLeft}s</span>
+          <span>Progress</span>
+          <span>
+            {Math.round(((currentQuestionIndex + 1) / questions.length) * 100)}%
+          </span>
         </div>
         <div className="w-full bg-gray-200 rounded-full h-2">
           <div
-            className={`h-2 rounded-full transition-all duration-1000 ${
-              timeLeft <= 5
-                ? "bg-red-500"
-                : timeLeft <= 10
-                ? "bg-yellow-500"
-                : "bg-green-500"
-            }`}
-            style={{ width: `${(timeLeft / 20) * 100}%` }}
+            className="bg-gradient-to-r from-blue-500 to-purple-600 h-2 rounded-full transition-all duration-300"
+            style={{
+              width: `${
+                ((currentQuestionIndex + 1) / questions.length) * 100
+              }%`,
+            }}
           />
         </div>
       </div>
 
-      <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 lg:p-8 mb-4 sm:mb-6">
-        <div className="text-center mb-6 sm:mb-8">
-          <div className="text-xs sm:text-sm text-gray-600 mb-2">
-            Question {currentQuestionIndex + 1} of {test.questions.length}
-          </div>
-          <p className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800 mb-4 leading-relaxed px-2">
-            {question.question}
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 gap-3 sm:gap-4 mb-6 sm:mb-8">
-          {question.options.map((option) => {
-            const isSelected = selectedOption === option;
-            return (
-              <button
-                key={option}
-                onClick={() => handleAnswer(question.id, option)}
-                disabled={!!selectedOption}
-                className={`w-full p-3 sm:p-4 text-center rounded-lg sm:rounded-xl font-medium transition-all duration-200 text-sm sm:text-base ${
-                  isSelected
-                    ? "bg-blue-500 text-white border-2 border-blue-600 shadow-lg"
-                    : "bg-gray-50 hover:bg-gray-100 active:bg-gray-200 border-2 border-gray-200 text-gray-700"
-                } ${!!selectedOption && !isSelected ? "opacity-50" : ""}`}
-              >
-                {option}
-              </button>
-            );
-          })}
+      {/* Score and Question Counter */}
+      <div className="mb-6 sm:mb-8">
+        <div className="flex justify-between items-center text-sm sm:text-base text-gray-600">
+          <span>
+            Question {currentQuestionIndex + 1} of {questions.length}
+          </span>
+          <span>
+            Score: {score}/{currentQuestionIndex + 1}
+          </span>
         </div>
       </div>
 
-      {showExitConfirm && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
-          onClick={handleCancelExit}
-        >
-          <div
-            className="bg-white rounded-lg sm:rounded-xl p-4 sm:p-6 max-w-sm sm:max-w-md mx-auto w-full"
-            onClick={(e) => e.stopPropagation()}
-            role="dialog"
-            aria-labelledby="exit-dialog-title"
-            aria-describedby="exit-dialog-description"
-          >
-            <div className="text-center">
-              <div className="text-2xl mb-3 sm:mb-4">⚠️</div>
-              <h3
-                id="exit-dialog-title"
-                className="text-lg sm:text-xl font-bold text-gray-900 mb-2"
+      <div className="border border-slate-200 rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 bg-white">
+        <div className="text-center mb-6 sm:mb-8">
+          {currentQuestion.category && (
+            <p className="text-xs sm:text-sm text-gray-500 mb-2">
+              {currentQuestion.category}
+            </p>
+          )}
+          <p className="text-base sm:text-lg lg:text-xl text-gray-800 leading-relaxed px-2">
+            {currentQuestion.prompt}
+          </p>
+          {currentQuestion.helperText && (
+            <p className="text-xs sm:text-sm text-gray-500 mt-2 italic">
+              {currentQuestion.helperText}
+            </p>
+          )}
+        </div>
+
+        {/* Flashcard Mode */}
+        {isFlashcard && (
+          <div className="text-center">
+            {!showResult ? (
+              <button
+                onClick={() => setShowResult(true)}
+                className="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
               >
-                Exit Test?
-              </h3>
-              <p
-                id="exit-dialog-description"
-                className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6"
-              >
-                Are you sure you want to exit? Your test progress will be lost
-                and cannot be recovered.
-              </p>
-              <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
+                Show Answer
+              </button>
+            ) : (
+              <div className="space-y-4">
+                <div className="text-lg sm:text-xl font-semibold text-green-600">
+                  {currentQuestion.answer || currentQuestion.correctAnswer}
+                </div>
                 <button
-                  onClick={handleCancelExit}
-                  className="px-4 py-2 sm:px-6 sm:py-3 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition-colors text-sm sm:text-base font-medium"
-                  autoFocus
+                  onClick={handleFlashcardNext}
+                  className="px-6 sm:px-8 py-2.5 sm:py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-medium text-sm sm:text-base"
                 >
-                  Cancel
-                </button>
-                <button
-                  onClick={handleConfirmExit}
-                  className="px-4 py-2 sm:px-6 sm:py-3 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors text-sm sm:text-base font-medium"
-                >
-                  Exit Test
+                  {currentQuestionIndex < questions.length - 1
+                    ? "Next Question"
+                    : "Finish Test"}
                 </button>
               </div>
+            )}
+          </div>
+        )}
+
+        {/* MCQ Mode */}
+        {isMCQ && (
+          <div className="grid grid-cols-1 gap-3 sm:gap-4">
+            {currentQuestion.options.map((option: string) => (
+              <button
+                key={option}
+                onClick={() => handleAnswer(option)}
+                disabled={showResult}
+                className={`p-3 sm:p-4 rounded-lg border transition-all text-left w-full ${
+                  showResult &&
+                  option ===
+                    (currentQuestion.correctAnswer || currentQuestion.answer)
+                    ? "bg-green-100 border-green-500 text-green-700"
+                    : showResult &&
+                      option === userAnswer &&
+                      option !==
+                        (currentQuestion.correctAnswer ||
+                          currentQuestion.answer)
+                    ? "bg-red-100 border-red-500 text-red-700"
+                    : "bg-gray-50 border-gray-200 hover:bg-gray-100 active:bg-gray-200"
+                }`}
+              >
+                <span className="text-sm sm:text-base">{option}</span>
+              </button>
+            ))}
+          </div>
+        )}
+
+        {/* Freestyle Input Mode */}
+        {isFreestyle && (
+          <div className="max-w-lg mx-auto">
+            <div className="space-y-3 sm:space-y-4">
+              <input
+                type="text"
+                value={textInput}
+                onChange={(e) => setTextInput(e.target.value)}
+                onKeyPress={handleKeyPress}
+                disabled={showResult}
+                placeholder="Type your answer..."
+                className={`w-full p-3 sm:p-4 text-base sm:text-lg border rounded-lg focus:outline-none focus:ring-2 ${
+                  showResult
+                    ? isAnswerCorrect(
+                        textInput,
+                        currentQuestion.correctAnswer || currentQuestion.answer
+                      )
+                      ? "border-green-500 bg-green-50 text-green-700"
+                      : "border-red-500 bg-red-50 text-red-700"
+                    : "border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+                }`}
+              />
+
+              {!showResult && (
+                <button
+                  onClick={handleTextSubmit}
+                  disabled={!textInput.trim()}
+                  className="w-full py-3 sm:py-4 px-6 bg-blue-500 text-white rounded-lg hover:bg-blue-600 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors font-medium text-sm sm:text-base"
+                >
+                  Submit Answer
+                </button>
+              )}
             </div>
           </div>
-        </div>
-      )}
+        )}
+
+        {/* Result Feedback for MCQ and Freestyle */}
+        {showResult && (isMCQ || isFreestyle) && (
+          <div className="mt-4 text-center">
+            {userAnswer ===
+            (currentQuestion.correctAnswer || currentQuestion.answer) ? (
+              <div className="text-green-600 font-medium">
+                ✅ Correct! Well done!
+              </div>
+            ) : (
+              <div className="text-red-600 font-medium">
+                ❌ Incorrect. The correct answer is:{" "}
+                <span className="font-bold">
+                  {currentQuestion.correctAnswer || currentQuestion.answer}
+                </span>
+              </div>
+            )}
+          </div>
+        )}
+      </div>
     </SessionLayout>
   );
 };

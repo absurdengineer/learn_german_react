@@ -1,11 +1,35 @@
-import { type LevelType } from '../types/User';
-import { VocabularyWord, type Gender, type WordType } from '../types/Vocabulary';
-import type { ArticleNoun } from './articles';
-import { parseArticlesCSV } from './articles';
-import { generateVocabularyCategoriesFromCSV, getCSVVocabularyStats, parseVocabularyCSV } from './vocabulary';
+import { type LevelType } from "../types/User";
+import {
+  VocabularyWord,
+  type Gender,
+  type WordType,
+} from "../types/Vocabulary";
+import type { ArticleNoun } from "./articles";
+import { getAllArticles } from "./articles";
+import {
+  getAllVocabulary,
+  generateVocabularyCategories,
+  getVocabularyStats,
+} from "./vocabulary";
+
+// --- DEPRECATED: Mock old vocabulary API for backward compatibility (to be removed after migration) ---
+export const mockOldVocabularyService = {
+  /**
+   * @deprecated Use getAllVocabulary instead
+   */
+  parseVocabularyCSV: getAllVocabulary,
+  /**
+   * @deprecated Use generateVocabularyCategories instead
+   */
+  generateVocabularyCategoriesFromCSV: generateVocabularyCategories,
+  /**
+   * @deprecated Use getVocabularyStats instead
+   */
+  getCSVVocabularyStats: getVocabularyStats,
+};
 
 // Re-export standardized data system
-export * from '../lib/parsers';
+export * from "../lib/parsers";
 
 // Type definitions
 export type { ArticleNoun };
@@ -34,12 +58,18 @@ export interface StudyDay {
   grammarTopics: string[];
   exercises: Exercise[];
   estimatedTime: number;
-  difficulty: 'easy' | 'medium' | 'hard';
+  difficulty: "easy" | "medium" | "hard";
 }
 
 export interface Exercise {
   id: string;
-  type: 'vocabulary' | 'grammar' | 'listening' | 'speaking' | 'writing' | 'reading';
+  type:
+    | "vocabulary"
+    | "grammar"
+    | "listening"
+    | "speaking"
+    | "writing"
+    | "reading";
   title: string;
   description: string;
   estimatedTime: number;
@@ -58,26 +88,26 @@ export interface Week {
   description: string;
   days: number[];
   focusAreas: string[];
-  difficulty: 'easy' | 'medium' | 'hard';
+  difficulty: "easy" | "medium" | "hard";
 }
 
 // Data loaders
 export const loadVocabulary = (): VocabularyItem[] => {
-  return parseVocabularyCSV();
+  return getAllVocabulary();
 };
 
 export const loadVocabularyCategories = (): Record<string, Category> => {
-  return generateVocabularyCategoriesFromCSV();
+  return generateVocabularyCategories();
 };
 
 export const loadArticleNouns = (): ArticleNoun[] => {
-  return parseArticlesCSV();
+  return getAllArticles();
 };
 
 export const loadArticleCategories = (): Record<string, Category> => {
   const articles = loadArticleNouns();
   const categories: Record<string, Category> = {};
-  articles.forEach(article => {
+  articles.forEach((article) => {
     if (!categories[article.category]) {
       categories[article.category] = {
         name: article.category,
@@ -96,7 +126,9 @@ export interface ExerciseType {
 }
 
 // Conversion utilities
-export const convertToVocabularyWord = (item: VocabularyItem): VocabularyWord => {
+export const convertToVocabularyWord = (
+  item: VocabularyItem
+): VocabularyWord => {
   return VocabularyWord.create({
     german: item.german,
     english: item.english,
@@ -106,32 +138,37 @@ export const convertToVocabularyWord = (item: VocabularyItem): VocabularyWord =>
     pronunciation: item.pronunciation,
     tags: item.tags,
     frequency: item.frequency,
-    exampleSentences: item.examples?.map(ex => ({
-      german: ex.german,
-      english: ex.english,
-      audioUrl: undefined
-    })) || []
+    exampleSentences:
+      item.examples?.map((ex) => ({
+        german: ex.german,
+        english: ex.english,
+        audioUrl: undefined,
+      })) || [],
   });
 };
 
-export const convertToVocabularyWords = (items: VocabularyItem[]): VocabularyWord[] => {
+export const convertToVocabularyWords = (
+  items: VocabularyItem[]
+): VocabularyWord[] => {
   return items.map(convertToVocabularyWord);
 };
 
 // Utility functions
 export const getVocabularyByCategory = (category: string): VocabularyItem[] => {
   const vocabulary = loadVocabulary();
-  return vocabulary.filter(item => item.tags.includes(category));
+  return vocabulary.filter((item) => item.tags.includes(category));
 };
 
 export const getArticlesByCategory = (category: string): ArticleNoun[] => {
   const articles = loadArticleNouns();
-  return articles.filter(noun => noun.category === category);
+  return articles.filter((noun) => noun.category === category);
 };
 
-export const getArticlesByGender = (gender: 'der' | 'die' | 'das'): ArticleNoun[] => {
+export const getArticlesByGender = (
+  gender: "der" | "die" | "das"
+): ArticleNoun[] => {
   const articles = loadArticleNouns();
-  return articles.filter(noun => noun.gender === gender);
+  return articles.filter((noun) => noun.gender === gender);
 };
 
 export const getRandomVocabulary = (
@@ -160,59 +197,63 @@ export const getRandomArticles = (count: number = 10): ArticleNoun[] => {
 export const searchVocabulary = (searchTerm: string): VocabularyItem[] => {
   const vocabulary = loadVocabulary();
   const term = searchTerm.toLowerCase();
-  return vocabulary.filter(item => 
-    item.german.toLowerCase().includes(term) ||
-    item.english.toLowerCase().includes(term) ||
-    item.tags.some(tag => tag.toLowerCase().includes(term))
+  return vocabulary.filter(
+    (item) =>
+      item.german.toLowerCase().includes(term) ||
+      item.english.toLowerCase().includes(term) ||
+      item.tags.some((tag) => tag.toLowerCase().includes(term))
   );
 };
 
 export const searchArticles = (searchTerm: string): ArticleNoun[] => {
   const articles = loadArticleNouns();
   const term = searchTerm.toLowerCase();
-  return articles.filter(noun => 
-    noun.german.toLowerCase().includes(term) ||
-    noun.english.toLowerCase().includes(term) ||
-    noun.category.toLowerCase().includes(term)
+  return articles.filter(
+    (noun) =>
+      noun.german.toLowerCase().includes(term) ||
+      noun.english.toLowerCase().includes(term) ||
+      noun.category.toLowerCase().includes(term)
   );
 };
 
 export const getVocabularyByIds = (ids: string[]): VocabularyItem[] => {
   const vocabulary = loadVocabulary();
-  return vocabulary.filter(item => ids.includes(item.id));
+  return vocabulary.filter((item) => ids.includes(item.id));
 };
 
 export const getArticlesByIds = (ids: string[]): ArticleNoun[] => {
   const articles = loadArticleNouns();
-  return articles.filter(noun => ids.includes(noun.id));
+  return articles.filter((noun) => ids.includes(noun.id));
 };
 
 // Statistics
-export const getVocabularyStats = () => {
-  return getCSVVocabularyStats();
+export const getVocabularyStatsLegacy = () => {
+  return getVocabularyStats();
 };
 
 export const getArticleStats = () => {
   const articles = loadArticleNouns();
   const totalNouns = articles.length;
   const genderStats = {
-    der: articles.filter(a => a.gender === 'der').length,
-    die: articles.filter(a => a.gender === 'die').length,
-    das: articles.filter(a => a.gender === 'das').length,
+    der: articles.filter((a) => a.gender === "der").length,
+    die: articles.filter((a) => a.gender === "die").length,
+    das: articles.filter((a) => a.gender === "das").length,
   };
   const categories = loadArticleCategories();
-  const categoryStats = Object.keys(categories).map(key => ({
+  const categoryStats = Object.keys(categories).map((key) => ({
     category: key,
     name: categories[key].name,
     count: getArticlesByCategory(key).length,
-    percentage: Math.round((getArticlesByCategory(key).length / totalNouns) * 100)
+    percentage: Math.round(
+      (getArticlesByCategory(key).length / totalNouns) * 100
+    ),
   }));
 
   return {
     totalNouns,
     genderStats,
     categories: categoryStats,
-    metadata: { "source": "articles.csv" }
+    metadata: { source: "articles.csv" },
   };
 };
 
@@ -230,15 +271,15 @@ const categories = loadVocabularyCategories();
 export const A1_VOCABULARY_BY_CATEGORY: Record<string, VocabularyItem[]> = {};
 
 // Group vocabulary by category
-Object.keys(categories).forEach(categoryKey => {
-  A1_VOCABULARY_BY_CATEGORY[categoryKey] = vocabulary.filter(item => 
+Object.keys(categories).forEach((categoryKey) => {
+  A1_VOCABULARY_BY_CATEGORY[categoryKey] = vocabulary.filter((item) =>
     item.tags.includes(categoryKey)
   );
 });
 
 // Also support direct category names
-vocabulary.forEach(item => {
-  item.tags.forEach(tag => {
+vocabulary.forEach((item) => {
+  item.tags.forEach((tag) => {
     if (!A1_VOCABULARY_BY_CATEGORY[tag]) {
       A1_VOCABULARY_BY_CATEGORY[tag] = [];
     }
@@ -249,33 +290,41 @@ vocabulary.forEach(item => {
 });
 
 // Export converted vocabulary words for domain use
-export const A1_VOCABULARY_WORDS: VocabularyWord[] = convertToVocabularyWords(vocabulary);
+export const A1_VOCABULARY_WORDS: VocabularyWord[] =
+  convertToVocabularyWords(vocabulary);
 
 // Export converted vocabulary words by category for domain use
-export const A1_VOCABULARY_WORDS_BY_CATEGORY: Record<string, VocabularyWord[]> = {};
+export const A1_VOCABULARY_WORDS_BY_CATEGORY: Record<string, VocabularyWord[]> =
+  {};
 
 // Group converted vocabulary words by category
-Object.keys(categories).forEach(categoryKey => {
+Object.keys(categories).forEach((categoryKey) => {
   A1_VOCABULARY_WORDS_BY_CATEGORY[categoryKey] = convertToVocabularyWords(
-    vocabulary.filter(item => item.tags.includes(categoryKey))
+    vocabulary.filter((item) => item.tags.includes(categoryKey))
   );
 });
 
 // Also support direct category names
-vocabulary.forEach(item => {
-  item.tags.forEach(tag => {
+vocabulary.forEach((item) => {
+  item.tags.forEach((tag) => {
     if (!A1_VOCABULARY_WORDS_BY_CATEGORY[tag]) {
       A1_VOCABULARY_WORDS_BY_CATEGORY[tag] = [];
     }
     const convertedWord = convertToVocabularyWord(item);
-    if (!A1_VOCABULARY_WORDS_BY_CATEGORY[tag].find(w => w.id.value === convertedWord.id.value)) {
+    if (
+      !A1_VOCABULARY_WORDS_BY_CATEGORY[tag].find(
+        (w) => w.id.value === convertedWord.id.value
+      )
+    ) {
       A1_VOCABULARY_WORDS_BY_CATEGORY[tag].push(convertedWord);
     }
   });
 });
 
 // Convert utility functions to return VocabularyWord entities
-export const getVocabularyWordsByCategory = (category: string): VocabularyWord[] => {
+export const getVocabularyWordsByCategory = (
+  category: string
+): VocabularyWord[] => {
   return convertToVocabularyWords(getVocabularyByCategory(category));
 };
 
@@ -291,25 +340,25 @@ export const searchVocabularyWords = (searchTerm: string): VocabularyWord[] => {
 };
 
 // Export vocabulary loading functions for testing and debugging
-export { generateVocabularyCategoriesFromCSV, parseVocabularyCSV } from './vocabulary';
+export { generateVocabularyCategories, getAllVocabulary } from "./vocabulary";
 
 // Test function to verify CSV data loading
 export const testVocabularyLoading = () => {
   const vocabulary = loadVocabulary();
   const categories = loadVocabularyCategories();
   const stats = getVocabularyStats();
-  
-  console.log('=== VOCABULARY TEST RESULTS ===');
-  console.log('Total vocabulary items:', vocabulary.length);
-  console.log('Categories available:', Object.keys(categories).length);
-  console.log('Category names:', Object.keys(categories).slice(0, 10));
-  console.log('Stats:', stats);
-  console.log('Sample vocabulary items:', vocabulary.slice(0, 5));
-  
+
+  console.log("=== VOCABULARY TEST RESULTS ===");
+  console.log("Total vocabulary items:", vocabulary.length);
+  console.log("Categories available:", Object.keys(categories).length);
+  console.log("Category names:", Object.keys(categories).slice(0, 10));
+  console.log("Stats:", stats);
+  console.log("Sample vocabulary items:", vocabulary.slice(0, 5));
+
   return {
     vocabulary,
     categories,
     stats,
-    sampleWords: vocabulary.slice(0, 10)
+    sampleWords: vocabulary.slice(0, 10),
   };
 };

@@ -50,6 +50,8 @@ export interface QuizQuestion {
   category?: string;
   helperText?: string;
   word?: VocabularyWord;
+  data?: any;
+  type?: string;
 }
 
 // Test-related interfaces

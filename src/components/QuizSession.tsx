@@ -168,7 +168,27 @@ const QuizSession: React.FC<QuizSessionProps> = ({
         </div>
       </div>
 
-      <div className="bg-slate-100 border border-slate-200 rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8">
+      <div
+        className={`border border-slate-200 rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8
+          ${
+            showResult &&
+            currentQuestion.type === "article" &&
+            currentQuestion.data?.gender
+              ? currentQuestion.data.gender === "der"
+                ? "bg-blue-50 border-blue-200"
+                : currentQuestion.data.gender === "die"
+                ? "bg-pink-50 border-pink-200"
+                : currentQuestion.data.gender === "das"
+                ? "bg-gray-50 border-gray-300"
+                : "bg-slate-100"
+              : showResult &&
+                currentQuestion.options.length > 0 &&
+                currentQuestion.options.includes(currentQuestion.correctAnswer)
+              ? "bg-green-100 border-green-500"
+              : "bg-slate-100"
+          }
+        `}
+      >
         <div className="text-center mb-6 sm:mb-8">
           {currentQuestion.category && (
             <p className="text-xs sm:text-sm text-gray-500 mb-2">

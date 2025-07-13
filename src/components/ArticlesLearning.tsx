@@ -2,27 +2,26 @@ import React, { useEffect, useState } from "react";
 import { getGenderColor } from "../lib/genderColors";
 import GenderLegend from "./GenderLegend";
 import PronunciationButton from "./PronunciationButton";
-import { ESSENTIAL_A1_NOUNS } from "../data/constants";
 import SessionLayout from "./layout/SessionLayout";
+import type { Question } from "../features/question-engine/questionTypes";
+import type { StandardizedArticle } from "../lib/parsers/DataLoader";
 
 interface ArticlesLearningProps {
   onExit: () => void;
   sessionLength?: number;
   focusCategory?: string;
   autoAdvanceSpeed?: number; // milliseconds
+  questions?: Question[];
 }
 
 const ArticlesLearning: React.FC<ArticlesLearningProps> = ({
   onExit,
-  sessionLength = 30,
-  focusCategory,
   autoAdvanceSpeed = 3000, // 3 seconds per word
+  questions: propQuestions,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
-  const [shuffledWords, setShuffledWords] = useState<typeof ESSENTIAL_A1_NOUNS>(
-    []
-  );
+  const [sessionQuestions, setSessionQuestions] = useState<Question[]>([]);
   const [currentSpeed, setCurrentSpeed] = useState(autoAdvanceSpeed);
 
   useEffect(() => {
@@ -34,44 +33,40 @@ const ArticlesLearning: React.FC<ArticlesLearningProps> = ({
     }, 100);
   }, []);
 
-  // Initialize shuffled words
+  // Initialize session questions
   useEffect(() => {
-    let wordsToStudy = ESSENTIAL_A1_NOUNS;
-    if (focusCategory) {
-      wordsToStudy = ESSENTIAL_A1_NOUNS.filter(
-        (noun) => noun.category === focusCategory
-      );
+    if (propQuestions && propQuestions.length > 0) {
+      setSessionQuestions(propQuestions);
     }
-
-    const shuffled = [...wordsToStudy].sort(() => Math.random() - 0.5);
-    setShuffledWords(shuffled.slice(0, sessionLength));
-  }, [focusCategory, sessionLength]);
+  }, [propQuestions]);
 
   // Auto-advance timer
   useEffect(() => {
-    if (!isPlaying || shuffledWords.length === 0) return;
+    if (!isPlaying || sessionQuestions.length === 0) return;
 
     const timer = setTimeout(() => {
-      if (currentIndex < shuffledWords.length - 1) {
+      if (currentIndex < sessionQuestions.length - 1) {
         setCurrentIndex((prev: number) => prev + 1);
       } else {
         // Session complete - restart from beginning
         setCurrentIndex(0);
         // Re-shuffle for variety
-        const newShuffled = [...shuffledWords].sort(() => Math.random() - 0.5);
-        setShuffledWords(newShuffled);
+        const newShuffled = [...sessionQuestions].sort(
+          () => Math.random() - 0.5
+        );
+        setSessionQuestions(newShuffled);
       }
     }, currentSpeed);
 
     return () => clearTimeout(timer);
-  }, [currentIndex, isPlaying, shuffledWords, currentSpeed]);
+  }, [currentIndex, isPlaying, sessionQuestions, currentSpeed]);
 
   const togglePlayPause = () => {
     setIsPlaying(!isPlaying);
   };
 
   const goToNext = () => {
-    if (currentIndex < shuffledWords.length - 1) {
+    if (currentIndex < sessionQuestions.length - 1) {
       setCurrentIndex((prev: number) => prev + 1);
     } else {
       setCurrentIndex(0);
@@ -84,7 +79,7 @@ const ArticlesLearning: React.FC<ArticlesLearningProps> = ({
     }
   };
 
-  if (shuffledWords.length === 0) {
+  if (sessionQuestions.length === 0) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
@@ -95,11 +90,10 @@ const ArticlesLearning: React.FC<ArticlesLearningProps> = ({
     );
   }
 
-  const currentWord = shuffledWords[currentIndex];
-  const genderColor = getGenderColor(
-    currentWord.gender as "der" | "die" | "das"
-  );
-  const progress = ((currentIndex + 1) / shuffledWords.length) * 100;
+  const currentQuestion = sessionQuestions[currentIndex];
+  const currentArticle = currentQuestion?.data as StandardizedArticle;
+  const genderColor = getGenderColor(currentArticle.gender);
+  const progress = ((currentIndex + 1) / sessionQuestions.length) * 100;
 
   return (
     <SessionLayout title="Articles Learning" onExit={onExit}>
@@ -124,50 +118,33 @@ const ArticlesLearning: React.FC<ArticlesLearningProps> = ({
         <GenderLegend className="bg-white rounded-lg p-3 sm:p-4 shadow-sm" />
       </div>
 
-      <div
-        className={`rounded-lg sm:rounded-xl shadow-lg p-6 sm:p-8 lg:p-10 mb-4 sm:mb-6 transition-all duration-500 ${genderColor.bg} ${genderColor.border} border-2 min-h-[350px] sm:min-h-[450px] flex flex-col justify-center`}
-      >
-        <div className="text-center mb-6 sm:mb-8">
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 mb-4 sm:mb-6 px-2">
-            <h1
-              className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold ${genderColor.text} break-words hyphens-auto max-w-full`}
-            >
-              {currentWord.gender}
-            </h1>
-            <h1
-              className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold ${genderColor.text} break-words leading-tight max-w-full overflow-wrap-anywhere`}
-            >
-              {currentWord.german}
-            </h1>
-          </div>
-
-          <p
-            className={`text-lg sm:text-xl md:text-2xl lg:text-3xl mb-3 sm:mb-4 ${genderColor.text} opacity-80 break-words leading-relaxed px-2 max-w-full overflow-wrap-anywhere`}
+      <div className="flex flex-col items-center bg-white rounded-xl shadow-sm p-4 sm:p-6 mb-4">
+        <div className="text-center mb-8">
+          <div className="text-sm text-gray-600 mb-2">Article:</div>
+          <div
+            className={`inline-block px-6 py-3 rounded-xl font-bold text-white mb-4 ${genderColor.bg}`}
           >
-            {currentWord.english}
-          </p>
-          {currentWord.pronunciation && (
-            <div className="flex items-center justify-center gap-2 mb-4">
-              <p
-                className={`text-base sm:text-lg lg:text-xl ${genderColor.text} opacity-70 px-2`}
-              >
-                /{currentWord.pronunciation}/
-              </p>
+            {currentArticle.gender}
+          </div>
+          <div className="text-3xl sm:text-4xl font-bold text-gray-800 mb-2">
+            {currentArticle.german}
+          </div>
+          <div className="text-lg sm:text-xl text-gray-600">
+            {currentArticle.english}
+          </div>
+          {currentArticle.pronunciation && (
+            <div className="flex items-center justify-center gap-2">
+              <div className="text-md sm:text-lg text-gray-500">
+                /{currentArticle.pronunciation}/
+              </div>
               <PronunciationButton
-                text={currentWord.german}
+                text={currentArticle.german}
                 className="flex-shrink-0"
               />
             </div>
           )}
-
-          <div
-            className={`inline-block px-4 sm:px-5 py-2 sm:py-3 mx-2 rounded-lg border-2 ${genderColor.border} ${genderColor.bg} max-w-full`}
-          >
-            <span
-              className={`text-sm sm:text-base lg:text-lg font-medium ${genderColor.text} break-words`}
-            >
-              {currentWord.category} • {genderColor.name}
-            </span>
+          <div className="text-sm text-gray-500 mt-2 capitalize">
+            Category: {currentArticle.category}
           </div>
         </div>
 

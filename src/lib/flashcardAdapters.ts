@@ -1,6 +1,8 @@
 import type { GrammarPracticeQuestion } from "../types/GrammarPractice";
 import type { VocabularyWord } from "../types/Vocabulary";
 import type { FlashcardItem } from "../types/Flashcard";
+import type { Question } from "../features/question-engine/questionTypes";
+import type { QuizQuestion } from "../types/Flashcard";
 import { VocabularyQuestionType } from "../types/Flashcard";
 
 /**
@@ -327,3 +329,54 @@ export const getQuestionTypeDescription = (
       };
   }
 };
+
+/**
+ * Convert a Question object to FlashcardItem format for flashcard sessions
+ */
+export function questionToFlashcardItem(question: Question): FlashcardItem {
+  return {
+    id: question.id,
+    front: question.prompt,
+    back: question.answer,
+    category: question.data?.category || question.data?.type || question.type,
+    helperText: question.helperText,
+    additionalInfo: question.data?.additionalInfo,
+    metadata: {
+      originalQuestion: question,
+      ...question.data,
+    },
+  };
+}
+
+/**
+ * Convert an array of Question objects to FlashcardItem array
+ */
+export function questionsToFlashcardItems(
+  questions: Question[]
+): FlashcardItem[] {
+  return questions.map(questionToFlashcardItem);
+}
+
+/**
+ * Convert a Question object to QuizQuestion format for quiz sessions
+ */
+export function questionToQuizQuestion(question: Question): QuizQuestion {
+  return {
+    id: question.id,
+    prompt: question.prompt,
+    options: question.options || [],
+    correctAnswer: question.answer,
+    category: question.data?.category || question.data?.type || question.type,
+    helperText: question.helperText,
+    word: question.data,
+  };
+}
+
+/**
+ * Convert an array of Question objects to QuizQuestion array
+ */
+export function questionsToQuizQuestions(
+  questions: Question[]
+): QuizQuestion[] {
+  return questions.map(questionToQuizQuestion);
+}

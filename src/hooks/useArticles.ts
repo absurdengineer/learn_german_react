@@ -1,212 +1,136 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
-import { loadArticleCategories } from "../data";
-import { VocabularyWord } from "../types/Vocabulary";
-import { SESSION_KEYS, SessionManager } from "../lib/sessionManager";
-import { shuffleArray } from "../lib/testGenerator";
+import { useState } from "react";
+import { getArticleQuestions } from "../features/question-engine/questionBuilder";
+import { type Question } from "../features/question-engine/questionTypes";
+import { shuffleArray } from "../lib/utils";
+import type { QuizResults, FlashcardSessionResult } from "../types/Flashcard";
 
-export interface ArticlesSessionResult {
+export interface SessionResult {
   totalQuestions: number;
   correctAnswers: number;
   wrongAnswers: number;
   timeSpent: number;
-  wordsStudied: VocabularyWord[];
+  wordsStudied: Question[];
   mistakes: Array<{
-    word: VocabularyWord;
+    word: Question;
     userAnswer: string;
     correctAnswer: string;
   }>;
 }
 
 export const useArticles = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
-  const { category } = useParams<{ category?: string }>();
-
-  const [sessionResults, setSessionResults] =
-    useState<ArticlesSessionResult | null>(null);
-  const [selectedCategory, setSelectedCategory] = useState<string>(
-    category || ""
-  );
-  const [sessionLength] = useState(20);
-  const [reviewWords, setReviewWords] = useState<VocabularyWord[]>([]);
-
-  const getCurrentMode = useCallback(():
-    | "menu"
-    | "practice"
-    | "learning"
-    | "results" => {
-    const pathname = location.pathname;
-    if (pathname.includes("/results")) return "results";
-    if (pathname.includes("/practice")) return "practice";
-    if (pathname.includes("/learning")) return "learning";
-    return "menu";
-  }, [location.pathname]);
-
+  const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [sessionMode, setSessionMode] = useState<
-    "menu" | "practice" | "learning" | "results"
-  >(getCurrentMode());
+    "browse" | "session" | "results"
+  >("browse");
+  const [sessionType, setSessionType] = useState<string>("practice");
+  const [sessionQuestions, setSessionQuestions] = useState<Question[]>([]);
+  const [sessionResults, setSessionResults] = useState<SessionResult | null>(
+    null
+  );
 
-  useEffect(() => {
-    const mode = getCurrentMode();
-    setSessionMode(mode);
-  }, [location.pathname, getCurrentMode]);
-
-  useEffect(() => {
-    if (location.state?.results) {
-      setSessionResults(location.state.results);
-    } else if (sessionMode === "results") {
-      const results = SessionManager.getResults(SESSION_KEYS.ARTICLES);
-      if (results) {
-        const articleResults: ArticlesSessionResult = {
-          totalQuestions: results.totalQuestions,
-          correctAnswers: results.correctAnswers,
-          wrongAnswers: results.wrongAnswers,
-          timeSpent: results.timeSpent,
-          wordsStudied: [],
-          mistakes:
-            results.mistakes?.map((m) => ({
-              word: (m.word as unknown as VocabularyWord) || {
-                german: "",
-                english: "",
-                id: "",
-              },
-              userAnswer: m.userAnswer,
-              correctAnswer: m.correctAnswer,
-            })) || [],
-        };
-        setSessionResults(articleResults);
-      }
-    }
-  }, [location.state, sessionMode]);
-
-  useEffect(() => {
-    if (category) {
-      setSelectedCategory(category);
-    }
-  }, [category]);
-
-  const articleCategories = useMemo(() => {
-    const categories = loadArticleCategories();
-    return Object.values(categories).map((category) => ({
-      ...category,
-      icon: "📚", // Default icon, can be customized later
-    }));
-  }, []);
-
-  const handleStartPractice = (
-    practiceCategory: string = "",
-    length: number = 20
-  ) => {
-    const sessionData = {
-      sessionId: SessionManager.generateSessionId(),
-      startTime: Date.now(),
-      type: "articles" as const,
-      mode: "practice",
-      category: practiceCategory,
-      config: { length },
-    };
-    SessionManager.setSession(SESSION_KEYS.ARTICLES, sessionData);
-
-    if (practiceCategory) {
-      navigate(`/articles/category/${practiceCategory}/practice`);
-    } else {
-      navigate("/articles/practice");
-    }
+  const startPractice = (type: string, questions: Question[]) => {
+    setSessionType(type);
+    setSessionQuestions(questions);
+    setSessionMode("session");
   };
 
-  const handleStartLearning = (
-    learningCategory: string = "",
-    length: number = 30
-  ) => {
-    const sessionData = {
-      sessionId: SessionManager.generateSessionId(),
-      startTime: Date.now(),
-      type: "articles" as const,
-      mode: "learning",
-      category: learningCategory,
-      config: { length },
-    };
-    SessionManager.setSession(SESSION_KEYS.ARTICLES, sessionData);
-
-    if (learningCategory) {
-      navigate(`/articles/category/${learningCategory}/learning`);
-    } else {
-      navigate("/articles/learning");
-    }
+  const handleSessionComplete = (results: SessionResult) => {
+    setSessionResults(results);
+    setSessionMode("results");
   };
 
-  const handleSessionComplete = (results: ArticlesSessionResult) => {
-    SessionManager.setResults(SESSION_KEYS.ARTICLES, {
-      sessionId: SessionManager.generateSessionId(),
+  const handleQuizComplete = (results: QuizResults) => {
+    const sessionResult: SessionResult = {
       totalQuestions: results.totalQuestions,
       correctAnswers: results.correctAnswers,
       wrongAnswers: results.wrongAnswers,
       timeSpent: results.timeSpent,
-      completedAt: Date.now(),
-      mistakes: results.mistakes?.map((m) => ({
-        question: `What is the article for "${m.word.german}"?`,
+      wordsStudied: sessionQuestions,
+      mistakes: results.mistakes.map((m) => ({
+        word:
+          sessionQuestions.find((q) => q.id === m.id) || sessionQuestions[0],
         userAnswer: m.userAnswer,
         correctAnswer: m.correctAnswer,
-        word: m.word,
       })),
-    });
+    };
+    handleSessionComplete(sessionResult);
+  };
 
-    if (selectedCategory) {
-      navigate(`/articles/category/${selectedCategory}/practice/results`, {
-        state: { results },
-        replace: true,
-      });
-    } else {
-      navigate("/articles/practice/results", {
-        state: { results },
-        replace: true,
-      });
-    }
+  const handleFlashcardSessionComplete = (results: FlashcardSessionResult) => {
+    const sessionResult: SessionResult = {
+      totalQuestions: results.totalQuestions,
+      correctAnswers: results.correctAnswers,
+      wrongAnswers: results.wrongAnswers,
+      timeSpent: results.timeSpent,
+      wordsStudied: sessionQuestions,
+      mistakes: results.mistakes.map((m) => ({
+        word:
+          sessionQuestions.find((q) => q.id === m.item.id) ||
+          sessionQuestions[0],
+        userAnswer: m.userAction || "",
+        correctAnswer: m.item.back,
+      })),
+    };
+    handleSessionComplete(sessionResult);
   };
 
   const handleSessionExit = () => {
-    SessionManager.clearSession(SESSION_KEYS.ARTICLES);
-    navigate("/articles");
+    setSessionMode("browse");
+    setSessionResults(null);
   };
 
   const handleRestart = () => {
-    handleStartPractice(selectedCategory, sessionLength);
+    // Generate completely new questions for the same session type
+    let category = selectedCategory !== "all" ? selectedCategory : undefined;
+    let count = 20; // Default count
+
+    // Determine the appropriate count based on session type
+    switch (sessionType) {
+      case "practice":
+        count = 20;
+        break;
+      case "learning":
+        count = 30;
+        break;
+      case "intensive":
+        count = 50;
+        break;
+      case "speed":
+        count = 10;
+        break;
+      default:
+        count = 20;
+    }
+
+    const newQuestions = getArticleQuestions({
+      mode: "flashcard",
+      count,
+      category,
+    });
+
+    setSessionQuestions(newQuestions);
+    setSessionMode("session");
   };
 
   const handleReviewMistakes = () => {
     if (sessionResults && sessionResults.mistakes.length > 0) {
-      const mistakenWords = sessionResults.mistakes.map(
-        (mistake) => mistake.word
-      );
-      const shuffledWords = shuffleArray([...mistakenWords]);
-      setReviewWords(shuffledWords);
-
-      // Navigate to practice with review words
-      if (selectedCategory) {
-        navigate(`/articles/category/${selectedCategory}/practice`, {
-          state: { reviewWords: shuffledWords },
-          replace: true,
-        });
-      } else {
-        navigate("/articles/practice", {
-          state: { reviewWords: shuffledWords },
-          replace: true,
-        });
-      }
+      const mistakeQuestions = sessionResults.mistakes.map((m) => m.word);
+      setSessionQuestions(shuffleArray([...mistakeQuestions]));
+      setSessionMode("session");
     }
   };
 
   return {
-    sessionMode,
-    sessionResults,
     selectedCategory,
-    sessionLength,
-    reviewWords,
-    articleCategories,
-    handleStartPractice,
-    handleStartLearning,
+    setSelectedCategory,
+    sessionMode,
+    sessionType,
+    sessionQuestions,
+    sessionResults,
+    startPractice,
     handleSessionComplete,
+    handleQuizComplete,
+    handleFlashcardSessionComplete,
     handleSessionExit,
     handleRestart,
     handleReviewMistakes,

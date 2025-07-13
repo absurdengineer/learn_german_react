@@ -1,175 +1,250 @@
 import React from "react";
+import { useParams, useLocation, useNavigate } from "react-router-dom";
 import { useGrammar } from "../hooks/useGrammar";
-import FlashcardSession from "../components/FlashcardSession";
-import QuizSession from "../components/QuizSession";
-import SessionResults from "../components/SessionResults";
 import PageLayout from "../components/layout/PageLayout";
-import { PracticeModeCard, StartLearningPathCard } from "../components";
-import SectionGrid from "../components/layout/SectionGrid";
+import FlashcardSession from "../components/FlashcardSession";
+import MCQSession from "../components/MCQSession";
+import FreestyleInputSession from "../components/FreestyleInputSession";
+import { getGrammarQuestions } from "../features/question-engine/questionBuilder";
 import {
-  grammarFlashcardRenderer,
-  grammarToFlashcardAdapter,
-} from "../components/FlashcardAdapters";
-import { loadRandomGrammarPractice } from "../data/grammarPractice";
-import FlashcardSessionResults from "../components/FlashcardSessionResults";
-import { SESSION_KEYS, SessionManager } from "../lib/sessionManager";
+  questionsToFlashcardItems,
+  questionsToQuizQuestions,
+} from "../lib/flashcardAdapters";
+import { StatCard, LessonMap } from "../components";
+import { getAllGrammarLessons } from "../data/grammarLessons";
 import GrammarLessonPage from "./GrammarLessonPage";
-import LessonMap from "../components/LessonMap";
 
 const Grammar: React.FC = () => {
+  const { day } = useParams<{ day: string }>();
+  const location = useLocation();
+  const navigate = useNavigate();
   const {
-    day,
+    sessionMode,
+    sessionQuestions,
     sessionResults,
-    sessionType,
-    currentLesson,
-    grammarLessons,
-    handleSessionComplete,
+    startPractice,
     handleQuizComplete,
-    startSession,
-    navigate,
-    location,
+    handleFlashcardSessionComplete,
+    handleSessionExit,
+    handleRestart,
+    handleReviewMistakes,
   } = useGrammar();
 
+  // Helper to get questions for each mode
+  const getQuestionsForMode = (mode: string, count: number) => {
+    // Map quiz modes to 'mc' for multiple choice
+    const questionMode = ["quiz", "quick", "intensive"].includes(mode)
+      ? "mc"
+      : mode;
+    return getGrammarQuestions({ mode: questionMode, count });
+  };
+
+  // Get all grammar lessons for the lesson browser
+  const allLessons = getAllGrammarLessons();
+  const currentLesson = 1; // This would come from user progress
+
+  // Handle lesson routes
   if (day) {
-    const lesson = grammarLessons.find((l: any) => l.day === parseInt(day, 10));
-    if (!lesson) {
-      return <div>Lesson not found</div>;
-    }
-    const nextLesson = grammarLessons.find(
-      (l: any) => l.day === parseInt(day, 10) + 1
-    );
-    const prevLesson = grammarLessons.find(
-      (l: any) => l.day === parseInt(day, 10) - 1
-    );
+    const lessonDay = parseInt(day, 10);
+    const lesson = allLessons.find((l) => l.day === lessonDay);
 
-    return (
-      <GrammarLessonPage
-        lesson={lesson}
-        onExit={() => navigate("/grammar/lessons")}
-        nextLesson={nextLesson}
-        prevLesson={prevLesson}
-      />
-    );
-  }
+    if (lesson) {
+      const nextLesson = allLessons.find((l) => l.day === lessonDay + 1);
+      const prevLesson = allLessons.find((l) => l.day === lessonDay - 1);
 
-  if (location.pathname.endsWith("/flashcards")) {
-    const count = location.state?.count || 20;
-    const questions = loadRandomGrammarPractice(count);
-    const flashcardItems = grammarToFlashcardAdapter(questions);
-
-    return (
-      <FlashcardSession
-        items={flashcardItems}
-        title="Grammar Flashcards"
-        onComplete={handleSessionComplete}
-        onExit={() => navigate("/grammar")}
-        customRenderer={grammarFlashcardRenderer}
-        showProgress={true}
-      />
-    );
-  }
-
-  if (location.pathname.endsWith("/quiz")) {
-    const count = location.state?.count || 20;
-    const questions = loadRandomGrammarPractice(count).map((q) => ({
-      id: q.id.toString(),
-      prompt: q.prompt,
-      options: q.options,
-      correctAnswer: q.correctAnswer,
-      category: q.category,
-      helperText: q.helperText,
-    }));
-    return (
-      <QuizSession
-        questions={questions}
-        title="Grammar Quiz"
-        onComplete={handleQuizComplete}
-        onExit={() => navigate("/grammar")}
-      />
-    );
-  }
-
-  if (location.pathname.endsWith("/results")) {
-    if (!sessionResults) {
-      navigate("/grammar");
-      return null;
-    }
-
-    if (sessionType === "flashcards") {
       return (
-        <FlashcardSessionResults
-          results={sessionResults}
-          onRestart={() => {
-            SessionManager.clearSession(SESSION_KEYS.GRAMMAR);
-            navigate("/grammar/flashcards", {
-              state: { count: sessionResults.totalQuestions },
-            });
-          }}
-          onExit={() => {
-            SessionManager.clearSession(SESSION_KEYS.GRAMMAR);
-            navigate("/grammar");
-          }}
+        <GrammarLessonPage
+          lesson={lesson}
+          nextLesson={nextLesson}
+          prevLesson={prevLesson}
+          onExit={() => window.history.back()}
         />
       );
     }
-
-    return (
-      <SessionResults
-        results={{
-          totalQuestions: sessionResults.totalQuestions,
-          correctAnswers: sessionResults.correctAnswers,
-          wrongAnswers: sessionResults.wrongAnswers,
-          timeSpent: sessionResults.timeSpent,
-          mistakes: sessionResults.mistakes.map((mistake) => ({
-            question: mistake.item.front,
-            userAnswer: mistake.userAction || "",
-            correctAnswer: mistake.item.back,
-          })),
-        }}
-        sessionType={sessionType || "quiz"}
-        onRestart={() => {
-          SessionManager.clearSession(SESSION_KEYS.GRAMMAR);
-          navigate("/grammar/quiz", {
-            state: { count: sessionResults.totalQuestions },
-          });
-        }}
-        onReviewMistakes={() => {}}
-        onExit={() => {
-          SessionManager.clearSession(SESSION_KEYS.GRAMMAR);
-          navigate("/grammar");
-        }}
-      />
-    );
   }
 
-  if (location.pathname.endsWith("/lessons")) {
+  // Handle lessons browser route
+  if (location.pathname === "/grammar/lessons") {
     return (
       <PageLayout
         pageData={{
-          title: "Grammar Learning Path",
-          subtitle: "Your structured path to mastering German grammar.",
-          description: "",
-          icon: "🗺️",
+          title: "Grammar Lessons",
+          subtitle: "Structured learning path",
+          description: "Follow our step-by-step grammar lessons",
+          icon: "📚",
           gradient: "from-blue-500 to-purple-600",
         }}
       >
-        <div className="mb-8">
-          <button
-            onClick={() => navigate("/grammar")}
-            className="text-blue-600 hover:text-blue-800 transition-colors"
-          >
-            &larr; Back to Grammar
-          </button>
+        <div className="space-y-8">
+          <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+            <LessonMap lessons={allLessons} currentLesson={currentLesson} />
+          </div>
         </div>
-        <LessonMap lessons={grammarLessons} currentLesson={currentLesson} />
+      </PageLayout>
+    );
+  }
+
+  if (sessionMode === "session" && sessionQuestions.length > 0) {
+    if (sessionQuestions[0].mode === "flashcard") {
+      const flashcardItems = questionsToFlashcardItems(sessionQuestions);
+      return (
+        <FlashcardSession
+          items={flashcardItems}
+          title="Grammar Flashcards"
+          onComplete={handleFlashcardSessionComplete}
+          onExit={handleSessionExit}
+          showProgress={true}
+          autoAdvanceDelay={0}
+        />
+      );
+    } else if (
+      sessionQuestions[0].options &&
+      sessionQuestions[0].options.length > 0
+    ) {
+      const quizQuestions = questionsToQuizQuestions(sessionQuestions);
+      return (
+        <MCQSession
+          questions={quizQuestions}
+          title="Grammar Quiz"
+          onComplete={handleQuizComplete}
+          onExit={handleSessionExit}
+        />
+      );
+    } else {
+      const quizQuestions = questionsToQuizQuestions(sessionQuestions);
+      return (
+        <FreestyleInputSession
+          questions={quizQuestions}
+          title="Grammar Quiz"
+          onComplete={handleQuizComplete}
+          onExit={handleSessionExit}
+        />
+      );
+    }
+  }
+
+  if (sessionMode === "results" && sessionResults) {
+    const accuracy = Math.round(
+      (sessionResults.correctAnswers / sessionResults.totalQuestions) * 100
+    );
+    const hasMistakes = sessionResults.mistakes.length > 0;
+    return (
+      <PageLayout
+        pageData={{
+          title: "Session Results",
+          subtitle: "Practice completed",
+          description: "Review your grammar practice session",
+          icon: "📊",
+          gradient: "from-green-500 to-blue-600",
+        }}
+      >
+        <div className="max-w-4xl mx-auto py-8">
+          {/* Header */}
+          <div className="text-center mb-8">
+            <div className="text-6xl mb-4">🎉</div>
+            <h3 className="text-2xl font-semibold text-gray-900 mb-2">
+              Session Complete!
+            </h3>
+            <p className="text-gray-600">
+              Great job! Here's how you performed.
+            </p>
+          </div>
+
+          {/* Stats Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+            <div className="bg-white rounded-lg p-4 shadow-sm border border-gray-100 text-center">
+              <div className="text-2xl font-bold text-blue-600">
+                {sessionResults.totalQuestions}
+              </div>
+              <div className="text-sm text-gray-600">Total Questions</div>
+            </div>
+            <div className="bg-white rounded-lg p-4 shadow-sm border border-gray-100 text-center">
+              <div className="text-2xl font-bold text-green-600">
+                {sessionResults.correctAnswers}
+              </div>
+              <div className="text-sm text-gray-600">Correct</div>
+            </div>
+            <div className="bg-white rounded-lg p-4 shadow-sm border border-gray-100 text-center">
+              <div className="text-2xl font-bold text-red-600">
+                {sessionResults.wrongAnswers}
+              </div>
+              <div className="text-sm text-gray-600">Incorrect</div>
+            </div>
+            <div className="bg-white rounded-lg p-4 shadow-sm border border-gray-100 text-center">
+              <div className="text-2xl font-bold text-purple-600">
+                {accuracy}%
+              </div>
+              <div className="text-sm text-gray-600">Accuracy</div>
+            </div>
+          </div>
+
+          {/* Mistakes Section */}
+          {hasMistakes && (
+            <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-100 mb-8">
+              <h4 className="text-lg font-semibold text-gray-900 mb-4">
+                Mistakes ({sessionResults.mistakes.length})
+              </h4>
+              <div className="space-y-3 max-h-64 overflow-y-auto">
+                {sessionResults.mistakes.map((mistake, index) => (
+                  <div
+                    key={index}
+                    className="flex items-center justify-between p-3 bg-red-50 rounded-lg border border-red-200"
+                  >
+                    <div className="flex-1">
+                      <div className="font-medium text-gray-900">
+                        {mistake.word.prompt}
+                      </div>
+                      <div className="text-sm text-gray-600">
+                        Your answer:{" "}
+                        <span className="text-red-600 font-medium">
+                          {mistake.userAnswer}
+                        </span>
+                      </div>
+                      <div className="text-sm text-gray-600">
+                        Correct:{" "}
+                        <span className="text-green-600 font-medium">
+                          {mistake.correctAnswer}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Action Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            {hasMistakes && (
+              <button
+                onClick={handleReviewMistakes}
+                className="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition-colors font-medium"
+              >
+                Review Mistakes ({sessionResults.mistakes.length})
+              </button>
+            )}
+            <button
+              onClick={handleRestart}
+              className="bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition-colors font-medium"
+            >
+              Try Again
+            </button>
+            <button
+              onClick={handleSessionExit}
+              className="bg-gray-600 text-white px-6 py-3 rounded-lg hover:bg-gray-700 transition-colors font-medium"
+            >
+              Back to Grammar
+            </button>
+          </div>
+        </div>
       </PageLayout>
     );
   }
 
   const sessionOptions = [
-    { name: "Quick", count: 10, icon: "⚡" },
-    { name: "Normal", count: 20, icon: "💪" },
-    { name: "Intensive", count: 30, icon: "🚀" },
+    { name: "Quick", count: 10, icon: "⚡", mode: "quick" },
+    { name: "Normal", count: 20, icon: "💪", mode: "quiz" },
+    { name: "Intensive", count: 30, icon: "🚀", mode: "intensive" },
   ];
 
   return (
@@ -184,40 +259,102 @@ const Grammar: React.FC = () => {
       }}
     >
       <div className="space-y-8">
-        <StartLearningPathCard
-          currentLesson={currentLesson}
-          totalLessons={grammarLessons.length}
-        />
-        <SectionGrid
-          title="Flashcards"
-          description="Hone your skills with targeted exercises."
-        >
-          {sessionOptions.map((session) => (
-            <PracticeModeCard
-              key={session.name}
-              title={`${session.name} Flashcards`}
-              description={`${session.count} questions`}
-              icon={session.icon}
-              buttonText={`Start ${session.name}`}
-              onStart={() => startSession("flashcards", session.count)}
-            />
-          ))}
-        </SectionGrid>
-        <SectionGrid
-          title="Take a Quiz"
-          description="Test your knowledge with a quiz."
-        >
-          {sessionOptions.map((session) => (
-            <PracticeModeCard
-              key={session.name}
-              title={`${session.name} Quiz`}
-              description={`${session.count} questions`}
-              icon={session.icon}
-              buttonText={`Start ${session.name}`}
-              onStart={() => startSession("quiz", session.count)}
-            />
-          ))}
-        </SectionGrid>
+        {/* Flashcards */}
+        <div className="space-y-4">
+          <h2 className="text-2xl font-bold text-gray-900">Flashcards</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {[20, 30, 40].map((count) => (
+              <div
+                key={count}
+                className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow"
+              >
+                <div className="text-3xl mb-3">🃏</div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                  {count} Flashcards
+                </h3>
+                <p className="text-gray-600 mb-4 text-sm">
+                  Practice with {count} grammar flashcards
+                </p>
+                <button
+                  onClick={() =>
+                    startPractice(
+                      "flashcards",
+                      getQuestionsForMode("flashcards", count)
+                    )
+                  }
+                  className={`w-full bg-purple-600 text-white px-4 py-3 rounded-lg hover:opacity-90 transition-opacity font-medium`}
+                >
+                  Start Flashcards
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Practice Modes */}
+        <div className="space-y-4">
+          <h2 className="text-2xl font-bold text-gray-900">Practice Modes</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {sessionOptions.map((session) => (
+              <div
+                key={session.name}
+                className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow"
+              >
+                <div className="text-3xl mb-3">{session.icon}</div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                  {session.name} Quiz
+                </h3>
+                <p className="text-gray-600 mb-4 text-sm">
+                  {session.count} questions
+                </p>
+                <button
+                  onClick={() =>
+                    startPractice(
+                      session.mode,
+                      getQuestionsForMode(session.mode, session.count)
+                    )
+                  }
+                  className={`w-full bg-blue-600 text-white px-4 py-3 rounded-lg hover:opacity-90 transition-opacity font-medium`}
+                >
+                  Start Quiz
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Lessons */}
+        <div className="space-y-4">
+          <h2 className="text-2xl font-bold text-gray-900">Grammar Lessons</h2>
+          <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center space-x-4">
+                <div className="text-3xl">📚</div>
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900">
+                    Structured Learning Path
+                  </h3>
+                  <p className="text-gray-600">
+                    Follow our step-by-step grammar lessons
+                  </p>
+                </div>
+              </div>
+              <button
+                onClick={() => navigate("/grammar/lessons")}
+                className="bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition-colors font-medium"
+              >
+                View Lessons
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Stats (placeholder) */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <StatCard title="Grammar Topics" value="12" />
+          <StatCard title="Practice Sessions" value="100+" />
+          <StatCard title="Mastery Level" value="A1-A2" />
+        </div>
       </div>
     </PageLayout>
   );

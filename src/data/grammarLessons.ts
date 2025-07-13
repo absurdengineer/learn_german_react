@@ -1,24 +1,29 @@
-import { GrammarLesson } from '../types/Grammar';
-import { parseCSVLine } from '../lib/csvParser';
-import grammarLessonsCSV from './grammar_lessons.csv?raw';
+import { GrammarLesson } from "../types/Grammar";
+import { parseCSVLine } from "../lib/csvParser";
+import grammarLessonsCSV from "./grammar_lessons.csv?raw";
 
-export const parseGrammarLessonsCSV = (): GrammarLesson[] => {
-  const lines = grammarLessonsCSV.trim().split('\n');
+// Memoized cache for parsed grammar lessons
+let grammarLessonsCache: GrammarLesson[] | null = null;
+
+/**
+ * Parse and normalize the grammar lessons CSV into a typed array of GrammarLesson objects.
+ * Memoized for performance.
+ */
+export function getAllGrammarLessons(): GrammarLesson[] {
+  if (grammarLessonsCache) return grammarLessonsCache;
+  const lines = grammarLessonsCSV.trim().split("\n");
   const headers = parseCSVLine(lines[0]);
   const lessons: GrammarLesson[] = [];
-
   for (let i = 1; i < lines.length; i++) {
     const data = parseCSVLine(lines[i]);
     if (data.length !== headers.length) {
       console.warn(`Skipping malformed CSV line ${i + 1}: ${lines[i]}`);
       continue;
     }
-    
     const lessonData: { [key: string]: string } = {};
     for (let j = 0; j < headers.length; j++) {
-      lessonData[headers[j].trim()] = data[j] ? data[j].trim() : '';
+      lessonData[headers[j].trim()] = data[j] ? data[j].trim() : "";
     }
-
     lessons.push(
       GrammarLesson.create({
         day: parseInt(lessonData.day, 10),
@@ -30,16 +35,13 @@ export const parseGrammarLessonsCSV = (): GrammarLesson[] => {
       })
     );
   }
+  grammarLessonsCache = lessons;
+  return grammarLessonsCache;
+}
 
-  return lessons;
-};
-
-let cachedGrammarLessons: GrammarLesson[] | null = null;
-
-export const loadGrammarLessons = (): GrammarLesson[] => {
-  if (cachedGrammarLessons) {
-    return cachedGrammarLessons;
-  }
-  cachedGrammarLessons = parseGrammarLessonsCSV();
-  return cachedGrammarLessons;
-};
+/**
+ * Get a grammar lesson by its day number.
+ */
+export function getGrammarLessonByDay(day: number): GrammarLesson | undefined {
+  return getAllGrammarLessons().find((l) => l.day === day);
+}
