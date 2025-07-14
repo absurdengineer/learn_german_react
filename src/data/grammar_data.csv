@@ -1,0 +1,501 @@
+data_id;rule_id;context_type;base_form;transformed_form;full_context_de;full_context_en;focus_element;transformation_type;case_involved;person_number;tense_mood;difficulty;tags;cultural_note
+GD001;G001;transformation;Wie heißt du?;Wie heißen Sie?;Beim Amt fragt man: ""Wie heißen Sie?"";At the office, you ask: ""What is your name?"";du -> Sie;formality_change;;;present;1;formal,pronoun;Using 'Sie' is mandatory when addressing officials.
+GD002;G001;transformation;Kommst du aus England?;Kommen Sie aus England?;Auf einer Konferenz fragt man: ""Kommen Sie aus England?"";At a conference, you ask: ""Do you come from England?"";Kommst du -> Kommen Sie;formality_change;;;present;1;formal,pronoun;
+GD003;G005;conjugation;ich lerne;du lernst;Du lernst sehr schnell.;You learn very quickly.;-st ending;conjugation;;2sg;present;1;verb,regular;
+GD004;G005;conjugation;ich lerne;er lernt;Er lernt Deutsch in der Schule.;He learns German at school.;-t ending;conjugation;;3sg;present;1;verb,regular;
+GD005;G005;conjugation;wir machen;ihr macht;Was macht ihr heute?;What are you all doing today?;-t ending;conjugation;;2pl;present;1;verb,regular;
+GD006;G005;conjugation;ich kaufe;sie kauft;Sie kauft im Supermarkt ein.;She is shopping in the supermarket.;-t ending;conjugation;;3sg;present;1;verb,regular;
+GD007;G005;conjugation;du wohnst;wir wohnen;Wir wohnen in einer kleinen Wohnung.;We live in a small apartment.;-en ending;conjugation;;1pl;present;1;verb,regular;
+GD008;G008;conjugation;ich bin;du bist;Du bist mein bester Freund.;You are my best friend.;sein -> bist;conjugation;;2sg;present;2;verb,irregular,sein;
+GD009;G008;conjugation;ich bin;er ist;Er ist nicht zu Hause.;He is not at home.;sein -> ist;conjugation;;3sg;present;2;verb,irregular,sein;
+GD010;G008;conjugation;wir sind;ihr seid;Ihr seid sehr nett.;You are all very nice.;sein -> seid;conjugation;;2pl;present;2;verb,irregular,sein;
+GD011;G008;conjugation;ich habe;du hast;Hast du einen Moment Zeit?;Do you have a moment of time?;haben -> hast;conjugation;;2sg;present;2;verb,irregular,haben;
+GD012;G008;conjugation;ich habe;er hat;Er hat blaue Augen.;He has blue eyes.;haben -> hat;conjugation;;3sg;present;2;verb,irregular,haben;
+GD013;G008;conjugation;wir haben;ihr habt;Was habt ihr?;What do you all have?;haben -> habt;conjugation;;2pl;present;2;verb,irregular,haben;
+GD014;G006;declension;der Stuhl;den Stuhl;Ich kaufe den Stuhl.;I am buying the chair.;der -> den;declension;acc;;present;2;accusative,masculine;
+GD015;G006;declension;ein Tisch;einen Tisch;Wir brauchen einen neuen Tisch.;We need a new table.;ein -> einen;declension;acc;;present;2;accusative,masculine;
+GD016;G006;declension;kein Apfel;keinen Apfel;Ich esse keinen Apfel.;I am not eating an apple.;kein -> keinen;declension;acc;;present;2;accusative,masculine,negation;
+GD017;G006;declension;der Hund;den Hund;Siehst du den Hund dort?;Do you see the dog over there?;der -> den;declension;acc;;present;2;accusative,masculine;
+GD018;G006;declension;der Kaffee;den Kaffee;Ich trinke meinen Kaffee schwarz.;I drink my coffee black.;der -> den (mein*en*);declension;acc;;present;2;accusative,masculine;
+GD019;G006;declension;der Salat;den Salat;Er bestellt den Salat.;He orders the salad.;der -> den;declension;acc;;present;2;accusative,masculine;
+GD020;G006;declension;ein Freund;einen Freund;Ich besuche einen Freund in Hamburg.;I am visiting a friend in Hamburg.;ein -> einen;declension;acc;;present;2;accusative,masculine;
+GD021;G006;declension;der Lehrer;den Lehrer;Die Schüler fragen den Lehrer.;The students ask the teacher.;der -> den;declension;acc;;present;2;accusative,masculine;
+GD022;G006;declension;der Wein;den Wein;Möchtest du den Wein probieren?;Would you like to try the wine?;der -> den;declension;acc;;present;2;accusative,masculine;
+GD023;G006;declension;ein Mantel;einen Mantel;Er trägt einen langen Mantel.;He is wearing a long coat.;ein -> einen;declension;acc;;present;2;accusative,masculine;
+GD024;G006;declension;die Lampe;die Lampe;Ich sehe die Lampe.;I see the lamp.;die -> die (no change);declension;acc;;present;1;accusative,feminine;
+GD025;G006;declension;eine Katze;eine Katze;Sie hat eine Katze.;She has a cat.;eine -> eine (no change);declension;acc;;present;1;accusative,feminine;
+GD026;G006;declension;das Buch;das Buch;Er liest das Buch.;He is reading the book.;das -> das (no change);declension;acc;;present;1;accusative,neuter;
+GD027;G006;declension;ein Auto;ein Auto;Wir kaufen ein Auto.;We are buying a car.;ein -> ein (no change);declension;acc;;present;1;accusative,neuter;
+GD028;G002;word_order;Ich gehe heute.;Heute gehe ich.;Ich -> Heute;word_order;;;present;2;word-order,v2-rule;
+GD029;G002;word_order;Wir lernen am Montag Deutsch.;Am Montag lernen wir Deutsch.;Wir -> Am Montag;word_order;;;present;2;word-order,v2-rule,inversion;
+GD030;G002;word_order;Er ist jetzt hier.;Jetzt ist er hier.;Er -> Jetzt;word_order;;;present;2;word-order,v2-rule,inversion;
+GD031;G014;word_order;Du kommst aus Berlin.;Kommst du aus Berlin?;Statement -> Question;word_order;;;present;1;word-order,question,ja-nein;
+GD032;G014;word_order;Sie haben Zeit.;Haben Sie Zeit?;Statement -> Question;word_order;;;present;1;word-order,question,ja-nein;
+GD033;G015;word_order;Du heißt wie?;Wie heißt du?;Statement -> Question;word_order;;;present;1;word-order,question,w-frage;
+GD034;G015;word_order;Der Bahnhof ist wo?;Wo ist der Bahnhof?;Statement -> Question;word_order;;;present;1;word-order,question,w-frage;
+GD035;G009;conjugation;ich spreche;du sprichst;Du sprichst sehr gut Deutsch.;You speak German very well.;e -> i;conjugation;;2sg;present;3;verb,irregular,vowel-change;
+GD036;G009;conjugation;er gibt;ich gebe;Ich gebe dir das Buch.;I am giving you the book.;i -> e;conjugation;;1sg;present;3;verb,irregular,vowel-change;
+GD037;G009;conjugation;ich fahre;er fährt;Er fährt mit dem Zug nach Köln.;He is taking the train to Cologne.;a -> ä;conjugation;;3sg;present;3;verb,irregular,vowel-change;
+GD038;G009;conjugation;du liest;sie liest;Sie liest jeden Abend.;She reads every evening.;liest -> liest (no change);conjugation;;3sg;present;3;verb,irregular,vowel-change;`du` and `er/sie/es` forms are the same for `lesen`.
+GD039;G009;conjugation;ich nehme;du nimmst;Was nimmst du zum Trinken?;What are you taking to drink?;e -> i, h -> m;conjugation;;2sg;present;4;verb,irregular,vowel-change;
+GD040;G009;conjugation;ich sehe;er sieht;Er sieht müde aus.;He looks tired.;e -> ie;conjugation;;3sg;present;3;verb,irregular,vowel-change;
+GD041;G007;negation;Ich habe Zeit.;Ich habe keine Zeit.;ein -> kein;negation;acc;;present;2;negation,kein;
+GD042;G007;negation;Das ist ein Hund.;Das ist kein Hund.;ein -> kein;negation;nom;;present;2;negation,kein;
+GD043;G007;negation;Ich schlafe.;Ich schlafe nicht.;Verb negation;negation;;;present;1;negation,nicht;
+GD044;G007;negation;Das Auto ist schnell.;Das Auto ist nicht schnell.;Adjective negation;negation;;;present;1;negation,nicht;
+GD045;G007;negation;Er kommt aus Deutschland.;Er kommt nicht aus Deutschland.;Prepositional phrase negation;negation;;;present;2;negation,nicht;
+GD046;G010;sentence_structure;Ich kann schwimmen.;Ich kann gut schwimmen.;Modal + Verb;word_order;;;present;2;modal,word-order;
+GD047;G010;sentence_structure;Er will Deutsch lernen.;Er will Deutsch lernen.;Modal + Verb;word_order;;;present;3;modal,word-order;
+GD048;G010;sentence_structure;Wir müssen einkaufen.;Wir müssen heute einkaufen.;Modal + Verb;word_order;;;present;3;modal,word-order;
+GD049;G010;sentence_structure;Du darfst hier parken.;Darfst du hier parken?;Modal + Verb -> Question;word_order;;;present;3;modal,word-order,question;
+GD050;G011;transformation;Ich mache die Hausaufgaben.;Ich habe die Hausaufgaben gemacht.;Present -> Perfekt;tense_change;;;perfekt;3;perfekt,haben;
+GD051;G011;transformation;Wir spielen Fußball.;Wir haben Fußball gespielt.;Present -> Perfekt;tense_change;;;perfekt;3;perfekt,haben;
+GD052;G011;transformation;Sie kauft das Brot.;Sie hat das Brot gekauft.;Present -> Perfekt;tense_change;;;perfekt;3;perfekt,haben;
+GD053;G012;transformation;Ich gehe nach Hause.;Ich bin nach Hause gegangen.;Present -> Perfekt;tense_change;;;perfekt;4;perfekt,sein;
+GD054;G012;transformation;Er fährt nach Berlin.;Er ist nach Berlin gefahren.;Present -> Perfekt;tense_change;;;perfekt;4;perfekt,sein;
+GD055;G012;transformation;Wir bleiben hier.;Wir sind hier geblieben.;Present -> Perfekt;tense_change;;;perfekt;4;perfekt,sein;
+GD056;G013;transformation;lernen;gelernt;Ich habe Deutsch gelernt.;I have learned German.;ge- (verb) -t;participle_formation;;;perfekt;2;participle,regular;
+GD057;G013;transformation;sprechen;gesprochen;Hast du mit ihm gesprochen?;Have you spoken with him?;ge- (verb) -en;participle_formation;;;perfekt;3;participle,irregular;
+GD058;G013;transformation;studieren;studiert;Er hat in Berlin studiert.;He studied in Berlin.;(verb) -t;participle_formation;;;perfekt;3;participle,ieren-verb;No 'ge-' prefix for verbs ending in -ieren.
+GD059;G013;transformation;besuchen;besucht;Wir haben unsere Oma besucht.;We visited our grandma.;(verb) -t;participle_formation;;;perfekt;3;participle,inseparable;No 'ge-' prefix for inseparable verbs.
+GD060;G021;transformation;anrufen;ruft an;Er ruft seine Freundin an.;He is calling his girlfriend.;prefix -> end;word_order;;3sg;present;3;separable-verb;
+GD061;G021;transformation;einkaufen;kaufe ein;Ich kaufe im Supermarkt ein.;I am shopping in the supermarket.;prefix -> end;word_order;;1sg;present;3;separable-verb;
+GD062;G021;transformation;fernsehen;siehst fern;Siehst du oft fern?;Do you often watch TV?;prefix -> end;word_order;;2sg;present;3;separable-verb,question;
+GD063;G021;transformation;mitkommen;komme mit;Ich komme nicht mit.;I'm not coming along.;prefix -> end;word_order;;1sg;present;3;separable-verb,negation;
+GD064;G016;declension;der Mann;dem Mann;Ich gebe dem Mann das Geld.;I give the man the money.;der -> dem;declension;dat;;present;4;dative,masculine;
+GD065;G016;declension;die Frau;der Frau;Das Auto gehört der Frau.;The car belongs to the woman.;die -> der;declension;dat;;present;4;dative,feminine;
+GD066;G016;declension;das Kind;dem Kind;Ich lese dem Kind ein Buch vor.;I am reading a book to the child.;das -> dem;declension;dat;;present;4;dative,neuter;
+GD067;G016;declension;die Leute;den Leuten;Er hilft den Leuten.;He helps the people.;die -> den, Leute -> Leuten;declension;dat;;present;4;dative,plural;Plural dative adds -n to the noun if possible.
+GD068;G017;sentence_structure;Ich komme mit (du).;Ich komme mit dir.;Pronoun declension;declension;dat;2sg;present;3;dative-preposition,mit;
+GD069;G017;sentence_structure;Er fährt zu (sein Freund).;Er fährt zu seinem Freund.;Possessive declension;declension;dat;3sg;present;4;dative-preposition,zu;
+GD070;G017;sentence_structure;Wir kommen aus (die Schweiz).;Wir kommen aus der Schweiz.;Article declension;declension;dat;1pl;present;3;dative-preposition,aus;Countries with articles need dative declension.
+GD071;G017;sentence_structure;Das Geschenk ist von (ich).;Das Geschenk ist von mir.;Pronoun declension;declension;dat;1sg;present;3;dative-preposition,von;
+GD072;G018;sentence_structure;Ich gehe ohne (mein Regenschirm).;Ich gehe ohne meinen Regenschirm.;Possessive declension;declension;acc;1sg;present;3;accusative-preposition,ohne;
+GD073;G018;sentence_structure;Das ist für (du).;Das ist für dich.;Pronoun declension;declension;acc;2sg;present;2;accusative-preposition,für;
+GD074;G019;sentence_structure;Ich gehe in (das Kino).;Ich gehe ins Kino.;Contraction;declension;acc;1sg;present;3;two-way-preposition,direction;in + das = ins.
+GD075;G019;sentence_structure;Ich bin in (das Kino).;Ich bin im Kino.;Contraction;declension;dat;1sg;present;3;two-way-preposition,location;in + dem = im.
+GD076;G019;sentence_structure;Er legt das Buch auf (der Tisch).;Er legt das Buch auf den Tisch.;Article declension;declension;acc;3sg;present;4;two-way-preposition,direction;
+GD077;G019;sentence_structure;Das Buch liegt auf (der Tisch).;Das Buch liegt auf dem Tisch.;Article declension;declension;dat;3sg;present;4;two-way-preposition,location;
+GD078;G020;transformation;Du kommst her.;Komm her!;Statement -> Command;mood_change;;2sg;imperative;3;imperative,du-form;
+GD079;G020;transformation;Du gibst mir das.;Gib mir das!;Statement -> Command;mood_change;;2sg;imperative;4;imperative,du-form,irregular;Irregular vowel change is kept in the command.
+GD080;G020;transformation;Ihr sprecht leise.;Sprecht leise!;Statement -> Command;mood_change;;2pl;imperative;3;imperative,ihr-form;
+GD081;G020;transformation;Sie helfen uns.;Helfen Sie uns!;Statement -> Command;mood_change;;3pl;imperative;3;imperative,sie-form;
+GD082;G022;word_order;Ich mag Kaffee. Ich mag Tee.;Ich mag Kaffee und Tee.;Sentence combination;word_order;;;present;1;conjunction,und;
+GD083;G022;word_order;Er ist reich. Er ist nicht glücklich.;Er ist reich, aber er ist nicht glücklich.;Sentence combination;word_order;;;present;2;conjunction,aber;
+GD084;G022;word_order;Ich bleibe zu Hause. Ich bin krank.;Ich bleibe zu Hause, denn ich bin krank.;Sentence combination;word_order;;;present;3;conjunction,denn;`denn` does not change the V2 word order.
+GD085;G023;word_order;Ich lerne Deutsch. Ich will in Deutschland leben.;Ich lerne Deutsch, weil ich in Deutschland leben will.;Sentence combination;word_order;;;present;4;conjunction,weil;`weil` kicks the conjugated verb `will` to the end.
+GD086;G023;word_order;Ich glaube. Du bist nett.;Ich glaube, dass du nett bist.;Sentence combination;word_order;;;present;4;conjunction,dass;`dass` kicks the conjugated verb `bist` to the end.
+GD087;G024;declension;mein Hund (Nom);mein Hund;Das ist mein Hund.;This is my dog.;Ending (-);declension;nom;3sg;present;2;possessive,masculine;
+GD088;G024;declension;mein Hund (Acc);meinen Hund;Ich sehe meinen Hund.;I see my dog.;Ending (-en);declension;acc;1sg;present;3;possessive,masculine;
+GD089;G024;declension;deine Katze (Nom);deine Katze;Deine Katze ist süß.;Your cat is cute.;Ending (-e);declension;nom;3sg;present;2;possessive,feminine;
+GD090;G024;declension;deine Katze (Acc);deine Katze;Ich füttere deine Katze.;I am feeding your cat.;Ending (-e);declension;acc;1sg;present;2;possessive,feminine;
+GD091;G024;declension;sein Buch (Nom);sein Buch;Sein Buch ist interessant.;His book is interesting.;Ending (-);declension;nom;3sg;present;2;possessive,neuter;
+GD092;G024;declension;sein Buch (Acc);sein Buch;Er liest sein Buch.;He is reading his book.;Ending (-);declension;acc;3sg;present;2;possessive,neuter;
+GD093;G024;declension;unsere Kinder (Nom);unsere Kinder;Unsere Kinder spielen draußen.;Our children are playing outside.;Ending (-e);declension;nom;3pl;present;3;possessive,plural;
+GD094;G024;declension;euer Auto (Dat);eurem Auto;Wir fahren mit eurem Auto.;We are driving with your car.;Ending (-em);declension;dat;1pl;present;4;possessive,neuter,dative;
+GD095;G025;declension;der schnelle Bus;dem schnellen Bus;Ich fahre mit dem schnellen Bus.;I'm driving with the fast bus.;-e -> -en;declension;dat;1sg;present;5;adjective-declension,weak;After dative `dem`, adjective ending is -en.
+GD096;G025;declension;die rote Blume;die rote Blume;Ich kaufe die rote Blume.;I am buying the red flower.;Ending (-e);declension;acc;1sg;present;4;adjective-declension,weak;After accusative `die`, adjective ending is -e.
+GD097;G026;transformation;gut;besser;Dein Deutsch ist gut, aber mein Deutsch ist besser.;Your German is good, but my German is better.;Comparative;comparison;;;present;3;comparative;
+GD098;G026;transformation;schnell;schneller als;Ein Auto ist schneller als ein Fahrrad.;A car is faster than a bicycle.;Comparative with 'als';comparison;;;present;3;comparative;
+GD099;G026;transformation;gern;lieber;Ich trinke gern Kaffee, aber ich trinke lieber Tee.;I like drinking coffee, but I prefer to drink tea.;Comparative;comparison;;;present;4;comparative,gern;
+GD100;G026;transformation;gut;am besten;Dieser Kuchen schmeckt am besten.;This cake tastes the best.;Superlative;comparison;;;present;4;superlative;
+GD101;G005;conjugation;ich arbeite;du arbeitest;Du arbeitest sehr hart.;You work very hard.;-est ending;conjugation;;2sg;present;2;verb,regular,spelling;Verbs ending in -t or -d need an extra 'e'.
+GD102;G005;conjugation;er wartet;ihr wartet;Warum wartet ihr hier?;Why are you all waiting here?;-et ending;conjugation;;2pl;present;2;verb,regular,spelling;Verbs ending in -t or -d need an extra 'e'.
+GD103;G008;transformation;Ich bin müde.;Bist du müde?;Statement -> Question;word_order;;2sg;present;2;sein,question,ja-nein;
+GD104;G008;transformation;Er hat Hunger.;Hat er Hunger?;Statement -> Question;word_order;;3sg;present;2;haben,question,ja-nein;
+GD105;G006;declension;mein Bruder;meinen Bruder;Ich rufe meinen Bruder an.;I am calling my brother.;mein -> meinen;declension;acc;1sg;present;3;accusative,masculine,possessive;
+GD106;G006;declension;dein Schlüssel;deinen Schlüssel;Hast du deinen Schlüssel gefunden?;Did you find your key?;dein -> deinen;declension;acc;2sg;present;3;accusative,masculine,possessive;
+GD107;G006;declension;sein Computer;seinen Computer;Er benutzt seinen Computer für die Arbeit.;He uses his computer for work.;sein -> seinen;declension;acc;3sg;present;3;accusative,masculine,possessive;
+GD108;G006;declension;ihr Hund;ihren Hund;Sie geht mit ihrem Hund spazieren.;She is walking her dog.;ihr -> ihren;declension;acc;3sg;present;3;accusative,masculine,possessive;
+GD109;G006;declension;unser Vater;unseren Vater;Wir besuchen unseren Vater.;We are visiting our father.;unser -> unseren;declension;acc;1pl;present;3;accusative,masculine,possessive;
+GD110;G006;declension;euer Lehrer;euren Lehrer;Versteht ihr euren Lehrer?;Do you all understand your teacher?;euer -> euren;declension;acc;2pl;present;3;accusative,masculine,possessive;
+GD111;G010;sentence_structure;Du kannst gut kochen.;Kannst du gut kochen?;Modal Verb Statement -> Question;word_order;;2sg;present;2;modal,können,question;
+GD112;G010;sentence_structure;Ich will schlafen.;Ich will jetzt schlafen.;Modal + Verb;word_order;;1sg;present;3;modal,wollen;
+GD113;G010;sentence_structure;Sie muss arbeiten.;Sie muss am Samstag arbeiten.;Modal + Verb;word_order;;3sg;present;3;modal,müssen;
+GD114;G010;sentence_structure;Ihr dürft spielen.;Ihr dürft im Garten spielen.;Modal + Verb;word_order;;2pl;present;3;modal,dürfen;
+GD115;G010;sentence_structure;Ich soll aufräumen.;Ich soll mein Zimmer aufräumen.;Modal + Separable Verb;word_order;;1sg;present;4;modal,sollen,separable-verb;The separable verb comes back together at the end.
+GD116;G010;sentence_structure;Wir möchten bestellen.;Wir möchten jetzt bestellen, bitte.;Modal + Verb;word_order;;1pl;present;2;modal,möchten,polite;
+GD117;G011;transformation;Er hat gekocht.;Hat er gekocht?;Perfekt Statement -> Question;word_order;;3sg;perfekt;3;perfekt,haben,question;
+GD118;G011;transformation;Du hast gelernt.;Was hast du gelernt?;Perfekt Statement -> W-Frage;word_order;;2sg;perfekt;3;perfekt,haben,question;
+GD119;G011;transformation;kaufen -> gekauft;ich habe gekauft;Ich habe ein neues Fahrrad gekauft.;I bought a new bicycle.;Participle Formation;tense_change;;1sg;perfekt;3;perfekt,haben;
+GD120;G011;transformation;fragen -> gefragt;wir haben gefragt;Wir haben den Polizisten gefragt.;We asked the police officer.;Participle Formation;tense_change;;1pl;perfekt;3;perfekt,haben;
+GD121;G011;transformation;suchen -> gesucht;ihr habt gesucht;Habt ihr lange gesucht?;Did you all search for a long time?;Participle Formation;tense_change;;2pl;perfekt;3;perfekt,haben,question;
+GD122;G011;transformation;hören -> gehört;sie hat gehört;Sie hat die Musik gehört.;She heard the music.;Participle Formation;tense_change;;3sg;perfekt;3;perfekt,haben;
+GD123;G011;transformation;tanzen -> getanzt;sie haben getanzt;Sie haben die ganze Nacht getanzt.;They danced the whole night.;Participle Formation;tense_change;;3pl;perfekt;3;perfekt,haben;
+GD124;G011;transformation;bezahlen -> bezahlt;ich habe bezahlt;Ich habe die Rechnung schon bezahlt.;I have already paid the bill.;Participle Formation;tense_change;;1sg;perfekt;3;perfekt,haben;Inseparable prefix `be-` means no `ge-`.
+GD125;G011;transformation;erklären -> erklärt;er hat erklärt;Er hat das Problem erklärt.;He explained the problem.;Participle Formation;tense_change;;3sg;perfekt;3;perfekt,haben;Inseparable prefix `er-` means no `ge-`.
+GD126;G011;transformation;essen -> gegessen;du hast gegessen;Was hast du gegessen?;What did you eat?;Participle Formation (Irregular);tense_change;;2sg;perfekt;4;perfekt,haben,irregular;
+GD127;G011;transformation;trinken -> getrunken;ich habe getrunken;Ich habe nur Wasser getrunken.;I only drank water.;Participle Formation (Irregular);tense_change;;1sg;perfekt;4;perfekt,haben,irregular;
+GD128;G011;transformation;schreiben -> geschrieben;sie hat geschrieben;Sie hat einen Brief geschrieben.;She wrote a letter.;Participle Formation (Irregular);tense_change;;3sg;perfekt;4;perfekt,haben,irregular;
+GD129;G011;transformation;lesen -> gelesen;wir haben gelesen;Wir haben das Buch nicht gelesen.;We haven't read the book.;Participle Formation (Irregular);tense_change;;1pl;perfekt;4;perfekt,haben,irregular;
+GD130;G011;transformation;sehen -> gesehen;ich habe gesehen;Ich habe den Film schon gesehen.;I have already seen the movie.;Participle Formation (Irregular);tense_change;;1sg;perfekt;4;perfekt,haben,irregular;
+GD131;G011;transformation;finden -> gefunden;er hat gefunden;Er hat seine Schlüssel gefunden.;He found his keys.;Participle Formation (Irregular);tense_change;;3sg;perfekt;4;perfekt,haben,irregular;
+GD132;G011;transformation;sprechen -> gesprochen;ihr habt gesprochen;Habt ihr mit ihm gesprochen?;Did you all speak with him?;Participle Formation (Irregular);tense_change;;2pl;perfekt;4;perfekt,haben,irregular;
+GD133;G011;transformation;helfen -> geholfen;ich habe geholfen;Ich habe dir doch geholfen!;But I did help you!;Participle Formation (Irregular);tense_change;;1sg;perfekt;4;perfekt,haben,irregular;
+GD134;G012;transformation;Du bist gefahren.;Wohin bist du gefahren?;Perfekt Statement -> W-Frage;word_order;;2sg;perfekt;4;perfekt,sein,question;
+GD135;G012;transformation;kommen -> gekommen;sie ist gekommen;Sie ist zu spät gekommen.;She came too late.;Participle Formation (Irregular);tense_change;;3sg;perfekt;4;perfekt,sein,irregular;
+GD136;G012;transformation;fliegen -> geflogen;wir sind geflogen;Wir sind nach Italien geflogen.;We flew to Italy.;Participle Formation (Irregular);tense_change;;1pl;perfekt;4;perfekt,sein,irregular;
+GD137;G012;transformation;aufstehen -> aufgestanden;ich bin aufgestanden;Ich bin heute früh aufgestanden.;I got up early today.;Participle Formation (Separable);tense_change;;1sg;perfekt;4;perfekt,sein,separable-verb;
+GD138;G012;transformation;reisen -> gereist;ihr seid gereist;Seid ihr viel gereist?;Did you all travel a lot?;Participle Formation;tense_change;;2pl;perfekt;4;perfekt,sein,question;
+GD139;G016;declension;mein Kind;meinem Kind;Ich erzähle meinem Kind eine Geschichte.;I tell my child a story.;mein -> meinem;declension;dat;1sg;present;4;dative,neuter,possessive;
+GD140;G016;declension;deine Schwester;deiner Schwester;Er hilft deiner Schwester.;He is helping your sister.;deine -> deiner;declension;dat;3sg;present;4;dative,feminine,possessive;
+GD141;G016;declension;unser Auto;unserem Auto;Wir fahren mit unserem Auto.;We are going with our car.;unser -> unserem;declension;dat;1pl;present;4;dative,neuter,possessive,dative-preposition;
+GD142;G016;declension;die Kinder;den Kindern;Der Lehrer gibt den Kindern Hausaufgaben.;The teacher gives the children homework.;die -> den, Kinder -> Kindern;declension;dat;3sg;present;4;dative,plural;
+GD143;G016;declension;ein Arzt;einem Arzt;Sie spricht mit einem Arzt.;She is speaking with a doctor.;ein -> einem;declension;dat;3sg;present;3;dative,masculine,dative-preposition;
+GD144;G016;declension;eine Freundin;einer Freundin;Das Geschenk ist von einer Freundin.;The gift is from a friend.;eine -> einer;declension;dat;3sg;present;3;dative,feminine,dative-preposition;
+GD145;G017;sentence_structure;Ich komme aus (Österreich).;Ich komme aus Österreich.;No article needed;declension;dat;1sg;present;2;dative-preposition,aus;Most countries don't use an article.
+GD146;G017;sentence_structure;Er fährt nach (die Arbeit).;Er fährt nach der Arbeit.;Article declension;declension;dat;3sg;present;3;dative-preposition,nach;
+GD147;G017;sentence_structure;Ich bin bei (meine Eltern).;Ich bin bei meinen Eltern.;Possessive declension;declension;dat;1sg;present;4;dative-preposition,bei,plural;
+GD148;G017;sentence_structure;Wir leben hier seit (ein Jahr).;Wir leben hier seit einem Jahr.;Article declension;declension;dat;1pl;present;4;dative-preposition,seit;
+GD149;G017;sentence_structure;Ich gehe zu (der Supermarkt).;Ich gehe zum Supermarkt.;Contraction;declension;dat;1sg;present;3;dative-preposition,zu;zu + dem = zum
+GD150;G017;sentence_structure;Sie geht zu (die Ärztin).;Sie geht zur Ärztin.;Contraction;declension;dat;3sg;present;3;dative-preposition,zu;zu + der = zur
+GD151;G021;transformation;mitbringen;Bringst du etwas mit?;Statement -> Question;word_order;;2sg;present;4;separable-verb,mitbringen,question;
+GD152;G021;transformation;abholen;Ich hole dich um 8 ab.;Word order with time;word_order;;1sg;present;3;separable-verb,abholen;
+GD153;G021;transformation;einschlafen;Das Kind schläft schnell ein.;Word order with adverb;word_order;;3sg;present;4;separable-verb,einschlafen;
+GD154;G021;transformation;zumachen;Mach bitte die Tür zu!;Command formation;mood_change;;2sg;imperative;3;separable-verb,zumachen,imperative;
+GD155;G021;transformation;vorbereiten;Ich bereite mich auf die Prüfung vor.;Reflexive use;word_order;acc;1sg;present;4;separable-verb,vorbereiten,reflexive;
+GD156;G019;sentence_structure;Ich stelle die Tasse auf (der Tisch).;Ich stelle die Tasse auf den Tisch.;Direction -> Accusative;declension;acc;1sg;present;4;two-way-preposition,auf;
+GD157;G019;sentence_structure;Die Tasse steht auf (der Tisch).;Die Tasse steht auf dem Tisch.;Location -> Dative;declension;dat;3sg;present;4;two-way-preposition,auf;
+GD158;G019;sentence_structure;Wir hängen das Bild an (die Wand).;Wir hängen das Bild an die Wand.;Direction -> Accusative;declension;acc;1pl;present;4;two-way-preposition,an;
+GD159;G019;sentence_structure;Das Bild hängt an (die Wand).;Das Bild hängt an der Wand.;Location -> Dative;declension;dat;3sg;present;4;two-way-preposition,an;
+GD160;G019;sentence_structure;Er geht vor (das Haus).;Er geht vor das Haus.;Direction -> Accusative;declension;acc;3sg;present;4;two-way-preposition,vor;
+GD161;G019;sentence_structure;Er wartet vor (das Haus).;Er wartet vor dem Haus.;Location -> Dative;declension;dat;3sg;present;4;two-way-preposition,vor;
+GD162;G019;sentence_structure;Legen Sie es neben (der Computer).;Legen Sie es neben den Computer.;Direction -> Accusative;declension;acc;3pl;imperative;4;two-way-preposition,neben;
+GD163;G019;sentence_structure;Es liegt neben (der Computer).;Es liegt neben dem Computer.;Location -> Dative;declension;dat;3sg;present;4;two-way-preposition,neben;
+GD164;G007;negation;Ich möchte diesen Salat.;Ich möchte diesen Salat nicht.;Specific noun negation;negation;;;present;3;negation,nicht;Negating a noun with a definite/possessive article uses `nicht`.
+GD165;G007;negation;Ich habe ein Handy.;Ich habe kein Handy.;Indefinite noun negation;negation;nom;;present;2;negation,kein;
+GD166;G007;negation;Ich habe den Schlüssel.;Ich habe den Schlüssel nicht.;Specific noun negation;negation;acc;;present;3;negation,nicht;
+GD167;G024;declension;ihre Tasche (Dat);ihrer Tasche;In ihrer Tasche ist ein Buch.;There is a book in her bag.;Ending (-er);declension;dat;3sg;present;4;possessive,feminine,dative;
+GD168;G024;declension;sein Geld (Dat);seinem Geld;Mit seinem Geld kann er alles kaufen.;With his money he can buy everything.;Ending (-em);declension;dat;3sg;present;4;possessive,neuter,dative;
+GD169;G024;declension;meine Freunde (Dat);meinen Freunden;Ich gehe mit meinen Freunden ins Kino.;I'm going to the cinema with my friends.;Ending (-en);declension;dat;1sg;present;4;possessive,plural,dative;
+GD170;G020;transformation;Du sei still!;Sei still!;Command formation;mood_change;;2sg;imperative;4;imperative,du-form,irregular;The command for `sein` is irregular: `Sei!`.
+GD171;G020;transformation;Ihr habt keine Angst!;Habt keine Angst!;Command formation;mood_change;;2pl;imperative;4;imperative,ihr-form,irregular;The command for `haben` is irregular: `Habt!`.
+GD172;G020;transformation;Du fährst langsam.;Fahr langsam!;Command formation;mood_change;;2sg;imperative;4;imperative,du-form,irregular;The umlaut from the present tense is dropped in the command.
+GD173;G023;word_order;Ich weiß nicht. Er kommt.;Ich weiß nicht, ob er kommt.;Sentence combination;word_order;;;present;4;conjunction,ob;`ob` introduces an indirect yes/no question. Verb to the end.
+GD174;G023;word_order;Ich gehe nach Hause. Es ist spät.;Ich gehe nach Hause, weil es spät ist.;Sentence combination;word_order;;;present;4;conjunction,weil;
+GD175;G023;word_order;Er sagt. Er hat keine Zeit.;Er sagt, dass er keine Zeit hat.;Sentence combination;word_order;;;present;4;conjunction,dass;
+GD176;G026;transformation;viel;mehr;Ich habe viel Arbeit, aber du hast mehr Arbeit.;I have a lot of work, but you have more work.;Comparative;comparison;;;present;3;comparative,irregular;
+GD177;G026;transformation;viel;am meisten;Wer hat das meiste Geld?;Who has the most money?;Superlative;comparison;;;present;4;superlative,irregular;
+GD178;G026;transformation;gern;am liebsten;Am liebsten trinke ich Wasser.;I like to drink water most of all.;Superlative;comparison;;;present;4;superlative,gern;
+GD179;G025;declension;ein alter Mann;einem alten Mann;Ich helfe einem alten Mann.;I am helping an old man.;Ending (-en);declension;dat;1sg;present;5;adjective-declension,mixed;After dative `einem`, adjective ending is -en.
+GD180;G025;declension;eine neue Tasche;eine neue Tasche;Ich habe eine neue Tasche.;I have a new bag.;Ending (-e);declension;acc;1sg;present;4;adjective-declension,mixed;After accusative `eine`, adjective ending is -e.
+GD181;G025;declension;kaltes Wasser;kaltes Wasser;Ich trinke nur kaltes Wasser.;I only drink cold water.;Ending (-es);declension;acc;1sg;present;5;adjective-declension,strong;After no article (neuter, acc), adjective ending is -es.
+GD182;G025;declension;guter Wein;guten Wein;Er kauft guten Wein.;He buys good wine.;Ending (-en);declension;acc;3sg;present;5;adjective-declension,strong;After no article (masculine, acc), adjective ending is -en.
+GD183;G004;declension;Wer?;Wer ist das?;Question word as subject;declension;nom;;present;2;question-word,nominative;
+GD184;G006;declension;Wen?;Wen siehst du?;Question word as direct object;declension;acc;;present;3;question-word,accusative;
+GD185;G016;declension;Wem?;Wem hilfst du?;Question word as indirect object;declension;dat;;present;4;question-word,dative;
+GD186;G008;transformation;Ich war im Büro.;Warst du im Büro?;Präteritum Statement -> Question;word_order;;2sg;präteritum;3;präteritum,sein,question;A1 learners often see Präteritum of `sein` and `haben`.
+GD187;G008;transformation;Er hatte Glück.;Hatte er Glück?;Präteritum Statement -> Question;word_order;;3sg;präteritum;3;präteritum,haben,question;
+GD188;G008;conjugation;ich war;er war;Er war letztes Jahr in Italien.;He was in Italy last year.;Präteritum conjugation;conjugation;;3sg;präteritum;3;präteritum,sein;
+GD189;G008;conjugation;ich hatte;sie hatten;Sie hatten keine andere Wahl.;They had no other choice.;Präteritum conjugation;conjugation;;3pl;präteritum;3;präteritum,haben;
+GD190;G010;sentence_structure;Ich möchte zahlen.;Ich möchte bitte zahlen.;Politeness;word_order;;1sg;present;2;modal,polite;Adding `bitte` is crucial.
+GD191;G010;sentence_structure;Ich will ein Wasser.;Ich hätte gern ein Wasser.;Politeness;mood_change;;1sg;present;3;modal,polite;`hätte gern` is even more polite than `möchte`.
+GD192;G021;transformation;kennenlernen;lerne kennen;Ich lerne dich gern kennen.;I am happy to get to know you.;prefix -> end;word_order;;1sg;present;4;separable-verb,kennenlernen;
+GD193;G021;transformation;weh tun;tut weh;Mein Rücken tut mir weh.;My back hurts me.;prefix -> end, dative pronoun;word_order;dat;3sg;present;4;separable-verb,wehtun;Commonly used with a dative pronoun.
+GD194;G021;transformation;spazieren gehen;gehen spazieren;Wir gehen am Abend spazieren.;We go for a walk in the evening.;prefix -> end;word_order;;1pl;present;3;separable-verb,spazierengehen;
+GD195;G017;sentence_structure;Ich fahre mit (das Fahrrad).;Ich fahre mit dem Fahrrad.;Article declension;declension;dat;1sg;present;3;dative-preposition,mit;
+GD196;G017;sentence_structure;Das Buch ist von (der Autor).;Das Buch ist von dem Autor.;Article declension;declension;dat;3sg;present;3;dative-preposition,von;
+GD197;G017;sentence_structure;Sie geht zu (ihre Freundin).;Sie geht zu ihrer Freundin.;Possessive declension;declension;dat;3sg;present;4;dative-preposition,zu;
+GD198;G006;declension;unser Hund;unseren Hund;Wir lieben unseren Hund.;We love our dog.;unser -> unseren;declension;acc;1pl;present;3;accusative,masculine,possessive;
+GD199;G006;declension;euer Ball;euren Ball;Ich habe euren Ball gefunden.;I found your (plural) ball.;euer -> euren;declension;acc;1sg;present;3;accusative,masculine,possessive;
+GD200;G006;declension;Ihr Ticket;Ihr Ticket;Haben Sie Ihr Ticket?;Do you have your ticket?;Ihr -> Ihr (no change);declension;acc;2sg;present;2;accusative,neuter,possessive,formal;
+GD201;G010;sentence_structure;Ich kann nicht kommen.;Warum kannst du nicht kommen?;Modal Verb Question;word_order;;2sg;present;3;modal,können,question,w-frage;
+GD202;G010;sentence_structure;Du sollst das machen.;Soll ich das machen?;Modal Verb Question (pronoun change);word_order;;1sg;present;3;modal,sollen,question;
+GD203;G007;negation;Ich esse Fleisch.;Ich esse kein Fleisch.;Indefinite noun negation;negation;acc;;present;2;negation,kein,food;
+GD204;G007;negation;Ich habe Geschwister.;Ich habe keine Geschwister.;Plural noun negation;negation;acc;;present;2;negation,kein,plural;
+GD205;G007;negation;Der Kaffee ist heiß.;Der Kaffee ist nicht heiß.;Adjective negation;negation;;;present;1;negation,nicht;
+GD206;G007;negation;Sie ist meine Freundin.;Sie ist nicht meine Freundin.;Possessive negation;negation;;;present;2;negation,nicht,possessive;
+GD207;G011;transformation;erfinden -> erfunden;er hat erfunden;Wer hat das Telefon erfunden?;Who invented the telephone?;Participle Formation (Irregular);tense_change;;3sg;perfekt;4;perfekt,haben,inseparable;
+GD208;G011;transformation;verstehen -> verstanden;hast du verstanden;Hast du alles verstanden?;Did you understand everything?;Participle Formation (Irregular);tense_change;;2sg;perfekt;4;perfekt,haben,inseparable,question;
+GD209;G011;transformation;nehmen -> genommen;wir haben genommen;Wir haben den letzten Zug genommen.;We took the last train.;Participle Formation (Irregular);tense_change;;1pl;perfekt;4;perfekt,haben,irregular;
+GD210;G011;transformation;geben -> gegeben;ich habe gegeben;Ich habe ihm mein Wort gegeben.;I gave him my word.;Participle Formation (Irregular);tense_change;;1sg;perfekt;4;perfekt,haben,irregular;
+GD211;G012;transformation;schwimmen -> geschwommen;ich bin geschwommen;Ich bin im See geschwommen.;I swam in the lake.;Participle Formation (Irregular);tense_change;;1sg;perfekt;4;perfekt,sein,irregular;
+GD212;G012;transformation;laufen -> gelaufen;er ist gelaufen;Er ist einen Marathon gelaufen.;He ran a marathon.;Participle Formation (Irregular);tense_change;;3sg;perfekt;4;perfekt,sein,irregular;
+GD213;G012;transformation;passieren -> passiert;es ist passiert;Was ist passiert?;What happened?;Participle Formation (-ieren);tense_change;;3sg;perfekt;3;perfekt,sein,ieren-verb;
+GD214;G012;transformation;bleiben -> geblieben;ihr seid geblieben;Warum seid ihr nicht länger geblieben?;Why didn't you all stay longer?;Participle Formation (Irregular);tense_change;;2pl;perfekt;4;perfekt,sein,irregular;
+GD215;G016;declension;ein guter Freund;einem guten Freund;Ich spreche mit einem guten Freund.;I'm speaking with a good friend.;Ending (-em, -en);declension;dat;1sg;present;5;dative,adjective-declension,mixed;
+GD216;G016;declension;meine kleine Schwester;meiner kleinen Schwester;Ich helfe meiner kleinen Schwester.;I help my little sister.;Ending (-er, -en);declension;dat;1sg;present;5;dative,adjective-declension,mixed;
+GD217;G016;declension;kaltes Bier;kaltem Bier;Nach der Arbeit trinke ich gern ein Bier mit kaltem Schaum.;After work I like to drink a beer with cold foam.;Ending (-em);declension;dat;1sg;present;5;dative,adjective-declension,strong;
+GD218;G017;sentence_structure;Ich fahre mit (der Zug).;Ich fahre mit dem Zug.;Article declension;declension;dat;1sg;present;3;dative-preposition,mit;
+GD219;G017;sentence_structure;Seit (der Tag) liebe ich dich.;Seit dem Tag liebe ich dich.;Article declension;declension;dat;1sg;present;4;dative-preposition,seit;
+GD220;G017;sentence_structure;Die Bäckerei ist gegenüber (die Post).;Die Bäckerei ist gegenüber der Post.;Article declension;declension;dat;3sg;present;3;dative-preposition,gegenüber;
+GD221;G018;sentence_structure;Wir gehen durch (der Park).;Wir gehen durch den Park.;Article declension;declension;acc;1pl;present;3;accusative-preposition,durch;
+GD222;G018;sentence_structure;Das ist gegen (mein Plan).;Das ist gegen meinen Plan.;Possessive declension;declension;acc;3sg;present;3;accusative-preposition,gegen;
+GD223;G018;sentence_structure;Fahr nicht ohne (der Helm)!;Fahr nicht ohne den Helm!;Article declension;declension;acc;2sg;imperative;3;accusative-preposition,ohne;
+GD224;G019;sentence_structure;Das Kind springt in (das Wasser).;Das Kind springt ins Wasser.;Contraction (in+das);declension;acc;3sg;present;4;two-way-preposition,direction;
+GD225;G019;sentence_structure;Der Fisch schwimmt in (das Wasser).;Der Fisch schwimmt im Wasser.;Contraction (in+dem);declension;dat;3sg;present;4;two-way-preposition,location;
+GD226;G019;sentence_structure;Wir fahren an (der Strand).;Wir fahren an den Strand.;Article declension;declension;acc;1pl;present;4;two-way-preposition,direction;
+GD227;G019;sentence_structure;Wir sind an (der Strand).;Wir sind am Strand.;Contraction (an+dem);declension;dat;1pl;present;4;two-way-preposition,location;
+GD228;G019;sentence_structure;Setz dich zwischen (ich und er).;Setz dich zwischen mich und ihn.;Pronoun declension;declension;acc;2sg;imperative;5;two-way-preposition,direction,pronoun;`zwischen` takes accusative for direction.
+GD229;G019;sentence_structure;Der Platz zwischen (ich und er) ist frei.;Der Platz zwischen mir und ihm ist frei.;Pronoun declension;declension;dat;3sg;present;5;two-way-preposition,location,pronoun;`zwischen` takes dative for location.
+GD230;G021;transformation;mitbringen;Er bringt den Kuchen mit.;Word order;word_order;;3sg;present;3;separable-verb,mitbringen;
+GD231;G021;transformation;auswählen;Welches Kleid wählst du aus?;Question word order;word_order;;2sg;present;3;separable-verb,auswählen,question;
+GD232;G021;transformation;herstellen;Die Firma stellt Möbel her.;Word order;word_order;;3sg;present;3;separable-verb,herstellen;
+GD233;G021;transformation;anbieten;Was bietest du mir an?;Question word order;word_order;;2sg;present;3;separable-verb,anbieten,question;
+GD234;G021;transformation;teilnehmen;Nehmen Sie am Kurs teil?;Question word order;word_order;;3pl;present;4;separable-verb,teilnehmen,question;
+GD235;G021;transformation;sich vorstellen;Ich stelle mich kurz vor.;Reflexive use;word_order;acc;1sg;present;3;separable-verb,vorstellen,reflexive;
+GD236;G023;word_order;Sie ist glücklich. Sie hat die Prüfung bestanden.;Sie ist glücklich, weil sie die Prüfung bestanden hat.;Sentence combination;word_order;;;perfekt;4;conjunction,weil;`hat` is kicked to the end.
+GD237;G023;word_order;Er kommt nicht. Er ist krank.;Er kommt nicht, weil er krank ist.;Sentence combination;word_order;;;present;4;conjunction,weil;
+GD238;G023;word_order;Ich weiß. Du hast Recht.;Ich weiß, dass du Recht hast.;Sentence combination;word_order;;;present;4;conjunction,dass;
+GD239;G023;word_order;Ich frage ihn. Er kommt mit.;Ich frage ihn, ob er mitkommt.;Sentence combination;word_order;;;present;4;conjunction,ob;Separable verb rejoins at the end.
+GD240;G023;word_order;Wir warten. Das Wetter wird besser.;Wir warten, bis das Wetter besser wird.;Sentence combination;word_order;;;future;4;conjunction,bis;`wird` is kicked to the end.
+GD241;G024;declension;unser Haus (Dat);unserem Haus;Vor unserem Haus ist ein Garten.;In front of our house is a garden.;Ending (-em);declension;dat;3sg;present;4;possessive,neuter,dative;
+GD242;G024;declension;eure Ideen (Acc);eure Ideen;Ich finde eure Ideen super.;I find your (plural) ideas great.;Ending (-e);declension;acc;1sg;present;3;possessive,plural,accusative;
+GD243;G024;declension;ihr Mann (Dat);ihrem Mann;Sie gibt ihrem Mann einen Kuss.;She gives her husband a kiss.;Ending (-em);declension;dat;3sg;present;4;possessive,masculine,dative;
+GD244;G024;declension;Ihr Name (Acc);Ihren Namen;Ich habe Ihren Namen vergessen.;I forgot your (formal) name.;Ending (-en);declension;acc;1sg;perfekt;4;possessive,masculine,accusative,formal;
+GD245;G026;transformation;Ich laufe schnell. Du läufst schnell.;Ich laufe so schnell wie du.;Comparison of equals;comparison;;;present;3;comparative,wie;`so ... wie` is used for 'as ... as'.
+GD246;G026;transformation;alt -> älter;älter als;Mein Auto ist älter als dein Auto.;My car is older than your car.;Comparative with 'als';comparison;;;present;3;comparative,umlaut;
+GD247;G026;transformation;jung -> jünger;jünger als;Sie ist jünger als ihr Bruder.;She is younger than her brother.;Comparative with 'als';comparison;;;present;3;comparative,umlaut;
+GD248;G026;transformation;groß -> größer;größer als;Ein Elefant ist größer als eine Maus.;An elephant is bigger than a mouse.;Comparative with 'als';comparison;;;present;3;comparative,umlaut;
+GD249;G026;transformation;teuer -> teurer;teurer als;Gold ist teurer als Silber.;Gold is more expensive than silver.;Comparative with 'als';comparison;;;present;3;comparative,spelling;
+GD250;G026;transformation;hoch -> höher;höher als;Der Mount Everest ist höher als der Mont Blanc.;Mount Everest is higher than Mont Blanc.;Comparative with 'als';comparison;;;present;4;comparative,irregular;
+GD251;reflexive_verb;sich waschen (ich);ich wasche mich;Ich wasche mich jeden Morgen.;I wash myself every morning.;Reflexive Pronoun;reflexive;acc;1sg;present;3;reflexive,accusative;
+GD252;reflexive_verb;sich waschen (du);du wäschst dich;Wäschst du dich?;Are you washing yourself?;Reflexive Pronoun;reflexive;acc;2sg;present;4;reflexive,accusative,irregular;
+GD253;reflexive_verb;sich waschen (er);er wäscht sich;Er wäscht sich die Hände.;He is washing his hands.;Reflexive Pronoun;reflexive;dat;3sg;present;4;reflexive,dative;When a body part is mentioned (direct object), the reflexive pronoun becomes dative.
+GD254;reflexive_verb;sich anziehen (wir);wir ziehen uns an;Wir ziehen uns warm an.;We are dressing warmly.;Reflexive Pronoun;reflexive;acc;1pl;present;3;reflexive,accusative,separable-verb;
+GD255;reflexive_verb;sich kämmen (ihr);ihr kämmt euch;Ihr kämmt euch die Haare.;You all are combing your hair.;Reflexive Pronoun;reflexive;dat;2pl;present;4;reflexive,dative;
+GD256;reflexive_verb;sich fühlen (Sie);fühlen Sie sich;Wie fühlen Sie sich heute?;How do you feel today?;Reflexive Pronoun;reflexive;acc;3pl;present;3;reflexive,accusative,question;
+GD257;reflexive_verb;sich setzen (ich);ich setze mich;Ich setze mich auf den Stuhl.;I am sitting down on the chair.;Reflexive Pronoun;reflexive;acc;1sg;present;3;reflexive,accusative;
+GD258;reflexive_verb;sich interessieren für;ich interessiere mich für;Ich interessiere mich für Kunst.;I am interested in art.;Reflexive with Preposition;reflexive;acc;1sg;present;4;reflexive,preposition;
+GD259;reflexive_verb;sich freuen auf;er freut sich auf;Er freut sich auf den Urlaub.;He is looking forward to the vacation.;Reflexive with Preposition;reflexive;acc;3sg;present;4;reflexive,preposition;
+GD260;G009;conjugation;ich helfe;er hilft;Er hilft seiner Nachbarin.;He helps his neighbor.;e -> i;conjugation;;3sg;present;3;verb,irregular,dative;
+GD261;G009;conjugation;du isst;wir essen;Wir essen um 19 Uhr.;We eat at 7 PM.;i -> e;conjugation;;1pl;present;3;verb,irregular;
+GD262;G009;conjugation;er schläft;schläfst du;Schläfst du schon?;Are you sleeping already?;ä -> ä (no change);conjugation;;2sg;present;3;verb,irregular,question;
+GD263;G009;conjugation;ich laufe;er läuft;Er läuft sehr schnell.;He runs very fast.;au -> äu;conjugation;;3sg;present;3;verb,irregular;
+GD264;G011;transformation;singen -> gesungen;sie hat gesungen;Sie hat auf der Bühne gesungen.;She sang on the stage.;Participle Formation (Irregular);tense_change;;3sg;perfekt;4;perfekt,haben,irregular;
+GD265;G011;transformation;tragen -> getragen;ich habe getragen;Ich habe den Koffer getragen.;I carried the suitcase.;Participle Formation (Irregular);tense_change;;1sg;perfekt;4;perfekt,haben,irregular;
+GD266;G011;transformation;treffen -> getroffen;hast du getroffen;Wen hast du gestern getroffen?;Whom did you meet yesterday?;Participle Formation (Irregular);tense_change;;2sg;perfekt;4;perfekt,haben,irregular;
+GD267;G012;transformation;sterben -> gestorben;er ist gestorben;Sein Großvater ist letztes Jahr gestorben.;His grandfather died last year.;Participle Formation (Irregular);tense_change;;3sg;perfekt;4;perfekt,sein,irregular;
+GD268;G012;transformation;umziehen -> umgezogen;wir sind umgezogen;Wir sind nach Hamburg umgezogen.;We moved to Hamburg.;Participle Formation (Separable);tense_change;;1pl;perfekt;4;perfekt,sein,separable-verb;
+GD269;G012;transformation;wachsen -> gewachsen;das Kind ist gewachsen;Das Kind ist schnell gewachsen.;The child grew quickly.;Participle Formation (Irregular);tense_change;;3sg;perfekt;4;perfekt,sein,irregular;
+GD270;G016;declension;ein Kollege;einem Kollegen;Ich arbeite mit einem netten Kollegen.;I work with a nice colleague.;n-declension;declension;dat;1sg;present;5;dative,n-declension;
+GD271;G016;declension;der Name;dem Namen;Was ist der Unterschied zwischen dem Namen und dem Wort?;What's the difference between the name and the word?;n-declension;declension;dat;3sg;present;5;dative,n-declension;
+GD272;G016;declension;der Kunde;dem Kunden;Der Verkäufer hilft dem Kunden.;The salesperson helps the customer.;n-declension;declension;dat;3sg;present;5;dative,n-declension;
+GD273;G006;declension;der Junge;den Jungen;Ich sehe den Jungen auf der Straße.;I see the boy on the street.;n-declension;declension;acc;1sg;present;5;accusative,n-declension;
+GD274;G006;declension;der Herr;den Herrn;Kennen Sie den Herrn dort?;Do you know the gentleman over there?;n-declension;declension;acc;2sg;present;5;accusative,n-declension;
+GD275;G022;word_order;Ich mag Tee. Ich mag keinen Kaffee.;Ich mag Tee, aber keinen Kaffee.;Sentence combination;word_order;;;present;2;conjunction,aber;
+GD276;G022;word_order;Wir gehen spazieren oder wir bleiben zu Hause.;Wir gehen spazieren oder wir bleiben zu Hause.;Sentence choice;word_order;;;present;2;conjunction,oder;
+GD277;G022;word_order;Er ist nicht dumm, er ist faul.;Er ist nicht dumm, sondern faul.;Correction;word_order;;;present;4;conjunction,sondern;`sondern` corrects a previous negative statement.
+GD278;G023;word_order;Ich bin sicher, er kommt.;Ich bin sicher, dass er kommt.;Sentence combination;word_order;;;present;4;conjunction,dass;
+GD279;G023;word_order;Sag mir, wann du Zeit hast.;Sag mir, wann du Zeit hast.;Indirect Question;word_order;;;present;4;conjunction,wann;W-word as a subordinator kicks the verb to the end.
+GD280;G023;word_order;Wenn ich Zeit habe, rufe ich dich an.;Wenn ich Zeit habe, rufe ich dich an.;Conditional Clause;word_order;;;present;4;conjunction,wenn;Verb in main clause `rufe` is in pos 2 (after the dependent clause).
+GD281;G025;declension;Guter Wein ist teuer.;Guter Wein ist teuer.;Strong declension ending (-er);declension;nom;3sg;present;5;adjective-declension,strong;No article, masculine nominative -> -er ending.
+GD282;G025;declension;Ich trinke gern kalte Milch.;Ich trinke gern kalte Milch.;Strong declension ending (-e);declension;acc;1sg;present;5;adjective-declension,strong;No article, feminine accusative -> -e ending.
+GD283;G025;declension;mit frisch**em** Brot;mit frischem Brot;Strong declension ending (-em);declension;dat;1sg;present;5;adjective-declension,strong;No article, neuter dative -> -em ending.
+GD284;G025;declension;ein schnell**es** Auto;ein schnelles Auto;Mixed declension ending (-es);declension;nom;3sg;present;5;adjective-declension,mixed;After `ein`, neuter nominative -> -es ending.
+GD285;G025;declension;ein**en** groß**en** Hund;einen großen Hund;Mixed declension ending (-en);declension;acc;1sg;present;5;adjective-declension,mixed;After `einen`, masculine accusative -> -en ending.
+GD286;G026;transformation;viel -> mehr;mehr als;Sie hat mehr Geld als ich.;She has more money than me.;Comparative with 'als';comparison;;;present;3;comparative,irregular;
+GD287;G026;transformation;dunkel -> dunkler;dunkler;Es wird schon dunkler.;It's already getting darker.;Comparative;comparison;;;present;3;comparative,spelling;
+GD288;G019;sentence_structure;Ich fahre über die Brücke.;Fahr nicht über die Brücke!;Command formation;mood_change;acc;2sg;imperative;4;two-way-preposition,direction,imperative;
+GD289;G019;sentence_structure;Wir sitzen unter dem Baum.;Setzen wir uns unter den Baum!;Suggestion;mood_change;acc;1pl;present;4;two-way-preposition,direction;
+GD290;G010;sentence_structure;Ich will nicht aufstehen.;Ich will nicht aufstehen.;Modal + Separable Verb (negated);word_order;;1sg;present;4;modal,separable-verb,negation;
+GD291;G010;sentence_structure;Du sollst das Fenster zumachen.;Soll ich das Fenster zumachen?;Modal + Separable Verb -> Question;word_order;;1sg;present;4;modal,separable-verb,question;
+GD292;G004;pronoun_case;Er/Ihn/Ihm sehe ich.;Ich sehe ihn.;Subject/Object choice;declension;acc;1sg;present;4;pronoun-case,accusative;`wen sehe ich?` -> `ihn` (accusative).
+GD293;G004;pronoun_case;Er/Ihn/Ihm gibt mir das Buch.;Er gibt mir das Buch.;Subject/Object choice;declension;nom;3sg;present;4;pronoun-case,nominative;`wer gibt?` -> `er` (nominative).
+GD294;G016;pronoun_case;Ich helfe er/ihn/ihm.;Ich helfe ihm.;Dative verb object;declension;dat;1sg;present;4;pronoun-case,dative;`helfen` takes a dative object.
+GD295;G017;pronoun_case;Das ist von sie/ihr.;Das ist von ihr.;Dative preposition object;declension;dat;3sg;present;4;pronoun-case,dative;`von` is a dative preposition.
+GD296;G018;pronoun_case;Ohne er/ihn/ihm gehe ich nicht.;Ohne ihn gehe ich nicht.;Accusative preposition object;declension;acc;1sg;present;4;pronoun-case,accusative;`ohne` is an accusative preposition.
+GD297;G011;transformation;anrufen -> angerufen;ich habe angerufen;Ich habe dich gestern angerufen.;I called you yesterday.;Participle Formation (Separable);tense_change;;1sg;perfekt;4;perfekt,haben,separable-verb;
+GD298;G011;transformation;einkaufen -> eingekauft;hast du eingekauft;Hast du schon eingekauft?;Have you already shopped?;Participle Formation (Separable);tense_change;;2sg;perfekt;4;perfekt,haben,separable-verb;
+GD299;G011;transformation;mitbringen -> mitgebracht;er hat mitgebracht;Er hat einen Kuchen mitgebracht.;He brought a cake along.;Participle Formation (Separable);tense_change;;3sg;perfekt;4;perfekt,haben,separable-verb;
+GD300;G012;transformation;abfahren -> abgefahren;der Zug ist abgefahren;Der Zug ist schon abgefahren.;The train has already departed.;Participle Formation (Separable);tense_change;;3sg;perfekt;4;perfekt,sein,separable-verb;
+GD301;G010;transformation;Ich kann Deutsch sprechen.;Ich habe Deutsch sprechen können.;Present -> Perfekt (Modal);tense_change;;1sg;perfekt;5;perfekt,modal,haben;Double infinitive rule with `haben`.
+GD302;G010;transformation;Er muss arbeiten.;Er hat arbeiten müssen.;Present -> Perfekt (Modal);tense_change;;3sg;perfekt;5;perfekt,modal,haben;Double infinitive rule with `haben`.
+GD303;G010;transformation;Wir wollen den Film sehen.;Wir haben den Film sehen wollen.;Present -> Perfekt (Modal);tense_change;acc;1pl;perfekt;5;perfekt,modal,haben;
+GD304;G010;transformation;Sie darf nicht ausgehen.;Sie hat nicht ausgehen dürfen.;Present -> Perfekt (Modal);tense_change;;3sg;perfekt;5;perfekt,modal,haben,negation;
+GD305;G012;transformation;Ich fahre nach Italien.;Ich bin nach Italien gefahren.;Present -> Perfekt;tense_change;;1sg;perfekt;4;perfekt,sein,irregular;
+GD306;G012;transformation;Er reist viel.;Er ist viel gereist.;Present -> Perfekt;tense_change;;3sg;perfekt;4;perfekt,sein,regular;
+GD307;G012;transformation;Wir steigen in den Bus ein.;Wir sind in den Bus eingestiegen.;Present -> Perfekt;tense_change;acc;1pl;perfekt;4;perfekt,sein,separable-verb;
+GD308;G023;word_order;Ich komme nicht, weil ich arbeiten muss.;Ich komme nicht, weil ich arbeiten muss.;Modal in subordinate clause;word_order;;1sg;present;5;conjunction,weil,modal;The modal `muss` is conjugated and kicked to the end.
+GD309;G023;word_order;Er weiß, dass er warten soll.;Er weiß, dass er warten soll.;Modal in subordinate clause;word_order;;3sg;present;5;conjunction,dass,modal;The modal `soll` is conjugated and kicked to the end.
+GD310;G023;word_order;Ich frage, ob wir gehen können.;Ich frage, ob wir gehen können.;Modal in subordinate clause;word_order;;1pl;present;5;conjunction,ob,modal;
+GD311;G023;word_order;Wenn du mitkommen willst, musst du dich beeilen.;Wenn du mitkommen willst, musst du dich beeilen.;Modal in subordinate & main clause;word_order;;2sg;present;5;conjunction,wenn,modal;
+GD312;G023;word_order;Ich habe gelernt, weil ich die Prüfung bestehen wollte.;Ich habe gelernt, weil ich die Prüfung bestehen wollte.;Perfekt + Modal Subordinate;word_order;;1sg;präteritum;5;conjunction,weil,modal,perfekt;Präteritum of modal `wollte` is common in this structure.
+GD313;G022;word_order;Ich bin müde, aber ich muss noch arbeiten.;Ich bin müde, aber ich muss noch arbeiten.;Coordinating Conjunction;word_order;;1sg;present;3;conjunction,aber,modal;`aber` is pos 0, so `ich` is pos 1, `muss` is pos 2.
+GD314;G016;declension;ich;mir;Gefällt es dir hier?;Yes, it pleases me here.;Pronoun declension;declension;dat;1sg;present;4;dative,pronoun-case;`gefallen` takes a dative object.
+GD315;G016;declension;du;dir;Ich danke dir für alles.;I thank you for everything.;Pronoun declension;declension;dat;1sg;present;4;dative,pronoun-case;`danken` takes a dative object.
+GD316;G016;declension;er;ihm;Die Hose passt ihm nicht.;The pants don't fit him.;Pronoun declension;declension;dat;3sg;present;4;dative,pronoun-case;`passen` takes a dative object.
+GD317;G016;declension;sie;ihr;Der Arzt hilft ihr.;The doctor is helping her.;Pronoun declension;declension;dat;3sg;present;4;dative,pronoun-case;`helfen` takes a dative object.
+GD318;G006;declension;wir;uns;Er hat uns nicht gesehen.;He didn't see us.;Pronoun declension;declension;acc;3sg;perfekt;3;accusative,pronoun-case;
+GD319;G006;declension;ihr;euch;Ich rufe euch später an.;I will call you all later.;Pronoun declension;declension;acc;1sg;present;3;accusative,pronoun-case;
+GD320;G006;declension;Sie;Sie;Ich verstehe Sie nicht.;I don't understand you (formal).;Pronoun declension;declension;acc;1sg;present;2;accusative,pronoun-case,formal;
+GD321;G019;sentence_structure;Wir sitzen am Tisch.;Setzen wir uns an den Tisch!;Suggestion/Command;mood_change;acc;1pl;present;4;two-way-preposition,direction;
+GD322;G019;sentence_structure;Die Kinder spielen hinter dem Haus.;Spielt hinter dem Haus!;Command formation;mood_change;dat;2pl;imperative;4;two-way-preposition,location,imperative;
+GD323;G020;transformation;Du entschuldigst dich.;Entschuldige dich!;Reflexive command;mood_change;acc;2sg;imperative;4;reflexive,imperative;
+GD324;G020;transformation;Ihr freut euch.;Freut euch!;Reflexive command;mood_change;acc;2pl;imperative;4;reflexive,imperative;
+GD325;G020;transformation;Sie bereiten sich vor.;Bereiten Sie sich vor!;Reflexive command;mood_change;acc;3pl;imperative;4;reflexive,separable-verb,imperative;
+GD326;G025;declension;mein bester Freund;meinem besten Freund;Ich gehe mit meinem besten Freund spazieren.;I'm going for a walk with my best friend.;Ending (-em, -en);declension;dat;1sg;present;5;adjective-declension,mixed,dative;
+GD327;G025;declension;ein gutes Buch;ein gutes Buch;Das ist ein gutes Buch.;That is a good book.;Ending (-es);declension;nom;3sg;present;5;adjective-declension,mixed,neuter;
+GD328;G025;declension;keine gute Idee;keine gute Idee;Ich finde das keine gute Idee.;I don't think that's a good idea.;Ending (-e);declension;acc;1sg;present;5;adjective-declension,mixed,feminine;
+GD329;G025;declension;kalter Kaffee;kalten Kaffee;Ich mag keinen kalten Kaffee.;I don't like cold coffee.;Ending (-en);declension;acc;1sg;present;5;adjective-declension,strong,masculine;
+GD330;G025;declension;mit frischer Milch;mit frischer Milch;Kaffee mit frischer Milch schmeckt am besten.;Coffee with fresh milk tastes best.;Ending (-er);declension;dat;3sg;present;5;adjective-declension,strong,feminine;
+GD331;G009;conjugation;du wäschst;er wäscht;Er wäscht sein Auto.;He is washing his car.;a -> ä;conjugation;;3sg;present;3;verb,irregular,vowel-change;
+GD332;G009;conjugation;er trägt;trägst du;Was trägst du heute?;What are you wearing today?;ä -> ä;conjugation;;2sg;present;3;verb,irregular,vowel-change,question;
+GD333;G009;conjugation;ich laufe;du läufst;Warum läufst du so schnell?;Why are you running so fast?;au -> äu;conjugation;;2sg;present;3;verb,irregular,vowel-change;
+GD334;G009;conjugation;ich stoße;er stößt;Er stößt gegen den Tisch.;He bumps against the table.;o -> ö;conjugation;;3sg;present;3;verb,irregular,vowel-change;
+GD335;G011;transformation;helfen -> geholfen;wer hat geholfen;Wer hat dir geholfen?;Who helped you?;Participle formation;tense_change;dat;3sg;perfekt;4;perfekt,haben,irregular,question;
+GD336;G011;transformation;beginnen -> begonnen;es hat begonnen;Das Konzert hat schon begonnen.;The concert has already begun.;Participle formation;tense_change;;3sg;perfekt;4;perfekt,haben,irregular,inseparable;
+GD337;G011;transformation;verlieren -> verloren;ich habe verloren;Ich habe meine Schlüssel verloren.;I have lost my keys.;Participle formation;tense_change;;1sg;perfekt;4;perfekt,haben,irregular,inseparable;
+GD338;G012;transformation;einsteigen -> eingestiegen;er ist eingestiegen;Er ist in den falschen Zug eingestiegen.;He got on the wrong train.;Participle formation;tense_change;;3sg;perfekt;4;perfekt,sein,separable-verb;
+GD339;G012;transformation;passieren -> passiert;ist etwas passiert;Ist dir etwas passiert?;Did something happen to you?;Participle formation;tense_change;dat;3sg;perfekt;3;perfekt,sein,ieren-verb,question;
+GD340;G016;declension;das Mädchen;dem Mädchen;Der Lehrer gibt dem Mädchen eine gute Note.;The teacher gives the girl a good grade.;das -> dem;declension;dat;3sg;present;4;dative,neuter;
+GD341;G016;declension;viele Freunde;vielen Freunden;Ich habe mit vielen Freunden gesprochen.;I spoke with many friends.;-e -> -en;declension;dat;1sg;perfekt;5;dative,plural,adjective-declension;
+GD342;G017;sentence_structure;Ich komme von (die Arbeit).;Ich komme von der Arbeit.;Article declension;declension;dat;1sg;present;3;dative-preposition,von;
+GD343;G017;sentence_structure;Das Geschenk ist von (er).;Das Geschenk ist von ihm.;Pronoun declension;declension;dat;3sg;present;4;dative-preposition,von,pronoun-case;
+GD344;G018;sentence_structure;Wir fahren um (die Stadt).;Wir fahren um die Stadt herum.;Prepositional phrase;word_order;acc;1pl;present;3;accusative-preposition,um;`um ... herum` means 'around'.
+GD345;G019;sentence_structure;Er sitzt hinter (ich).;Er sitzt hinter mir.;Pronoun declension;declension;dat;3sg;present;4;two-way-preposition,location,pronoun-case;
+GD346;G019;sentence_structure;Stell das Auto hinter (mein Auto).;Stell das Auto hinter meines.;Pronoun replacement;declension;acc;2sg;imperative;5;two-way-preposition,direction,pronoun;`meines` can replace `mein Auto`.
+GD347;G021;transformation;umziehen;Wir ziehen nächsten Monat um.;Word order with time;word_order;;1pl;present;3;separable-verb,umziehen;
+GD348;G021;transformation;abfahren;Wann fährt der Zug ab?;Question word order;word_order;;3sg;present;3;separable-verb,abfahren,question;
+GD349;G021;transformation;ankommen;Der Brief ist nicht angekommen.;Perfekt tense;tense_change;;3sg;perfekt;4;separable-verb,ankommen,perfekt,sein;
+GD350;G023;word_order;Ich warte, bis du fertig bist.;Ich warte, bis du fertig bist.;Subordinate Clause;word_order;;2sg;present;4;conjunction,bis;
+GD351;G023;word_order;Bevor du gehst, räum dein Zimmer auf!;Subordinate Clause + Command;word_order;;2sg;imperative;5;conjunction,bevor,imperative;`auf` from `aufräumen` is at the end of the main clause.
+GD352;G023;word_order;Obwohl es kalt war, sind wir schwimmen gegangen.;Subordinate Clause first;word_order;;1pl;perfekt;5;conjunction,obwohl,inversion;When the subordinate clause is first, the main clause verb comes next.
+GD353;G024;declension;deine Hand;deiner Hand;In deiner Hand hast du die Zukunft.;In your hand you have the future.;Ending (-er);declension;dat;2sg;present;4;possessive,feminine,dative;
+GD354;G024;declension;sein Lächeln;sein Lächeln;Sein Lächeln ist ansteckend.;His smile is contagious.;Ending (-);declension;nom;3sg;present;3;possessive,neuter;
+GD355;G026;transformation;nah -> näher;näher;Komm bitte ein bisschen näher.;Please come a little bit closer.;Comparative;comparison;;;imperative;4;comparative,umlaut;
+GD356;G026;transformation;kalt -> kälter;kälter als;In Norwegen ist es kälter als in Spanien.;In Norway it is colder than in Spain.;Comparative with 'als';comparison;;;present;3;comparative,umlaut;
+GD357;G026;transformation;lang -> länger;länger;Der zweite Film ist länger als der erste.;The second movie is longer than the first.;Comparative with 'als';comparison;;;present;3;comparative,umlaut;
+GD358;reflexive_verb;sich erinnern an;wir erinnern uns an;Wir erinnern uns gern an den Urlaub.;We like to remember the vacation.;Reflexive with Preposition;reflexive;acc;1pl;present;4;reflexive,preposition;
+GD359;reflexive_verb;sich ärgern über;du ärgerst dich über;Ärgerst du dich über das Wetter?;Are you annoyed about the weather?;Reflexive with Preposition;reflexive;acc;2sg;present;4;reflexive,preposition,question;
+GD360;reflexive_verb;sich kümmern um;er kümmert sich um;Er kümmert sich um seine kranke Mutter.;He is taking care of his sick mother.;Reflexive with Preposition;reflexive;acc;3sg;present;4;reflexive,preposition;
+GD361;reflexive_verb;sich bewerben um;ich bewerbe mich um;Ich bewerbe mich um die Stelle als Ingenieur.;I am applying for the position as an engineer.;Reflexive with Preposition;reflexive;acc;1sg;present;4;reflexive,preposition;
+GD362;reflexive_verb;sich unterhalten über;sie unterhalten sich über;Sie unterhalten sich über Politik.;They are chatting about politics.;Reflexive with Preposition;reflexive;acc;3pl;present;4;reflexive,preposition;
+GD363;G011;transformation;verstehen -> verstanden;hast du verstanden;Hast du die Frage verstanden?;Did you understand the question?;Inseparable Perfekt;tense_change;;2sg;perfekt;4;perfekt,haben,inseparable;
+GD364;G011;transformation;empfehlen -> empfohlen;er hat empfohlen;Was hat der Arzt empfohlen?;What did the doctor recommend?;Inseparable Perfekt;tense_change;;3sg;perfekt;4;perfekt,haben,inseparable;
+GD365;G011;transformation;gefallen -> gefallen;es hat gefallen;Hat es Ihnen gefallen?;Did you like it? (Was it pleasing to you?);Inseparable Perfekt;tense_change;dat;3sg;perfekt;4;perfekt,haben,inseparable;
+GD366;G012;transformation;verschwinden -> verschwunden;die Sonne ist verschwunden;Die Sonne ist hinter den Wolken verschwunden.;The sun has disappeared behind the clouds.;Inseparable Perfekt;tense_change;;3sg;perfekt;4;perfekt,sein,inseparable;
+GD367;G010;transformation;Er kann nicht kommen.;Er konnte nicht kommen.;Present -> Präteritum (Modal);tense_change;;3sg;präteritum;4;präteritum,modal;Präteritum of modals is common.
+GD368;G010;transformation;Ich will das nicht.;Ich wollte das nicht.;Present -> Präteritum (Modal);tense_change;;1sg;präteritum;4;präteritum,modal;
+GD369;G010;transformation;Sie muss gehen.;Sie musste gehen.;Present -> Präteritum (Modal);tense_change;;3sg;präteritum;4;präteritum,modal;
+GD370;G010;transformation;Wir dürfen bleiben.;Wir durften bleiben.;Present -> Präteritum (Modal);tense_change;;1pl;präteritum;4;präteritum,modal;
+GD371;G010;transformation;Du sollst lernen.;Du solltest lernen.;Present -> Präteritum (Modal);tense_change;;2sg;präteritum;4;präteritum,modal;`solltest` is also the subjunctive form, used for giving advice.
+GD372;G022;word_order;Ich mag Hunde, und ich mag Katzen.;Ich mag sowohl Hunde als auch Katzen.;Sentence combination;word_order;;;present;4;conjunction,sowohl-als-auch;
+GD373;G022;word_order;Er trinkt keinen Alkohol. Er raucht nicht.;Er trinkt weder Alkohol noch raucht er.;Sentence combination;word_order;;;present;5;conjunction,weder-noch;`noch` inverts the subject and verb.
+GD374;G022;word_order;Das Auto ist alt, aber es fährt gut.;Das Auto ist zwar alt, aber es fährt gut.;Sentence combination;word_order;;;present;4;conjunction,zwar-aber;
+GD375;G017;sentence_structure;außer (ich);außer mir;Alle sind gekommen außer mir.;Everyone came except for me.;Pronoun declension;declension;dat;1sg;present;4;dative-preposition,außer;`außer` is a dative preposition.
+GD376;G005;conjugation;du lächelst;er lächelt;Er lächelt immer.;He is always smiling.;Spelling change;conjugation;;3sg;present;3;verb,regular,spelling;Verbs ending in -eln drop the 'e' of the stem in the ich-form: `ich lächle`.
+GD377;G005;conjugation;ich sammle;du sammelst;Sammelst du Briefmarken?;Do you collect stamps?;Spelling change;conjugation;;2sg;present;3;verb,regular,spelling;
+GD378;G009;conjugation;ich werfe;er wirft;Er wirft den Ball zu mir.;He throws the ball to me.;e -> i;conjugation;;3sg;present;3;verb,irregular,vowel-change;
+GD379;G009;conjugation;du empfiehlst;ich empfehle;Ich empfehle dieses Restaurant.;I recommend this restaurant.;ie -> e;conjugation;;1sg;present;3;verb,irregular,vowel-change;
+GD380;G009;conjugation;ich bewerbe mich;er bewirbt sich;Er bewirbt sich um einen neuen Job.;He is applying for a new job.;e -> i;conjugation;acc;3sg;present;4;verb,irregular,reflexive;
+GD381;G011;transformation;anbieten -> angeboten;sie hat angeboten;Sie hat mir ihre Hilfe angeboten.;She offered me her help.;Participle Formation (Separable);tense_change;dat;3sg;perfekt;4;perfekt,haben,separable-verb;
+GD382;G011;transformation;vorschlagen -> vorgeschlagen;was hast du vorgeschlagen;Was hast du vorgeschlagen?;What did you suggest?;Participle Formation (Separable);tense_change;;2sg;perfekt;4;perfekt,haben,separable-verb,question;
+GD383;G011;transformation;teilnehmen -> teilgenommen;er hat teilgenommen;Er hat am Marathon teilgenommen.;He participated in the marathon.;Participle Formation (Separable);tense_change;;3sg;perfekt;4;perfekt,haben,separable-verb;
+GD384;G012;transformation;einfallen -> eingefallen;mir ist eingefallen;Mir ist sein Name wieder eingefallen.;His name occurred to me again.;Participle Formation (Separable);tense_change;dat;3sg;perfekt;4;perfekt,sein,separable-verb;
+GD385;G016;declension;dein neuer Kollege;deinem neuen Kollegen;Ich habe mit deinem neuen Kollegen gesprochen.;I spoke with your new colleague.;Ending (-em, -en);declension;dat;1sg;perfekt;5;dative,adjective-declension,n-declension;
+GD386;G018;sentence_structure;Ich gehe nie ohne (mein Handy) aus dem Haus.;Ich gehe nie ohne mein Handy aus dem Haus.;Possessive declension;declension;acc;1sg;present;3;accusative-preposition,ohne;
+GD387;G019;sentence_structure;Das Foto hängt über (mein Bett).;Das Foto hängt über meinem Bett.;Possessive declension;declension;dat;3sg;present;4;two-way-preposition,location;
+GD388;G019;sentence_structure;Er hängt das Foto über (mein Bett).;Er hängt das Foto über mein Bett.;Possessive declension;declension;acc;3sg;present;4;two-way-preposition,direction;
+GD389;G020;transformation;Du rufst mich an!;Ruf mich an!;Command formation;mood_change;acc;2sg;imperative;3;separable-verb,imperative;
+GD390;G020;transformation;Ihr kauft ein!;Kauft ein!;Command formation;mood_change;;2pl;imperative;3;separable-verb,imperative;
+GD391;G023;word_order;Er bleibt zu Hause, obwohl die Sonne scheint.;Obwohl die Sonne scheint, bleibt er zu Hause.;Subordinate Clause first;word_order;;;present;5;conjunction,obwohl,inversion;
+GD392;G024;declension;sein ganzes Geld;sein ganzes Geld;Er hat sein ganzes Geld ausgegeben.;He spent all his money.;Adjective + Possessive;declension;acc;3sg;perfekt;5;possessive,adjective-declension;
+GD393;G024;declension;unser erstes Kind;unser erstes Kind;Das ist unser erstes Kind.;This is our first child.;Adjective + Possessive;declension;nom;3sg;present;5;possessive,adjective-declension;
+GD394;G026;transformation;nah -> näher;am nächsten;Wo ist die nächste U-Bahn-Station?;Where is the nearest subway station?;Superlative used as adjective;comparison;;;present;5;superlative,adjective-declension;
+GD395;G026;transformation;hoch -> höher;am höchsten;Der Mount Everest ist der höchste Berg der Welt.;Mount Everest is the highest mountain in the world.;Superlative used as adjective;comparison;;;present;5;superlative,adjective-declension;
+GD396;G002;word_order;Morgens trinke ich immer Kaffee.;Morgens trinke ich immer Kaffee.;Adverb of time in Pos 1;word_order;;1sg;present;3;word-order,v2-rule,inversion;
+GD397;G002;word_order;Mit meiner Familie spreche ich Deutsch.;Mit meiner Familie spreche ich Deutsch.;Prepositional phrase in Pos 1;word_order;;1sg;present;4;word-order,v2-rule,inversion;
+GD398;G002;word_order;Ins Kino gehe ich nicht gern.;Ins Kino gehe ich nicht gern.;Prepositional phrase in Pos 1;word_order;;1sg;present;4;word-order,v2-rule,inversion;
+GD399;G007;negation;Ich habe nichts.;Ich habe nichts.;Negating with 'nichts';negation;;;present;2;negation,nichts;
+GD400;G007;negation;Niemand ist da.;Niemand ist da.;Negating with 'niemand';negation;;;present;2;negation,niemand;
+GD401;G011;transformation;anziehen -> angezogen;er hat angezogen;Er hat einen warmen Pullover angezogen.;He put on a warm sweater.;Participle Formation (Separable);tense_change;acc;3sg;perfekt;4;perfekt,haben,separable-verb;
+GD402;G012;transformation;einsteigen -> eingestiegen;seid ihr eingestiegen;In welchen Bus seid ihr eingestiegen?;Which bus did you all get on?;Participle Formation (Separable);tense_change;;2pl;perfekt;4;perfekt,sein,separable-verb,question;
+GD403;G023;word_order;Ich warte hier, bis der Regen aufhört.;Ich warte hier, bis der Regen aufhört.;Subordinate Clause;word_order;;3sg;present;4;conjunction,bis,separable-verb;The separable verb `aufhören` rejoins at the end.
+GD404;G023;word_order;Er weiß nicht, wie das Gerät funktioniert.;Er weiß nicht, wie das Gerät funktioniert.;Indirect Question;word_order;;3sg;present;4;conjunction,wie;
+GD405;G023;word_order;Ich erzähle dir, was passiert ist.;Ich erzähle dir, was passiert ist.;Indirect Question;word_order;;3sg;perfekt;5;conjunction,was,perfekt,sein;
+GD406;G022;word_order;Ich bin nicht nur müde, sondern auch krank.;Ich bin nicht nur müde, sondern auch krank.;Correlative Conjunction;word_order;;1sg;present;4;conjunction,nicht-nur-sondern-auch;
+GD407;G022;word_order;Er kann sowohl Englisch als auch Spanisch sprechen.;Er kann sowohl Englisch als auch Spanisch sprechen.;Correlative Conjunction;word_order;;3sg;present;4;conjunction,sowohl-als-auch,modal;
+GD408;G016;pronoun_case;Das schmeckt (ich) gut.;Das schmeckt mir gut.;Dative verb object;declension;dat;1sg;present;4;dative,pronoun-case;`schmecken` takes a dative object.
+GD409;G016;pronoun_case;Ich folge (du).;Ich folge dir.;Dative verb object;declension;dat;1sg;present;4;dative,pronoun-case;`folgen` takes a dative object.
+GD410;G016;pronoun_case;Wir gratulieren (Sie).;Wir gratulieren Ihnen.;Dative verb object;declension;dat;1pl;present;4;dative,pronoun-case,formal;`gratulieren` takes a dative object.
+GD411;G006;pronoun_case;Ich besuche (du) morgen.;Ich besuche dich morgen.;Accusative object;declension;acc;1sg;present;3;accusative,pronoun-case;
+GD412;G006;pronoun_case;Wir verstehen (er) nicht.;Wir verstehen ihn nicht.;Accusative object;declension;acc;1pl;present;3;accusative,pronoun-case;
+GD413;G004;pronoun_case;(Ich/Mich/Mir) gehe jetzt.;Ich gehe jetzt.;Subject of sentence;declension;nom;1sg;present;2;nominative,pronoun-case;
+GD414;G004;pronoun_case;(Er/Ihn/Ihm) hat Recht.;Er hat Recht.;Subject of sentence;declension;nom;3sg;present;2;nominative,pronoun-case;
+GD415;G019;sentence_structure;Er sitzt auf dem Stuhl.;Setz dich auf den Stuhl!;Command with reflexive verb;mood_change;acc;2sg;imperative;5;two-way-preposition,reflexive,imperative;`sich setzen` is a directed action -> Accusative.
+GD416;reflexive_verb;sich die Hände waschen (ich);ich wasche mir die Hände;Ich wasche mir die Hände vor dem Essen.;I wash my hands before the meal.;Dative Reflexive Pronoun;reflexive;dat;1sg;present;5;reflexive,dative;The hands are the direct object, so 'me' (mir) becomes the indirect/dative object.
+GD417;reflexive_verb;sich die Zähne putzen (er);er putzt sich die Zähne;Er putzt sich jeden Abend die Zähne.;He brushes his teeth every evening.;Dative Reflexive Pronoun;reflexive;dat;3sg;present;5;reflexive,dative;
+GD418;reflexive_verb;sich etwas wünschen (du);du wünschst dir etwas;Was wünschst du dir zum Geburtstag?;What do you wish for your birthday?;Dative Reflexive Pronoun;reflexive;dat;2sg;present;5;reflexive,dative,question;
+GD419;G010;transformation;Ich konnte nicht schlafen.;Ich habe nicht schlafen können.;Präteritum -> Perfekt (Modal);tense_change;;1sg;perfekt;5;perfekt,modal,haben;
+GD420;G010;transformation;Er musste zu Hause bleiben.;Er hat zu Hause bleiben müssen.;Präteritum -> Perfekt (Modal);tense_change;;3sg;perfekt;5;perfekt,modal,haben;Although `bleiben` normally takes 'sein', with a modal it uses `haben`.
+GD421;G025;declension;mit (mein bester Freund);mit meinem besten Freund;Ich war mit meinem besten Freund im Kino.;I was at the cinema with my best friend.;Declension after Preposition;declension;dat;1sg;präteritum;5;dative-preposition,adjective-declension;
+GD422;G025;declension;durch (der lange Tunnel);durch den langen Tunnel;Wir sind durch den langen Tunnel gefahren.;We drove through the long tunnel.;Declension after Preposition;declension;acc;1pl;perfekt;5;accusative-preposition,adjective-declension;
+GD423;G026;transformation;alt;am ältesten;Mein Großvater ist am ältesten in unserer Familie.;My grandfather is the oldest in our family.;Superlative;comparison;;;present;4;superlative,umlaut;
+GD424;G026;transformation;teuer;am teuersten;Welches Hotel ist am teuersten?;Which hotel is the most expensive?;Superlative;comparison;;;present;4;superlative,spelling;
+GD425;G011;transformation;sich streiten -> gestritten;wir haben uns gestritten;Wir haben uns gestern gestritten.;We argued yesterday.;Reflexive Perfekt;tense_change;acc;1pl;perfekt;4;perfekt,haben,reflexive;
+GD426;G011;transformation;sich verlieben -> verliebt;er hat sich verliebt;Er hat sich in sie verliebt.;He fell in love with her.;Reflexive Perfekt;tense_change;acc;3sg;perfekt;4;perfekt,haben,reflexive;
+GD427;G011;transformation;sich unterhalten -> unterhalten;sie haben sich unterhalten;Sie haben sich lange unterhalten.;They chatted for a long time.;Reflexive Perfekt;tense_change;acc;3pl;perfekt;4;perfekt,haben,reflexive,inseparable;
+GD428;G020;transformation;Du ziehst dich an!;Zieh dich an!;Reflexive Command;mood_change;acc;2sg;imperative;4;reflexive,separable-verb,imperative;`anziehen` is separable.
+GD429;G020;transformation;Ihr setzt euch!;Setzt euch!;Reflexive Command;mood_change;acc;2pl;imperative;4;reflexive,imperative;
+GD430;G015;word_order;Woher wissen Sie das?;Woher wissen Sie das?;W-Frage word order;word_order;;3pl;present;3;question,w-frage;
+GD431;G015;word_order;Wann hast du Geburtstag?;Wann hast du Geburtstag?;W-Frage word order;word_order;;2sg;present;3;question,w-frage;
+GD432;G015;word_order;Mit wem gehst du ins Kino?;Mit wem gehst du ins Kino?;W-Frage with Dative Preposition;word_order;dat;2sg;present;5;question,w-frage,dative-preposition;`wem` is the dative of `wer`.
+GD433;G015;word_order;Auf wen wartest du?;Auf wen wartest du?;W-Frage with Accusative Preposition;word_order;acc;2sg;present;5;question,w-frage,accusative-preposition;`wen` is the accusative of `wer`.
+GD434;G023;word_order;Solange du hier bist, bin ich glücklich.;Solange du hier bist, bin ich glücklich.;Subordinate Clause first;word_order;;1sg;present;5;conjunction,solange,inversion;
+GD435;G023;word_order;Nachdem er gegessen hatte, hat er ferngesehen.;Nachdem er gegessen hatte, hat er ferngesehen.;Subordinate Clause first;word_order;;3sg;past-perfect;5;conjunction,nachdem,perfekt;This structure often uses past perfect (`hatte gegessen`).
+GD436;passive_voice;man öffnet das Fenster;das Fenster wird geöffnet;Das Fenster wird um 8 Uhr geöffnet.;The window is opened at 8 o'clock.;Present Passive;mood_change;nom;3sg;present;5;passive,werden;Introduction to passive voice (B1 topic).
+GD437;passive_voice;man hat das Auto repariert;das Auto ist repariert worden;Das Auto ist gestern repariert worden.;The car was repaired yesterday.;Perfekt Passive;mood_change;nom;3sg;perfekt;5;passive,worden;Introduction to passive voice (B1 topic).
+GD438;relative_clause;Der Mann, der dort steht...;Der Mann, der dort steht, ist mein Onkel.;The man who is standing there is my uncle.;Relative Pronoun (Nom);relative_clause;nom;3sg;present;5;relative-clause;`der` as a relative pronoun. (B1 topic).
+GD439;relative_clause;Die Frau, die ich liebe...;Die Frau, die ich liebe, heißt Maria.;The woman whom I love is named Maria.;Relative Pronoun (Acc);relative_clause;acc;1sg;present;5;relative-clause;`die` as a relative pronoun. (B1 topic).
+GD440;relative_clause;Das Kind, dem ich helfe...;Das Kind, dem ich helfe, lernt schnell.;The child whom I am helping learns fast.;Relative Pronoun (Dat);relative_clause;dat;1sg;present;5;relative-clause;`dem` as a relative pronoun. (B1 topic).
+GD441;G024;declension;meins;meins;Wessen Handy ist das? - Das ist meins.;Whose phone is that? - That is mine.;Possessive Pronoun;declension;nom;3sg;present;4;possessive,pronoun;Possessive article used as a standalone pronoun.
+GD442;G024;declension;deiner;deiner;Mein Rucksack ist schwarz. Deiner ist blau.;My backpack is black. Yours is blue.;Possessive Pronoun;declension;nom;3sg;present;4;possessive,pronoun;`deiner` replaces `dein Rucksack`.
+GD443;G024;declension;seine;seine;Ich finde meine Schlüssel nicht. Hast du seine gesehen?;I can't find my keys. Have you seen his?;Possessive Pronoun;declension;acc;2sg;perfekt;4;possessive,pronoun;`seine` replaces `seine Schlüssel`.
+GD444;G010;transformation;Ich durfte nicht gehen.;Ich habe nicht gehen dürfen.;Präteritum -> Perfekt (Modal);tense_change;;1sg;perfekt;5;perfekt,modal,haben;
+GD445;G011;transformation;reparieren -> repariert;er hat repariert;Er hat den Motor repariert.;He repaired the engine.;Participle Formation (-ieren);tense_change;acc;3sg;perfekt;3;perfekt,haben,ieren-verb;
+GD446;G011;transformation;organisieren -> organisiert;wir haben organisiert;Wir haben die Party zusammen organisiert.;We organized the party together.;Participle Formation (-ieren);tense_change;;1pl;perfekt;3;perfekt,haben,ieren-verb;
+GD447;G016;declension;der Polizist;dem Polizisten;Ich gebe dem Polizisten meinen Ausweis.;I give the police officer my ID card.;n-declension;declension;dat;1sg;present;5;dative,n-declension;
+GD448;G016;declension;der Präsident;dem Präsidenten;Wir hören dem Präsidenten zu.;We are listening to the president.;n-declension;declension;dat;1pl;present;5;dative,n-declension;
+GD449;G006;declension;der Tourist;den Touristen;Ich frage den Touristen nach dem Weg.;I ask the tourist for the way.;n-declension;declension;acc;1sg;present;5;accusative,n-declension;
+GD450;G017;sentence_structure;trotz (das schlechte Wetter);trotz des schlechten Wetters;Genitive Preposition;declension;gen;1pl;present;5;genitive-preposition;`trotz` takes Genitive (formal) or Dative (informal).
+GD451;G017;sentence_structure;während (der Film);während des Films;Genitive Preposition;declension;gen;3sg;present;5;genitive-preposition;`während` takes Genitive (formal) or Dative (informal).
+GD452;G017;sentence_structure;wegen (der Regen);wegen des Regens;Wegen des Regens bleiben wir zu Hause.;Because of the rain, we're staying home.;Genitive Preposition;declension;gen;1pl;present;5;genitive-preposition;
+GD453;genitive_case;das Auto (mein Vater);das Auto meines Vaters;Das ist das Auto meines Vaters.;That is my father's car.;Genitive of Possession;declension;gen;3sg;present;5;genitive-case;Introduction to Genitive case (B1 topic).
+GD454;genitive_case;die Farbe (das Haus);die Farbe des Hauses;Die Farbe des Hauses ist weiß.;The color of the house is white.;Genitive of Possession;declension;gen;3sg;present;5;genitive-case;
+GD455;G002;word_order;Selten habe ich so etwas Gutes gegessen.;Selten habe ich so etwas Gutes gegessen.;Adverb in Pos 1;word_order;;1sg;perfekt;4;word-order,v2-rule,inversion;
+GD456;G002;word_order;Niemals würde ich das tun.;Niemals würde ich das tun.;Adverb in Pos 1;word_order;;1sg;future;4;word-order,v2-rule,inversion;
+GD457;G023;word_order;Er fragt, warum ich lache.;Er fragt, warum ich lache.;Indirect W-Frage;word_order;;1sg;present;4;conjunction,warum;
+GD458;G023;word_order;Ich weiß nicht, wo er wohnt.;Ich weiß nicht, wo er wohnt.;Indirect W-Frage;word_order;;3sg;present;4;conjunction,wo;
+GD459;reflexive_verb;sich anziehen (ich ziehe mir an);ich ziehe mir eine Jacke an;Ich ziehe mir eine Jacke an, weil es kalt ist.;I put on a jacket because it's cold.;Dative Reflexive + Separable;reflexive;dat;1sg;present;5;reflexive,dative,separable-verb;
+GD460;reflexive_verb;sich die Haare schneiden lassen;ich lasse mir die Haare schneiden;Ich lasse mir morgen die Haare schneiden.;I'm getting my hair cut tomorrow.;Reflexive with `lassen`;mood_change;dat;1sg;present;5;reflexive,lassen;`lassen` + infinitive to mean 'to have something done'.
+GD461;G010;transformation;Du hättest anrufen sollen.;Du hättest anrufen sollen.;Past Modal (Subjunctive);tense_change;;2sg;konjunktiv2;5;konjunktiv2,modal;Expressing past regret/advice (B1+ topic).
+GD462;G010;transformation;Ich hätte das machen können.;Ich hätte das machen können.;Past Modal (Subjunctive);tense_change;;1sg;konjunktiv2;5;konjunktiv2,modal;
+GD463;konjunktiv2;Wenn ich du wäre...;Wenn ich du wäre, würde ich das nicht tun.;If I were you, I wouldn't do that.;Subjunctive II (würde);mood_change;;1sg;konjunktiv2;5;konjunktiv2,würde;`wäre` is subjunctive of `sein`.
+GD464;konjunktiv2;Wenn ich Zeit hätte...;Wenn ich Zeit hätte, würde ich mehr reisen.;If I had time, I would travel more.;Subjunctive II (würde);mood_change;;1sg;konjunktiv2;5;konjunktiv2,würde;`hätte` is subjunctive of `haben`.
+GD465;G022;word_order;Je mehr du lernst, desto mehr weißt du.;Je mehr du lernst, desto mehr weißt du.;Correlative Conjunction;word_order;;2sg;present;5;conjunction,je-desto;`je` clause is verb-final, `desto` clause has V2 inversion.
+GD466;G011;transformation;empfehlen -> empfohlen;ich habe empfohlen;Ich habe dir dieses Buch empfohlen.;I recommended this book to you.;Participle Formation;tense_change;dat;1sg;perfekt;4;perfekt,haben,inseparable;
+GD467;G012;transformation;bleiben -> geblieben;er ist geblieben;Er ist der einzige Gast, der geblieben ist.;He is the only guest who stayed.;Participle in Relative Clause;tense_change;;3sg;perfekt;5;perfekt,sein,relative-clause;
+GD468;G016;declension;unser alter Lehrer;unserem alten Lehrer;Wir haben unserem alten Lehrer ein Geschenk gegeben.;We gave our old teacher a present.;Dative Declension;declension;dat;1pl;perfekt;5;dative,adjective-declension;
+GD469;G016;declension;ein kleines Kind;einem kleinen Kind;Es ist schwer, einem kleinen Kind das zu erklären.;It's hard to explain that to a small child.;Dative Declension;declension;dat;3sg;present;5;dative,adjective-declension;
+GD470;G006;declension;jeder neue Tag;jeden neuen Tag;Ich genieße jeden neuen Tag.;I enjoy every new day.;Accusative Declension;declension;acc;1sg;present;4;accusative,adjective-declension;`jeder` declines like `der`.
+GD471;G006;declension;dieser alte Film;diesen alten Film;Hast du diesen alten Film gesehen?;Have you seen this old movie?;Accusative Declension;declension;acc;2sg;perfekt;4;accusative,adjective-declension;`dieser` declines like `der`.
+GD472;G017;sentence_structure;seit (lange Zeit);seit langer Zeit;Wir haben uns seit langer Zeit nicht gesehen.;We haven't seen each other for a long time.;Dative Declension;declension;dat;1pl;perfekt;5;dative-preposition,adjective-declension;
+GD473;G017;sentence_structure;aus (ein guter Grund);aus einem guten Grund;Er hat das aus einem guten Grund getan.;He did that for a good reason.;Dative Declension;declension;dat;3sg;perfekt;5;dative-preposition,adjective-declension;
+GD474;G019;sentence_structure;Die Katze schläft unter (der warme Tisch).;Die Katze schläft unter dem warmen Tisch.;Dative Declension;declension;dat;3sg;present;5;two-way-preposition,location,adjective;
+GD475;G019;sentence_structure;Stell es bitte neben (die große Pflanze)!;Stell es bitte neben die große Pflanze!;Accusative Declension;declension;acc;2sg;imperative;5;two-way-preposition,direction,adjective;
+GD476;G021;transformation;zurückkommen;wann kommst du zurück;Wann kommst du aus dem Urlaub zurück?;When are you coming back from vacation?;Separable Verb Question;word_order;;2sg;present;4;separable-verb,zurückkommen,question;
+GD477;G021;transformation;herunterladen;ich lade herunter;Ich lade die App auf mein Handy herunter.;I'm downloading the app to my phone.;Separable Verb Sentence;word_order;;1sg;present;4;separable-verb,herunterladen;
+GD478;G021;transformation;anzünden;er zündet an;Er zündet eine Kerze an.;He is lighting a candle.;Separable Verb Sentence;word_order;;3sg;present;4;separable-verb,anzünden;
+GD479;G011;transformation;stattfinden -> stattgefunden;das Treffen hat stattgefunden;Das Treffen hat gestern stattgefunden.;The meeting took place yesterday.;Participle Formation;tense_change;;3sg;perfekt;4;perfekt,haben,separable-verb;
+GD480;G011;transformation;einladen -> eingeladen;ich habe eingeladen;Ich habe alle meine Freunde eingeladen.;I invited all my friends.;Participle Formation;tense_change;acc;1sg;perfekt;4;perfekt,haben,separable-verb;
+GD481;G011;transformation;fernsehen -> ferngesehen;hast du ferngesehen;Hast du gestern Abend ferngesehen?;Did you watch TV yesterday evening?;Participle Formation;tense_change;;2sg;perfekt;4;perfekt,haben,separable-verb;
+GD482;G020;transformation;Du passt auf!;Pass auf!;Command formation;mood_change;;2sg;imperative;3;separable-verb,imperative;`aufpassen` means 'to pay attention/watch out'.
+GD483;G020;transformation;Ihr steht auf!;Steht auf!;Command formation;mood_change;;2pl;imperative;3;separable-verb,imperative;
+GD484;G023;word_order;Ich helfe dir, wenn du mich nett fragst.;Ich helfe dir, wenn du mich nett fragst.;Conditional Clause;word_order;;2sg;present;4;conjunction,wenn;
+GD485;G023;word_order;Ruf mich an, bevor du kommst!;Ruf mich an, bevor du kommst!;Command with Subordinate Clause;word_order;;2sg;imperative;5;conjunction,bevor,imperative;
+GD486;reflexive_verb;sich beschweren über;der Kunde beschwert sich;Der Kunde beschwert sich über den Lärm.;The customer complains about the noise.;Reflexive with Preposition;reflexive;acc;3sg;present;4;reflexive,preposition;
+GD487;reflexive_verb;sich bedanken für;ich bedanke mich für;Ich bedanke mich für Ihre Hilfe.;I thank you for your help.;Reflexive with Preposition;reflexive;acc;1sg;present;4;reflexive,preposition,formal;
+GD488;G016;declension;er;ihm;Der Film hat ihm nicht gefallen.;He didn't like the movie.;Pronoun case;declension;dat;3sg;perfekt;4;dative,pronoun-case;
+GD489;G016;declension;sie (pl);ihnen;Ich habe ihnen alles erklärt.;I explained everything to them.;Pronoun case;declension;dat;1sg;perfekt;4;dative,pronoun-case;
+GD490;G006;declension;wer;wen;Wen hast du eingeladen?;Whom did you invite?;Question word case;declension;acc;2sg;perfekt;4;question-word,accusative;
+GD491;G010;transformation;Ich muss den Termin absagen.;Ich musste den Termin absagen.;Present -> Präteritum (Modal);tense_change;;1sg;präteritum;4;präteritum,modal;
+GD492;G010;transformation;Sie kann sehr gut malen.;Sie konnte sehr gut malen.;Present -> Präteritum (Modal);tense_change;;3sg;präteritum;4;präteritum,modal;
+GD493;G008;transformation;Wir waren am Meer.;Wart ihr auch am Meer?;Präteritum Statement -> Question;word_order;;2pl;präteritum;3;präteritum,sein,question;
+GD494;G008;transformation;Ich hatte keine Ahnung.;Hattest du eine Ahnung?;Präteritum Statement -> Question;word_order;;2sg;präteritum;3;präteritum,haben,question;
+GD495;G021;transformation;wegwerfen;wirf das weg;Wirf das bitte weg!;Please throw that away!;Separable Verb Command;mood_change;;2sg;imperative;4;separable-verb,imperative,irregular;
+GD496;G021;transformation;vorschlagen;ich schlage vor;Ich schlage vor, dass wir eine Pause machen.;I suggest that we take a break.;Separable Verb Sentence;word_order;;1sg;present;4;separable-verb,conjunction;
+GD497;G011;transformation;streiten -> gestritten;sie haben gestritten;Sie haben sich schon wieder gestritten.;They have argued again.;Reflexive Perfekt;tense_change;acc;3pl;perfekt;4;perfekt,haben,reflexive;
+GD498;G012;transformation;einschlafen -> eingeschlafen;ich bin eingeschlafen;Ich bin gestern früh eingeschlafen.;I fell asleep early yesterday.;Reflexive Perfekt;tense_change;;1sg;perfekt;4;perfekt,sein,separable-verb;
+GD499;G019;sentence_structure;Ich warte vor (die Tür).;Ich warte vor der Tür.;Location -> Dative;declension;dat;1sg;present;4;two-way-preposition,location;
+GD500;G019;sentence_structure;Ich gehe vor (die Tür).;Ich gehe vor die Tür.;Direction -> Accusative;declension;acc;1sg;present;4;two-way-preposition,direction;

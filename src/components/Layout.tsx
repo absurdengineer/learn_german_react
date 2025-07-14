@@ -9,14 +9,18 @@ interface LayoutProps {
 const menuItems = [
   { text: "Home", icon: "🏠", path: "/" },
   { text: "Vocabulary", icon: "📚", path: "/vocabulary" },
+  { text: "Vocabularies (Beta)", icon: "🗂️", path: "/vocabularies-beta" },
   { text: "Articles", icon: "🎯", path: "/articles" },
   { text: "Grammar", icon: "📝", path: "/grammar" },
+  { text: "Grammar Rules (Beta)", icon: "📏", path: "/grammar-rules" },
+  { text: "New Lessons (Beta)", icon: "🧪", path: "/new-lessons" },
   { text: "Tests", icon: "🧪", path: "/tests" },
-  { text: "Study Plan", icon: "�", path: "/study-plan" },
+  { text: "Study Plan", icon: "", path: "/study-plan" },
   { text: "Speaking", icon: "🗣️", path: "/speaking" },
   { text: "Writing", icon: "✍️", path: "/writing" },
   { text: "Progress", icon: "📊", path: "/progress" },
   { text: "Settings", icon: "⚙️", path: "/settings" },
+  { text: "Beta Test", icon: "🔬", path: "/beta-test" },
 ];
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {

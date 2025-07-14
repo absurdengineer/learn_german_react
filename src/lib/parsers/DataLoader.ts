@@ -66,11 +66,45 @@ export interface StandardizedGrammarPractice extends BaseDataItem {
   helperText?: string;
 }
 
+export interface StandardizedGrammarData extends BaseDataItem {
+  type: "grammar_data";
+  dataId: string;
+  ruleId: string;
+  contextType: string;
+  baseForm: string;
+  transformedForm: string;
+  fullContextDe: string;
+  fullContextEn: string;
+  focusElement: string;
+  transformationType: string;
+  caseInvolved?: string;
+  personNumber?: string;
+  tenseMood?: string;
+  culturalNote?: string;
+}
+
+export interface StandardizedGrammarRule extends BaseDataItem {
+  type: "grammar_rule";
+  ruleId: string;
+  ruleName: string;
+  ruleCategory: string;
+  explanation: string;
+  simpleSummary: string;
+  prerequisiteRules?: string;
+  appliesTo?: string;
+  exceptions?: string;
+  pattern?: string;
+  memoryAid?: string;
+  culturalContext?: string;
+}
+
 export type StandardizedDataItem =
   | StandardizedVocabulary
   | StandardizedArticle
   | StandardizedGrammarLesson
-  | StandardizedGrammarPractice;
+  | StandardizedGrammarPractice
+  | StandardizedGrammarData
+  | StandardizedGrammarRule;
 
 // Data cache for performance
 class DataCache {
@@ -118,14 +152,21 @@ export abstract class BaseCSVParser<T extends StandardizedDataItem> {
     const lines = this.csvContent.trim().split("\n");
     if (lines.length < 2) return [];
 
-    const headers = parseCSVLine(lines[0]);
+    // Detect separator from the header line
+    const separator = (() => {
+      const commaCount = (lines[0].match(/,/g) || []).length;
+      const semicolonCount = (lines[0].match(/;/g) || []).length;
+      return semicolonCount > commaCount ? ";" : ",";
+    })();
+
+    const headers = parseCSVLine(lines[0], separator);
     const items: T[] = [];
 
     for (let i = 1; i < lines.length; i++) {
       const line = lines[i].trim();
       if (!line) continue;
 
-      const columns = parseCSVLine(line);
+      const columns = parseCSVLine(line, separator);
       if (columns.length !== headers.length) {
         console.warn(`Skipping malformed CSV line ${i + 1}: ${line}`);
         continue;

@@ -1,0 +1,502 @@
+noun_id;german_noun;article;plural_form;english_translation;pronunciation_ipa;example_de;example_en;category;subcategory;tags;frequency;level;difficulty;article_pattern;declension_nom;declension_acc;declension_dat;declension_gen;cultural_note
+N001;Zeit;die;Zeiten;time;[tsaɪ̯t];Ich habe keine Zeit.;I have no time.;Abstract;Time;common,daily,essential;100;2;1;Feminine;die Zeit;die Zeit;der Zeit;der Zeit;
+N002;Mann;der;Männer;man, husband;[man];Der Mann liest ein Buch.;The man is reading a book.;People;Gender;common,daily;99;3;1;Masculine;der Mann;den Mann;dem Mann;des Mannes;
+N003;Frau;die;Frauen;woman, wife, Mrs.;[fʁaʊ̯];Die Frau trinkt Kaffee.;The woman is drinking coffee.;People;Gender;common,daily,title;99;3;1;Feminine;die Frau;die Frau;der Frau;der Frau;Also used as the formal title 'Mrs.' or 'Ms.'
+N004;Kind;das;Kinder;child;[kɪnt];Das Kind spielt im Garten.;The child is playing in the garden.;People;Age;common,daily,family;98;4;1;Neuter;das Kind;das Kind;dem Kind;des Kindes;
+N005;Tag;der;Tage;day;[taːk];Heute ist ein schöner Tag.;Today is a beautiful day.;Time;Calendar;common,daily;98;1;1;Masculine;der Tag;den Tag;dem Tag;des Tages;
+N006;Hand;die;Hände;hand;[hant];Er gibt mir die Hand.;He gives me his hand.;Body;Limbs;common,daily;97;10;2;Feminine;die Hand;die Hand;der Hand;der Hand;
+N007;Auge;das;Augen;eye;[ˈaʊ̯ɡə];Sie hat blaue Augen.;She has blue eyes.;Body;Face;common,daily;97;11;1;Neuter;das Auge;das Auge;dem Auge;des Auges;
+N008;Jahr;das;Jahre;year;[jaːɐ̯];Das Jahr hat 12 Monate.;The year has 12 months.;Time;Calendar;common,daily;96;8;1;Neuter;das Jahr;das Jahr;dem Jahr;des Jahres;
+N009;Weg;der;Wege;way, path;[veːk];Ich zeige dir den Weg.;I'll show you the way.;Places;Movement;common,abstract;95;18;1;Masculine;der Weg;den Weg;dem Weg;des Weges;
+N010;Frage;die;Fragen;question;[ˈfʁaːɡə];Ich habe eine Frage.;I have a question.;Communication;Language;common,learning;95;7;1;Feminine;die Frage;die Frage;der Frage;der Frage;
+N011;Haus;das;Häuser;house;[haʊ̯s];Wir wohnen in einem Haus.;We live in a house.;Places;Buildings;common,home,daily;94;5;2;Neuter;das Haus;das Haus;dem Haus;des Hauses;
+N012;Fall;der;Fälle;case, instance;[fal];Das ist ein Notfall.;This is an emergency.;Abstract;Situation;common;94;25;2;Masculine;der Fall;den Fall;dem Fall;des Falles;
+N013;Leute;die;(no singular);people;[ˈlɔɪ̯tə];Die Leute hier sind nett.;The people here are nice.;People;Group;common,daily;93;12;2;Plural only;die Leute;die Leute;den Leuten;der Leute;Always used in the plural form.
+N014;Name;der;Namen;name;[ˈnaːmə];Mein Name ist Julia.;My name is Julia.;Communication;Identity;common,introduction;93;1;3;Masculine;der Name;den Namen;dem Namen;des Namens;An n-declension noun, taking an -n/-en ending in all cases except nominative singular.
+N015;Wasser;das;(no plural);water;[ˈvasɐ];Ich trinke ein Glas Wasser.;I'm drinking a glass of water.;Food & Drink;Beverages;common,daily,essential;92;6;1;Neuter;das Wasser;das Wasser;dem Wasser;des Wassers;Plural 'Wässer' exists but is rare; typically uncountable.
+N016;Woche;die;Wochen;week;[ˈvɔxə];Die Woche hat sieben Tage.;The week has seven days.;Time;Calendar;common,daily;92;8;1;Feminine;die Woche;die Woche;der Woche;der Woche;
+N017;Land;das;Länder;country, land;[lant];Deutschland ist ein schönes Land.;Germany is a beautiful country.;Places;Geography;common,travel;91;10;2;Neuter;das Land;das Land;dem Land;des Landes;
+N018;Welt;die;Welten;world;[vɛlt];Die Welt ist groß.;The world is big.;Places;Geography;common,abstract;91;20;1;Feminine;die Welt;die Welt;der Welt;der Welt;
+N019;Schule;die;Schulen;school;[ˈʃuːlə];Meine Kinder gehen in die Schule.;My children go to school.;Places;Education;common,learning;90;9;1;Feminine;die Schule;die Schule;der Schule;der Schule;
+N020;Freund;der;Freunde;friend (male);[fʁɔɪ̯nt];Er ist mein bester Freund.;He is my best friend.;People;Relationships;common,daily,family;90;11;1;Masculine;der Freund;den Freund;dem Freund;des Freundes;
+N021;Kopf;der;Köpfe;head;[kɔp͡f];Mein Kopf tut weh.;My head hurts.;Body;Face;common,daily;89;12;2;Masculine;der Kopf;den Kopf;dem Kopf;des Kopfes;
+N022;Uhr;die;Uhren;o'clock, clock;[uːɐ̯];Es ist drei Uhr.;It is three o'clock.;Time;Measurement;common,daily;89;10;1;Feminine;die Uhr;die Uhr;der Uhr;der Uhr;Used for telling time and for the physical object.
+N023;Problem;das;Probleme;problem;[pʁoˈbleːm];Das ist kein Problem.;That is not a problem.;Abstract;Situation;common,daily;88;15;1;Neuter;das Problem;das Problem;dem Problem;des Problems;
+N024;Stadt;die;Städte;city, town;[ʃtat];München ist eine große Stadt.;Munich is a big city.;Places;Geography;common,travel;88;7;2;Feminine;die Stadt;die Stadt;der Stadt;der Stadt;
+N025;Arbeit;die;Arbeiten;work, job;[ˈaʁbaɪ̯t];Ich fahre zur Arbeit.;I am driving to work.;Work & Study;Career;common,daily;87;16;1;Feminine;die Arbeit;die Arbeit;der Arbeit;der Arbeit;
+N026;Leben;das;Leben;life;[ˈleːbən];Das Leben ist schön.;Life is beautiful.;Abstract;Concepts;common;87;14;1;Neuter;das Leben;das Leben;dem Leben;des Lebens;
+N027;Auto;das;Autos;car;[ˈaʊ̯to];Ich fahre mit dem Auto.;I'm going by car.;Transport;Vehicles;common,daily;86;6;1;Neuter;das Auto;das Auto;dem Auto;des Autos;
+N028;Stunde;die;Stunden;hour;[ˈʃtʊndə];Ich warte seit einer Stunde.;I have been waiting for an hour.;Time;Measurement;common,daily;86;10;1;Feminine;die Stunde;die Stunde;der Stunde;der Stunde;
+N029;Tür;die;Türen;door;[tyːɐ̯];Bitte schließe die Tür.;Please close the door.;Home;Objects;common,daily;85;5;1;Feminine;die Tür;die Tür;der Tür;der Tür;
+N030;Geld;das;Gelder;money;[ɡɛlt];Ich brauche mehr Geld.;I need more money.;Objects;Finance;common,daily,essential;85;9;2;Neuter;das Geld;das Geld;dem Geld;des Geldes;
+N031;Buch;das;Bücher;book;[buːx];Ich lese ein interessantes Buch.;I am reading an interesting book.;Work & Study;Media;common,leisure;84;8;2;Neuter;das Buch;das Buch;dem Buch;des Buches;
+N032;Vater;der;Väter;father;[ˈfaːtɐ];Mein Vater ist Arzt.;My father is a doctor.;People;Family;common,family;84;4;2;Masculine;der Vater;den Vater;dem Vater;des Vaters;
+N033;Mutter;die;Mütter;mother;[ˈmʊtɐ];Meine Mutter kocht gern.;My mother likes to cook.;People;Family;common,family;84;4;2;Feminine;die Mutter;die Mutter;der Mutter;der Mutter;
+N034;Nacht;die;Nächte;night;[naxt];Gute Nacht!;Good night!;Time;Periods;common,daily;83;1;2;Feminine;die Nacht;die Nacht;der Nacht;der Nacht;
+N035;Tisch;der;Tische;table;[tɪʃ];Der Tisch ist aus Holz.;The table is made of wood.;Home;Furniture;common,home;83;5;1;Masculine;der Tisch;den Tisch;dem Tisch;des Tisches;
+N036;Wort;das;Wörter/Worte;word;[vɔʁt];Das ist ein deutsches Wort.;That is a German word.;Communication;Language;common,learning;82;2;2;Neuter;das Wort;das Wort;dem Wort;des Wortes;Wörter for individual words, Worte for connected speech/discourse.
+N037;Zimmer;das;Zimmer;room;[ˈt͡sɪmɐ];Mein Zimmer ist klein.;My room is small.;Home;Rooms;common,home;82;5;1;Neuter;das Zimmer;das Zimmer;dem Zimmer;des Zimmers;
+N038;Sohn;der;Söhne;son;[zoːn];Das ist mein Sohn.;That is my son.;People;Family;common,family;81;4;2;Masculine;der Sohn;den Sohn;dem Sohn;des Sohnes;
+N039;Tochter;die;Töchter;daughter;[ˈtɔxtɐ];Meine Tochter studiert in Berlin.;My daughter studies in Berlin.;People;Family;common,family;81;4;2;Feminine;die Tochter;die Tochter;der Tochter;der Tochter;
+N040;Wohnung;die;Wohnungen;apartment, flat;[ˈvoːnʊŋ];Ich suche eine neue Wohnung.;I am looking for a new apartment.;Home;Rooms;common,home;80;5;1;Feminine;die Wohnung;die Wohnung;der Wohnung;der Wohnung;
+N041;Idee;die;Ideen;idea;[iˈdeː];Ich habe eine gute Idee.;I have a good idea.;Abstract;Concepts;common;80;15;1;Feminine;die Idee;die Idee;der Idee;der Idee;
+N042;Platz;der;Plätze;place, square, seat;[plats];Ist dieser Platz frei?;Is this seat free?;Places;Locations;common,travel,daily;79;7;2;Masculine;der Platz;den Platz;dem Platz;des Platzes;
+N043;Herr;der;Herren;Mr., gentleman;[hɛʁ];Guten Tag, Herr Schmidt.;Good day, Mr. Schmidt.;People;Title;common,formal;79;1;3;Masculine;der Herr;den Herrn;dem Herrn;des Herrn;An n-declension noun.
+N044;Kaffee;der;Kaffees;coffee;[ˈkafe];Ich trinke einen Kaffee.;I'm drinking a coffee.;Food & Drink;Beverages;common,daily;78;6;1;Masculine;der Kaffee;den Kaffee;dem Kaffee;des Kaffees;
+N045;Tee;der;Tees;tea;[teː];Möchtest du einen Tee?;Would you like a tea?;Food & Drink;Beverages;common,daily;78;6;1;Masculine;der Tee;den Tee;dem Tee;des Tees;
+N046;Brot;das;Brote;bread;[bʁoːt];Ich esse Brot mit Käse.;I eat bread with cheese.;Food & Drink;Bakery;common,daily,essential;77;6;1;Neuter;das Brot;das Brot;dem Brot;des Brotes;Germany is famous for its wide variety of breads.
+N047;Bahnhof;der;Bahnhöfe;train station;[ˈbaːnhoːf];Wo ist der Bahnhof?;Where is the train station?;Places;Transport;common,travel;77;7;2;Masculine;der Bahnhof;den Bahnhof;dem Bahnhof;des Bahnhofes;A central hub in nearly every German town.
+N048;Straße;die;Straßen;street;[ˈʃtʁaːsə];Ich wohne in der Schillerstraße.;I live on Schiller Street.;Places;Locations;common,daily;76;5;1;Feminine;die Straße;die Straße;der Straße;der Straße;
+N049;Körper;der;Körper;body;[ˈkœʁpɐ];Mein ganzer Körper tut weh.;My whole body hurts.;Body;General;common;76;12;1;Masculine;der Körper;den Körper;dem Körper;des Körpers;
+N050;Morgen;der;Morgen;morning;[ˈmɔʁɡn̩];Guten Morgen!;Good morning!;Time;Periods;common,daily;75;1;1;Masculine;der Morgen;den Morgen;dem Morgen;des Morgens;
+N051;Abend;der;Abende;evening;[ˈaːbənt];Ich gehe am Abend ins Kino.;I'm going to the cinema in the evening.;Time;Periods;common,daily;75;1;1;Masculine;der Abend;den Abend;dem Abend;des Abends;
+N052;Fuß;der;Füße;foot;[fuːs];Mein rechter Fuß ist verletzt.;My right foot is injured.;Body;Limbs;common;74;12;2;Masculine;der Fuß;den Fuß;dem Fuß;des Fußes;
+N053;Fenster;das;Fenster;window;[ˈfɛnstɐ];Das Fenster ist offen.;The window is open.;Home;Objects;common,home;74;5;1;Neuter;das Fenster;das Fenster;dem Fenster;des Fensters;
+N054;Bett;das;Betten;bed;[bɛt];Ich gehe ins Bett.;I'm going to bed.;Home;Furniture;common,home;73;5;1;Neuter;das Bett;das Bett;dem Bett;des Bettes;
+N055;Stuhl;der;Stühle;chair;[ʃtuːl];Der Stuhl ist bequem.;The chair is comfortable.;Home;Furniture;common,home;73;5;2;Masculine;der Stuhl;den Stuhl;dem Stuhl;des Stuhls;
+N056;Himmel;der;Himmel;sky, heaven;[ˈhɪməl];Der Himmel ist blau.;The sky is blue.;Nature;Weather;common;72;22;1;Masculine;der Himmel;den Himmel;dem Himmel;des Himmels;
+N057;Sonne;die;Sonnen;sun;[ˈzɔnə];Die Sonne scheint.;The sun is shining.;Nature;Weather;common;72;22;1;Feminine;die Sonne;die Sonne;der Sonne;der Sonne;
+N058;Regen;der;(no plural);rain;[ˈʁeːɡn̩];Ich mag den Regen nicht.;I don't like the rain.;Nature;Weather;common;71;22;1;Masculine;der Regen;den Regen;dem Regen;des Regens;
+N059;Musik;die;Musiken;music;[muˈziːk];Hörst du gern Musik?;Do you like listening to music?;Leisure;Arts;common,hobby;71;26;1;Feminine;die Musik;die Musik;der Musik;der Musik;
+N060;Film;der;Filme;movie, film;[fɪlm];Wir sehen einen Film.;We are watching a movie.;Leisure;Media;common,hobby;70;26;1;Masculine;der Film;den Film;dem Film;des Films;
+N061;Sport;der;Sportarten;sport;[ʃpɔʁt];Ich mache gern Sport.;I like to do sports.;Leisure;Activities;common,hobby;70;26;1;Masculine;der Sport;den Sport;dem Sport;des Sports;
+N062;Spiel;das;Spiele;game;[ʃpiːl];Das ist nur ein Spiel.;It's only a game.;Leisure;Activities;common,hobby;69;11;1;Neuter;das Spiel;das Spiel;dem Spiel;des Spieles;
+N063;Hund;der;Hunde;dog;[hʊnt];Der Hund bellt.;The dog is barking.;Animals;Pets;common,home;69;11;1;Masculine;der Hund;den Hund;dem Hund;des Hundes;
+N064;Katze;die;Katzen;cat;[ˈkat͡sə];Die Katze schläft.;The cat is sleeping.;Animals;Pets;common,home;68;11;1;Feminine;die Katze;die Katze;der Katze;der Katze;
+N065;Bruder;der;Brüder;brother;[ˈbʁuːdɐ];Mein Bruder ist älter als ich.;My brother is older than me.;People;Family;common,family;68;4;2;Masculine;der Bruder;den Bruder;dem Bruder;des Bruders;
+N066;Schwester;die;Schwestern;sister;[ˈʃvɛstɐ];Hast du eine Schwester?;Do you have a sister?;People;Family;common,family;68;4;1;Feminine;die Schwester;die Schwester;der Schwester;der Schwester;
+N067;Familie;die;Familien;family;[faˈmiːli̯ə];Meine Familie ist groß.;My family is big.;People;Family;common,family;67;4;1;Feminine;die Familie;die Familie;der Familie;der Familie;
+N068;Eltern;die;(no singular);parents;[ˈɛltɐn];Meine Eltern leben in Hamburg.;My parents live in Hamburg.;People;Family;common,family;67;4;1;Plural only;die Eltern;die Eltern;den Eltern;der Eltern;
+N069;Apfel;der;Äpfel;apple;[ˈapfəl];Ein Apfel am Tag ist gesund.;An apple a day is healthy.;Food & Drink;Fruit;common,food;66;6;2;Masculine;der Apfel;den Apfel;dem Apfel;des Apfels;
+N070;Banane;die;Bananen;banana;[baˈnaːnə];Die Banane ist gelb.;The banana is yellow.;Food & Drink;Fruit;common,food;66;6;1;Feminine;die Banane;die Banane;der Banane;der Banane;
+N071;Käse;der;Käse;cheese;[ˈkɛːzə];Ich esse gern Käse.;I like to eat cheese.;Food & Drink;Dairy;common,food;65;6;1;Masculine;der Käse;den Käse;dem Käse;des Käses;
+N072;Milch;die;(no plural);milk;[mɪlç];Ich trinke Kaffee mit Milch.;I drink coffee with milk.;Food & Drink;Beverages;common,food;65;6;1;Feminine;die Milch;die Milch;der Milch;der Milch;
+N073;Schrank;der;Schränke;closet, cupboard;[ʃʁaŋk];Die Kleidung ist im Schrank.;The clothes are in the closet.;Home;Furniture;common,home;64;5;2;Masculine;der Schrank;den Schrank;dem Schrank;des Schrankes;
+N074;Küche;die;Küchen;kitchen;[ˈkʏçə];Wir kochen in der Küche.;We cook in the kitchen.;Home;Rooms;common,home;64;5;1;Feminine;die Küche;die Küche;der Küche;der Küche;
+N075;Bad;das;Bäder;bathroom;[baːt];Das Bad ist neben der Küche.;The bathroom is next to the kitchen.;Home;Rooms;common,home;63;5;2;Neuter;das Bad;das Bad;dem Bad;des Bades;
+N076;Schlüssel;der;Schlüssel;key;[ˈʃlʏsəl];Ich habe meinen Schlüssel verloren.;I lost my key.;Objects;Tools;common,daily;63;9;1;Masculine;der Schlüssel;den Schlüssel;dem Schlüssel;des Schlüssels;
+N077;Tasche;die;Taschen;bag, pocket;[ˈtaʃə];Meine Tasche ist schwer.;My bag is heavy.;Objects;Accessories;common,daily;62;9;1;Feminine;die Tasche;die Tasche;der Tasche;der Tasche;
+N078;Handy;das;Handys;mobile phone;[ˈhɛndi];Wo ist mein Handy?;Where is my mobile phone?;Objects;Electronics;common,daily;62;9;1;Neuter;das Handy;das Handy;dem Handy;des Handys;
+N079;Computer;der;Computer;computer;[kɔmˈpjuːtɐ];Der Computer ist neu.;The computer is new.;Work & Study;Electronics;common,work;61;10;1;Masculine;der Computer;den Computer;dem Computer;des Computers;
+N080;Sprache;die;Sprachen;language;[ˈʃpʁaːxə];Deutsch ist eine schwere Sprache.;German is a difficult language.;Communication;Language;common,learning;61;2;1;Feminine;die Sprache;die Sprache;der Sprache;der Sprache;
+N081;Antwort;die;Antworten;answer;[ˈantvɔʁt];Ich weiß die Antwort nicht.;I don't know the answer.;Communication;Language;common,learning;60;7;1;Feminine;die Antwort;die Antwort;der Antwort;der Antwort;
+N082;Hilfe;die;Hilfen;help;[ˈhɪlfə];Ich brauche Hilfe.;I need help.;Abstract;Concepts;common,daily;60;13;1;Feminine;die Hilfe;die Hilfe;der Hilfe;der Hilfe;
+N083;Monat;der;Monate;month;[ˈmoːnat];Der Monat hat 30 oder 31 Tage.;The month has 30 or 31 days.;Time;Calendar;common,daily;59;8;1;Masculine;der Monat;den Monat;dem Monat;des Monats;
+N084;Supermarkt;der;Supermärkte;supermarket;[ˈzuːpɐmaʁkt];Ich gehe in den Supermarkt.;I'm going to the supermarket.;Places;Shops;common,daily;59;14;2;Masculine;der Supermarkt;den Supermarkt;dem Supermarkt;des Supermarktes;
+N085;Restaurant;das;Restaurants;restaurant;[ʁɛstoˈʁɑ̃ː];Wir essen heute im Restaurant.;We are eating at the restaurant today.;Places;Shops;common,leisure;58;22;1;Neuter;das Restaurant;das Restaurant;dem Restaurant;des Restaurants;
+N086;Rechnung;die;Rechnungen;bill, invoice;[ˈʁɛçnʊŋ];Die Rechnung, bitte!;The bill, please!;Objects;Finance;common,daily;58;22;1;Feminine;die Rechnung;die Rechnung;der Rechnung;der Rechnung;
+N087;Zug;der;Züge;train;[t͡suːk];Der Zug hat Verspätung.;The train is delayed.;Transport;Vehicles;common,travel;57;7;2;Masculine;der Zug;den Zug;dem Zug;des Zuges;
+N088;Bus;der;Busse;bus;[bʊs];Ich nehme den Bus.;I'm taking the bus.;Transport;Vehicles;common,travel;57;7;1;Masculine;der Bus;den Bus;dem Bus;des Busses;
+N089;Fahrrad;das;Fahrräder;bicycle;[ˈfaːɐ̯ʁaːt];Ich fahre mit dem Fahrrad zur Arbeit.;I go to work by bicycle.;Transport;Vehicles;common,leisure;56;26;2;Neuter;das Fahrrad;das Fahrrad;dem Fahrrad;des Fahrrades;Very popular in German cities.
+N090;Flugzeug;das;Flugzeuge;airplane;[ˈfluːkˌt͡sɔɪ̯k];Das Flugzeug fliegt nach New York.;The airplane is flying to New York.;Transport;Vehicles;travel;56;20;1;Neuter;das Flugzeug;das Flugzeug;dem Flugzeug;des Flugzeuges;
+N091;Urlaub;der;Urlaube;vacation, holiday;[ˈuːɐ̯laʊ̯p];Wir machen Urlaub in Italien.;We are vacationing in Italy.;Leisure;Travel;common,travel;55;26;1;Masculine;der Urlaub;den Urlaub;dem Urlaub;des Urlaubs;
+N092;Reise;die;Reisen;trip, journey;[ˈʁaɪ̯zə];Gute Reise!;Have a good trip!;Leisure;Travel;common,travel;55;26;1;Feminine;die Reise;die Reise;der Reise;der Reise;
+N093;Hose;die;Hosen;pants, trousers;[ˈhoːzə];Meine Hose ist blau.;My pants are blue.;Clothing;Garments;common,daily;54;9;1;Feminine;die Hose;die Hose;der Hose;der Hose;
+N094;Hemd;das;Hemden;shirt;[hɛmt];Er trägt ein weißes Hemd.;He is wearing a white shirt.;Clothing;Garments;common,daily;54;9;2;Neuter;das Hemd;das Hemd;dem Hemd;des Hemdes;
+A business shirt, specifically.
+N095;Jacke;die;Jacken;jacket;[ˈjakə];Zieh eine Jacke an, es ist kalt.;Put on a jacket, it's cold.;Clothing;Garments;common,daily;53;9;1;Feminine;die Jacke;die Jacke;der Jacke;der Jacke;
+N096;Schuh;der;Schuhe;shoe;[ʃuː];Ich brauche neue Schuhe.;I need new shoes.;Clothing;Accessories;common,daily;53;9;1;Masculine;der Schuh;den Schuh;dem Schuh;des Schuhes;
+N097;Farbe;die;Farben;color;[ˈfaʁbə];Was ist deine Lieblingsfarbe?;What is your favorite color?;Abstract;Appearance;common;52;11;1;Feminine;die Farbe;die Farbe;der Farbe;der Farbe;
+N098;Größe;die;Größen;size, height;[ˈɡʁøːsə];Welche Größe brauchen Sie?;What size do you need?;Abstract;Measurement;common,shopping;52;11;1;Feminine;die Größe;die Größe;der Größe;der Größe;
+N099;Preis;der;Preise;price;[pʁaɪ̯s];Der Preis ist zu hoch.;The price is too high.;Objects;Finance;common,shopping;51;9;1;Masculine;der Preis;den Preis;dem Preis;des Preises;
+N100;Euro;der;Euros;Euro;[ˈɔɪ̯ʁo];Das kostet zehn Euro.;That costs ten Euros.;Objects;Finance;common,daily;51;9;1;Masculine;der Euro;den Euro;dem Euro;des Euros;The official currency in Germany and much of the EU.
+N101;Arzt;der;Ärzte;doctor (male);[aːɐ̯t͡st];Ich muss zum Arzt gehen.;I have to go to the doctor.;People;Professions;common,health;65;13;2;Masculine;der Arzt;den Arzt;dem Arzt;des Arztes;
+N102;Lehrer;der;Lehrer;teacher (male);[ˈleːʁɐ];Der Lehrer erklärt die Grammatik.;The teacher explains the grammar.;People;Professions;common,learning;64;9;1;Masculine;der Lehrer;den Lehrer;dem Lehrer;des Lehrers;
+N103;Student;der;Studenten;student (male, university);[ʃtuˈdɛnt];Er ist Student an der Universität.;He is a student at the university.;People;Education;common,learning;63;9;3;Masculine;der Student;den Studenten;dem Studenten;des Studenten;An n-declension noun.
+N104;Schüler;der;Schüler;pupil (male, school);[ˈʃyːlɐ];Der Schüler macht seine Hausaufgaben.;The pupil is doing his homework.;People;Education;common,learning;62;9;1;Masculine;der Schüler;den Schüler;dem Schüler;des Schülers;
+N105;Polizei;die;Polizeien;police;[poliˈt͡saɪ̯];Rufen Sie die Polizei!;Call the police!;Society;Services;common;61;28;1;Feminine;die Polizei;die Polizei;der Polizei;der Polizei;
+N106;Feuerwehr;die;Feuerwehren;fire department;[ˈfɔɪ̯ɐˌveːɐ̯];Die Feuerwehr kommt schnell.;The fire department is coming quickly.;Society;Services;common;50;28;1;Feminine;die Feuerwehr;die Feuerwehr;der Feuerwehr;der Feuerwehr;
+N107;Krankenhaus;das;Krankenhäuser;hospital;[ˈkʁaŋkənˌhaʊ̯s];Sie ist im Krankenhaus.;She is in the hospital.;Places;Health;common,health;58;13;2;Neuter;das Krankenhaus;das Krankenhaus;dem Krankenhaus;des Krankenhauses;
+N108;Apotheke;die;Apotheken;pharmacy;[apoˈteːkə];Ich gehe zur Apotheke.;I'm going to the pharmacy.;Places;Health;common,health;57;13;1;Feminine;die Apotheke;die Apotheke;der Apotheke;der Apotheke;Recognizable by a large red 'A'.
+N109;Bank;die;Banken;bank;[baŋk];Ich muss zur Bank gehen.;I have to go to the bank.;Places;Finance;common,daily;56;16;1;Feminine;die Bank;die Bank;der Bank;der Bank;Also means 'bench' (`die Bank, die Bänke`).
+N110;Post;die;(no plural);post office, mail;[pɔst];Die Post kommt um 10 Uhr.;The mail arrives at 10 o'clock.;Places;Services;common,daily;55;28;1;Feminine;die Post;die Post;der Post;der Post;
+N111;Hotel;das;Hotels;hotel;[hoˈtɛl];Wir übernachten in einem Hotel.;We are staying in a hotel.;Places;Travel;travel;54;29;1;Neuter;das Hotel;das Hotel;dem Hotel;des Hotels;
+N112;Museum;das;Museen;museum;[muˈzeːʊm];Das Deutsche Museum ist in München.;The Deutsches Museum is in Munich.;Places;Leisure;leisure,travel;53;26;2;Neuter;das Museum;das Museum;dem Museum;des Museums;
+N113;Kino;das;Kinos;cinema, movie theater;[ˈkiːno];Gehen wir heute Abend ins Kino?;Shall we go to the cinema tonight?;Places;Leisure;leisure,hobby;52;26;1;Neuter;das Kino;das Kino;dem Kino;des Kinos;
+N114;Theater;das;Theater;theater;[teˈaːtɐ];Ich gehe nicht oft ins Theater.;I don't go to the theater often.;Places;Leisure;leisure;51;26;1;Neuter;das Theater;das Theater;dem Theater;des Theaters;
+N115;Konzert;das;Konzerte;concert;[kɔnˈt͡sɛʁt];Das Konzert war fantastisch.;The concert was fantastic.;Leisure;Events;leisure,music;50;26;1;Neuter;das Konzert;das Konzert;dem Konzert;des Konzertes;
+N116;Party;die;Partys;party;[ˈpaʁti];Die Party beginnt um 20 Uhr.;The party starts at 8 PM.;Leisure;Events;leisure,social;49;26;1;Feminine;die Party;die Party;der Party;der Party;
+N117;Geburtstag;der;Geburtstage;birthday;[ɡəˈbuːɐ̯t͡sˌtaːk];Alles Gute zum Geburtstag!;Happy birthday!;Events;Celebrations;common,family;58;27;2;Masculine;der Geburtstag;den Geburtstag;dem Geburtstag;des Geburtstages;
+N118;Weihnachten;das;(no plural);Christmas;[ˈvaɪ̯naxtən];Frohe Weihnachten!;Merry Christmas!;Events;Holidays;holiday;55;27;1;Neuter;das Weihnachten;das Weihnachten;dem Weihnachten;des Weihnachtens;Celebrated on the 24th (Heiligabend) and 25th/26th.
+N119;Ostern;das;(no plural);Easter;[ˈoːstɐn];Frohe Ostern!;Happy Easter!;Events;Holidays;holiday;54;27;1;Neuter;das Ostern;das Ostern;dem Ostern;des Osterns;
+N120;Silvester;das;(no plural);New Year's Eve;[zɪlˈvɛstɐ];Was machst du an Silvester?;What are you doing on New Year's Eve?;Events;Holidays;holiday;53;27;1;Neuter;das Silvester;das Silvester;dem Silvester;des Silvesters;Known for huge fireworks displays.
+N121;Moment;der;Momente;moment;[moˈmɛnt];Einen Moment, bitte.;One moment, please.;Time;Measurement;common,daily;65;2;1;Masculine;der Moment;den Moment;dem Moment;des Momentes;
+N122;Anfang;der;Anfänge;beginning;[ˈanˌfaŋ];Aller Anfang ist schwer.;Every beginning is hard.;Time;Periods;common,abstract;64;15;2;Masculine;der Anfang;den Anfang;dem Anfang;des Anfanges;
+N123;Ende;das;Enden;end;[ˈɛndə];Das ist das Ende vom Film.;That is the end of the movie.;Time;Periods;common,abstract;63;15;1;Neuter;das Ende;das Ende;dem Ende;des Endes;
+N124;Wochenende;das;Wochenenden;weekend;[ˈvɔxənˌɛndə];Schönes Wochenende!;Have a nice weekend!;Time;Periods;common,daily;68;10;1;Neuter;das Wochenende;das Wochenende;dem Wochenende;des Wochenendes;
+N125;Januar;der;Januare;January;[ˈjanuaːɐ̯];Im Januar ist es kalt.;It's cold in January.;Time;Months;calendar;50;8;1;Masculine;der Januar;den Januar;dem Januar;des Januars;
+N126;Februar;der;Februare;February;[ˈfeːbʁuaːɐ̯];Der Februar ist kurz.;February is short.;Time;Months;calendar;50;8;1;Masculine;der Februar;den Februar;dem Februar;des Februars;
+N127;März;der;Märze;March;[mɛʁt͡s];Im März beginnt der Frühling.;Spring begins in March.;Time;Months;calendar;50;8;1;Masculine;der März;den März;dem März;des Märzes;
+N128;April;der;Aprile;April;[aˈpʁɪl];Der April macht, was er will.;April does what it wants.;Time;Months;calendar;50;8;1;Masculine;der April;den April;dem April;des Aprils;A saying about the unpredictable weather.
+N129;Mai;der;Maie;May;[maɪ̯];Der erste Mai ist ein Feiertag.;The first of May is a public holiday.;Time;Months;calendar;50;8;1;Masculine;der Mai;den Mai;dem Mai;des Mais;
+N130;Juni;der;Junis;June;[ˈjuːni];Im Juni ist es warm.;It's warm in June.;Time;Months;calendar;50;8;1;Masculine;der Juni;den Juni;dem Juni;des Junis;
+N131;Juli;der;Julis;July;[ˈjuːli];Der Juli ist ein Sommermonat.;July is a summer month.;Time;Months;calendar;50;8;1;Masculine;der Juli;den Juli;dem Juli;des Julis;
+N132;August;der;Auguste;August;[aʊ̯ˈɡʊst];Wir haben im August Urlaub.;We have vacation in August.;Time;Months;calendar;50;8;1;Masculine;der August;den August;dem August;des Augusts;
+N133;September;der;September;September;[zɛpˈtɛmbɐ];Im September fängt die Schule an.;School starts in September.;Time;Months;calendar;50;8;1;Masculine;der September;den September;dem September;des Septembers;
+N134;Oktober;der;Oktober;October;[ɔkˈtoːbɐ];Das Oktoberfest ist nicht im Oktober.;The Oktoberfest is not in October.;Time;Months;calendar;50;8;1;Masculine;der Oktober;den Oktober;dem Oktober;des Oktobers;The Munich Oktoberfest actually starts in September.
+N135;November;der;November;November;[noˈvɛmbɐ];Der November ist oft grau.;November is often gray.;Time;Months;calendar;50;8;1;Masculine;der November;den November;dem November;des Novembers;
+N136;Dezember;der;Dezember;December;[deˈt͡sɛmbɐ];Im Dezember ist Weihnachten.;Christmas is in December.;Time;Months;calendar;50;8;1;Masculine;der Dezember;den Dezember;dem Dezember;des Dezembers;
+N137;Montag;der;Montage;Monday;[ˈmoːnˌtaːk];Am Montag arbeite ich.;I work on Monday.;Time;Days;calendar,daily;60;8;2;Masculine;der Montag;den Montag;dem Montag;des Montags;
+N138;Dienstag;der;Dienstage;Tuesday;[ˈdiːnsˌtaːk];Der Kurs ist am Dienstag.;The course is on Tuesday.;Time;Days;calendar,daily;60;8;2;Masculine;der Dienstag;den Dienstag;dem Dienstag;des Dienstags;
+N139;Mittwoch;der;Mittwoche;Wednesday;[ˈmɪtˌvɔx];Mittwoch ist die Mitte der Woche.;Wednesday is the middle of the week.;Time;Days;calendar,daily;60;8;2;Masculine;der Mittwoch;den Mittwoch;dem Mittwoch;des Mittwochs;
+N140;Donnerstag;der;Donnerstage;Thursday;[ˈdɔnɐsˌtaːk];Wir treffen uns am Donnerstag.;We are meeting on Thursday.;Time;Days;calendar,daily;60;8;2;Masculine;der Donnerstag;den Donnerstag;dem Donnerstag;des Donnerstags;
+N141;Freitag;der;Freitage;Friday;[ˈfʁaɪ̯taːk];Freitag ist mein Lieblingstag.;Friday is my favorite day.;Time;Days;calendar,daily;60;8;2;Masculine;der Freitag;den Freitag;dem Freitag;des Freitags;
+N142;Samstag;der;Samstage;Saturday;[ˈzamsˌtaːk];Am Samstag kaufe ich ein.;I go shopping on Saturday.;Time;Days;calendar,daily;60;8;2;Masculine;der Samstag;den Samstag;dem Samstag;des Samstags;Also called 'Sonnabend' in Northern and Eastern Germany.
+N143;Sonntag;der;Sonntage;Sunday;[ˈzɔnˌtaːk];Am Sonntag sind die Geschäfte zu.;On Sunday the shops are closed.;Time;Days;calendar,daily;60;8;2;Masculine;der Sonntag;den Sonntag;dem Sonntag;des Sonntags;A legally protected day of rest in Germany; most stores are closed.
+N144;Frühling;der;Frühlinge;spring;[ˈfʁyːlɪŋ];Im Frühling blühen die Blumen.;In spring the flowers bloom.;Time;Seasons;calendar;45;22;1;Masculine;der Frühling;den Frühling;dem Frühling;des Frühlings;
+N145;Sommer;der;Sommer;summer;[ˈzɔmɐ];Ich liebe den Sommer.;I love the summer.;Time;Seasons;calendar;45;22;1;Masculine;der Sommer;den Sommer;dem Sommer;des Sommers;
+N146;Herbst;der;Herbste;autumn, fall;[hɛʁpst];Im Herbst fallen die Blätter.;In autumn the leaves fall.;Time;Seasons;calendar;45;22;1;Masculine;der Herbst;den Herbst;dem Herbst;des Herbstes;
+N147;Winter;der;Winter;winter;[ˈvɪntɐ];Der Winter in Deutschland kann kalt sein.;Winter in Germany can be cold.;Time;Seasons;calendar;45;22;1;Masculine;der Winter;den Winter;dem Winter;des Winters;
+N148;Messer;das;Messer;knife;[ˈmɛsɐ];Das Messer ist scharf.;The knife is sharp.;Home;Kitchenware;home,food;55;6;1;Neuter;das Messer;das Messer;dem Messer;des Messers;
+N149;Gabel;die;Gabeln;fork;[ˈɡaːbl̩];Die Gabel liegt links.;The fork is on the left.;Home;Kitchenware;home,food;55;6;1;Feminine;die Gabel;die Gabel;der Gabel;der Gabel;
+N150;Löffel;der;Löffel;spoon;[ˈlœfl̩];Ich esse Suppe mit einem Löffel.;I eat soup with a spoon.;Home;Kitchenware;home,food;55;6;1;Masculine;der Löffel;den Löffel;dem Löffel;des Löffels;
+N151;Teller;der;Teller;plate;[ˈtɛlɐ];Der Teller ist leer.;The plate is empty.;Home;Kitchenware;home,food;54;6;1;Masculine;der Teller;den Teller;dem Teller;des Tellers;
+N152;Glas;das;Gläser;glass;[ɡlaːs];Ein Glas Wasser, bitte.;A glass of water, please.;Home;Kitchenware;home,food;54;6;2;Neuter;das Glas;das Glas;dem Glas;des Glases;
+N153;Tasse;die;Tassen;cup;[ˈtasə];Ich hätte gern eine Tasse Tee.;I would like a cup of tea.;Home;Kitchenware;home,food;53;6;1;Feminine;die Tasse;die Tasse;der Tasse;der Tasse;
+N154;Flasche;die;Flaschen;bottle;[ˈflaʃə];Eine Flasche Wein, bitte.;A bottle of wine, please.;Objects;Containers;food;53;6;1;Feminine;die Flasche;die Flasche;der Flasche;der Flasche;
+N155;Wein;der;Weine;wine;[vaɪ̯n];Trinkst du gern Wein?;Do you like to drink wine?;Food & Drink;Beverages;leisure,food;52;22;1;Masculine;der Wein;den Wein;dem Wein;des Weines;
+N156;Bier;das;Biere;beer;[biːɐ̯];Deutschland ist für sein Bier bekannt.;Germany is known for its beer.;Food & Drink;Beverages;leisure,food;52;22;1;Neuter;das Bier;das Bier;dem Bier;des Bieres;A major part of German culture, especially in Bavaria.
+N157;Saft;der;Säfte;juice;[zaft];Ich trinke gern Apfelsaft.;I like to drink apple juice.;Food & Drink;Beverages;food;51;6;2;Masculine;der Saft;den Saft;dem Saft;des Saftes;
+N158;Kuchen;der;Kuchen;cake;[ˈkuːxən];Dieser Kuchen schmeckt gut.;This cake tastes good.;Food & Drink;Desserts;food;51;22;1;Masculine;der Kuchen;den Kuchen;dem Kuchen;des Kuchens;
+N159;Salz;das;(no plural);salt;[zalts];Kann ich bitte das Salz haben?;Can I have the salt, please?;Food & Drink;Ingredients;food;50;6;1;Neuter;das Salz;das Salz;dem Salz;des Salzes;
+N160;Pfeffer;der;(no plural);pepper;[ˈp͡fɛfɐ];Ich brauche mehr Pfeffer.;I need more pepper.;Food & Drink;Ingredients;food;50;6;1;Masculine;der Pfeffer;den Pfeffer;dem Pfeffer;des Pfeffers;
+N161;Zucker;der;(no plural);sugar;[ˈt͡sʊkɐ];Nimmst du Zucker im Kaffee?;Do you take sugar in your coffee?;Food & Drink;Ingredients;food;49;6;1;Masculine;der Zucker;den Zucker;dem Zucker;des Zuckers;
+N162;Fleisch;das;(no plural);meat;[flaɪ̯ʃ];Ich esse nicht viel Fleisch.;I don't eat a lot of meat.;Food & Drink;Main;food;49;6;1;Neuter;das Fleisch;das Fleisch;dem Fleisch;des Fleisches;
+N163;Fisch;der;Fische;fish;[fɪʃ];Am Freitag essen wir Fisch.;On Friday we eat fish.;Food & Drink;Main;food;48;6;1;Masculine;der Fisch;den Fisch;dem Fisch;des Fisches;
+N164;Huhn;das;Hühner;chicken;[huːn];Ich hätte gern das Huhn.;I would like the chicken.;Food & Drink;Main;food;48;6;2;Neuter;das Huhn;das Huhn;dem Huhn;des Huhnes;
+N165;Reis;der;(no plural);rice;[ʁaɪ̯s];Ich esse gern Reis mit Gemüse.;I like eating rice with vegetables.;Food & Drink;Side dish;food;47;6;1;Masculine;der Reis;den Reis;dem Reis;des Reises;
+N166;Kartoffel;die;Kartoffeln;potato;[kaʁˈtɔfl̩];Die Kartoffel ist ein wichtiges Lebensmittel.;The potato is an important food.;Food & Drink;Vegetables;food;47;6;1;Feminine;die Kartoffel;die Kartoffel;der Kartoffel;der Kartoffel;A staple of German cuisine.
+N167;Gemüse;das;Gemüse;vegetable;[ɡəˈmyːzə];Essen Sie genug Gemüse?;Do you eat enough vegetables?;Food & Drink;Vegetables;food;46;6;1;Neuter;das Gemüse;das Gemüse;dem Gemüse;des Gemüses;
+N168;Salat;der;Salate;salad;[zaˈlaːt];Ich bestelle einen Salat.;I'll order a salad.;Food & Drink;Side dish;food;46;6;1;Masculine;der Salat;den Salat;dem Salat;des Salates;
+N169;Obst;das;(no plural);fruit;[oːpst];Obst ist sehr gesund.;Fruit is very healthy.;Food & Drink;Fruit;food;45;6;1;Neuter;das Obst;das Obst;dem Obst;des Obstes;
+N170;Orange;die;Orangen;orange;[oˈʁɑ̃ːʒə];Ich esse eine Orange.;I'm eating an orange.;Food & Drink;Fruit;food;45;6;1;Feminine;die Orange;die Orange;der Orange;der Orange;
+N171;Tomate;die;Tomaten;tomato;[toˈmaːtə];Die Tomate ist rot.;The tomato is red.;Food & Drink;Vegetables;food;44;6;1;Feminine;die Tomate;die Tomate;der Tomate;der Tomate;
+N172;Zwiebel;die;Zwiebeln;onion;[ˈt͡sviːbl̩];Ich schneide eine Zwiebel.;I am cutting an onion.;Food & Drink;Vegetables;food;44;6;1;Feminine;die Zwiebel;die Zwiebel;der Zwiebel;der Zwiebel;
+N173;Butter;die;(no plural);butter;[ˈbʊtɐ];Ich brauche Butter für den Kuchen.;I need butter for the cake.;Food & Drink;Dairy;food;43;6;1;Feminine;die Butter;die Butter;der Butter;der Butter;
+N174;Ei;das;Eier;egg;[aɪ̯];Ich esse ein Ei zum Frühstück.;I eat an egg for breakfast.;Food & Drink;Dairy;food;43;6;2;Neuter;das Ei;das Ei;dem Ei;des Eies;
+N175;Frühstück;das;Frühstücke;breakfast;[ˈfʁyːˌʃtʏk];Das Frühstück ist fertig.;Breakfast is ready.;Food & Drink;Meals;daily,food;50;22;1;Neuter;das Frühstück;das Frühstück;dem Frühstück;des Frühstücks;
+N176;Mittagessen;das;Mittagessen;lunch;[ˈmɪtaːkˌʔɛsn̩];Was gibt es zum Mittagessen?;What's for lunch?;Food & Drink;Meals;daily,food;50;22;1;Neuter;das Mittagessen;das Mittagessen;dem Mittagessen;des Mittagessens;
+N177;Abendessen;das;Abendessen;dinner, supper;[ˈaːbəntˌʔɛsn̩];Das Abendessen ist um 19 Uhr.;Dinner is at 7 PM.;Food & Drink;Meals;daily,food;50;22;1;Neuter;das Abendessen;das Abendessen;dem Abendessen;des Abendessens;Often a smaller, cold meal in Germany called 'Abendbrot'.
+N178;Beruf;der;Berufe;profession, occupation;[bəˈʁuːf];Was ist Ihr Beruf?;What is your profession?;Work & Study;Career;work;55;16;1;Masculine;der Beruf;den Beruf;dem Beruf;des Berufes;
+N179;Kollege;der;Kollegen;colleague (male);[kɔˈleːɡə];Mein Kollege ist sehr hilfsbereit.;My colleague is very helpful.;People;Professions;work;54;16;3;Masculine;der Kollege;den Kollegen;dem Kollegen;des Kollegen;An n-declension noun.
+N180;Büro;das;Büros;office;[byˈʁoː];Ich arbeite in einem Büro.;I work in an office.;Places;Work;work;53;16;1;Neuter;das Büro;das Büro;dem Büro;des Büros;
+N181;Firma;die;Firmen;company, firm;[ˈfɪʁma];Er arbeitet für eine große Firma.;He works for a big company.;Work & Study;Organizations;work;52;16;1;Feminine;die Firma;die Firma;der Firma;der Firma;
+N182;Chef;der;Chefs;boss (male);[ʃɛf];Mein Chef ist heute nicht da.;My boss isn't here today.;People;Professions;work;51;16;1;Masculine;der Chef;den Chef;dem Chef;des Chefs;
+N183;Termin;der;Termine;appointment, meeting;[tɛʁˈmiːn];Ich habe einen Termin beim Arzt.;I have an appointment with the doctor.;Events;Work;daily,work;60;16;1;Masculine;der Termin;den Termin;dem Termin;des Termins;
+N184;Pause;die;Pausen;break, pause;[ˈpaʊ̯zə];Wir machen eine Pause.;We're taking a break.;Time;Work;daily,work;50;16;1;Feminine;die Pause;die Pause;der Pause;der Pause;
+N185;Stift;der;Stifte;pen;[ʃtɪft];Kann ich einen Stift haben?;Can I have a pen?;Work & Study;Objects;learning,work;58;8;1;Masculine;der Stift;den Stift;dem Stift;des Stiftes;
+N186;Papier;das;Papiere;paper;[paˈpiːɐ̯];Ich brauche ein Blatt Papier.;I need a sheet of paper.;Work & Study;Objects;learning,work;57;8;1;Neuter;das Papier;das Papier;dem Papier;des Papiers;
+N187;Heft;das;Hefte;notebook;[hɛft];Schreib das in dein Heft.;Write that in your notebook.;Work & Study;Objects;learning;56;8;1;Neuter;das Heft;das Heft;dem Heft;des Heftes;
+N188;Brief;der;Briefe;letter;[bʁiːf];Ich schreibe einen Brief.;I am writing a letter.;Communication;Media;communication;55;28;1;Masculine;der Brief;den Brief;dem Brief;des Briefes;
+N189;E-Mail;die;E-Mails;e-mail;[ˈiːmeɪl];Hast du meine E-Mail bekommen?;Did you get my e-mail?;Communication;Media;communication,work;65;16;1;Feminine;die E-Mail;die E-Mail;der E-Mail;der E-Mail;
+N190;Zeitung;die;Zeitungen;newspaper;[ˈt͡saɪ̯tʊŋ];Ich lese die Zeitung am Morgen.;I read the newspaper in the morning.;Communication;Media;leisure,media;54;26;1;Feminine;die Zeitung;die Zeitung;der Zeitung;der Zeitung;
+N191;Foto;das;Fotos;photo;[ˈfoːto];Das ist ein schönes Foto.;That is a nice photo.;Objects;Media;leisure,hobby;53;26;1;Neuter;das Foto;das Foto;dem Foto;des Fotos;
+N192;Bild;das;Bilder;picture, image;[bɪlt];Das Bild hängt an der Wand.;The picture is hanging on the wall.;Objects;Media;art,home;52;23;2;Neuter;das Bild;das Bild;dem Bild;des Bildes;
+N193;Licht;das;Lichter;light;[lɪçt];Mach bitte das Licht an.;Please turn on the light.;Home;Objects;daily;51;5;2;Neuter;das Licht;das Licht;dem Licht;des Lichtes;
+N194;Geschenk;das;Geschenke;gift, present;[ɡəˈʃɛŋk];Danke für das Geschenk!;Thanks for the gift!;Objects;Social;common,events;50;27;1;Neuter;das Geschenk;das Geschenk;dem Geschenk;des Geschenkes;
+N195;Kleid;das;Kleider;dress;[klaɪ̯t];Sie trägt ein rotes Kleid.;She is wearing a red dress.;Clothing;Garments;clothing;49;9;2;Neuter;das Kleid;das Kleid;dem Kleid;des Kleides;
+N196;Rock;der;Röcke;skirt;[ʁɔk];Der Rock ist zu kurz.;The skirt is too short.;Clothing;Garments;clothing;48;9;2;Masculine;der Rock;den Rock;dem Rock;des Rockes;
+N197;Mantel;der;Mäntel;coat;[ˈmantl̩];Im Winter trage ich einen Mantel.;In winter I wear a coat.;Clothing;Garments;clothing;47;9;2;Masculine;der Mantel;den Mantel;dem Mantel;des Mantels;
+N198;Hut;der;Hüte;hat;[huːt];Er nimmt seinen Hut.;He takes his hat.;Clothing;Accessories;clothing;46;9;2;Masculine;der Hut;den Hut;dem Hut;des Hutes;
+N199;Anzug;der;Anzüge;suit;[ˈanˌt͡suːk];Er trägt einen teuren Anzug.;He is wearing an expensive suit.;Clothing;Garments;clothing,work;45;16;2;Masculine;der Anzug;den Anzug;dem Anzug;des Anzuges;
+N200;Garten;der;Gärten;garden;[ˈɡaʁtn̩];Wir sitzen im Garten.;We are sitting in the garden.;Home;Outdoors;home,leisure;48;5;2;Masculine;der Garten;den Garten;dem Garten;des Gartens;
+N201;Baum;der;Bäume;tree;[baʊ̯m];Der Baum ist sehr alt.;The tree is very old.;Nature;Plants;nature;47;22;2;Masculine;der Baum;den Baum;dem Baum;des Baumes;
+N202;Blume;die;Blumen;flower;[ˈbluːmə];Ich kaufe Blumen für meine Mutter.;I'm buying flowers for my mother.;Nature;Plants;nature,home;46;22;1;Feminine;die Blume;die Blume;der Blume;der Blume;
+N203;Gras;das;Gräser;grass;[ɡʁaːs];Das Gras ist grün.;The grass is green.;Nature;Plants;nature;45;22;2;Neuter;das Gras;das Gras;dem Gras;des Grases;
+N204;Blatt;das;Blätter;leaf, sheet (of paper);[blat];Ein Blatt Papier, bitte.;A sheet of paper, please.;Nature;Plants;nature,objects;44;22;2;Neuter;das Blatt;das Blatt;dem Blatt;des Blattes;
+N205;Wald;der;Wälder;forest, woods;[valt];Wir gehen im Wald spazieren.;We are going for a walk in the forest.;Nature;Landscapes;nature,leisure;43;22;2;Masculine;der Wald;den Wald;dem Wald;des Waldes;
+N206;Berg;der;Berge;mountain;[bɛʁk];Der höchste Berg Deutschlands ist die Zugspitze.;The highest mountain in Germany is the Zugspitze.;Nature;Landscapes;nature,travel;42;22;1;Masculine;der Berg;den Berg;dem Berg;des Berges;
+N207;See;der;Seen;lake;[zeː];Wir schwimmen im See.;We are swimming in the lake.;Nature;Landscapes;nature,leisure;41;22;1;Masculine;der See;den See;dem See;des Sees;Note: `die See` means 'the sea/ocean'.
+N208;Meer;das;Meere;sea, ocean;[meːɐ̯];Ich fahre gern ans Meer.;I like going to the sea.;Nature;Landscapes;nature,travel;40;22;1;Neuter;das Meer;das Meer;dem Meer;des Meeres;
+N209;Fluss;der;Flüsse;river;[flʊs];Der Rhein ist ein langer Fluss.;The Rhine is a long river.;Nature;Landscapes;nature,geography;39;22;2;Masculine;der Fluss;den Fluss;dem Fluss;des Flusses;
+N210;Insel;die;Inseln;island;[ˈɪnzl̩];Sylt ist eine Insel in der Nordsee.;Sylt is an island in the North Sea.;Nature;Landscapes;nature,travel;38;22;1;Feminine;die Insel;die Insel;der Insel;der Insel;
+N211;Bein;das;Beine;leg;[baɪ̯n];Er hat sich das Bein gebrochen.;He broke his leg.;Body;Limbs;body;60;12;1;Neuter;das Bein;das Bein;dem Bein;des Beines;
+N212;Arm;der;Arme;arm;[aʁm];Mein linker Arm schläft.;My left arm is asleep.;Body;Limbs;body;60;12;1;Masculine;der Arm;den Arm;dem Arm;des Armes;Also means 'poor' as an adjective.
+N213;Haar;das;Haare;hair;[haːɐ̯];Sie hat lange Haare.;She has long hair.;Body;Face;body;59;11;1;Neuter;das Haar;das Haar;dem Haar;des Haares;Usually used in plural 'Haare' to refer to a head of hair.
+N214;Gesicht;das;Gesichter;face;[ɡəˈzɪçt];Er hat ein freundliches Gesicht.;He has a friendly face.;Body;Face;body;58;11;2;Neuter;das Gesicht;das Gesicht;dem Gesicht;des Gesichtes;
+N215;Mund;der;Münder;mouth;[mʊnt];Öffne den Mund.;Open your mouth.;Body;Face;body;57;11;2;Masculine;der Mund;den Mund;dem Mund;des Mundes;
+N216;Nase;die;Nasen;nose;[ˈnaːzə];Meine Nase läuft.;My nose is running.;Body;Face;body;56;11;1;Feminine;die Nase;die Nase;der Nase;der Nase;
+N217;Ohr;das;Ohren;ear;[oːɐ̯];Das Kind hat große Ohren.;The child has big ears.;Body;Face;body;55;11;2;Neuter;das Ohr;das Ohr;dem Ohr;des Ohres;
+N218;Zahn;der;Zähne;tooth;[t͡saːn];Ich putze meine Zähne.;I'm brushing my teeth.;Body;Face;body,health;54;11;2;Masculine;der Zahn;den Zahn;dem Zahn;des Zahnes;
+N219;Finger;der;Finger;finger;[ˈfɪŋɐ];Er hat sich in den Finger geschnitten.;He cut his finger.;Body;Limbs;body;53;10;1;Masculine;der Finger;den Finger;dem Finger;des Fingers;
+N220;Rücken;der;Rücken;back;[ˈʁʏkən];Mein Rücken tut weh.;My back hurts.;Body;Torso;body,health;52;12;1;Masculine;der Rücken;den Rücken;dem Rücken;des Rückens;
+N221;Bauch;der;Bäuche;belly, stomach;[baʊ̯x];Der Bauch ist voll.;The belly is full.;Body;Torso;body,health;51;12;2;Masculine;der Bauch;den Bauch;dem Bauch;des Bauches;
+N222;Herz;das;Herzen;heart;[hɛʁt͡s];Mein Herz schlägt schnell.;My heart is beating fast.;Body;Torso;body,abstract;50;12;3;Neuter;das Herz;das Herz;dem Herzen;des Herzens;A special n-declension noun.
+N223;Blut;das;(no plural);blood;[bluːt];Die Farbe von Blut ist rot.;The color of blood is red.;Body;Internal;body,health;49;12;1;Neuter;das Blut;das Blut;dem Blut;des Blutes;
+N224;Knie;das;Knie;knee;[kniː];Ich habe Schmerzen im Knie.;I have pain in my knee.;Body;Limbs;body;48;12;1;Neuter;das Knie;das Knie;dem Knie;des Knies;
+N225;Hals;der;Hälse;neck, throat;[hals];Mein Hals ist trocken.;My throat is dry.;Body;Torso;body;47;12;2;Masculine;der Hals;den Hals;dem Hals;des Halses;
+N226;Stimme;die;Stimmen;voice;[ˈʃtɪmə];Sie hat eine schöne Stimme.;She has a beautiful voice.;Body;Internal;communication;46;11;1;Feminine;die Stimme;die Stimme;der Stimme;der Stimme;
+N227;Kunde;der;Kunden;customer (male);[ˈkʊndə];Der Kunde hat immer Recht.;The customer is always right.;People;Professions;work,shopping;45;16;3;Masculine;der Kunde;den Kunden;dem Kunden;des Kunden;An n-declension noun.
+N228;Gast;der;Gäste;guest;[ɡast];Wir haben heute Gäste.;We have guests today.;People;Social;home,leisure;44;22;2;Masculine;der Gast;den Gast;dem Gast;des Gastes;
+N229;Nachbar;der;Nachbarn;neighbor (male);[ˈnaxˌbaːɐ̯];Mein Nachbar ist laut.;My neighbor is loud.;People;Social;home;43;5;3;Masculine;der Nachbar;den Nachbarn;dem Nachbarn;des Nachbarn;An n-declension noun.
+N230;Mensch;der;Menschen;human being, person;[mɛnʃ];Der Mensch ist ein soziales Tier.;Man is a social animal.;People;General;common,abstract;65;11;3;Masculine;der Mensch;den Menschen;dem Menschen;des Menschen;An n-declension noun.
+N231;Tier;das;Tiere;animal;[tiːɐ̯];Ich liebe Tiere.;I love animals.;Animals;General;nature;50;11;1;Neuter;das Tier;das Tier;dem Tier;des Tieres;
+N232;Vogel;der;Vögel;bird;[ˈfoːɡl̩];Ein Vogel singt im Baum.;A bird is singing in the tree.;Animals;Wildlife;nature;45;22;2;Masculine;der Vogel;den Vogel;dem Vogel;des Vogels;
+N233;Pferd;das;Pferde;horse;[p͡feːɐ̯t];Sie kann reiten.;She can ride a horse.;Animals;Wildlife;leisure;40;26;1;Neuter;das Pferd;das Pferd;dem Pferd;des Pferdes;
+N234;Schwein;das;Schweine;pig;[ʃvaɪ̯n];Du hast Schwein gehabt!;You were lucky!;Animals;Farm;food;39;6;1;Neuter;das Schwein;das Schwein;dem Schwein;des Schweines;Idiom: 'Schwein haben' means to have good luck.
+N235;Kuh;die;Kühe;cow;[kuː];Die Kuh gibt Milch.;The cow gives milk.;Animals;Farm;food;38;6;2;Feminine;die Kuh;die Kuh;der Kuh;der Kühe;
+N236;Schaf;das;Schafe;sheep;[ʃaːf];Das Schaf hat weiße Wolle.;The sheep has white wool.;Animals;Farm;nature;37;22;1;Neuter;das Schaf;das Schaf;dem Schaf;des Schafes;
+N237;Wetter;das;(no plural);weather;[ˈvɛtɐ];Das Wetter ist heute gut.;The weather is good today.;Nature;Weather;daily;55;22;1;Neuter;das Wetter;das Wetter;dem Wetter;des Wetters;
+N238;Wind;der;Winde;wind;[vɪnt];Der Wind ist stark.;The wind is strong.;Nature;Weather;daily;50;22;1;Masculine;der Wind;den Wind;dem Wind;des Windes;
+N239;Schnee;der;(no plural);snow;[ʃneː];Im Winter gibt es Schnee.;In winter there is snow.;Nature;Weather;seasons;48;22;1;Masculine;der Schnee;den Schnee;dem Schnee;des Schnees;
+N240;Wolke;die;Wolken;cloud;[ˈvɔlkə];Der Himmel ist voller Wolken.;The sky is full of clouds.;Nature;Weather;daily;47;22;1;Feminine;die Wolke;die Wolke;der Wolke;der Wolke;
+N241;Norden;der;(no plural);north;[ˈnɔʁdn̩];Hamburg liegt im Norden.;Hamburg is in the north.;Places;Directions;geography;35;28;1;Masculine;der Norden;den Norden;dem Norden;des Nordens;
+N242;Süden;der;(no plural);south;[ˈzyːdn̩];München liegt im Süden.;Munich is in the south.;Places;Directions;geography;35;28;1;Masculine;der Süden;den Süden;dem Süden;des Südens;
+N243;Westen;der;(no plural);west;[ˈvɛstn̩];Köln liegt im Westen.;Cologne is in the west.;Places;Directions;geography;35;28;1;Masculine;der Westen;den Westen;dem Westen;des Westens;
+N244;Osten;der;(no plural);east;[ˈɔstn̩];Berlin liegt im Osten.;Berlin is in the east.;Places;Directions;geography;35;28;1;Masculine;der Osten;den Osten;dem Osten;des Ostens;
+N245;Sinn;der;Sinne;sense, meaning;[zɪn];Das macht keinen Sinn.;That makes no sense.;Abstract;Concepts;communication;45;25;1;Masculine;der Sinn;den Sinn;dem Sinn;des Sinnes;
+N246;Grund;der;Gründe;reason, ground;[ɡʁʊnt];Was ist der Grund?;What is the reason?;Abstract;Concepts;communication;44;25;2;Masculine;der Grund;den Grund;dem Grund;des Grundes;
+N247;Teil;der;Teile;part, piece;[taɪ̯l];Das ist der beste Teil.;That is the best part.;Abstract;Concepts;general;43;15;1;Masculine;der Teil;den Teil;dem Teil;des Teils;Note: `das Teil` means a physical piece/part.
+N248;Art;die;Arten;type, kind, way;[aʁt];Diese Art von Musik mag ich.;I like this type of music.;Abstract;Concepts;general;42;15;1;Feminine;die Art;die Art;der Art;der Art;
+N249;Beispiel;das;Beispiele;example;[ˈbaɪ̯ʃpiːl];Zum Beispiel...;For example...;Communication;Language;learning;55;2;1;Neuter;das Beispiel;das Beispiel;dem Beispiel;des Beispiels;
+N250;Nummer;die;Nummern;number;[ˈnʊmɐ];Was ist deine Telefonnummer?;What is your telephone number?;Communication;Data;daily;50;10;1;Feminine;die Nummer;die Nummer;der Nummer;der Nummer;
+N251;Anzug;der;Anzüge;suit;[ˈanˌt͡suːk];Er trägt einen Anzug zur Arbeit.;He wears a suit to work.;Clothing;Garments;work,formal;40;16;2;Masculine;der Anzug;den Anzug;dem Anzug;des Anzuges;
+N252;Boden;der;Böden;floor, ground;[ˈboːdn̩];Die Tasse fiel auf den Boden.;The cup fell on the floor.;Home;Surfaces;home;45;5;2;Masculine;der Boden;den Boden;dem Boden;des Bodens;
+N253;Decke;die;Decken;ceiling, blanket;[ˈdɛkə];Das Licht ist an der Decke.;The light is on the ceiling.;Home;Surfaces;home;44;5;1;Feminine;die Decke;die Decke;der Decke;der Decke;
+N254;Wand;die;Wände;wall (interior);[vant];Das Bild hängt an der Wand.;The picture hangs on the wall.;Home;Surfaces;home;43;5;2;Feminine;die Wand;die Wand;der Wand;der Wände;
+N255;Treppe;die;Treppen;staircase, stairs;[ˈtʁɛpə];Die Treppe ist steil.;The staircase is steep.;Home;Structures;home;42;5;1;Feminine;die Treppe;die Treppe;der Treppe;der Treppe;
+N256;Keller;der;Keller;basement, cellar;[ˈkɛlɐ];Der Wein ist im Keller.;The wine is in the cellar.;Home;Rooms;home;41;5;1;Masculine;der Keller;den Keller;dem Keller;des Kellers;
+N257;Dach;das;Dächer;roof;[dax];Der Schornstein ist auf dem Dach.;The chimney is on the roof.;Home;Structures;home;40;5;2;Neuter;das Dach;das Dach;dem Dach;des Daches;
+N258;Heizung;die;Heizungen;heating;[ˈhaɪ̯t͡sʊŋ];Die Heizung ist kaputt.;The heating is broken.;Home;Systems;home,daily;48;5;1;Feminine;die Heizung;die Heizung;der Heizung;der Heizung;
+N259;Lärm;der;(no plural);noise;[lɛʁm];Der Lärm ist zu laut.;The noise is too loud.;Abstract;Sensory;daily;45;25;1;Masculine;der Lärm;den Lärm;dem Lärm;des Lärmes;
+N260;Fehler;der;Fehler;mistake, error;[ˈfeːlɐ];Ich habe einen Fehler gemacht.;I made a mistake.;Abstract;Situation;learning;46;15;1;Masculine;der Fehler;den Fehler;dem Fehler;des Fehlers;
+N261;Glück;das;(no plural);luck, happiness;[ɡlʏk];Viel Glück!;Good luck!;Abstract;Feelings;common;48;25;1;Neuter;das Glück;das Glück;dem Glück;des Glückes;
+N262;Pech;das;(no plural);bad luck;[pɛç];Ich hatte Pech.;I had bad luck.;Abstract;Feelings;common;47;25;1;Neuter;das Pech;das Pech;dem Pech;des Peches;
+N263;Liebe;die;(no plural);love;[ˈliːbə];Liebe ist ein starkes Gefühl.;Love is a strong feeling.;Abstract;Feelings;common;46;25;1;Feminine;die Liebe;die Liebe;der Liebe;der Liebe;
+N264;Angst;die;Ängste;fear;[aŋst];Ich habe Angst vor Spinnen.;I am afraid of spiders.;Abstract;Feelings;common;45;25;2;Feminine;die Angst;die Angst;der Angst;der Angst;
+N265;Wut;die;(no plural);rage, anger;[vuːt];Er war voller Wut.;He was full of rage.;Abstract;Feelings;common;44;25;1;Feminine;die Wut;die Wut;der Wut;der Wut;
+N266;Hunger;der;(no plural);hunger;[ˈhʊŋɐ];Ich habe großen Hunger.;I am very hungry.;Abstract;Feelings;daily;55;8;1;Masculine;der Hunger;den Hunger;dem Hunger;des Hungers;Used with 'haben': 'Hunger haben'.
+N267;Durst;der;(no plural);thirst;[dʊʁst];Hast du Durst?;Are you thirsty?;Abstract;Feelings;daily;54;8;1;Masculine;der Durst;den Durst;dem Durst;des Durstes;Used with 'haben': 'Durst haben'.
+N268;Schlaf;der;(no plural);sleep;[ʃlaːf];Ich brauche mehr Schlaf.;I need more sleep.;Abstract;States;daily;53;8;1;Masculine;der Schlaf;den Schlaf;dem Schlaf;des Schlafes;
+N269;Traum;der;Träume;dream;[tʁaʊ̯m];Ich hatte einen schönen Traum.;I had a nice dream.;Abstract;Concepts;common;52;25;2;Masculine;der Traum;den Traum;dem Traum;des Traumes;
+N270;Wunsch;der;Wünsche;wish;[vʊnʃ];Was ist dein größter Wunsch?;What is your biggest wish?;Abstract;Concepts;common;51;25;2;Masculine;der Wunsch;den Wunsch;dem Wunsch;des Wunsches;
+N271;Ziel;das;Ziele;goal, destination;[t͡siːl];Mein Ziel ist es, Deutsch zu lernen.;My goal is to learn German.;Abstract;Concepts;learning,travel;50;25;1;Neuter;das Ziel;das Ziel;dem Ziel;des Zieles;
+N272;Plan;der;Pläne;plan;[plaːn];Hast du einen Plan für das Wochenende?;Do you have a plan for the weekend?;Abstract;Concepts;daily,work;49;29;2;Masculine;der Plan;den Plan;dem Plan;des Planes;
+N273;Rat;der;Ratschläge;advice, council;[ʁaːt];Kannst du mir einen Rat geben?;Can you give me some advice?;Communication;Concepts;social;48;13;2;Masculine;der Rat;den Rat;dem Rat;des Rates;
+N274;Wahl;die;Wahlen;choice, election;[vaːl];Du hast die Wahl.;You have the choice.;Abstract;Concepts;politics,social;47;25;1;Feminine;die Wahl;die Wahl;der Wahl;der Wahl;
+N275;Sieg;der;Siege;victory;[ziːk];Das war ein wichtiger Sieg.;That was an important victory.;Abstract;Events;sports,politics;46;26;1;Masculine;der Sieg;den Sieg;dem Sieg;des Sieges;
+N276;Krieg;der;Kriege;war;[kʁiːk];Krieg ist schrecklich.;War is terrible.;Abstract;Events;history,politics;45;25;1;Masculine;der Krieg;den Krieg;dem Krieg;des Krieges;
+N277;Frieden;der;(no plural);peace;[ˈfʁiːdən];Wir wollen in Frieden leben.;We want to live in peace.;Abstract;States;politics,social;44;25;3;Masculine;der Frieden;den Frieden;dem Frieden;des Friedens;
+N278;Gesetz;das;Gesetze;law;[ɡəˈzɛt͡s];Das ist gegen das Gesetz.;That is against the law.;Society;Rules;politics;43;25;1;Neuter;das Gesetz;das Gesetz;dem Gesetz;des Gesetzes;
+N279;Regel;die;Regeln;rule;[ˈʁeːɡl̩];Jedes Spiel hat Regeln.;Every game has rules.;Society;Rules;learning,sports;42;2;1;Feminine;die Regel;die Regel;der Regel;der Regel;
+N280;Staat;der;Staaten;state, country;[ʃtaːt];Der Staat hat viel Macht.;The state has a lot of power.;Society;Politics;politics,geography;41;25;1;Masculine;der Staat;den Staat;dem Staat;des Staates;
+N281;König;der;Könige;king;[ˈkøːnɪç];Der König lebt im Schloss.;The king lives in the castle.;People;Titles;history;40;25;1;Masculine;der König;den König;dem König;des Königs;
+N282;Präsident;der;Präsidenten;president (male);[pʁɛziˈdɛnt];Der Präsident hält eine Rede.;The president is giving a speech.;People;Titles;politics;39;25;3;Masculine;der Präsident;den Präsidenten;dem Präsidenten;des Präsidenten;An n-declension noun.
+N283;Gott;der;Götter;God, god;[ɡɔt];Viele Menschen glauben an einen Gott.;Many people believe in a god.;Abstract;Religion;religion;38;25;2;Masculine;der Gott;den Gott;dem Gott;des Gottes;
+N284;Kirche;die;Kirchen;church;[ˈkɪʁçə];Am Sonntag gehen wir in die Kirche.;On Sunday we go to church.;Places;Religion;religion,buildings;37;25;1;Feminine;die Kirche;die Kirche;der Kirche;der Kirche;
+N285;Markt;der;Märkte;market;[maʁkt];Auf dem Markt gibt es frisches Gemüse.;There are fresh vegetables at the market.;Places;Shops;shopping,food;45;14;2;Masculine;der Markt;den Markt;dem Markt;des Marktes;
+N286;Laden;der;Läden;shop, store;[ˈlaːdn̩];Der Laden schließt um 18 Uhr.;The shop closes at 6 PM.;Places;Shops;shopping;44;14;2;Masculine;der Laden;den Laden;dem Laden;des Ladens;
+N287;Bäckerei;die;Bäckereien;bakery;[bɛkəˈʁaɪ̯];Ich hole Brot von der Bäckerei.;I'm getting bread from the bakery.;Places;Shops;food,shopping;43;6;1;Feminine;die Bäckerei;die Bäckerei;der Bäckerei;der Bäckerei;
+N288;Metzgerei;die;Metzgereien;butcher shop;[mɛt͡sɡəˈʁaɪ̯];Die Metzgerei hat gutes Fleisch.;The butcher shop has good meat.;Places;Shops;food,shopping;42;6;1;Feminine;die Metzgerei;die Metzgerei;der Metzgerei;der Metzgerei;Also called 'Fleischerei'.
+N289;Schiff;das;Schiffe;ship;[ʃɪf];Das Schiff fährt über das Meer.;The ship travels over the sea.;Transport;Vehicles;travel;41;20;1;Neuter;das Schiff;das Schiff;dem Schiff;des Schiffes;
+N290;Hafen;der;Häfen;harbor, port;[ˈhaːfn̩];Das Schiff liegt im Hafen.;The ship is in the harbor.;Places;Transport;travel;40;20;2;Masculine;der Hafen;den Hafen;dem Hafen;des Hafens;
+N291;Flughafen;der;Flughäfen;airport;[ˈfluːkˌhaːfn̩];Wir fahren zum Flughafen.;We are driving to the airport.;Places;Transport;travel;50;20;2;Masculine;der Flughafen;den Flughafen;dem Flughafen;des Flughafens;
+N292;Ticket;das;Tickets;ticket;[ˈtɪkət];Hast du das Ticket gekauft?;Did you buy the ticket?;Objects;Travel;travel,events;49;20;1;Neuter;das Ticket;das Ticket;dem Ticket;des Tickets;
+N293;Koffer;der;Koffer;suitcase;[ˈkɔfɐ];Mein Koffer ist zu schwer.;My suitcase is too heavy.;Objects;Travel;travel;48;20;1;Masculine;der Koffer;den Koffer;dem Koffer;des Koffers;
+N294;Pass;der;Pässe;passport;[pas];Vergiss deinen Pass nicht!;Don't forget your passport!;Objects;Travel;travel,official;47;20;2;Masculine;der Pass;den Pass;dem Pass;des Passes;
+N295;Gepäck;das;(no plural);luggage, baggage;[ɡəˈpɛk];Wo ist mein Gepäck?;Where is my luggage?;Objects;Travel;travel;46;20;1;Neuter;das Gepäck;das Gepäck;dem Gepäck;des Gepäckes;
+N296;Zoll;der;Zölle;customs, duty;[t͡sɔl];Wir müssen durch den Zoll.;We have to go through customs.;Society;Travel;travel,official;45;20;2;Masculine;der Zoll;den Zoll;dem Zoll;des Zolles;
+N297;Unfall;der;Unfälle;accident;[ˈʊnˌfal];Es gab einen Unfall auf der Autobahn.;There was an accident on the highway.;Events;Situations;transport,health;44;18;2;Masculine;der Unfall;den Unfall;dem Unfall;des Unfalles;
+N298;Verletzung;die;Verletzungen;injury;[fɛɐ̯ˈlɛt͡sʊŋ];Die Verletzung ist nicht schlimm.;The injury is not bad.;Abstract;Health;health;43;13;1;Feminine;die Verletzung;die Verletzung;der Verletzung;der Verletzung;
+N299;Schmerz;der;Schmerzen;pain;[ʃmɛʁt͡s];Ich habe starke Schmerzen.;I have strong pains.;Abstract;Health;health;42;13;1;Masculine;der Schmerz;den Schmerz;dem Schmerz;des Schmerzes;Often used in plural 'Schmerzen'.
+N300;Fieber;das;(no plural);fever;[ˈfiːbɐ];Das Kind hat Fieber.;The child has a fever.;Abstract;Health;health;41;13;1;Neuter;das Fieber;das Fieber;dem Fieber;des Fiebers;
+N301;Medikament;das;Medikamente;medication;[medikaˈmɛnt];Nehmen Sie das Medikament dreimal täglich.;Take the medication three times a day.;Objects;Health;health;40;13;1;Neuter;das Medikament;das Medikament;dem Medikament;des Medikamentes;
+N302;Universität;die;Universitäten;university;[univɛʁziˈtɛːt];Sie studiert an der Technischen Universität München.;She studies at the Technical University of Munich.;Places;Education;learning,work;45;9;1;Feminine;die Universität;die Universität;der Universität;der Universität;
+N303;Bibliothek;die;Bibliotheken;library;[biblioˈteːk];Ich lerne in der Bibliothek.;I study in the library.;Places;Education;learning;44;9;1;Feminine;die Bibliothek;die Bibliothek;der Bibliothek;der Bibliothek;
+N304;Prüfung;die;Prüfungen;exam, test;[ˈpʁyːfʊŋ];Morgen habe ich eine wichtige Prüfung.;Tomorrow I have an important exam.;Events;Education;learning;43;9;1;Feminine;die Prüfung;die Prüfung;der Prüfung;der Prüfung;
+N305;Note;die;Noten;grade, mark, note (music);[ˈnoːtə];Ich habe eine gute Note bekommen.;I got a good grade.;Abstract;Education;learning;42;9;1;Feminine;die Note;die Note;der Note;der Note;
+N306;Hausaufgabe;die;Hausaufgaben;homework;[ˈhaʊ̯sʔaʊ̯fˌɡaːbə];Hast du die Hausaufgaben gemacht?;Did you do the homework?;Work & Study;Education;learning;41;9;1;Feminine;die Hausaufgabe;die Hausaufgabe;der Hausaufgabe;der Hausaufgabe;
+N307;Wissenschaftler;der;Wissenschaftler;scientist (male);[ˈvɪsn̩ˌʃaftlɐ];Albert Einstein war ein berühmter Wissenschaftler.;Albert Einstein was a famous scientist.;People;Professions;work;40;16;1;Masculine;der Wissenschaftler;den Wissenschaftler;dem Wissenschaftler;des Wissenschaftlers;
+N308;Ingenieur;der;Ingenieure;engineer (male);[ɪnʒeˈni̯øːɐ̯];Er ist Ingenieur bei BMW.;He is an engineer at BMW.;People;Professions;work;39;16;1;Masculine;der Ingenieur;den Ingenieur;dem Ingenieur;des Ingenieurs;
+N309;Künstler;der;Künstler;artist (male);[ˈkʏnstlɐ];Der Künstler malt ein Bild.;The artist is painting a picture.;People;Professions;art,leisure;38;26;1;Masculine;der Künstler;den Künstler;dem Künstler;des Künstlers;
+N310;Sänger;der;Sänger;singer (male);[ˈzɛŋɐ];Der Sänger hat eine tolle Stimme.;The singer has a great voice.;People;Professions;music,leisure;37;26;1;Masculine;der Sänger;den Sänger;dem Sänger;des Sängers;
+N311;Schauspieler;der;Schauspieler;actor;[ˈʃaʊ̯ˌʃpiːlɐ];Er ist ein berühmter Schauspieler.;He is a famous actor.;People;Professions;media,leisure;36;26;1;Masculine;der Schauspieler;den Schauspieler;dem Schauspieler;des Schauspielers;
+N312;Maler;der;Maler;painter;[ˈmaːlɐ];Der Maler streicht die Wand.;The painter is painting the wall.;People;Professions;art,work;35;23;1;Masculine;der Maler;den Maler;dem Maler;des Malers;
+N313;Kellner;der;Kellner;waiter;[ˈkɛlnɐ];Der Kellner bringt die Rechnung.;The waiter is bringing the bill.;People;Professions;food,work;40;22;1;Masculine;der Kellner;den Kellner;dem Kellner;des Kellners;
+N314;Koch;der;Köche;cook, chef (male);[kɔx];Der Koch bereitet das Essen zu.;The chef is preparing the food.;People;Professions;food,work;39;22;2;Masculine;der Koch;den Koch;dem Koch;des Koches;
+N315;Polizist;der;Polizisten;police officer (male);[polit͡sˈɪst];Der Polizist regelt den Verkehr.;The police officer is directing traffic.;People;Professions;society;42;28;3;Masculine;der Polizist;den Polizisten;dem Polizisten;des Polizisten;An n-declension noun.
+N316;Feuerwehrmann;der;Feuerwehrmänner;firefighter (male);[ˈfɔɪ̯ɐveːɐ̯ˌman];Der Feuerwehrmann löscht das Feuer.;The firefighter puts out the fire.;People;Professions;society;38;28;2;Masculine;der Feuerwehrmann;den Feuerwehrmann;dem Feuerwehrmann;des Feuerwehrmannes;
+N317;Verkäufer;der;Verkäufer;salesperson (male);[fɛɐ̯ˈkɔɪ̯fɐ];Der Verkäufer hilft den Kunden.;The salesperson helps the customers.;People;Professions;shopping,work;41;14;1;Masculine;der Verkäufer;den Verkäufer;dem Verkäufer;des Verkäufers;
+N318;Handwerker;der;Handwerker;craftsman, handyman;[ˈhantˌvɛʁkɐ];Wir brauchen einen Handwerker.;We need a handyman.;People;Professions;work,home;40;5;1;Masculine;der Handwerker;den Handwerker;dem Handwerker;des Handwerkers;
+N319;Bauer;der;Bauern;farmer (male);[ˈbaʊ̯ɐ];Der Bauer arbeitet auf dem Feld.;The farmer works in the field.;People;Professions;nature,food;39;6;3;Masculine;der Bauer;den Bauern;dem Bauern;des Bauern;An n-declension noun.
+N320;Musiker;der;Musiker;musician (male);[ˈmuːzɪkɐ];Er ist ein talentierter Musiker.;He is a talented musician.;People;Professions;music,leisure;38;26;1;Masculine;der Musiker;den Musiker;dem Musiker;des Musikers;
+N321;Mitarbeiter;der;Mitarbeiter;employee, co-worker;[ˈmɪtˌʔaʁbaɪ̯tɐ];Die Mitarbeiter haben eine Besprechung.;The employees are having a meeting.;People;Work;work;45;16;1;Masculine;der Mitarbeiter;den Mitarbeiter;dem Mitarbeiter;des Mitarbeiters;
+N322;Nachricht;die;Nachrichten;message, news;[ˈnaːxˌʁɪçt];Ich habe eine Nachricht für dich.;I have a message for you.;Communication;Media;daily,communication;48;16;1;Feminine;die Nachricht;die Nachricht;der Nachricht;der Nachricht;Plural 'Nachrichten' often means 'the news'.
+N323;Medien;die;(no singular);media;[ˈmeːdi̯ən];Die Medien berichten über das Ereignis.;The media are reporting on the event.;Communication;Media;media,society;47;26;1;Plural only;die Medien;die Medien;den Medien;der Medien;
+N324;Internet;das;(no plural);internet;[ˈɪntɐnɛt];Ich suche Informationen im Internet.;I'm looking for information on the internet.;Communication;Media;daily,tech;50;10;1;Neuter;das Internet;das Internet;dem Internet;des Internets;
+N325;Webseite;die;Webseiten;website;[ˈvɛpˌzaɪ̯tə];Die Webseite ist sehr informativ.;The website is very informative.;Communication;Media;tech;49;10;1;Feminine;die Webseite;die Webseite;der Webseite;der Webseite;
+N326;Link;der;Links;link;[lɪŋk];Kannst du mir den Link schicken?;Can you send me the link?;Communication;Media;tech;48;10;1;Masculine;der Link;den Link;dem Link;des Links;
+N327;Datei;die;Dateien;file (computer);[daˈtaɪ̯];Ich kann die Datei nicht öffnen.;I can't open the file.;Work & Study;Tech;work,tech;47;10;1;Feminine;die Datei;die Datei;der Datei;der Datei;
+N328;Ordner;der;Ordner;folder, binder;[ˈɔʁdnɐ];Die Datei ist in diesem Ordner.;The file is in this folder.;Work & Study;Tech;work,tech;46;10;1;Masculine;der Ordner;den Ordner;dem Ordner;des Ordners;
+N329;Programm;das;Programme;program;[pʁoˈɡʁam];Welches Programm benutzt du?;Which program do you use?;Work & Study;Tech;work,tech;45;10;1;Neuter;das Programm;das Programm;dem Programm;des Programmes;
+N330;System;das;Systeme;system;[zʏsˈteːm];Das System funktioniert nicht.;The system isn't working.;Abstract;Structures;tech,work;44;25;1;Neuter;das System;das System;dem System;des Systemes;
+N331;Kreditkarte;die;Kreditkarten;credit card;[kʁeˈdiːtˌkaʁtə];Kann ich mit Kreditkarte zahlen?;Can I pay by credit card?;Objects;Finance;shopping;43;9;1;Feminine;die Kreditkarte;die Kreditkarte;der Kreditkarte;der Kreditkarte;
+N332;Bargeld;das;(no plural);cash;[ˈbaːɐ̯ˌɡɛlt];Ich zahle mit Bargeld.;I'm paying with cash.;Objects;Finance;shopping;42;9;1;Neuter;das Bargeld;das Bargeld;dem Bargeld;des Bargeldes;Cash is still very widely used and preferred in Germany.
+N333;Konto;das;Konten/Kontos;account (bank);[ˈkɔnto];Ich muss Geld auf mein Konto einzahlen.;I need to deposit money into my account.;Objects;Finance;daily;41;16;2;Neuter;das Konto;das Konto;dem Konto;des Kontos;
+N334;Prozent;das;Prozente;percent;[pʁoˈt͡sɛnt];Zehn Prozent der Studenten...;Ten percent of the students...;Abstract;Math;finance,math;40;9;1;Neuter;das Prozent;das Prozent;dem Prozent;des Prozentes;
+N335;Stück;das;Stücke;piece;[ʃtʏk];Ein Stück Kuchen, bitte.;A piece of cake, please.;Abstract;Measurement;food,objects;45;6;1;Neuter;das Stück;das Stück;dem Stück;des Stückes;
+N336;Paar;das;Paare;pair, couple;[paːɐ̯];Ich brauche ein Paar neue Schuhe.;I need a new pair of shoes.;Abstract;Measurement;objects,people;44;9;1;Neuter;das Paar;das Paar;dem Paar;des Paares;
+N337;Gruppe;die;Gruppen;group;[ˈɡʁʊpə];Wir arbeiten in einer kleinen Gruppe.;We are working in a small group.;People;Group;social,work;43;12;1;Feminine;die Gruppe;die Gruppe;der Gruppe;der Gruppe;
+N338;Team;das;Teams;team;[tiːm];Unser Team hat gewonnen.;Our team won.;People;Group;sports,work;42;26;1;Neuter;das Team;das Team;dem Team;des Teams;
+N339;Verein;der;Vereine;club, association;[fɛɐ̯ˈʔaɪ̯n];Bist du in einem Sportverein?;Are you in a sports club?;Society;Organizations;leisure,sports;41;26;1;Masculine;der Verein;den Verein;dem Verein;des Vereines;A very important part of German social life.
+N340;Mitglied;das;Mitglieder;member;[ˈmɪtˌɡliːt];Er ist Mitglied im Verein.;He is a member of the club.;People;Group;leisure,society;40;26;2;Neuter;das Mitglied;das Mitglied;dem Mitglied;des Mitgliedes;
+N341;Regierung;die;Regierungen;government;[ʁeˈɡiːʁʊŋ];Die Regierung hat neue Gesetze beschlossen.;The government has passed new laws.;Society;Politics;politics;39;25;1;Feminine;die Regierung;die Regierung;der Regierung;der Regierung;
+N342;Partei;die;Parteien;party (political);[paʁˈtaɪ̯];Welche Partei wählst du?;Which party are you voting for?;Society;Politics;politics;38;25;1;Feminine;die Partei;die Partei;der Partei;der Partei;
+N343;Wahl;die;Wahlen;election, choice;[vaːl];Die nächste Wahl ist im September.;The next election is in September.;Events;Politics;politics;37;25;1;Feminine;die Wahl;die Wahl;der Wahl;der Wahl;
+N344;Bürger;der;Bürger;citizen (male);[ˈbʏʁɡɐ];Die Bürger sind unzufrieden.;The citizens are dissatisfied.;People;Society;politics;36;25;1;Masculine;der Bürger;den Bürger;dem Bürger;des Bürgers;
+N345;Hauptstadt;die;Hauptstädte;capital city;[ˈhaʊ̯ptˌʃtat];Berlin ist die Hauptstadt von Deutschland.;Berlin is the capital of Germany.;Places;Geography;geography,politics;45;10;2;Feminine;die Hauptstadt;die Hauptstadt;der Hauptstadt;der Hauptstädte;
+N346;Einwohner;der;Einwohner;inhabitant;[ˈaɪ̯nˌvoːnɐ];München hat über eine Million Einwohner.;Munich has over a million inhabitants.;People;Society;geography;44;10;1;Masculine;der Einwohner;den Einwohner;dem Einwohner;des Einwohners;
+N347;Grenze;die;Grenzen;border, boundary;[ˈɡʁɛnt͡sə];Wir überqueren die Grenze.;We are crossing the border.;Places;Geography;travel,politics;43;20;1;Feminine;die Grenze;die Grenze;der Grenze;der Grenze;
+N348;Natur;die;(no plural);nature;[naˈtuːɐ̯];Ich bin gern in der Natur.;I like being in nature.;Nature;General;leisure,nature;48;22;1;Feminine;die Natur;die Natur;der Natur;der Natur;
+N349;Umwelt;die;(no plural);environment;[ˈʊmˌvɛlt];Wir müssen die Umwelt schützen.;We must protect the environment.;Nature;General;society,politics;47;22;1;Feminine;die Umwelt;die Umwelt;der Umwelt;der Umwelt;
+N350;Luft;die;Lüfte;air;[lʊft];Die Luft hier ist frisch.;The air here is fresh.;Nature;Elements;daily;46;22;2;Feminine;die Luft;die Luft;der Luft;der Luft;
+N351;Feuer;das;Feuer;fire;[ˈfɔɪ̯ɐ];Mach bitte kein Feuer im Wald.;Please don't make a fire in the forest.;Nature;Elements;danger;45;28;1;Neuter;das Feuer;das Feuer;dem Feuer;des Feuers;
+N352;Erde;die;(no plural);earth, soil, ground;[ˈeːɐ̯də];Die Erde ist ein Planet.;The Earth is a planet.;Nature;Elements;geography;44;22;1;Feminine;die Erde;die Erde;der Erde;der Erde;
+N353;Stein;der;Steine;stone, rock;[ʃtaɪ̯n];Wirf keinen Stein!;Don't throw a stone!;Nature;Elements;nature;43;22;1;Masculine;der Stein;den Stein;dem Stein;des Steines;
+N354;Metall;das;Metalle;metal;[meˈtal];Eisen ist ein Metall.;Iron is a metal.;Objects;Materials;materials;42;22;1;Neuter;das Metall;das Metall;dem Metall;des Metalles;
+N355;Holz;das;Hölzer;wood;[hɔlt͡s];Der Tisch ist aus Holz.;The table is made of wood.;Objects;Materials;materials,home;41;5;2;Neuter;das Holz;das Holz;dem Holz;des Holzes;
+N356;Plastik;das;(no plural);plastic;[ˈplastɪk];Wir sollten weniger Plastik verwenden.;We should use less plastic.;Objects;Materials;materials,society;40;25;1;Neuter;das Plastik;das Plastik;dem Plastik;des Plastiks;
+N357;Glas;das;Gläser;glass;[ɡlaːs];Das Fenster ist aus Glas.;The window is made of glass.;Objects;Materials;materials,home;39;5;2;Neuter;das Glas;das Glas;dem Glas;des Glases;Also means 'drinking glass'.
+N358;Ecke;die;Ecken;corner;[ˈɛkə];Der Laden ist an der nächsten Ecke.;The shop is at the next corner.;Places;Locations;daily,directions;45;28;1;Feminine;die Ecke;die Ecke;der Ecke;der Ecke;
+N359;Mitte;die;(no plural);middle, center;[ˈmɪtə];Wir treffen uns in der Mitte.;We'll meet in the middle.;Places;Locations;daily,directions;44;28;1;Feminine;die Mitte;die Mitte;der Mitte;der Mitte;
+N360;Seite;die;Seiten;side, page;[ˈzaɪ̯tə];Auf welcher Seite ist es?;On which page is it?;Abstract;Locations;learning,directions;43;8;1;Feminine;die Seite;die Seite;der Seite;der Seite;
+N361;Form;die;Formen;shape, form;[fɔʁm];Das hat eine komische Form.;That has a weird shape.;Abstract;Appearance;general;42;15;1;Feminine;die Form;die Form;der Form;der Form;
+N362;Punkt;der;Punkte;point, dot, period;[pʊŋkt];Das ist ein wichtiger Punkt.;That is an important point.;Abstract;Concepts;communication;41;15;1;Masculine;der Punkt;den Punkt;dem Punkt;des Punktes;
+N363;Linie;die;Linien;line;[ˈliːni̯ə];Zeichne eine gerade Linie.;Draw a straight line.;Abstract;Appearance;math,art;40;23;1;Feminine;die Linie;die Linie;der Linie;der Linie;
+N364;Kreis;der;Kreise;circle;[kʁaɪ̯s];Wir sitzen im Kreis.;We are sitting in a circle.;Abstract;Appearance;math,art;39;23;1;Masculine;der Kreis;den Kreis;dem Kreis;des Kreises;
+N365;Quadrat;das;Quadrate;square;[kvaˈdʁaːt];Ein Quadrat hat vier gleiche Seiten.;A square has four equal sides.;Abstract;Appearance;math,art;38;23;1;Neuter;das Quadrat;das Quadrat;dem Quadrat;des Quadrates;
+N366;Kugel;die;Kugeln;sphere, scoop (ice cream);[ˈkuːɡl̩];Eine Kugel Eis, bitte.;One scoop of ice cream, please.;Abstract;Appearance;math,food;37;6;1;Feminine;die Kugel;die Kugel;der Kugel;der Kugel;
+N367;Gewicht;das;Gewichte;weight;[ɡəˈvɪçt];Was ist dein Gewicht?;What is your weight?;Abstract;Measurement;health,math;36;13;1;Neuter;das Gewicht;das Gewicht;dem Gewicht;des Gewichtes;
+N368;Länge;die;Längen;length;[ˈlɛŋə];Der Fluss hat eine Länge von 100 km.;The river has a length of 100 km.;Abstract;Measurement;math,geography;35;22;1;Feminine;die Länge;die Länge;der Länge;der Länge;
+N369;Breite;die;Breiten;width;[ˈbʁaɪ̯tə];Die Breite der Straße ist 5 Meter.;The width of the road is 5 meters.;Abstract;Measurement;math,geography;34;22;1;Feminine;die Breite;die Breite;der Breite;der Breite;
+N370;Höhe;die;Höhen;height;[ˈhøːə];Die Höhe des Berges ist beeindruckend.;The height of the mountain is impressive.;Abstract;Measurement;math,geography;33;22;1;Feminine;die Höhe;die Höhe;der Höhe;der Höhe;
+N371;Geschwindigkeit;die;Geschwindigkeiten;speed;[ɡəˈʃvɪndɪçˌkaɪ̯t];Die Geschwindigkeit ist auf 120 km/h begrenzt.;The speed is limited to 120 km/h.;Abstract;Measurement;transport,math;32;18;1;Feminine;die Geschwindigkeit;die Geschwindigkeit;der Geschwindigkeit;der Geschwindigkeit;
+N372;Kraft;die;Kräfte;strength, force, power;[kʁaft];Er hat viel Kraft.;He has a lot of strength.;Abstract;Concepts;general;40;25;2;Feminine;die Kraft;die Kraft;der Kraft;der Kräfte;
+N373;Energie;die;Energien;energy;[enɛʁˈɡiː];Ich habe heute keine Energie.;I have no energy today.;Abstract;Concepts;daily,science;39;25;1;Feminine;die Energie;die Energie;der Energie;der Energie;
+N374;Gefühl;das;Gefühle;feeling;[ɡəˈfyːl];Das ist ein komisches Gefühl.;That is a weird feeling.;Abstract;Feelings;social;45;25;1;Neuter;das Gefühl;das Gefühl;dem Gefühl;des Gefühles;
+N375;Gedanke;der;Gedanken;thought;[ɡəˈdaŋkə];Das ist ein interessanter Gedanke.;That is an interesting thought.;Abstract;Concepts;communication;44;25;3;Masculine;der Gedanke;den Gedanken;dem Gedanken;des Gedankens;An n-declension noun.
+N376;Erinnerung;die;Erinnerungen;memory;[ɛɐ̯ˈʔɪnəʁʊŋ];Ich habe gute Erinnerungen an die Zeit.;I have good memories of that time.;Abstract;Concepts;social;43;25;1;Feminine;die Erinnerung;die Erinnerung;der Erinnerung;der Erinnerung;
+N377;Zukunft;die;(no plural);future;[ˈt͡suːkʊnft];Was sind deine Pläne für die Zukunft?;What are your plans for the future?;Abstract;Time;common;42;29;1;Feminine;die Zukunft;die Zukunft;der Zukunft;der Zukunft;
+N378;Vergangenheit;die;(no plural);past;[fɛɐ̯ˈɡaŋənhaɪ̯t];Man kann die Vergangenheit nicht ändern.;You can't change the past.;Abstract;Time;common;41;29;1;Feminine;die Vergangenheit;die Vergangenheit;der Vergangenheit;der Vergangenheit;
+N379;Gegenwart;die;(no plural);present (time);[ˈɡeːɡn̩vaʁt];Lebe in der Gegenwart!;Live in the present!;Abstract;Time;common;40;29;1;Feminine;die Gegenwart;die Gegenwart;der Gegenwart;der Gegenwart;
+N380;Möglichkeit;die;Möglichkeiten;possibility;[ˈmøːklɪçˌkaɪ̯t];Gibt es eine andere Möglichkeit?;Is there another possibility?;Abstract;Concepts;communication;39;25;1;Feminine;die Möglichkeit;die Möglichkeit;der Möglichkeit;der Möglichkeit;
+N381;Wirklichkeit;die;Wirklichkeiten;reality;[ˈvɪʁklɪçˌkaɪ̯t];In Wirklichkeit ist es anders.;In reality it's different.;Abstract;Concepts;communication;38;25;1;Feminine;die Wirklichkeit;die Wirklichkeit;der Wirklichkeit;der Wirklichkeit;
+N382;Unterschied;der;Unterschiede;difference;[ˈʊntɐˌʃiːt];Was ist der Unterschied?;What is the difference?;Abstract;Concepts;communication,learning;37;15;1;Masculine;der Unterschied;den Unterschied;dem Unterschied;des Unterschiedes;
+N383;Schwierigkeit;die;Schwierigkeiten;difficulty;[ˈʃviːʁɪçˌkaɪ̯t];Ich habe Schwierigkeiten mit der Grammatik.;I have difficulties with the grammar.;Abstract;Concepts;learning;36;2;1;Feminine;die Schwierigkeit;die Schwierigkeit;der Schwierigkeit;der Schwierigkeit;
+N384;Vorteil;der;Vorteile;advantage;[ˈfɔʁˌtaɪ̯l];Der Vorteil ist, dass es billig ist.;The advantage is that it's cheap.;Abstract;Concepts;communication;35;25;1;Masculine;der Vorteil;den Vorteil;dem Vorteil;des Vorteiles;
+N385;Nachteil;der;Nachteile;disadvantage;[ˈnaxˌtaɪ̯l];Der Nachteil ist der Lärm.;The disadvantage is the noise.;Abstract;Concepts;communication;34;25;1;Masculine;der Nachteil;den Nachteil;dem Nachteil;des Nachteiles;
+N386;Erfolg;der;Erfolge;success;[ɛɐ̯ˈfɔlk];Viel Erfolg bei der Prüfung!;Good luck with the exam!;Abstract;Concepts;work,learning;33;29;1;Masculine;der Erfolg;den Erfolg;dem Erfolg;des Erfolges;
+N387;Ergebnis;das;Ergebnisse;result;[ɛɐ̯ˈɡeːpnɪs];Was ist das Ergebnis?;What is the result?;Abstract;Concepts;work,science;32;29;1;Neuter;das Ergebnis;das Ergebnis;dem Ergebnis;des Ergebnisses;
+N388;Wirkung;die;Wirkungen;effect, impact;[ˈvɪʁkʊŋ];Das Medikament hat eine starke Wirkung.;The medication has a strong effect.;Abstract;Concepts;science,health;31;13;1;Feminine;die Wirkung;die Wirkung;der Wirkung;der Wirkung;
+N389;Bedeutung;die;Bedeutungen;meaning, significance;[bəˈdɔɪ̯tʊŋ];Was ist die Bedeutung von diesem Wort?;What is the meaning of this word?;Abstract;Concepts;learning,communication;30;2;1;Feminine;die Bedeutung;die Bedeutung;der Bedeutung;der Bedeutung;
+N390;Gesellschaft;die;Gesellschaften;society;[ɡəˈzɛlʃaft];Das ist ein Problem der modernen Gesellschaft.;That is a problem of modern society.;Society;General;politics,social;35;25;1;Feminine;die Gesellschaft;die Gesellschaft;der Gesellschaft;der Gesellschaft;
+N391;Kultur;die;Kulturen;culture;[kʊlˈtuːɐ̯];Ich interessiere mich für andere Kulturen.;I am interested in other cultures.;Society;General;social,travel;34;1;1;Feminine;die Kultur;die Kultur;der Kultur;der Kultur;
+N392;Geschichte;die;Geschichten;history, story;[ɡəˈʃɪçtə];Erzähl mir eine Geschichte!;Tell me a story!;Society;General;learning,leisure;33;25;1;Feminine;die Geschichte;die Geschichte;der Geschichte;der Geschichte;
+N393;Kunst;die;Künste;art;[kʊnst];Moderne Kunst ist oft abstrakt.;Modern art is often abstract.;Society;Arts;leisure,art;32;26;2;Feminine;die Kunst;die Kunst;der Kunst;der Künste;
+N394;Wissenschaft;die;Wissenschaften;science;[ˈvɪsn̩ˌʃaft];Die Wissenschaft sucht nach Antworten.;Science looks for answers.;Society;Science;learning,work;31;16;1;Feminine;die Wissenschaft;die Wissenschaft;der Wissenschaft;der Wissenschaft;
+N395;Technik;die;Techniken;technology, technique;[ˈtɛçnɪk];Die Technik entwickelt sich schnell.;Technology develops quickly.;Society;Science;tech,work;30;16;1;Feminine;die Technik;die Technik;der Technik;der Technik;
+N396;Industrie;die;Industrien;industry;[ɪndʊsˈtʁiː];Die deutsche Autoindustrie ist weltbekannt.;The German car industry is world-famous.;Society;Economy;work,politics;29;16;1;Feminine;die Industrie;die Industrie;der Industrie;der Industrie;
+N397;Handel;der;(no plural);trade, commerce;[ˈhandl̩];Der internationale Handel ist wichtig.;International trade is important.;Society;Economy;work,politics;28;16;1;Masculine;der Handel;den Handel;dem Handel;des Handels;
+N398;Wirtschaft;die;Wirtschaften;economy;[ˈvɪʁtʃaft];Die Wirtschaft wächst.;The economy is growing.;Society;Economy;work,politics;27;16;1;Feminine;die Wirtschaft;die Wirtschaft;der Wirtschaft;der Wirtschaft;
+N399;Gerechtigkeit;die;(no plural);justice;[ɡəˈʁɛçtɪçˌkaɪ̯t];Alle fordern Gerechtigkeit.;Everyone demands justice.;Abstract;Values;politics,society;26;25;1;Feminine;die Gerechtigkeit;die Gerechtigkeit;der Gerechtigkeit;der Gerechtigkeit;
+N400;Freiheit;die;Freiheiten;freedom;[ˈfʁaɪ̯haɪ̯t];Freiheit ist ein wichtiges Gut.;Freedom is an important asset.;Abstract;Values;politics,society;25;25;1;Feminine;die Freiheit;die Freiheit;der Freiheit;der Freiheit;
+N401;Sicherheit;die;Sicherheiten;safety, security;[ˈzɪçɐhaɪ̯t];Sicherheit ist mir sehr wichtig.;Safety is very important to me.;Abstract;Values;society;24;25;1;Feminine;die Sicherheit;die Sicherheit;der Sicherheit;der Sicherheit;
+N402;Verantwortung;die;Verantwortungen;responsibility;[fɛɐ̯ˈʔantvɔʁtʊŋ];Jeder hat eine Verantwortung.;Everyone has a responsibility.;Abstract;Values;society,work;23;16;1;Feminine;die Verantwortung;die Verantwortung;der Verantwortung;der Verantwortung;
+N403;Vertrauen;das;(no plural);trust, confidence;[fɛɐ̯ˈtʁaʊ̯ən];Vertrauen ist die Basis jeder Beziehung.;Trust is the basis of every relationship.;Abstract;Values;social;22;11;1;Neuter;das Vertrauen;das Vertrauen;dem Vertrauen;des Vertrauens;
+N404;Respekt;der;(no plural);respect;[ʁeˈspɛkt];Zeig ein bisschen Respekt!;Show a little respect!;Abstract;Values;social;21;1;1;Masculine;der Respekt;den Respekt;dem Respekt;des Respektes;
+N405;Mut;der;(no plural);courage;[muːt];Sie hatte den Mut, die Wahrheit zu sagen.;She had the courage to tell the truth.;Abstract;Values;social;20;25;1;Masculine;der Mut;den Mut;dem Mut;des Mutes;
+N406;Stolz;der;(no plural);pride;[ʃtɔlt͡s];Er ist voller Stolz.;He is full of pride.;Abstract;Feelings;social;19;25;1;Masculine;der Stolz;den Stolz;dem Stolz;des Stolzes;
+N407;Humor;der;(no plural);humor;[huˈmoːɐ̯];Er hat einen guten Humor.;He has a good sense of humor.;Abstract;Values;social;18;25;1;Masculine;der Humor;den Humor;dem Humor;des Humors;
+N408;Charakter;der;Charaktere;character, personality;[kaˈʁaktɐ];Sie hat einen starken Charakter.;She has a strong character.;Abstract;Values;social;17;25;2;Masculine;der Charakter;den Charakter;dem Charakter;des Charakters;
+N409;Talent;das;Talente;talent;[taˈlɛnt];Er hat ein Talent für Musik.;He has a talent for music.;Abstract;Values;art,leisure;16;26;1;Neuter;das Talent;das Talent;dem Talent;des Talentes;
+N410;Prinzip;das;Prinzipien;principle;[pʁɪnˈt͡siːp];Das ist gegen meine Prinzipien.;That is against my principles.;Abstract;Values;social;15;25;2;Neuter;das Prinzip;das Prinzip;dem Prinzip;des Prinzips;
+N411;Tatsache;die;Tatsachen;fact;[ˈtaːtˌzaxə];Das ist eine Tatsache.;That is a fact.;Communication;Concepts;communication;20;15;1;Feminine;die Tatsache;die Tatsache;der Tatsache;der Tatsache;
+N412;Meinung;die;Meinungen;opinion;[ˈmaɪ̯nʊŋ];Das ist nur meine Meinung.;That's just my opinion.;Communication;Concepts;social;25;15;1;Feminine;die Meinung;die Meinung;der Meinung;der Meinung;
+N413;Diskussion;die;Diskussionen;discussion;[dɪskʊˈsi̯oːn];Wir hatten eine lange Diskussion.;We had a long discussion.;Communication;Events;social,work;24;15;1;Feminine;die Diskussion;die Diskussion;der Diskussion;der Diskussion;
+N414;Gespräch;das;Gespräche;conversation;[ɡəˈʃpʁɛːç];Ich hatte ein interessantes Gespräch.;I had an interesting conversation.;Communication;Events;social,work;23;15;2;Neuter;das Gespräch;das Gespräch;dem Gespräch;des Gespräches;
+N415;Interview;das;Interviews;interview;[ˈɪntɐvjuː];Morgen habe ich ein Interview.;Tomorrow I have an interview.;Communication;Events;work;22;16;1;Neuter;das Interview;das Interview;dem Interview;des Interviews;
+N416;Besprechung;die;Besprechungen;meeting (business);[bəˈʃpʁɛçʊŋ];Die Besprechung dauert eine Stunde.;The meeting lasts one hour.;Communication;Events;work;21;16;1;Feminine;die Besprechung;die Besprechung;der Besprechung;der Besprechung;
+N417;Vertrag;der;Verträge;contract;[fɛɐ̯ˈtʁaːk];Ich muss den Vertrag unterschreiben.;I have to sign the contract.;Work & Study;Documents;work,finance;20;16;2;Masculine;der Vertrag;den Vertrag;dem Vertrag;des Vertrages;
+N418;Dokument;das;Dokumente;document;[dokuˈmɛnt];Bitte senden Sie mir das Dokument.;Please send me the document.;Work & Study;Documents;work;19;16;1;Neuter;das Dokument;das Dokument;dem Dokument;des Dokumentes;
+N419;Ausweis;der;Ausweise;ID card;[ˈaʊ̯sˌvaɪ̯s];Zeigen Sie bitte Ihren Ausweis.;Please show your ID card.;Objects;Documents;official;25;1;1;Masculine;der Ausweis;den Ausweis;dem Ausweis;des Ausweises;Germans are required to carry an ID card (Personalausweis).
+N420;Führerschein;der;Führerscheine;driver's license;[ˈfyːʁɐˌʃaɪ̯n];Ich habe meinen Führerschein bestanden.;I passed my driver's license.;Objects;Documents;official,transport;24;18;1;Masculine;der Führerschein;den Führerschein;dem Führerschein;des Führerscheines;
+N421;Miete;die;Mieten;rent;[ˈmiːtə];Die Miete ist sehr hoch in München.;The rent is very high in Munich.;Finance;Home;daily,home;30;5;1;Feminine;die Miete;die Miete;der Miete;der Miete;
+N422;Gehalt;das;Gehälter;salary;[ɡəˈhalt];Er bekommt ein gutes Gehalt.;He gets a good salary.;Finance;Work;work;29;16;2;Neuter;das Gehalt;das Gehalt;dem Gehalt;des Gehaltes;
+N423;Steuer;die;Steuern;tax;[ˈʃtɔɪ̯ɐ];Jeder muss Steuern zahlen.;Everyone has to pay taxes.;Finance;Society;daily,politics;28;16;1;Feminine;die Steuer;die Steuer;der Steuer;der Steuern;
+N424;Versicherung;die;Versicherungen;insurance;[fɛɐ̯ˈzɪçəʁʊŋ];Hast du eine Krankenversicherung?;Do you have health insurance?;Finance;Society;daily,health;27;13;1;Feminine;die Versicherung;die Versicherung;der Versicherung;der Versicherung;Health insurance is mandatory in Germany.
+N425;Qualität;die;Qualitäten;quality;[kvaliˈtɛːt];Die Qualität ist wichtiger als die Quantität.;Quality is more important than quantity.;Abstract;Concepts;general,shopping;26;9;1;Feminine;die Qualität;die Qualität;der Qualität;der Qualität;
+N426;Menge;die;Mengen;quantity, amount;[ˈmɛŋə];Das ist eine große Menge.;That is a large quantity.;Abstract;Measurement;general,shopping;25;9;1;Feminine;die Menge;die Menge;der Menge;der Menge;
+N427;Dorf;das;Dörfer;village;[dɔʁf];Er wohnt in einem kleinen Dorf.;He lives in a small village.;Places;Geography;geography,home;28;5;2;Neuter;das Dorf;das Dorf;dem Dorf;des Dorfes;
+N428;Bauernhof;der;Bauernhöfe;farm;[ˈbaʊ̯ɐnˌhoːf];Auf dem Bauernhof gibt es viele Tiere.;There are many animals on the farm.;Places;Buildings;nature,food;27;6;2;Masculine;der Bauernhof;den Bauernhof;dem Bauernhof;des Bauernhofes;
+N429;Wüste;die;Wüsten;desert;[ˈvyːstə];In der Wüste ist es sehr heiß.;It's very hot in the desert.;Nature;Landscapes;nature,geography;26;22;1;Feminine;die Wüste;die Wüste;der Wüste;der Wüsten;
+N430;Küste;die;Küsten;coast;[ˈkʏstə];Wir fahren an die Küste.;We're driving to the coast.;Nature;Landscapes;nature,travel;25;22;1;Feminine;die Küste;die Küste;der Küste;der Küste;
+N431;Strand;der;Strände;beach;[ʃtʁant];Lass uns an den Strand gehen.;Let's go to the beach.;Nature;Landscapes;leisure,travel;24;22;2;Masculine;der Strand;den Strand;dem Strand;des Strandes;
+N432;Welle;die;Wellen;wave;[ˈvɛlə];Die Wellen sind heute hoch.;The waves are high today.;Nature;Elements;nature;23;22;1;Feminine;die Welle;die Welle;der Welle;der Wellen;
+N433;Sand;der;(no plural);sand;[zant];Der Sand ist heiß.;The sand is hot.;Nature;Elements;nature;22;22;1;Masculine;der Sand;den Sand;dem Sand;des Sandes;
+N434;Sturm;der;Stürme;storm;[ʃtʊʁm];Ein Sturm kommt auf.;A storm is coming.;Nature;Weather;weather;21;22;2;Masculine;der Sturm;den Sturm;dem Sturm;des Sturmes;
+N435;Gewitter;das;Gewitter;thunderstorm;[ɡəˈvɪtɐ];Ich habe Angst vor Gewittern.;I'm afraid of thunderstorms.;Nature;Weather;weather;20;22;1;Neuter;das Gewitter;das Gewitter;dem Gewitter;des Gewitters;
+N436;Donner;der;(no plural);thunder;[ˈdɔnɐ];Der Donner war sehr laut.;The thunder was very loud.;Nature;Weather;weather;19;22;1;Masculine;der Donner;den Donner;dem Donner;des Donners;
+N437;Blitz;der;Blitze;lightning;[blɪt͡s];Hast du den Blitz gesehen?;Did you see the lightning?;Nature;Weather;weather;18;22;1;Masculine;der Blitz;den Blitz;dem Blitz;des Blitzes;
+N438;Nebel;der;Nebel;fog;[ˈneːbl̩];Am Morgen gab es dichten Nebel.;In the morning there was thick fog.;Nature;Weather;weather;17;22;1;Masculine;der Nebel;den Nebel;dem Nebel;des Nebels;
+N439;Temperatur;die;Temperaturen;temperature;[tɛmpəʁaˈtuːɐ̯];Die Temperatur liegt bei 20 Grad.;The temperature is 20 degrees.;Nature;Weather;weather;20;22;1;Feminine;die Temperatur;die Temperatur;der Temperatur;der Temperaturen;
+N440;Grad;der;Grade;degree;[ɡʁaːt];Es sind 25 Grad Celsius.;It's 25 degrees Celsius.;Abstract;Measurement;weather,math;22;22;1;Masculine;der Grad;den Grad;dem Grad;des Grades;
+N441;Prozess;der;Prozesse;process;[pʁoˈt͡sɛs];Das ist ein langer Prozess.;That is a long process.;Abstract;Concepts;work,science;20;16;1;Masculine;der Prozess;den Prozess;dem Prozess;des Prozesses;
+N442;Entwicklung;die;Entwicklungen;development, evolution;[ɛntˈvɪklʊŋ];Die technologische Entwicklung ist schnell.;The technological development is fast.;Abstract;Concepts;science,society;19;16;1;Feminine;die Entwicklung;die Entwicklung;der Entwicklung;der Entwicklung;
+N443;Veränderung;die;Veränderungen;change;[fɛɐ̯ˈʔɛndəʁʊŋ];Wir brauchen eine Veränderung.;We need a change.;Abstract;Concepts;social,work;18;25;1;Feminine;die Veränderung;die Veränderung;der Veränderung;der Veränderung;
+N444;Wachstum;das;(no plural);growth;[ˈvakstuːm];Das wirtschaftliche Wachstum ist langsam.;The economic growth is slow.;Abstract;Concepts;economy,nature;17;16;1;Neuter;das Wachstum;das Wachstum;dem Wachstum;des Wachstums;
+N445;Verlust;der;Verluste;loss;[fɛɐ̯ˈlʊst];Der Verlust war groß.;The loss was great.;Abstract;Concepts;finance,social;16;25;1;Masculine;der Verlust;den Verlust;dem Verlust;des Verlustes;
+N446;Gewinn;der;Gewinne;profit, win;[ɡəˈvɪn];Die Firma macht einen hohen Gewinn.;The company is making a high profit.;Abstract;Concepts;finance,work;15;16;1;Masculine;der Gewinn;den Gewinn;dem Gewinn;des Gewinnes;
+N447;Bedarf;der;(no plural);need, demand;[bəˈdaʁf];Es gibt einen großen Bedarf an Lehrern.;There is a great need for teachers.;Abstract;Concepts;economy,society;14;16;1;Masculine;der Bedarf;den Bedarf;dem Bedarf;des Bedarfes;
+N448;Angebot;das;Angebote;offer, supply;[ˈanɡəˌboːt];Das ist ein gutes Angebot.;That is a good offer.;Abstract;Concepts;economy,shopping;20;9;1;Neuter;das Angebot;das Angebot;dem Angebot;des Angebotes;
+N449;Nachfrage;die;Nachfragen;demand;[ˈnaːxˌfʁaːɡə];Die Nachfrage nach diesem Produkt ist hoch.;The demand for this product is high.;Abstract;Concepts;economy;19;16;1;Feminine;die Nachfrage;die Nachfrage;der Nachfrage;der Nachfrage;
+N450;Kosten;die;(no singular);costs;[ˈkɔstn̩];Die Kosten sind zu hoch.;The costs are too high.;Finance;General;work,finance;22;16;1;Plural only;die Kosten;die Kosten;den Kosten;der Kosten;
+N451;Wert;der;Werte;value, worth;[veːɐ̯t];Der Ring hat einen hohen Wert.;The ring has a high value.;Finance;Abstract;general;21;25;1;Masculine;der Wert;den Wert;dem Wert;des Wertes;
+N452;Macht;die;Mächte;power, might;[maxt];Wissen ist Macht.;Knowledge is power.;Abstract;Concepts;politics,society;20;25;2;Feminine;die Macht;die Macht;der Macht;der Mächte;
+N453;Einfluss;der;Einflüsse;influence;[ˈaɪ̯nflʊs];Er hat einen großen Einfluss.;He has a great influence.;Abstract;Concepts;politics,social;19;25;2;Masculine;der Einfluss;den Einfluss;dem Einfluss;des Einflusses;
+N454;Druck;der;Drücke;pressure;[dʁʊk];Ich stehe unter großem Druck.;I am under great pressure.;Abstract;Feelings;work,social;18;16;2;Masculine;der Druck;den Druck;dem Druck;des Druckes;
+N455;Kampf;der;Kämpfe;fight, struggle;[kampf];Das Leben ist ein Kampf.;Life is a struggle.;Abstract;Events;social;17;25;2;Masculine;der Kampf;den Kampf;dem Kampf;des Kampfes;
+N456;Streit;der;Streitigkeiten;argument, dispute;[ʃtʁaɪ̯t];Wir hatten einen Streit.;We had an argument.;Communication;Events;social;16;11;1;Masculine;der Streit;den Streit;dem Streit;des Streites;
+N457;Lüge;die;Lügen;lie;[ˈlyːɡə];Das ist eine Lüge!;That's a lie!;Communication;Concepts;social;15;11;1;Feminine;die Lüge;die Lüge;der Lüge;der Lügen;
+N458;Wahrheit;die;Wahrheiten;truth;[ˈvaːɐ̯haɪ̯t];Sag mir die Wahrheit!;Tell me the truth!;Communication;Concepts;social;14;11;1;Feminine;die Wahrheit;die Wahrheit;der Wahrheit;der Wahrheiten;
+N459;Geheimnis;das;Geheimnisse;secret;[ɡəˈhaɪ̯mnɪs];Kannst du ein Geheimnis bewahren?;Can you keep a secret?;Communication;Concepts;social;13;11;1;Neuter;das Geheimnis;das Geheimnis;dem Geheimnis;des Geheimnisses;
+N460;Geräusch;das;Geräusche;sound, noise;[ɡəˈʁɔɪ̯ʃ];Was war das für ein Geräusch?;What kind of sound was that?;Abstract;Sensory;daily;12;25;2;Neuter;das Geräusch;das Geräusch;dem Geräusch;des Geräusches;
+N461;Geruch;der;Gerüche;smell, odor;[ɡəˈʁʊx];Der Geruch von Kaffee ist herrlich.;The smell of coffee is wonderful.;Abstract;Sensory;daily;11;6;2;Masculine;der Geruch;den Geruch;dem Geruch;des Geruches;
+N462;Geschmack;der;Geschmäcker;taste, flavor;[ɡəˈʃmak];Der Geschmack ist sehr gut.;The taste is very good.;Abstract;Sensory;food;10;6;2;Masculine;der Geschmack;den Geschmack;dem Geschmack;des Geschmackes;
+N463;Bewegung;die;Bewegungen;movement;[bəˈveːɡʊŋ];Bewegung ist gesund.;Movement is healthy.;Abstract;Actions;health,sports;20;12;1;Feminine;die Bewegung;die Bewegung;der Bewegung;der Bewegung;
+N464;Handlung;die;Handlungen;action, plot;[ˈhandlʊŋ];Die Handlung des Films ist kompliziert.;The plot of the movie is complicated.;Abstract;Actions;media,social;19;26;1;Feminine;die Handlung;die Handlung;der Handlung;der Handlungen;
+N465;Tat;die;Taten;deed, act;[taːt];Auf Worte müssen Taten folgen.;Deeds must follow words.;Abstract;Actions;social;18;25;1;Feminine;die Tat;die Tat;der Tat;der Taten;
+N466;Verhalten;das;(no plural);behavior;[fɛɐ̯ˈhaltn̩];Sein Verhalten war unhöflich.;His behavior was impolite.;Abstract;Actions;social;17;25;1;Neuter;das Verhalten;das Verhalten;dem Verhalten;des Verhaltens;
+N467;Entscheidung;die;Entscheidungen;decision;[ɛntˈʃaɪ̯dʊŋ];Das war eine schwere Entscheidung.;That was a difficult decision.;Abstract;Actions;work,social;16;25;1;Feminine;die Entscheidung;die Entscheidung;der Entscheidung;der Entscheidung;
+N468;Lösung;die;Lösungen;solution;[ˈløːzʊŋ];Wir haben eine Lösung für das Problem gefunden.;We found a solution to the problem.;Abstract;Concepts;work,math;25;15;1;Feminine;die Lösung;die Lösung;der Lösung;der Lösung;
+N469;Quelle;die;Quellen;source, spring;[ˈkvɛlə];Was ist die Quelle dieser Information?;What is the source of this information?;Abstract;Concepts;science,work;24;16;1;Feminine;die Quelle;die Quelle;der Quelle;der Quellen;
+N470;Reihe;die;Reihen;row, series;[ˈʁaɪ̯ə];Wir sitzen in der ersten Reihe.;We are sitting in the first row.;Abstract;Structures;general;23;7;1;Feminine;die Reihe;die Reihe;der Reihe;der Reihe;
+N471;Muster;das;Muster;pattern, sample;[ˈmʊstɐ];Das ist ein typisches Muster.;That is a typical pattern.;Abstract;Structures;general,art;22;23;1;Neuter;das Muster;das Muster;dem Muster;des Musters;
+N472;Struktur;die;Strukturen;structure;[ʃtʁʊkˈtuːɐ̯];Die Struktur des Gebäudes ist komplex.;The structure of the building is complex.;Abstract;Structures;science,work;21;16;1;Feminine;die Struktur;die Struktur;der Struktur;der Strukturen;
+N473;Basis;die;Basen;base, basis;[ˈbaːzɪs];Das ist die Basis für unsere Diskussion.;That is the basis for our discussion.;Abstract;Structures;science,work;20;15;1;Feminine;die Basis;die Basis;der Basis;der Basen;
+N474;Standard;der;Standards;standard;[ˈʃtandaʁt];Das entspricht nicht dem Standard.;That does not meet the standard.;Abstract;Structures;work,society;19;16;1;Masculine;der Standard;den Standard;dem Standard;des Standards;
+N475;Niveau;das;Niveaus;level;[niˈvoː];Das ist ein hohes Niveau.;That is a high level.;Abstract;Structures;learning,work;18;2;1;Neuter;das Niveau;das Niveau;dem Niveau;des Niveaus;
+N476;Bereich;der;Bereiche;area, field, range;[bəˈʁaɪ̯ç];In diesem Bereich bin ich Experte.;I am an expert in this area.;Abstract;Locations;work,science;17;16;1;Masculine;der Bereich;den Bereich;dem Bereich;des Bereiches;
+N477;Raum;der;Räume;space, room;[ʁaʊ̯m];Wir brauchen mehr Raum.;We need more space.;Abstract;Locations;home,science;20;5;2;Masculine;der Raum;den Raum;dem Raum;des Raumes;
+N478;Oberfläche;die;Oberflächen;surface;[ˈoːbɐˌflɛçə];Die Oberfläche ist glatt.;The surface is smooth.;Abstract;Locations;science,objects;19;23;1;Feminine;die Oberfläche;die Oberfläche;der Oberfläche;der Oberflächen;
+N479;Zentrum;das;Zentren;center;[ˈt͡sɛntʁʊm];Wir treffen uns im Zentrum der Stadt.;We'll meet in the center of the city.;Places;Locations;daily,geography;18;7;1;Neuter;das Zentrum;das Zentrum;dem Zentrum;des Zentrums;
+N480;Rand;der;Ränder;edge, margin;[ʁant];Er stand am Rand der Straße.;He stood at the edge of the road.;Places;Locations;general;17;28;2;Masculine;der Rand;den Rand;dem Rand;des Randes;
+N481;Schritt;der;Schritte;step;[ʃʁɪt];Das ist der erste Schritt.;That is the first step.;Abstract;Actions;general;20;18;1;Masculine;der Schritt;den Schritt;dem Schritt;des Schrittes;
+N482;Versuch;der;Versuche;attempt, experiment;[fɛɐ̯ˈzuːx];Das war ein guter Versuch.;That was a good attempt.;Abstract;Actions;work,science;19;15;1;Masculine;der Versuch;den Versuch;dem Versuch;des Versuches;
+N483;Blick;der;Blicke;glance, view;[blɪk];Der Blick aus dem Fenster ist schön.;The view from the window is beautiful.;Abstract;Actions;social,travel;18;22;1;Masculine;der Blick;den Blick;dem Blick;des Blickes;
+N484;Eindruck;der;Eindrücke;impression;[ˈaɪ̯nˌdʁʊk];Der erste Eindruck ist wichtig.;The first impression is important.;Abstract;Feelings;social;17;1;2;Masculine;der Eindruck;den Eindruck;dem Eindruck;des Eindruckes;
+N485;Ausdruck;der;Ausdrücke;expression;[ˈaʊ̯sˌdʁʊk];Das ist ein alter Ausdruck.;That is an old expression.;Communication;Language;learning;16;2;2;Masculine;der Ausdruck;den Ausdruck;dem Ausdruck;des Ausdruckes;
+N486;Titel;der;Titel;title;[ˈtiːtl̩];Der Titel des Buches ist lang.;The title of the book is long.;Communication;Media;learning,media;15;3;1;Masculine;der Titel;den Titel;dem Titel;des Titels;
+N487;Kapitel;das;Kapitel;chapter;[kaˈpɪtl̩];Ich lese das erste Kapitel.;I'm reading the first chapter.;Communication;Media;learning;14;8;1;Neuter;das Kapitel;das Kapitel;dem Kapitel;des Kapitels;
+N488;Abschnitt;der;Abschnitte;section, paragraph;[ˈapˌʃnɪt];Lies bitte den nächsten Abschnitt.;Please read the next section.;Communication;Media;learning;13;8;1;Masculine;der Abschnitt;den Abschnitt;dem Abschnitt;des Abschnittes;
+N489;Zeile;die;Zeilen;line (of text);[ˈt͡saɪ̯lə];Die letzte Zeile fehlt.;The last line is missing.;Communication;Media;learning;12;8;1;Feminine;die Zeile;die Zeile;der Zeile;der Zeilen;
+N490;Anruf;der;Anrufe;phone call;[ˈanˌʁuːf];Ich erwarte einen Anruf.;I am expecting a phone call.;Communication;Events;daily;25;14;1;Masculine;der Anruf;den Anruf;dem Anruf;des Anrufes;
+N491;Einladung;die;Einladungen;invitation;[ˈaɪ̯nˌlaːdʊŋ];Danke für die Einladung!;Thanks for the invitation!;Communication;Events;social;24;27;1;Feminine;die Einladung;die Einladung;der Einladung;der Einladungen;
+N492;Gruß;der;Grüße;greeting;[ɡʁuːs];Viele Grüße aus München!;Many greetings from Munich!;Communication;Social;social,communication;23;1;2;Masculine;der Gruß;den Gruß;dem Gruß;des Grußes;
+N493;Kuss;der;Küsse;kiss;[kʊs];Er gab ihr einen Kuss.;He gave her a kiss.;Communication;Social;social;22;11;2;Masculine;der Kuss;den Kuss;dem Kuss;des Kusses;
+N494;Lächeln;das;Lächeln;smile;[ˈlɛçl̩n];Sie hat ein schönes Lächeln.;She has a beautiful smile.;Communication;Social;social;21;11;1;Neuter;das Lächeln;das Lächeln;dem Lächeln;des Lächelns;
+N495;Träne;die;Tränen;tear (crying);[ˈtʁɛːnə];Tränen liefen über ihr Gesicht.;Tears ran down her face.;Body;Internal;feelings;20;11;1;Feminine;die Träne;die Träne;der Träne;der Tränen;
+N496;Schweiß;der;(no plural);sweat;[ʃvaɪ̯s];Der Schweiß rann ihm von der Stirn.;Sweat ran from his forehead.;Body;Internal;health,sports;19;12;1;Masculine;der Schweiß;den Schweiß;dem Schweiß;des Schweißes;
+N497;Atem;der;(no plural);breath;[ˈaːtəm];Hol tief Atem!;Take a deep breath!;Body;Internal;health;18;12;1;Masculine;der Atem;den Atem;dem Atem;des Atems;
+N498;Glaube;der;(no plural);faith, belief;[ˈɡlaʊ̯bə];Der Glaube kann Berge versetzen.;Faith can move mountains.;Abstract;Religion;religion,social;17;25;3;Masculine;der Glaube;den Glauben;dem Glauben;des Glaubens;An n-declension noun.
+N499;Hoffnung;die;Hoffnungen;hope;[ˈhɔfnʊŋ];Gib die Hoffnung nicht auf!;Don't give up hope!;Abstract;Feelings;social;16;25;1;Feminine;die Hoffnung;die Hoffnung;der Hoffnung;der Hoffnungen;
+N500;Zweifel;der;Zweifel;doubt;[ˈt͡svaɪ̯fl̩];Ich habe keinen Zweifel.;I have no doubt.;Abstract;Feelings;social,communication;15;25;1;Masculine;der Zweifel;den Zweifel;dem Zweifel;des Zweifels;

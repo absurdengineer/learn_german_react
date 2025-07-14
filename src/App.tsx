@@ -14,6 +14,10 @@ import StudyPlan from "./pages/StudyPlan";
 import StudyPlanComplete from "./pages/StudyPlanComplete";
 import Tests from "./features/tests/Tests.tsx";
 import Vocabulary from "./features/vocabulary/Vocabulary.tsx";
+import NewLessonsPage from "./features/new-lessons";
+import GrammarRulesPage from "./features/grammar-rules";
+import VocabulariesBetaPage from "./features/vocabularies-beta";
+import { BetaTestPage } from "./features/beta-test";
 
 function App() {
   return (
@@ -190,6 +194,21 @@ function App() {
             <Route path="/settings/profile" element={<Settings />} />
             <Route path="/settings/preferences" element={<Settings />} />
             <Route path="/settings/data" element={<Settings />} />
+
+            {/* New Lessons (Beta) */}
+            <Route path="/new-lessons" element={<NewLessonsPage />} />
+
+            {/* Grammar Rules (Beta) */}
+            <Route path="/grammar-rules" element={<GrammarRulesPage />} />
+
+            {/* Vocabularies (Beta) */}
+            <Route
+              path="/vocabularies-beta"
+              element={<VocabulariesBetaPage />}
+            />
+
+            {/* Beta Test */}
+            <Route path="/beta-test" element={<BetaTestPage />} />
           </Routes>
         </Layout>
       </Router>

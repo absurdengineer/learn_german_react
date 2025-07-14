@@ -5,7 +5,7 @@ import {
   getArticleQuestions,
   getVocabularyQuestions,
   getGrammarQuestions,
-} from "../../core/question-engine/questionBuilder";
+} from "../../core/question-engine";
 import { questionsToQuizQuestions } from "../../lib/flashcardAdapters";
 import { DeutschMeisterDataManager } from "../../lib/parsers/DataManager";
 

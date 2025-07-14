@@ -1,6 +1,6 @@
 import { useState, useMemo } from "react";
 import { articlesLoader } from "../lib/parsers/ArticlesParser";
-import { getArticleQuestions } from "../core/question-engine/questionBuilder";
+import { getArticleQuestions } from "../core/question-engine";
 
 export function useArticles() {
   const [sessionMode, setSessionMode] = useState<

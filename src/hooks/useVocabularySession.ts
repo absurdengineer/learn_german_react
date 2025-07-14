@@ -1,5 +1,5 @@
 import { useState, useMemo, useRef } from "react";
-import { getVocabularyQuestions } from "../core/question-engine/questionBuilder";
+import { getVocabularyQuestions } from "../core/question-engine";
 
 // Utility: Map any question to uniform { id, prompt, answer, options?, category? }
 function mapToUniformQuestion(q: any): any {

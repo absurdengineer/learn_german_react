@@ -5,7 +5,7 @@ import PageLayout from "../../components/layout/PageLayout";
 import FlashcardSession from "../../components/FlashcardSession";
 import MCQSession from "../../components/MCQSession";
 import FreestyleInputSession from "../../components/FreestyleInputSession";
-import { getGrammarQuestions } from "../../core/question-engine/questionBuilder";
+import { getGrammarQuestions } from "../../core/question-engine";
 import {
   questionsToFlashcardItems,
   questionsToQuizQuestions,

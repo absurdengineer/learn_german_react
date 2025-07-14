@@ -11,7 +11,7 @@ import {
   questionsToQuizQuestions,
 } from "../../lib/flashcardAdapters";
 import { useVocabularySession } from "../../hooks/useVocabularySession";
-import { getVocabularyQuestions } from "../../core/question-engine/questionBuilder";
+import { getVocabularyQuestions } from "../../core/question-engine";
 
 // Test mode: limit number of questions for easier testing
 const isTestMode = import.meta.env.VITE_TEST_MODE === "true";

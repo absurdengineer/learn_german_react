@@ -1,0 +1,1001 @@
+vocab_id;word_type;german_word;english_translation;pronunciation_ipa;example_de;example_en;category;tags;frequency;level;difficulty;verb_stem;verb_type;past_participle;comparative;superlative;governs_case;usage_notes;cultural_note
+V0001;verb;sein;to be;[zaɪ̯n];Ich bin müde.;I am tired.;Core Verbs;a1-essential,irregular,linking;100;2;3;bin/sei;irregular;gewesen;;;;The most important verb in German. Used as a main verb and for the Perfekt tense.
+V0002;verb;haben;to have;[ˈhaːbn̩];Ich habe Hunger.;I am hungry.;Core Verbs;a1-essential,irregular,possession;100;2;3;hab;irregular;gehabt;;;;Used as a main verb and for the Perfekt tense.
+V0003;verb;werden;to become, will;[ˈveːɐ̯dn̩];Es wird kalt.;It's getting cold.;Core Verbs;a1-essential,irregular,future;99;25;4;werd/wird;irregular;geworden;;;;Used for 'to become' and to form the future tense.
+V0004;verb;können;can, to be able to;[ˈkœnən];Ich kann Deutsch sprechen.;I can speak German.;Modal Verbs;a1-essential,modal,ability;99;10;3;kann;modal;gekonnt;;;;The `ich` and `er/sie/es` forms are identical: `ich kann, er kann`.
+V0005;verb;müssen;must, to have to;[ˈmʏsn̩];Ich muss jetzt gehen.;I have to go now.;Modal Verbs;a1-essential,modal,necessity;98;18;3;muss;modal;gemusst;;;;`nicht müssen` means 'to not have to'.
+V0006;verb;wollen;to want to;[ˈvɔlən];Ich will ein Eis.;I want an ice cream.;Modal Verbs;a1-essential,modal,desire;98;10;3;will;modal;gewollt;;;;Can sound demanding; `möchten` is often more polite.
+V0007;verb;sagen;to say, to tell;[ˈzaːɡn̩];Was hast du gesagt?;What did you say?;Communication Verbs;a1-essential,common;97;7;2;sag;regular;gesagt;;;;;
+V0008;verb;machen;to do, to make;[ˈmaxn̩];Ich mache meine Hausaufgaben.;I'm doing my homework.;Action Verbs;a1-essential,common,versatile;97;4;2;mach;regular;gemacht;;;;;
+V0009;verb;geben;to give;[ˈɡeːbən];Kannst du mir das Buch geben?;Can you give me the book?;Action Verbs;a1-essential,irregular,dative;96;9;3;geb/gib;irregular;gegeben;;;;Often takes a dative object (the receiver). Vowel change e->i.
+V0010;verb;kommen;to come;[ˈkɔmən];Ich komme aus Spanien.;I come from Spain.;Movement Verbs;a1-essential,irregular;96;1;3;komm;irregular;gekommen;;;;Used with `sein` in Perfekt tense.
+V0011;verb;gehen;to go, to walk;[ˈɡeːən];Wir gehen ins Kino.;We are going to the cinema.;Movement Verbs;a1-essential,irregular;95;5;3;geh;irregular;gegangen;;;;Used with `sein` in Perfekt tense.
+V0012;verb;wissen;to know (a fact);[ˈvɪsn̩];Ich weiß das nicht.;I don't know that.;Cognitive Verbs;a1-essential,irregular;95;15;4;weiß;irregular;gewusst;;;;`ich weiß, du weißt, er weiß`. Different from `kennen` (to be familiar with).
+V0013;verb;sehen;to see;[ˈzeːən];Ich sehe den Hund.;I see the dog.;Sensory Verbs;a1-essential,irregular;94;9;3;seh/sieh;irregular;gesehen;;;;Vowel change e->ie.
+V0014;verb;sprechen;to speak;[ˈʃpʁɛçn̩];Sprechen Sie Englisch?;Do you speak English?;Communication Verbs;a1-essential,irregular;94;9;3;sprech/sprich;irregular;gesprochen;;;;Vowel change e->i.
+V0015;verb;stehen;to stand;[ˈʃteːən];Das Auto steht vor dem Haus.;The car is standing in front of the house.;Positional Verbs;a1-essential,irregular;93;14;3;steh;irregular;gestanden;;;;;
+V0016;verb;finden;to find;[ˈfɪndn̩];Ich kann meinen Schlüssel nicht finden.;I can't find my key.;Action Verbs;a1-essential,irregular;93;8;3;find;irregular;gefunden;;;;;
+V0017;verb;bleiben;to stay, to remain;[ˈblaɪ̯bən];Ich bleibe heute zu Hause.;I'm staying home today.;Positional Verbs;a1-essential,irregular;92;17;3;bleib;irregular;geblieben;;;;Used with `sein` in Perfekt tense.
+V0018;verb;liegen;to lie (be located);[ˈliːɡn̩];Das Buch liegt auf dem Tisch.;The book is lying on the table.;Positional Verbs;a1-essential,irregular;92;16;3;lieg;irregular;gelegen;;;;;
+V0019;verb;heißen;to be called;[ˈhaɪ̯sn̩];Wie heißen Sie?;What is your name?;Core Verbs;a1-essential,irregular;91;1;3;heiß;irregular;geheißen;;;;Used for names.
+V0020;verb;denken;to think;[ˈdɛŋkən];Was denkst du?;What do you think?;Cognitive Verbs;a1-essential,irregular;91;15;3;denk;irregular;gedacht;;;;;
+V0021;pronoun;ich;I;[ɪç];Ich lerne Deutsch.;I am learning German.;Pronouns (Nominative);a1-essential,pronoun;100;1;1;;;;;;;
+V0022;pronoun;du;you (singular, informal);[duː];Wie heißt du?;What is your name?;Pronouns (Nominative);a1-essential,pronoun;100;1;1;;;;;;;
+V0023;pronoun;er;he;[eːɐ̯];Er kommt aus Berlin.;He comes from Berlin.;Pronouns (Nominative);a1-essential,pronoun;100;2;1;;;;;;;
+V0024;pronoun;sie;she, they;[ziː];Sie liest ein Buch.;She is reading a book.;Pronouns (Nominative);a1-essential,pronoun;100;2;1;;;;;;Can mean 'she' or 'they'. Context is key.
+V0025;pronoun;es;it;[ɛs];Es regnet.;It is raining.;Pronouns (Nominative);a1-essential,pronoun;100;2;1;;;;;;;
+V0026;pronoun;wir;we;[viːɐ̯];Wir gehen zusammen.;We are going together.;Pronouns (Nominative);a1-essential,pronoun;100;4;1;;;;;;;
+V0027;pronoun;ihr;you (plural, informal);[iːɐ̯];Was macht ihr?;What are you all doing?;Pronouns (Nominative);a1-essential,pronoun;100;4;1;;;;;;;
+V0028;pronoun;Sie;you (formal);[ziː];Wie heißen Sie?;What is your name?;Pronouns (Nominative);a1-essential,pronoun;100;1;1;;;;;;Always capitalized.
+V0029;pronoun;mich;me (accusative);[mɪç];Er sieht mich.;He sees me.;Pronouns (Accusative);a1-essential,pronoun;98;6;1;;;;;;;
+V0030;pronoun;dich;you (accusative);[dɪç];Ich liebe dich.;I love you.;Pronouns (Accusative);a1-essential,pronoun;98;6;1;;;;;;;
+V0031;pronoun;ihn;him (accusative);[iːn];Ich frage ihn.;I ask him.;Pronouns (Accusative);a1-essential,pronoun;98;6;1;;;;;;;
+V0032;pronoun;uns;us (accusative/dative);[ʊns];Er besucht uns.;He is visiting us.;Pronouns (Accusative/Dative);a1-essential,pronoun;98;6;1;;;;;;;
+V0033;pronoun;euch;you all (accusative/dative);[ɔʏç];Ich sehe euch.;I see you all.;Pronouns (Accusative/Dative);a1-essential,pronoun;98;4;1;;;;;;;
+V0034;pronoun;mir;me (dative);[miːɐ̯];Kannst du mir helfen?;Can you help me?;Pronouns (Dative);a1-essential,pronoun;97;12;1;;;;;;;
+V0035;pronoun;dir;you (dative);[diːɐ̯];Wie geht es dir?;How are you?;Pronouns (Dative);a1-essential,pronoun;97;12;1;;;;;;;
+V0036;pronoun;ihm;him (dative);[iːm];Ich gebe ihm das Buch.;I give him the book.;Pronouns (Dative);a1-essential,pronoun;97;12;1;;;;;;;
+V0037;pronoun;ihr;her (dative);[iːɐ̯];Ich danke ihr.;I thank her.;Pronouns (Dative);a1-essential,pronoun;97;12;1;;;;;;Also means 'you all' (Nom.) and 'her/their' (possessive). Context is everything.
+V0038;pronoun;Ihnen;you (formal, dative);[ˈiːnən];Wie kann ich Ihnen helfen?;How can I help you?;Pronouns (Dative);a1-essential,pronoun;97;1;1;;;;;;Always capitalized.
+V0039;adjective;gut;good;[ɡuːt];Das Essen ist gut.;The food is good.;Adjectives (Quality);a1-essential,common;99;3;1;;;;besser;am besten;;
+V0040;adjective;schlecht;bad;[ʃlɛçt];Das Wetter ist schlecht.;The weather is bad.;Adjectives (Quality);a1-essential,common;95;22;1;;;;schlechter;am schlechtesten;;
+V0041;adjective;groß;big, large, tall;[ɡʁoːs];München ist eine große Stadt.;Munich is a big city.;Adjectives (Size);a1-essential,common;98;3;1;;;;größer;am größten;;
+V0042;adjective;klein;small, little;[klaɪ̯n];Meine Wohnung ist klein.;My apartment is small.;Adjectives (Size);a1-essential,common;98;5;1;;;;kleiner;am kleinsten;;
+V0043;adjective;neu;new;[nɔɪ̯];Ich habe ein neues Auto.;I have a new car.;Adjectives (Condition);a1-essential,common;96;5;1;;;;neuer;am neuesten;;
+V0044;adjective;alt;old;[alt];Mein Opa ist sehr alt.;My grandpa is very old.;Adjectives (Condition);a1-essential,common;96;9;1;;;;älter;am ältesten;;
+V0045;adverb;hier;here;[hiːɐ̯];Ich bin hier.;I am here.;Adverbs (Place);a1-essential,common;99;3;1;;;;;;;
+V0046;adverb;dort;there;[dɔʁt];Der Bahnhof ist dort.;The train station is there.;Adverbs (Place);a1-essential,common;98;7;1;;;;;;;
+V0047;adverb;jetzt;now;[jɛt͡st];Ich habe jetzt keine Zeit.;I have no time now.;Adverbs (Time);a1-essential,common;99;10;1;;;;;;;
+V0048;adverb;heute;today;[ˈhɔɪ̯tə];Heute ist Montag.;Today is Monday.;Adverbs (Time);a1-essential,common;98;5;1;;;;;;;
+V0049;adverb;morgen;tomorrow;[ˈmɔʁɡn̩];Morgen habe ich frei.;Tomorrow I have off.;Adverbs (Time);a1-essential,common;97;14;1;;;;;;;Not to be confused with `der Morgen` (the morning).
+V0050;adverb;gestern;yesterday;[ˈɡɛstɐn];Gestern war ich im Kino.;Yesterday I was at the cinema.;Adverbs (Time);a1-essential,common;96;15;1;;;;;;;
+V0051;preposition;in;in, into;[ɪn];Ich bin in der Küche.;I am in the kitchen.;Prepositions (Two-Way);a1-essential,preposition;99;18;3;;;;;;two-way;Dative for location (Wo?), Accusative for direction (Wohin?).
+V0052;preposition;an;at, on (vertical surface);[an];Das Bild hängt an der Wand.;The picture is hanging on the wall.;Prepositions (Two-Way);a1-essential,preposition;98;18;3;;;;;;two-way;Dative for location, Accusative for direction.
+V0053;preposition;auf;on (horizontal surface);[aʊ̯f];Das Buch liegt auf dem Tisch.;The book is on the table.;Prepositions (Two-Way);a1-essential,preposition;98;18;3;;;;;;two-way;Dative for location, Accusative for direction.
+V0054;preposition;mit;with;[mɪt];Ich fahre mit dem Bus.;I am going by bus.;Prepositions (Dative);a1-essential,preposition;99;13;2;;;;;;dative;;
+V0055;preposition;zu;to, at;[t͡suː];Ich gehe zum Arzt.;I'm going to the doctor.;Prepositions (Dative);a1-essential,preposition;98;13;2;;;;;;dative;Contractions: zum (zu dem), zur (zu der).
+V0056;preposition;für;for;[fyːɐ̯];Das Geschenk ist für dich.;The gift is for you.;Prepositions (Accusative);a1-essential,preposition;97;6;2;;;;;;accusative;;
+V0057;preposition;von;from, of;[fɔn];Das ist ein Lied von Mozart.;That is a song by Mozart.;Prepositions (Dative);a1-essential,preposition;96;13;2;;;;;;dative;;
+V0058;preposition;nach;to, after;[naːx];Wir fliegen nach Deutschland.;We are flying to Germany.;Prepositions (Dative);a1-essential,preposition;95;13;2;;;;;;dative;Used for cities/countries without articles.
+V0059;preposition;aus;from, out of;[aʊ̯s];Er kommt aus der Türkei.;He comes from Turkey.;Prepositions (Dative);a1-essential,preposition;95;13;2;;;;;;dative;Indicates origin.
+V0060;conjunction;und;and;[ʊnt];Ich kaufe Äpfel und Bananen.;I am buying apples and bananas.;Conjunctions (Coordinating);a1-essential,grammar;100;5;1;;;;;;;Position 0 conjunction.
+V0061;conjunction;aber;but, however;[ˈaːbɐ];Das ist schön, aber teuer.;That is nice, but expensive.;Conjunctions (Coordinating);a1-essential,grammar;99;5;1;;;;;;;Position 0 conjunction.
+V0062;conjunction;oder;or;[ˈoːdɐ];Möchtest du Tee oder Kaffee?;Do you want tea or coffee?;Conjunctions (Coordinating);a1-essential,grammar;98;5;1;;;;;;;Position 0 conjunction.
+V0063;conjunction;weil;because;[vaɪ̯l];Ich lerne Deutsch, weil ich in Berlin arbeite.;I'm learning German because I work in Berlin.;Conjunctions (Subordinating);a1-essential,grammar;97;21;3;;;;;;;Subordinating conjunction (kicks verb to the end).
+V0064;conjunction;dass;that;[das];Ich denke, dass es gut ist.;I think that it is good.;Conjunctions (Subordinating);a1-essential,grammar;96;21;3;;;;;;;Subordinating conjunction (kicks verb to the end).
+V0065;q-word;was;what;[vas];Was ist das?;What is that?;Question Words;a1-essential,question;99;7;1;;;;;;;
+V0066;q-word;wer;who;[veːɐ̯];Wer ist das?;Who is that?;Question Words;a1-essential,question;99;7;1;;;;;;;Asks for the nominative subject.
+V0067;q-word;wo;where (location);[voː];Wo wohnst du?;Where do you live?;Question Words;a1-essential,question;99;7;1;;;;;;;Asks for a static location.
+V0068;q-word;wie;how;[viː];Wie geht es Ihnen?;How are you?;Question Words;a1-essential,question;98;1;1;;;;;;;Also used for 'what' in 'Wie heißen Sie?'.
+V0069;q-word;wann;when;[van];Wann beginnt der Film?;When does the movie start?;Question Words;a1-essential,question;97;7;1;;;;;;;
+V0070;q-word;warum;why;[vaˈʁʊm];Warum lernst du Deutsch?;Why are you learning German?;Question Words;a1-essential,question;96;7;2;;;;;;;
+V0071;verb;kaufen;to buy;[ˈkaʊ̯fn̩];Ich kaufe ein neues Hemd.;I'm buying a new shirt.;Action Verbs;common,daily,shopping;90;5;2;kauf;regular;gekauft;;;;;
+V0072;verb;bezahlen;to pay for;[bəˈt͡saːlən];Ich möchte bitte bezahlen.;I would like to pay, please.;Action Verbs;common,daily,shopping;89;22;2;bezahl;regular;bezahlt;;;;;
+V0073;verb;essen;to eat;[ˈɛsn̩];Was isst du gern?;What do you like to eat?;Action Verbs;common,daily,food;90;6;3;ess/iss;irregular;gegessen;;;;Vowel change e->i.
+V0074;verb;trinken;to drink;[ˈtʁɪŋkən];Ich trinke gern Kaffee.;I like to drink coffee.;Action Verbs;common,daily,food;90;6;3;trink;irregular;getrunken;;;;;
+V0075;verb;lesen;to read;[ˈleːzn̩];Er liest die Zeitung.;He is reading the newspaper.;Action Verbs;common,leisure;88;9;3;les/lies;irregular;gelesen;;;;Vowel change e->ie.
+V0076;verb;schreiben;to write;[ˈʃʁaɪ̯bən];Ich schreibe eine E-Mail.;I am writing an e-mail.;Action Verbs;common,work,learning;88;8;3;schreib;irregular;geschrieben;;;;;
+V0077;verb;hören;to hear, to listen;[ˈhøːʁən];Ich höre gern Musik.;I like to listen to music.;Sensory Verbs;common,leisure;87;11;2;hör;regular;gehört;;;;;
+V0078;verb;lernen;to learn, to study;[ˈlɛʁnən];Wir lernen zusammen Deutsch.;We are learning German together.;Cognitive Verbs;common,learning;89;4;2;lern;regular;gelernt;;;;;
+V0079;verb;verstehen;to understand;[fɛɐ̯ˈʃteːən];Ich verstehe die Frage nicht.;I don't understand the question.;Cognitive Verbs;common,learning;88;15;3;versteh;irregular;verstanden;;;;Inseparable prefix verb.
+V0080;verb;fragen;to ask;[ˈfʁaːɡn̩];Kann ich dich etwas fragen?;Can I ask you something?;Communication Verbs;common,daily;87;7;2;frag;regular;gefragt;;;;;
+V0081;verb;antworten;to answer;[ˈantvɔʁtn̩];Er antwortet auf die E-Mail.;He is answering the e-mail.;Communication Verbs;common,daily;86;7;2;antwort;regular;geantwortet;;;;Often used with `auf` + Accusative.
+V0082;verb;arbeiten;to work;[ˈaʁbaɪ̯tn̩];Ich arbeite bei Siemens.;I work at Siemens.;Action Verbs;common,work;89;4;2;arbeit;regular;gearbeitet;;;;Adds an 'e' in some conjugations (du arbeitest).
+V0083;verb;wohnen;to live, to reside;[ˈvoːnən];Ich wohne in München.;I live in Munich.;Positional Verbs;common,home;88;4;2;wohn;regular;gewohnt;;;;;
+V0084;verb;leben;to live, to be alive;[ˈleːbən];Meine Großeltern leben nicht mehr.;My grandparents are no longer alive.;Core Verbs;common,life;87;14;2;leb;regular;gelebt;;;;More about being alive than residing.
+V0085;verb;brauchen;to need;[ˈbʁaʊ̯xən];Ich brauche Hilfe.;I need help.;Action Verbs;common,daily;86;8;2;brauch;regular;gebraucht;;;;;
+V0086;verb;suchen;to look for, to search;[ˈzuːxn̩];Ich suche meine Brille.;I'm looking for my glasses.;Action Verbs;common,daily;85;8;2;such;regular;gesucht;;;;;
+V0087;verb;nehmen;to take;[ˈneːmən];Ich nehme den Bus.;I am taking the bus.;Action Verbs;common,daily;89;9;3;nehm/nimm;irregular;genommen;;;;Vowel change e->i and consonant change.
+V0088;verb;bringen;to bring;[ˈbʁɪŋən];Der Kellner bringt die Rechnung.;The waiter is bringing the bill.;Action Verbs;common,daily;87;13;3;bring;irregular;gebracht;;;;;
+V0089;verb;fahren;to drive, to go, to travel;[ˈfaːʁən];Ich fahre mit dem Auto zur Arbeit.;I drive to work by car.;Movement Verbs;common,daily,travel;89;9;3;fahr/fähr;irregular;gefahren;;;;Vowel change a->ä. Uses `sein` in Perfekt.
+V0090;verb;fliegen;to fly;[ˈfliːɡn̩];Wir fliegen nach Spanien.;We are flying to Spain.;Movement Verbs;common,travel;86;17;3;flieg;irregular;geflogen;;;;Uses `sein` in Perfekt.
+V0091;verb;schwimmen;to swim;[ˈʃvɪmən];Im Sommer schwimme ich gern im See.;In summer I like to swim in the lake.;Movement Verbs;common,leisure,sports;84;25;3;schwimm;irregular;geschwommen;;;;Uses `sein` (motion) or `haben` (activity). A1 usually learns `sein`.
+V0092;verb;singen;to sing;[ˈzɪŋən];Sie singt sehr gut.;She sings very well.;Action Verbs;leisure,arts;83;10;3;sing;irregular;gesungen;;;;;
+V0093;verb;tanzen;to dance;[ˈtant͡sn̩];Tanzt du gern?;Do you like to dance?;Action Verbs;leisure,arts;82;11;2;tanz;regular;getanzt;;;;;
+V0094;verb;spielen;to play;[ˈʃpiːlən];Die Kinder spielen im Garten.;The children are playing in the garden.;Action Verbs;common,leisure,sports;85;4;2;spiel;regular;gespielt;;;;;
+V0095;verb;lieben;to love;[ˈliːbən];Ich liebe meine Familie.;I love my family.;Cognitive Verbs;common,feelings;84;11;2;lieb;regular;geliebt;;;;;
+V0096;verb;mögen;to like;[ˈmøːɡn̩];Ich mag Schokolade.;I like chocolate.;Cognitive Verbs;common,feelings;88;10;3;mag;modal;gemocht;;;;Used for liking things (nouns). Irregular: `ich mag, du magst, er mag`.
+V0097;verb;helfen;to help;[ˈhɛlfn̩];Kannst du mir bitte helfen?;Can you please help me?;Action Verbs;common,daily;87;9;3;helf/hilf;irregular;geholfen;;;;Always takes a dative object. Vowel change e->i.
+V0098;verb;zeigen;to show;[ˈt͡saɪ̯ɡn̩];Ich zeige dir die Fotos.;I'll show you the photos.;Action Verbs;common,daily;85;12;2;zeig;regular;gezeigt;;;;Often takes a dative object (the person being shown to).
+V0099;verb;erklären;to explain;[ɛɐ̯ˈklɛːʁən];Können Sie das bitte erklären?;Can you please explain that?;Communication Verbs;learning,work;84;16;2;erklär;regular;erklärt;;;;Inseparable prefix verb.
+V0100;verb;anrufen;to call (by phone);[ˈanˌʁuːfn̩];Ich rufe dich später an.;I'll call you later.;Separable Verbs;common,daily;88;14;2;ruf...an;separable;angerufen;;;;The prefix `an-` goes to the end of the clause.
+V0101;verb;einkaufen;to shop for groceries;[ˈaɪ̯nˌkaʊ̯fn̩];Ich kaufe am Samstag ein.;I go grocery shopping on Saturday.;Separable Verbs;common,daily,shopping;87;14;2;kauf...ein;separable;eingekauft;;;;Prefix `ein-` goes to the end.
+V0102;verb;aufstehen;to get up, to stand up;[ˈaʊ̯fˌʃteːən];Ich stehe um 6 Uhr auf.;I get up at 6 o'clock.;Separable Verbs;common,daily;86;14;3;steh...auf;separable;aufgestanden;;;;Uses `sein` in Perfekt.
+V0103;verb;fernsehen;to watch TV;[ˈfɛɐ̯nˌzeːən];Wir sehen abends fern.;We watch TV in the evening.;Separable Verbs;common,leisure;85;14;3;seh...fern;separable;ferngesehen;;;;Vowel change e->ie in the stem.
+V0104;verb;mitkommen;to come with/along;[ˈmɪtˌkɔmən];Kommst du mit ins Kino?;Are you coming along to the cinema?;Separable Verbs;common,social;84;14;3;komm...mit;separable;mitgekommen;;;;Uses `sein` in Perfekt.
+V0105;adjective;frei;free, available;[fʁaɪ̯];Ist dieser Platz frei?;Is this seat available?;Adjectives (State);common,daily;90;7;1;;;;freier;am freisten;;
+V0106;adjective;offen;open;[ˈɔfn̩];Das Fenster ist offen.;The window is open.;Adjectives (State);common,daily;88;5;1;;;;offener;am offensten;;
+V0107;adjective;geschlossen;closed;[ɡəˈʃlɔsn̩];Die Tür ist geschlossen.;The door is closed.;Adjectives (State);common,daily;87;5;1;;;;;;;Also the past participle of `schließen`.
+V0108;adjective;fertig;finished, ready;[ˈfɛʁtɪç];Das Essen ist fertig.;The food is ready.;Adjectives (State);common,daily;86;8;1;;;;;;;
+V0109;adjective;richtig;right, correct;[ˈʁɪçtɪç];Die Antwort ist richtig.;The answer is correct.;Adjectives (Quality);common,learning;85;8;1;;;;;;;
+V0110;adjective;falsch;wrong, false;[falʃ];Das ist die falsche Nummer.;That is the wrong number.;Adjectives (Quality);common,learning;84;8;1;;;;;;;
+V0111;adjective;kalt;cold;[kalt];Mir ist kalt.;I am cold.;Adjectives (Temperature);common,weather;88;1;1;;;;kälter;am kältesten;;
+V0112;adjective;warm;warm;[vaʁm];Das Wasser ist warm.;The water is warm.;Adjectives (Temperature);common,weather;87;6;1;;;;wärmer;am wärmsten;;
+V0113;adjective;heiß;hot;[haɪ̯s];Der Kaffee ist zu heiß.;The coffee is too hot.;Adjectives (Temperature);common,weather;86;1;1;;;;heißer;am heißesten;;
+V0114;adjective;schön;beautiful, nice;[ʃøːn];Das ist ein schöner Tag.;That is a beautiful day.;Adjectives (Appearance);common;89;3;1;;;;schöner;am schönsten;;
+V0115;adjective;hässlich;ugly;[ˈhɛslɪç];Ich finde das Bild hässlich.;I find the picture ugly.;Adjectives (Appearance);common;80;23;1;;;;hässlicher;am hässlichsten;;
+V0116;adjective;schnell;fast, quick;[ʃnɛl];Er läuft sehr schnell.;He runs very fast.;Adjectives (Speed);common;85;5;1;;;;schneller;am schnellsten;;
+V0117;adjective;langsam;slow;[ˈlaŋzaːm];Bitte sprechen Sie langsam.;Please speak slowly.;Adjectives (Speed);common,learning;84;5;1;;;;langsamer;am langsamsten;;
+V0118;adjective;laut;loud;[laʊ̯t];Die Musik ist zu laut.;The music is too loud.;Adjectives (Sound);common;83;11;1;;;;lauter;am lautesten;;
+V0119;adjective;leise;quiet;[ˈlaɪ̯zə];Sei bitte leise!;Please be quiet!;Adjectives (Sound);common;82;11;1;;;;leiser;am leisesten;;
+V0120;adjective;einfach;easy, simple;[ˈaɪ̯nfax];Die Frage ist einfach.;The question is easy.;Adjectives (Difficulty);common,learning;88;2;1;;;;einfacher;am einfachsten;;
+V0121;adjective;schwer;difficult, heavy;[ʃveːɐ̯];Die Prüfung war schwer.;The exam was difficult.;Adjectives (Difficulty);common,learning;87;2;1;;;;schwerer;am schwersten;;Also means 'heavy'.
+V0122;adjective;wichtig;important;[ˈvɪçtɪç];Das ist eine wichtige Information.;That is an important piece of information.;Adjectives (Quality);common;86;15;1;;;;wichtiger;am wichtigsten;;
+V0123;adjective;interessant;interesting;[ɪntəʁɛˈsant];Der Film ist sehr interessant.;The movie is very interesting.;Adjectives (Quality);common;85;15;1;;;;interessanter;am interessantesten;;
+V0124;adverb;gern;gladly, with pleasure;[ɡɛʁn];Ich trinke gern Tee.;I like to drink tea.;Adverbs (Manner);a1-essential,common;90;25;2;;;;lieber;am liebsten;;"Used after a verb to mean 'to like to do' that action.";
+V0125;adverb;sehr;very;[zeːɐ̯];Das ist sehr gut.;That is very good.;Adverbs (Degree);a1-essential,common;95;3;1;;;;;;;
+V0126;adverb;zu;too (excessively);[t͡suː];Das ist zu teuer.;That is too expensive.;Adverbs (Degree);common;90;9;1;;;;;;;Same word as the dative preposition 'zu'.
+V0127;adverb;auch;also, too;[aʊ̯x];Ich komme auch mit.;I'm coming along too.;Adverbs (Manner);common;94;14;1;;;;;;;
+V0128;adverb;nur;only;[nuːɐ̯];Ich habe nur 5 Euro.;I only have 5 Euros.;Adverbs (Manner);common;93;9;1;;;;;;;
+V0129;adverb;wieder;again;[ˈviːdɐ];Komm bitte wieder!;Please come again!;Adverbs (Time);common;92;1;1;;;;;;;
+V0130;adverb;schon;already, yet;[ʃoːn];Bist du schon fertig?;Are you already finished?;Adverbs (Time);common;91;8;1;;;;;;;
+V0131;adverb;noch;still, yet;[nɔx];Ich bin noch nicht fertig.;I am not finished yet.;Adverbs (Time);common;90;8;1;;;;;;;
+V0132;adverb;immer;always;[ˈɪmɐ];Er kommt immer zu spät.;He always comes too late.;Adverbs (Frequency);common;88;16;1;;;;;;;
+V0133;adverb;oft;often;[ɔft];Wir gehen oft ins Kino.;We often go to the cinema.;Adverbs (Frequency);common;87;16;1;;;;öfter;am häufigsten;;
+V0134;adverb;manchmal;sometimes;[ˈmançmaːl];Manchmal esse ich Pizza.;Sometimes I eat pizza.;Adverbs (Frequency);common;86;16;1;;;;;;;
+V0135;adverb;nie;never;[niː];Ich war noch nie in Japan.;I have never been to Japan.;Adverbs (Frequency);common;85;16;1;;;;;;;
+V0136;adverb;vielleicht;perhaps, maybe;[fiˈlaɪ̯çt];Vielleicht komme ich später.;Maybe I'll come later.;Adverbs (Modality);common;89;1;1;;;;;;;
+V0137;particle;mal;just, once (softener);[maːl];Schau mal!;Just look!;Particles;common,spoken;80;19;2;;;;;;;Used to make commands and requests sound softer and more casual.
+V0138;particle;denn;then (in questions);[dɛn];Was ist das denn?;What is that then?;Particles;common,spoken;75;7;2;;;;;;;Used in questions to show interest or surprise. Not the same as the conjunction `denn`.
+V0139;verb;dürfen;may, to be allowed to;[ˈdʏʁfn̩];Darf ich hier rauchen?;Am I allowed to smoke here?;Modal Verbs;modal,permission;88;18;3;darf;modal;gedurft;;;;`nicht dürfen` means 'must not / be forbidden'.
+V0140;verb;sollen;should, ought to;[ˈzɔlən];Du sollst deine Hausaufgaben machen.;You should do your homework.;Modal Verbs;modal,obligation;87;18;3;soll;modal;gesollt;;;;Often implies an order or advice from someone else.
+V0141;verb;kennen;to know, be familiar with;[ˈkɛnən];Ich kenne diesen Mann.;I know this man.;Cognitive Verbs;common;86;15;3;kenn;irregular;gekannt;;;;Used for people, places, things. Different from `wissen` (to know a fact).
+V0142;verb;sitzen;to sit;[ˈzɪt͡sn̩];Wir sitzen auf dem Sofa.;We are sitting on the sofa.;Positional Verbs;common,daily;85;16;3;sitz;irregular;gesessen;;;;;
+V0143;verb;legen;to lay, put (horizontally);[ˈleːɡn̩];Ich lege das Buch auf den Tisch.;I am laying the book on the table.;Positional Verbs;common,daily;84;18;2;leg;regular;gelegt;;;;Takes an accusative object, implies direction.
+V0144;verb;stellen;to put, place (vertically);[ˈʃtɛlən];Ich stelle die Flasche in den Kühlschrank.;I'm putting the bottle in the fridge.;Positional Verbs;common,daily;83;18;2;stell;regular;gestellt;;;;Takes an accusative object, implies direction.
+V0145;verb;hängen;to hang;[ˈhɛŋən];Ich hänge das Bild an die Wand.;I'm hanging the picture on the wall.;Positional Verbs;common,daily;82;18;3;häng;irregular;gehangen;;;;Can be regular or irregular. Irregular when intransitive (Das Bild hat gehangen).
+V0146;verb;anmachen;to turn on;[ˈanˌmaxn̩];Kannst du das Licht anmachen?;Can you turn on the light?;Separable Verbs;common,daily;85;14;2;mach...an;separable;angemacht;;;;;
+V0147;verb;ausmachen;to turn off;[ˈaʊ̯sˌmaxn̩];Mach bitte die Musik aus.;Please turn off the music.;Separable Verbs;common,daily;85;14;2;mach...aus;separable;ausgemacht;;;;;
+V0148;verb;aufmachen;to open;[ˈaʊ̯fˌmaxn̩];Kannst du das Fenster aufmachen?;Can you open the window?;Separable Verbs;common,daily;84;14;2;mach...auf;separable;aufgemacht;;;;For doors, windows, bottles.
+V0149;verb;zumachen;to close;[ˈt͡suːˌmaxn̩];Mach die Tür zu, es ist kalt.;Close the door, it's cold.;Separable Verbs;common,daily;84;14;2;mach...zu;separable;zugemacht;;;;For doors, windows, bottles.
+V0150;verb;abholen;to pick up (someone/something);[ˈapˌhoːlən];Ich hole dich vom Bahnhof ab.;I'll pick you up from the train station.;Separable Verbs;common,daily;83;14;2;hol...ab;separable;abgeholt;;;;;
+V0151;adjective;müde;tired;[ˈmyːdə];Ich bin sehr müde.;I am very tired.;Adjectives (State);common,daily;85;2;1;;;;müder;am müdesten;;
+V0152;adjective;wach;awake;[vax];Bist du schon wach?;Are you awake yet?;Adjectives (State);common,daily;84;14;1;;;;wacher;am wachsten;;
+V0153;adjective;gesund;healthy;[ɡəˈzʊnt];Obst ist gesund.;Fruit is healthy.;Adjectives (State);common,health;83;13;1;;;;gesünder;am gesündesten;;
+V0154;adjective;krank;sick, ill;[kʁaŋk];Ich bin heute krank.;I am sick today.;Adjectives (State);common,health;82;13;1;;;;kränker;am kränksten;;
+V0155;adjective;glücklich;happy, lucky;[ˈɡlʏklɪç];Sie sieht glücklich aus.;She looks happy.;Adjectives (Feelings);common,feelings;81;11;1;;;;glücklicher;am glücklichsten;;
+V0156;adjective;traurig;sad;[ˈtʁaʊ̯ʁɪç];Warum bist du traurig?;Why are you sad?;Adjectives (Feelings);common,feelings;80;11;1;;;;trauriger;am traurigsten;;
+V0157;adjective;lustig;funny, fun;[ˈlʊstɪç];Der Film war sehr lustig.;The movie was very funny.;Adjectives (Quality);common,leisure;79;26;1;;;;lustiger;am lustigsten;;
+V0158;adjective;langweilig;boring;[ˈlaŋˌvaɪ̯lɪç];Die Party ist langweilig.;The party is boring.;Adjectives (Quality);common,leisure;78;26;1;;;;langweiliger;am langweiligsten;;
+V0159;adjective;teuer;expensive;[ˈtɔɪ̯ɐ];Das Auto ist zu teuer.;The car is too expensive.;Adjectives (Price);common,shopping;80;9;1;;;;teurer;am teuersten;;When an ending is added, the 'e' is often dropped: `teures Auto`.
+V0160;adjective;billig;cheap, inexpensive;[ˈbɪlɪç];Die Tickets sind sehr billig.;The tickets are very cheap.;Adjectives (Price);common,shopping;79;9;1;;;;billiger;am billigsten;;
+V0161;adjective;hell;bright, light (color);[hɛl];Das Zimmer ist sehr hell.;The room is very bright.;Adjectives (Appearance);common,color;78;23;1;;;;heller;am hellsten;;
+V0162;adjective;dunkel;dark;[ˈdʊŋkl̩];Im Winter wird es früh dunkel.;In winter it gets dark early.;Adjectives (Appearance);common,color;77;23;1;;;;dunkler;am dunkelsten;;When an ending is added, the 'e' is often dropped: `dunkles Zimmer`.
+V0163;adjective;rot;red;[ʁoːt];Der Wein ist rot.;The wine is red.;Adjectives (Color);common,color;76;23;1;;;;röter;am rötesten;;
+V0164;adjective;blau;blue;[blaʊ̯];Der Himmel ist blau.;The sky is blue.;Adjectives (Color);common,color;75;23;1;;;;blauer;am blauesten;;
+V0165;adjective;grün;green;[ɡʁyːn];Das Gras ist grün.;The grass is green.;Adjectives (Color);common,color;74;23;1;;;;grüner;am grünsten;;
+V0166;adjective;gelb;yellow;[ɡɛlp];Die Banane ist gelb.;The banana is yellow.;Adjectives (Color);common,color;73;23;1;;;;gelber;am gelbsten;;
+V0167;adjective;schwarz;black;[ʃvaʁt͡s];Die Katze ist schwarz.;The cat is black.;Adjectives (Color);common,color;72;23;1;;;;schwärzer;am schwärzesten;;
+V0168;adjective;weiß;white;[vaɪ̯s];Der Schnee ist weiß.;The snow is white.;Adjectives (Color);common,color;71;23;1;;;;weißer;am weißesten;;
+V0169;adjective;jung;young;[jʊŋ];Mein Bruder ist jünger als ich.;My brother is younger than me.;Adjectives (Age);common;80;9;1;;;;jünger;am jüngsten;;
+V0170;adjective;früh;early;[fʁyː];Es ist noch zu früh.;It is still too early.;Adjectives (Time);common,daily;79;14;1;;;;früher;am frühesten;;
+V0171;adjective;spät;late;[ʃpɛːt];Du bist zu spät!;You are too late!;Adjectives (Time);common,daily;78;14;1;;;;später;am spätesten;;
+V0172;verb;studieren;to study (at university);[ʃtuˈdiːʁən];Sie studiert Medizin in Heidelberg.;She studies medicine in Heidelberg.;Action Verbs;learning,work;80;9;2;studier;regular;studiert;;;;Verbs ending in -ieren do not get a `ge-` prefix in the Perfekt.
+V0173;verb;reparieren;to repair;[ʁepaˈʁiːʁən];Kannst du mein Fahrrad reparieren?;Can you repair my bicycle?;Action Verbs;common,daily;79;16;2;reparier;regular;repariert;;;;Verbs ending in -ieren do not get a `ge-` prefix in the Perfekt.
+V0174;verb;telefonieren;to talk on the phone;[telefoˈniːʁən];Ich telefoniere mit meiner Mutter.;I am talking on the phone with my mother.;Action Verbs;common,daily;78;14;2;telefonier;regular;telefoniert;;;;Often used with `mit` + Dative.
+V0175;verb;besuchen;to visit;[bəˈzuːxn̩];Ich besuche meine Oma am Wochenende.;I'm visiting my grandma on the weekend.;Action Verbs;common,social;85;15;2;besuch;regular;besucht;;;;Inseparable prefix verb (`be-`), so no `ge-` in Perfekt.
+V0176;verb;bekommen;to get, to receive;[bəˈkɔmən];Ich habe eine E-Mail bekommen.;I received an e-mail.;Action Verbs;common,daily;84;15;3;bekomm;irregular;bekommen;;;;Inseparable prefix verb (`be-`).
+V0177;verb;erzählen;to tell, to narrate;[ɛɐ̯ˈt͡sɛːlən];Erzähl mir eine Geschichte!;Tell me a story!;Communication Verbs;common,social;83;15;2;erzähl;regular;erzählt;;;;Inseparable prefix verb (`er-`).
+V0178;verb;vergessen;to forget;[fɛɐ̯ˈɡɛsn̩];Ich habe seinen Namen vergessen.;I forgot his name.;Cognitive Verbs;common,daily;82;15;3;vergess/vergiss;irregular;vergessen;;;;Inseparable prefix (`ver-`), vowel change e->i.
+V0179;verb;verkaufen;to sell;[fɛɐ̯ˈkaʊ̯fn̩];Er verkauft sein altes Auto.;He is selling his old car.;Action Verbs;common,shopping;81;16;2;verkauf;regular;verkauft;;;;Inseparable prefix verb (`ver-`).
+V0180;verb;verlieren;to lose;[fɛɐ̯ˈliːʁən];Ich will nicht verlieren.;I don't want to lose.;Action Verbs;common;80;15;3;verlier;irregular;verloren;;;;Inseparable prefix verb (`ver-`).
+V0181;preposition;ohne;without;[ˈoːnə];Kaffee ohne Zucker, bitte.;Coffee without sugar, please.;Prepositions (Accusative);a2-level,preposition;80;6;2;;;;;;accusative;;
+V0182;preposition;gegen;against, around (time);[ˈɡeːɡn̩];Ich bin gegen diese Idee.;I am against this idea.;Prepositions (Accusative);a2-level,preposition;79;25;2;;;;;;accusative;;
+V0183;preposition;durch;through;[dʊʁç];Wir fahren durch einen Tunnel.;We are driving through a tunnel.;Prepositions (Accusative);a2-level,preposition;78;18;2;;;;;;accusative;;
+V0184;preposition;um;around, at (time);[ʊm];Wir treffen uns um 8 Uhr.;We'll meet at 8 o'clock.;Prepositions (Accusative);a1-essential,preposition;85;10;2;;;;;;accusative;;
+V0185;preposition;bei;at, near, with;[baɪ̯];Ich bin bei meinem Freund.;I am at my friend's place.;Prepositions (Dative);a2-level,preposition;80;13;2;;;;;;dative;;
+V0186;preposition;seit;since, for (time);[zaɪ̯t];Ich lerne seit einem Jahr Deutsch.;I've been learning German for a year.;Prepositions (Dative);a2-level,preposition;79;13;2;;;;;;dative;;
+V0187;preposition;gegenüber;opposite;[ɡeːɡn̩ˈʔyːbɐ];Die Post ist gegenüber vom Bahnhof.;The post office is opposite the train station.;Prepositions (Dative);a2-level,preposition;75;28;2;;;;;;dative;Can come before or after the noun.
+V0188;preposition;neben;next to, beside;[ˈneːbən];Die Apotheke ist neben der Bank.;The pharmacy is next to the bank.;Prepositions (Two-Way);a2-level,preposition;78;18;3;;;;;;two-way;;
+V0189;preposition;vor;in front of, before, ago;[foːɐ̯];Das Auto steht vor dem Haus.;The car is in front of the house.;Prepositions (Two-Way);a2-level,preposition;77;18;3;;;;;;two-way;Dative for location, Accusative for direction. As a time word, it means 'ago'.
+V0190;preposition;hinter;behind;[ˈhɪntɐ];Der Garten ist hinter dem Haus.;The garden is behind the house.;Prepositions (Two-Way);a2-level,preposition;76;18;3;;;;;;two-way;;
+V0191;preposition;über;over, above, about;[ˈyːbɐ];Das Flugzeug fliegt über die Wolken.;The plane flies above the clouds.;Prepositions (Two-Way);a2-level,preposition;75;18;3;;;;;;two-way;Also used to mean 'about' a topic: `ein Buch über Politik`.
+V0192;preposition;unter;under, among;[ˈʊntɐ];Die Katze ist unter dem Tisch.;The cat is under the table.;Prepositions (Two-Way);a2-level,preposition;74;18;3;;;;;;two-way;;
+V0193;preposition;zwischen;between;[ˈt͡svɪʃn̩];Ich sitze zwischen zwei Freunden.;I am sitting between two friends.;Prepositions (Two-Way);a2-level,preposition;73;18;3;;;;;;two-way;;
+V0194;adverb;links;left;[lɪŋks];Der Bahnhof ist links.;The train station is on the left.;Adverbs (Direction);common,directions;80;28;1;;;;;;;Used as an adverb.
+V0195;adverb;rechts;right;[ʁɛçt͡s];Gehen Sie hier rechts.;Go right here.;Adverbs (Direction);common,directions;80;28;1;;;;;;;Used as an adverb.
+V0196;adverb;geradeaus;straight ahead;[ɡəˈʁaːdəˈʔaʊ̯s];Fahren Sie immer geradeaus.;Drive straight ahead.;Adverbs (Direction);common,directions;79;28;1;;;;;;;
+V0197;adverb;zusammen;together;[t͡suˈzamən];Wir lernen zusammen.;We are learning together.;Adverbs (Manner);common,social;82;22;1;;;;;;;
+V0198;adverb;allein;alone;[aˈlaɪ̯n];Ich wohne allein.;I live alone.;Adverbs (Manner);common;81;22;1;;;;;;;
+V0199;adverb;natürlich;of course, naturally;[naˈtyːɐ̯lɪç];Natürlich helfe ich dir.;Of course I'll help you.;Adverbs (Modality);common,spoken;80;13;1;;;;;;;
+V0200;verb;möchten;would like;[ˈmœçtən];Ich möchte einen Kaffee bestellen.;I would like to order a coffee.;Modal Verbs;a1-essential,polite;95;10;3;möcht;modal;gemocht;;;;Polite form of `wollen`, technically a subjunctive form of `mögen`.
+V0201;adjective;ganz;whole, quite;[ɡant͡s];Ich habe den ganzen Tag gearbeitet.;I worked the whole day.;Adjectives (Quantity);common;80;12;1;;;;;;;
+V0202;adjective;halb;half;[halp];Es ist halb drei.;It is half past two.;Adjectives (Quantity);common,time;80;10;1;;;;;;;
+V0203;adjective;beide;both;[ˈbaɪ̯də];Wir sind beide müde.;We are both tired.;Adjectives (Quantity);common;79;12;1;;;;;;;
+V0204;adjective;einige;some, a few;[ˈaɪ̯nɪɡə];Ich habe einige Fragen.;I have a few questions.;Adjectives (Quantity);common;78;15;1;;;;;;;
+V0205;adjective;viele;many, a lot of;[ˈfiːlə];Hier gibt es viele Touristen.;There are many tourists here.;Adjectives (Quantity);common;85;13;1;;;;mehr;die meisten;;
+V0206;adjective;wenige;few;[ˈveːnɪɡə];Nur wenige Leute sind gekommen.;Only a few people came.;Adjectives (Quantity);common;77;15;1;;;;weniger;am wenigsten;;
+V0207;adverb;so;so, such, this way;[zoː];Warum bist du so traurig?;Why are you so sad?;Adverbs (Degree);common;90;11;1;;;;;;;
+V0208;adverb;dann;then, next;[dan];Erst die Arbeit, dann das Vergnügen.;First the work, then the pleasure.;Adverbs (Time);common;89;5;1;;;;;;;
+V0209;adverb;da;there, here, since;[daː];Ich bin schon da.;I am already here.;Adverbs (Place/Time);common;88;5;1;;;;;;;Can also be a conjunction meaning 'since/because'.
+V0210;adverb;deshalb;therefore, that's why;[ˈdɛsˌhalp];Ich bin krank, deshalb bleibe ich zu Hause.;I am sick, therefore I am staying home.;Adverbs (Causal);a2-level,grammar;75;21;2;;;;;;;Inverts subject and verb: `deshalb bleibe ich...`
+V0211;adverb;trotzdem;nevertheless, anyway;[ˈtʁɔt͡sˌdeːm];Es regnet, trotzdem gehe ich spazieren.;It's raining, nevertheless I'm going for a walk.;Adverbs (Causal);a2-level,grammar;74;21;2;;;;;;;Inverts subject and verb: `trotzdem gehe ich...`
+V0212;verb;anbieten;to offer;[ˈanˌbiːtn̩];Darf ich Ihnen etwas anbieten?;May I offer you something?;Separable Verbs;social,work;70;22;3;biet...an;separable;angeboten;;;;;
+V0213;verb;beginnen;to begin;[bəˈɡɪnən];Der Film beginnt um 20 Uhr.;The movie begins at 8 PM.;Action Verbs;common;80;7;3;beginn;irregular;begonnen;;;;Inseparable prefix `be-`.
+V0214;verb;danken;to thank;[ˈdaŋkən];Ich danke dir für deine Hilfe.;I thank you for your help.;Communication Verbs;common,social;80;1;2;dank;regular;gedankt;;;;Takes a dative object for the person being thanked.
+V0215;verb;einladen;to invite;[ˈaɪ̯nˌlaːdn̩];Ich lade dich zu meiner Party ein.;I'm inviting you to my party.;Separable Verbs;common,social;78;14;3;lad...ein;separable;eingeladen;;;;Vowel change a->ä.
+V0216;verb;entschuldigen;to excuse, to apologize;[ɛntˈʃʊldɪɡn̩];Entschuldigen Sie die Störung.;Excuse the disturbance.;Communication Verbs;common,polite;85;1;2;entschuldig;regular;entschuldigt;;;;Often used reflexively: `Ich entschuldige mich`.
+V0217;verb;erinnern;to remind;[ɛɐ̯ˈʔɪnɐn];Kannst du mich daran erinnern?;Can you remind me of that?;Cognitive Verbs;social,work;75;16;2;erinner;regular;erinnert;;;;Often reflexive `sich erinnern an` (to remember).
+V0218;verb;fühlen;to feel;[ˈfyːlən];Wie fühlst du dich?;How do you feel?;Sensory Verbs;feelings;78;11;2;fühl;regular;gefühlt;;;;Often used reflexively `sich fühlen`.
+V0219;verb;gehören;to belong to;[ɡəˈhøːʁən];Das Buch gehört mir.;The book belongs to me.;Positional Verbs;possession;77;12;2;gehör;regular;gehört;;;;Takes a dative object.
+V0220;verb;glauben;to believe;[ˈɡlaʊ̯bən];Ich glaube dir.;I believe you.;Cognitive Verbs;common;80;15;2;glaub;regular;geglaubt;;;;Can take a dative object.
+V0221;verb;hoffen;to hope;[ˈhɔfn̩];Ich hoffe, es geht dir gut.;I hope you are doing well.;Cognitive Verbs;common,social;79;15;2;hoff;regular;gehofft;;;;;
+V0222;verb;lachen;to laugh;[ˈlaxn̩];Wir haben viel gelacht.;We laughed a lot.;Action Verbs;social,feelings;78;11;2;lach;regular;gelacht;;;;;
+V0223;verb;weinen;to cry;[ˈvaɪ̯nən];Das Baby weint.;The baby is crying.;Action Verbs;social,feelings;77;11;2;wein;regular;geweint;;;;;
+V0224;verb;mieten;to rent;[ˈmiːtn̩];Wir mieten eine Wohnung.;We are renting an apartment.;Action Verbs;home,finance;76;5;2;miet;regular;gemietet;;;;;
+V0225;verb;öffnen;to open;[ˈœfnən];Öffnen Sie bitte das Fenster.;Please open the window.;Action Verbs;common,daily;80;14;2;öffn;regular;geöffnet;;;;More formal than `aufmachen`.
+V0226;verb;schließen;to close;[ˈʃliːsn̩];Der Laden schließt um 18 Uhr.;The shop closes at 6 PM.;Action Verbs;common,daily;79;14;3;schließ;irregular;geschlossen;;;;;
+V0227;verb;schneiden;to cut;[ˈʃnaɪ̯dn̩];Ich schneide das Brot.;I'm cutting the bread.;Action Verbs;daily,food;78;6;3;schneid;irregular;geschnitten;;;;;
+V0228;verb;sitzen;to sit;[ˈzɪt͡sn̩];Wir sitzen am Tisch.;We are sitting at the table.;Positional Verbs;daily;85;16;3;sitz;irregular;gesessen;;;;;
+V0229;verb;sterben;to die;[ˈʃtɛʁbən];Er ist letztes Jahr gestorben.;He died last year.;Core Verbs;life;70;17;3;sterb/stirb;irregular;gestorben;;;;Uses `sein` in Perfekt. Vowel change e->i.
+V0230;verb;sich treffen;to meet;[zɪç ˈtʁɛfn̩];Wir treffen uns um 8 Uhr.;We'll meet at 8 o'clock.;Reflexive Verbs;social,daily;80;28;3;treff/triff;reflexive;getroffen;;;;Vowel change e->i.
+V0231;verb;warten;to wait;[ˈvaʁtn̩];Ich warte auf den Bus.;I am waiting for the bus.;Action Verbs;daily;82;10;2;wart;regular;gewartet;;;;Used with `auf` + Accusative. Adds 'e' in conjugation.
+V0232;verb;waschen;to wash;[ˈvaʃn̩];Ich wasche meine Hände.;I'm washing my hands.;Action Verbs;daily;81;9;3;wasch/wäsch;irregular;gewaschen;;;;Vowel change a->ä.
+V0233;verb;zeigen;to show;[ˈt͡saɪ̯ɡn̩];Kannst du mir den Weg zeigen?;Can you show me the way?;Action Verbs;daily;83;12;2;zeig;regular;gezeigt;;;;Often takes a dative object.
+V0234;verb;ziehen;to pull, to move;[ˈt͡siːən];Er zieht an der Tür.;He is pulling on the door.;Action Verbs;general;75;18;3;zieh;irregular;gezogen;;;;`umziehen` (to move house) is very common.
+V0235;adjective;bekannt;known, famous;[bəˈkant];Er ist ein bekannter Schauspieler.;He is a famous actor.;Adjectives (Quality);common;75;26;1;;;;bekannter;am bekanntesten;;
+V0236;adjective;berühmt;famous;[bəˈʁyːmt];Diese Band ist weltberühmt.;This band is world-famous.;Adjectives (Quality);media,arts;74;26;1;;;;berühmter;am berühmtesten;;
+V0237;adjective;bequem;comfortable;[bəˈkveːm];Dieses Sofa ist sehr bequem.;This sofa is very comfortable.;Adjectives (Quality);home;76;5;1;;;;bequemer;am bequemsten;;
+V0238;adjective;dumm;dumb, stupid;[dʊm];Das war eine dumme Idee.;That was a stupid idea.;Adjectives (Quality);negative;70;15;1;;;;dümmer;am dümmsten;;
+V0239;adjective;ehrlich;honest;[ˈeːɐ̯lɪç];Sei bitte ehrlich zu mir.;Please be honest with me.;Adjectives (Quality);social;72;11;1;;;;ehrlicher;am ehrlichsten;;
+V0240;adjective;eng;narrow, tight;[ɛŋ];Die Straße ist sehr eng.;The street is very narrow.;Adjectives (Size);general;70;5;1;;;;enger;am engsten;;
+V00241;adjective;fremd;foreign, strange;[fʁɛmt];Ich bin fremd hier.;I am a stranger here.;Adjectives (State);social,travel;73;10;1;;;;;;;
+V0242;adjective;froh;happy, glad;[fʁoː];Ich bin froh, dich zu sehen.;I'm happy to see you.;Adjectives (Feelings);feelings;75;11;1;;;;froher;am frohesten;;
+V0243;adjective;gefährlich;dangerous;[ɡəˈfɛːɐ̯lɪç];Das ist eine gefährliche Situation.;That is a dangerous situation.;Adjectives (Quality);general;72;25;1;;;;gefährlicher;am gefährlichsten;;
+V0244;adjective;gemütlich;cozy, comfortable;[ɡəˈmyːtlɪç];Unsere Wohnung ist sehr gemütlich.;Our apartment is very cozy.;Adjectives (Quality);home,feelings;78;5;1;;;;gemütlicher;am gemütlichsten;;A key concept in German home life.
+V0245;adjective;genau;exact, exactly;[ɡəˈnaʊ̯];Das ist genau richtig.;That is exactly right.;Adjectives (Quality);common,spoken;80;8;1;;;;;;;Often used as an adverb or particle of agreement.
+V0246;adjective;gespannt;excited, curious;[ɡəˈʃpant];Ich bin gespannt auf den Film.;I'm excited about the movie.;Adjectives (Feelings);feelings,leisure;70;26;1;;;;;;;
+V0247;adjective;höflich;polite;[ˈhøːflɪç];Er ist ein sehr höflicher junger Mann.;He is a very polite young man.;Adjectives (Quality);social;75;1;1;;;;höflicher;am höflichsten;;
+V0248;adjective;hübsch;pretty, handsome;[hʏpʃ];Sie hat ein hübsches Lächeln.;She has a pretty smile.;Adjectives (Appearance);common;78;11;1;;;;hübscher;am hübschesten;;
+V0249;adjective;kaputt;broken;[kaˈpʊt];Mein Handy ist kaputt.;My phone is broken.;Adjectives (State);common,daily;80;5;1;;;;;;;
+V0250;adjective;klar;clear;[klaːɐ̯];Das Wasser ist sehr klar.;The water is very clear.;Adjectives (Quality);common;79;6;1;;;;klarer;am klarsten;;Also used to mean 'of course' (`Na klar!`).
+V0251;adjective;komisch;funny, strange, weird;[ˈkoːmɪʃ];Er hat einen komischen Hut auf.;He's wearing a weird hat.;Adjectives (Quality);common;78;15;1;;;;komischer;am komischsten;;
+V0252;adjective;lecker;delicious, tasty;[ˈlɛkɐ];Die Suppe ist sehr lecker.;The soup is very delicious.;Adjectives (Taste);food;80;6;1;;;;leckerer;am leckersten;;
+V0253;adjective;leer;empty;[leːɐ̯];Das Glas ist leer.;The glass is empty.;Adjectives (State);common;77;6;1;;;;leerer;am leersten;;
+V0254;adjective;voll;full;[fɔl];Meine Tasche ist voll.;My bag is full.;Adjectives (State);common;76;6;1;;;;voller;am vollsten;;
+V0255;adjective;letzte;last, final;[ˈlɛt͡stə];Das ist die letzte Frage.;That is the final question.;Adjectives (Order);common;79;27;1;;;;;;;
+V0256;adjective;nächste;next;[ˈnɛːçstə];Wir nehmen den nächsten Bus.;We are taking the next bus.;Adjectives (Order);common,daily;80;27;1;;;;;;;
+V0257;adjective;möglich;possible;[ˈmøːklɪç];Ist das möglich?;Is that possible?;Adjectives (State);common;78;25;1;;;;möglicher;am möglichsten;;
+V0258;adjective;unmöglich;impossible;[ˈʊnˌmøːklɪç];Diese Aufgabe ist unmöglich.;This task is impossible.;Adjectives (State);common;77;25;1;;;;;;;
+V0259;adjective;mündlich;oral, verbal;[ˈmʏntlɪç];Die Prüfung ist mündlich.;The exam is oral.;Adjectives (Type);learning;70;9;1;;;;;;;
+V0260;adjective;schriftlich;written;[ˈʃʁɪftlɪç];Ich brauche eine schriftliche Bestätigung.;I need a written confirmation.;Adjectives (Type);learning,work;70;9;1;;;;;;;
+V0261;adjective;nass;wet;[nas];Meine Kleidung ist nass.;My clothes are wet.;Adjectives (State);weather;76;22;1;;;;nasser;am nassesten;;
+V0262;adjective;trocken;dry;[ˈtʁɔkən];Die Wäsche ist trocken.;The laundry is dry.;Adjectives (State);weather;75;22;1;;;;trockener;am trockensten;;
+V0263;adjective;persönlich;personal;[pɛɐ̯ˈzøːnlɪç];Das ist eine persönliche Frage.;That is a personal question.;Adjectives (Type);social;74;15;1;;;;;;;
+V0264;adjective;privat;private;[pʁiˈvaːt];Das ist meine private Nummer.;That is my private number.;Adjectives (Type);social;73;15;1;;;;;;;
+V0265;adjective;sauber;clean;[ˈzaʊ̯bɐ];Das Zimmer ist sehr sauber.;The room is very clean.;Adjectives (State);home;78;5;1;;;;sauberer;am saubersten;;
+V0266;adjective;schmutzig;dirty;[ˈʃmʊt͡sɪç];Deine Hände sind schmutzig.;Your hands are dirty.;Adjectives (State);home;77;5;1;;;;schmutziger;am schmutzigsten;;
+V0267;adjective;sauer;sour, angry;[ˈzaʊ̯ɐ];Die Zitrone ist sauer.;The lemon is sour.;Adjectives (Taste);food,feelings;76;6;1;;;;saurer;am sauersten;;Can also mean 'angry' or 'mad': `Ich bin sauer auf dich.`
+V0268;adjective;süß;sweet, cute;[zyːs];Der Kuchen ist zu süß.;The cake is too sweet.;Adjectives (Taste);food,appearance;79;6;1;;;;süßer;am süßesten;;Also means 'cute' for people or animals.
+V0269;adjective;sicher;sure, safe;[ˈzɪçɐ];Bist du sicher?;Are you sure?;Adjectives (State);common;78;25;1;;;;sicherer;am sichersten;;
+V0270;adjective;stark;strong;[ʃtaʁk];Er ist ein starker Mann.;He is a strong man.;Adjectives (Quality);common;77;9;1;;;;stärker;am stärksten;;
+V0271;adjective;schwach;weak;[ʃvax];Nach der Krankheit fühlte er sich schwach.;After the illness he felt weak.;Adjectives (Quality);common;76;13;1;;;;schwächer;am schwächsten;;
+V0272;adjective;tief;deep, low;[tiːf];Der See ist sehr tief.;The lake is very deep.;Adjectives (Size);nature;70;22;1;;;;tiefer;am tiefsten;;
+V0273;adjective;hoch;high, tall;[hoːx];Der Berg ist sehr hoch.;The mountain is very high.;Adjectives (Size);nature;71;22;1;;;;höher;am höchsten;;When an ending is added, it becomes `hoh-`: `ein hohes Haus`.
+V0274;adjective;weit;far, wide;[vaɪ̯t];Wie weit ist es zum Bahnhof?;How far is it to the train station?;Adjectives (Distance);travel,directions;75;7;1;;;;weiter;am weitesten;;
+V0275;adjective;nah;near, close;[naː];Wohnst du nah am Zentrum?;Do you live near the center?;Adjectives (Distance);travel,directions;74;7;1;;;;näher;am nächsten;;
+V0276;adverb;draußen;outside;[ˈdʁaʊ̯sn̩];Die Kinder spielen draußen.;The children are playing outside.;Adverbs (Place);daily,home;78;5;1;;;;;;;
+V0277;adverb;drinnen;inside;[ˈdʁɪnən];Es regnet, lass uns drinnen bleiben.;It's raining, let's stay inside.;Adverbs (Place);daily,home;77;5;1;;;;;;;
+V0278;adverb;oben;upstairs, above;[ˈoːbn̩];Meine Wohnung ist oben.;My apartment is upstairs.;Adverbs (Place);daily,home;76;5;1;;;;;;;
+V0279;adverb;unten;downstairs, below;[ˈʊntn̩];Der Keller ist unten.;The basement is downstairs.;Adverbs (Place);daily,home;75;5;1;;;;;;;
+V0280;adverb;vorne;in front, at the front;[ˈfɔʁnə];Wir sitzen ganz vorne.;We are sitting right at the front.;Adverbs (Place);daily,directions;74;28;1;;;;;;;
+V0281;adverb;hinten;behind, at the back;[ˈhɪntn̩];Die Toiletten sind hinten.;The restrooms are at the back.;Adverbs (Place);daily,directions;73;28;1;;;;;;;
+V0282;adverb;früh;early;[fʁyː];Ich muss morgen früh aufstehen.;I have to get up early tomorrow.;Adverbs (Time);daily;79;14;1;;;;;;;
+V0283;adverb;spät;late;[ʃpɛːt];Es ist schon spät.;It's already late.;Adverbs (Time);daily;78;14;1;;;;;;;
+V0284;verb;anfangen;to begin, to start;[ˈanˌfaŋən];Wann fängt der Kurs an?;When does the course start?;Separable Verbs;common;80;15;3;fang...an;separable;angefangen;;;;Vowel change a->ä.
+V0285;verb;aufhören;to stop, to cease;[ˈaʊ̯fˌhøːʁən];Hör auf damit!;Stop that!;Separable Verbs;common;79;15;2;hör...auf;separable;aufgehört;;;;;
+V0286;verb;aussehen;to look, to appear;[ˈaʊ̯sˌzeːən];Du siehst heute gut aus.;You look good today.;Separable Verbs;common,appearance;78;11;3;seh...aus;separable;ausgesehen;;;;Vowel change e->ie.
+V0287;verb;besichtigen;to visit, to view (a sight);[bəˈzɪçtɪɡn̩];Wir wollen das Schloss besichtigen.;We want to visit the castle.;Action Verbs;travel,leisure;75;26;2;besichtig;regular;besichtigt;;;;;
+V0288;verb;bestellen;to order;[bəˈʃtɛlən];Ich möchte eine Pizza bestellen.;I would like to order a pizza.;Action Verbs;shopping,food;80;22;2;bestell;regular;bestellt;;;;Inseparable prefix `be-`.
+V0289;verb;bitten;to ask for, to request;[ˈbɪtn̩];Ich bitte dich um einen Gefallen.;I ask you for a favor.;Communication Verbs;polite;78;1;3;bitt;irregular;gebeten;;;;;
+V0290;verb;diskutieren;to discuss;[dɪskuˈtiːʁən];Wir müssen das diskutieren.;We have to discuss that.;Communication Verbs;work,social;74;15;2;diskutier;regular;diskutiert;;;;;
+V0291;verb;drücken;to push;[ˈdʁʏkən];Du musst die Tür drücken.;You have to push the door.;Action Verbs;general;72;5;2;drück;regular;gedrückt;;;;;
+V0292;verb;empfehlen;to recommend;[ɛmˈp͡feːlən];Was können Sie empfehlen?;What can you recommend?;Communication Verbs;food,travel;76;22;3;empfehl/empfiehl;irregular;empfohlen;;;;Inseparable (`emp-`), vowel change e->ie.
+V0293;verb;entscheiden;to decide;[ɛntˈʃaɪ̯dn̩];Ich kann mich nicht entscheiden.;I can't decide.;Cognitive Verbs;common;75;25;3;entscheid;irregular;entschieden;;;;Often reflexive: `sich entscheiden`.
+V0294;verb;erwarten;to expect;[ɛɐ̯ˈvaʁtn̩];Ich erwarte einen Anruf.;I am expecting a call.;Cognitive Verbs;work,social;74;16;2;erwart;regular;erwartet;;;;;
+V0295;verb;feiern;to celebrate;[ˈfaɪ̯ɐn];Wir feiern seinen Geburtstag.;We are celebrating his birthday.;Action Verbs;social,events;77;27;2;feier;regular;gefeiert;;;;;
+V0296;verb;fehlen;to be missing, to lack;[ˈfeːlən];Du fehlst mir.;I miss you.;Positional Verbs;feelings;76;11;2;fehl;regular;gefehlt;;;;The person missed is in the dative case.
+V0297;verb;sich freuen;to be happy, look forward to;[zɪç ˈfʁɔɪ̯ən];Ich freue mich auf das Wochenende.;I'm looking forward to the weekend.;Reflexive Verbs;feelings;78;11;2;freu;reflexive;gefreut;;;;`sich freuen über` (be happy about), `sich freuen auf` (look forward to).
+V0298;verb;funktionieren;to function, to work;[fʊŋkt͡si̯oˈniːʁən];Mein Computer funktioniert nicht.;My computer isn't working.;Action Verbs;tech,daily;77;10;2;funktionier;regular;funktioniert;;;;;
+V0299;verb;gefallen;to be pleasing to;[ɡəˈfalən];Das Kleid gefällt mir.;I like the dress (lit. The dress is pleasing to me).;Sensory Verbs;opinions;79;12;3;gefall/gefäll;irregular;gefallen;;;;Always takes a dative object. Vowel change a->ä.
+V0300;verb;gewinnen;to win;[ɡəˈvɪnən];Unsere Mannschaft hat gewonnen.;Our team won.;Action Verbs;sports,leisure;75;26;3;gewinn;irregular;gewonnen;;;;;
+V0301;verb;gratulieren;to congratulate;[ɡʁatuˈliːʁən];Ich gratuliere dir zum Geburtstag.;I congratulate you on your birthday.;Communication Verbs;social,events;74;27;2;gratulier;regular;gratuliert;;;;Takes a dative object.
+V0302;verb;heiraten;to marry;[ˈhaɪ̯ˌʁaːtn̩];Sie heiraten im Sommer.;They are getting married in summer.;Action Verbs;social,family;73;11;2;heirat;regular;geheiratet;;;;;
+V0303;verb;interessieren;to interest;[ɪntəʁɛˈsiːʁən];Das Thema interessiert mich.;The topic interests me.;Cognitive Verbs;common;78;9;2;interessier;regular;interessiert;;;;Often reflexive: `sich interessieren für` (to be interested in).
+V0304;verb;kochen;to cook;[ˈkɔxn̩];Ich koche gern am Wochenende.;I like to cook on the weekend.;Action Verbs;food,home,daily;80;6;2;koch;regular;gekocht;;;;;
+V0305;verb;kosten;to cost;[ˈkɔstn̩];Was kostet das?;What does that cost?;Positional Verbs;shopping,finance;82;9;2;kost;regular;gekostet;;;;;
+V0306;verb;sich kümmern um;to take care of;[zɪç ˈkʏmɐn ʊm];Ich kümmere mich um die Kinder.;I'm taking care of the children.;Reflexive Verbs;social,work;76;11;2;kümmer;reflexive;gekümmert;;;;The preposition `um` takes an accusative object.
+V0307;verb;laufen;to run, to walk;[ˈlaʊ̯fn̩];Er läuft jeden Morgen.;He runs every morning.;Movement Verbs;sports,daily;80;9;3;lauf/läuf;irregular;gelaufen;;;;Vowel change au->äu. Uses `sein` in Perfekt.
+V0308;verb;leihen;to lend, to borrow;[ˈlaɪ̯ən];Kannst du mir Geld leihen?;Can you lend me money?;Action Verbs;finance,social;74;9;3;leih;irregular;geliehen;;;;;
+V0309;verb;malen;to paint;[ˈmaːlən];Sie malt ein schönes Bild.;She is painting a beautiful picture.;Action Verbs;arts,leisure;70;23;2;mal;regular;gemalt;;;;;
+V0310;verb;meinen;to mean, to think (opinion);[ˈmaɪ̯nən];Was meinst du?;What do you mean/think?;Cognitive Verbs;communication;78;15;2;mein;regular;gemeint;;;;;
+V0311;verb;packen;to pack;[ˈpakn̩];Ich muss meinen Koffer packen.;I have to pack my suitcase.;Action Verbs;travel;75;20;2;pack;regular;gepackt;;;;;
+V0312;verb;parken;to park;[ˈpaʁkn̩];Hier kann man nicht parken.;You can't park here.;Action Verbs;transport,daily;74;18;2;park;regular;geparkt;;;;;
+V0313;verb;passen;to fit, to suit;[ˈpasn̩];Die Hose passt mir nicht.;The pants don't fit me.;Positional Verbs;shopping,clothing;77;9;2;pass;regular;gepasst;;;;Takes a dative object.
+V0314;verb;probieren;to try, to taste;[pʁoˈbiːʁən];Möchtest du mal probieren?;Would you like to try some?;Action Verbs;food,shopping;76;6;2;probier;regular;probiert;;;;`anprobieren` is used for clothes.
+V0315;verb;putzen;to clean;[ˈpʊt͡sn̩];Ich putze das Badezimmer.;I'm cleaning the bathroom.;Action Verbs;home,daily;75;5;2;putz;regular;geputzt;;;;`Zähne putzen` means to brush teeth.
+V0316;verb;rauchen;to smoke;[ˈʁaʊ̯xn̩];Rauchen ist ungesund.;Smoking is unhealthy.;Action Verbs;health;74;18;2;rauch;regular;geraucht;;;;;
+V0317;verb;regnen;to rain;[ˈʁeːɡnən];Es regnet schon den ganzen Tag.;It's been raining all day.;Weather Verbs;weather;78;22;2;regn;regular;geregnet;;;;Always used with `es`.
+V0318;verb;reisen;to travel;[ˈʁaɪ̯zn̩];Ich reise gern.;I like to travel.;Movement Verbs;travel,leisure;77;20;2;reis;regular;gereist;;;;Uses `sein` in Perfekt.
+V0319;verb;reservieren;to reserve;[ʁezɛʁˈviːʁən];Ich möchte einen Tisch reservieren.;I would like to reserve a table.;Action Verbs;food,travel;76;22;2;reservier;regular;reserviert;;;;;
+V0320;verb;schaffen;to manage, to create;[ˈʃafn̩];Wir schaffen das!;We can do it!;Action Verbs;work,social;75;16;3;schaff;irregular;geschafft;;;;Can be regular or irregular with different meanings. A1 focus is on regular 'geschafft' (managed).
+V0321;verb;scheinen;to shine, to seem;[ˈʃaɪ̯nən];Die Sonne scheint.;The sun is shining.;Sensory Verbs;weather,state;74;22;3;schein;irregular;geschienen;;;;;
+V0322;verb;schenken;to give as a gift;[ˈʃɛŋkən];Ich schenke meiner Mutter Blumen.;I'm giving my mother flowers as a gift.;Action Verbs;social,events;73;27;2;schenk;regular;geschenkt;;;;Takes a dative object (the receiver).
+V0323;verb;schicken;to send;[ˈʃɪkən];Ich schicke dir eine Nachricht.;I'll send you a message.;Action Verbs;communication;78;16;2;schick;regular;geschickt;;;;;
+V0324;verb;schlafen;to sleep;[ˈʃlaːfn̩];Ich schlafe normalerweise 8 Stunden.;I normally sleep 8 hours.;Action Verbs;daily,health;80;9;3;schlaf/schläf;irregular;geschlafen;;;;Vowel change a->ä.
+V0325;verb;schmecken;to taste;[ˈʃmɛkən];Die Suppe schmeckt gut.;The soup tastes good.;Sensory Verbs;food;79;12;2;schmeck;regular;geschmeckt;;;;Takes a dative object: `Es schmeckt mir`.
+V0326;verb;schneien;to snow;[ˈʃnaɪ̯ən];Morgen soll es schneien.;It is supposed to snow tomorrow.;Weather Verbs;weather;70;22;2;schnei;regular;geschneit;;;;Always used with `es`.
+V0327;verb;schwimmen;to swim;[ˈʃvɪmən];Ich kann gut schwimmen.;I can swim well.;Movement Verbs;sports,leisure;75;25;3;schwimm;irregular;geschwommen;;;;Uses `sein` in Perfekt.
+V0328;verb;spazieren gehen;to go for a walk;[ʃpaˈt͡siːɐ̯n ˌɡeːən];Wir gehen im Park spazieren.;We are going for a walk in the park.;Separable Verbs;leisure,daily;78;22;3;geh...spazieren;separable;spazieren gegangen;;;;`spazieren` acts like a prefix here.
+V0329;verb;spülen;to wash, to rinse;[ˈʃpyːlən];Ich muss das Geschirr spülen.;I have to wash the dishes.;Action Verbs;home,daily;70;6;2;spül;regular;gespült;;;;;
+V0330;verb;stimmen;to be correct, to vote;[ˈʃtɪmən];Das stimmt.;That's correct.;Core Verbs;spoken,communication;80;8;2;stimm;regular;gestimmt;;;;`Stimmt so` is a common way to say 'keep the change'.
+V0331;verb;stören;to disturb, to bother;[ˈʃtøːʁən];Störe ich?;Am I disturbing you?;Action Verbs;social;72;1;2;stör;regular;gestört;;;;;
+V0332;verb;studieren;to study (at university);[ʃtuˈdiːʁən];Was studierst du?;What do you study?;Action Verbs;learning,work;78;9;2;studier;regular;studiert;;;;;
+V0333;verb;suchen;to search for;[ˈzuːxn̩];Ich suche meine Schlüssel.;I'm searching for my keys.;Action Verbs;daily;82;8;2;such;regular;gesucht;;;;;
+V0334;verb;teilen;to share;[ˈtaɪ̯lən];Wir können die Pizza teilen.;We can share the pizza.;Action Verbs;social,food;75;6;2;teil;regular;geteilt;;;;;
+V0335;verb;tragen;to wear, to carry;[ˈtʁaːɡn̩];Sie trägt ein rotes Kleid.;She is wearing a red dress.;Action Verbs;clothing,daily;78;9;3;trag/träg;irregular;getragen;;;;Vowel change a->ä.
+V0336;verb;sich treffen;to meet each other;[zɪç ˈtʁɛfn̩];Wo treffen wir uns?;Where do we meet?;Reflexive Verbs;social,daily;80;28;3;treff/triff;reflexive;getroffen;;;;Vowel change e->i.
+V0337;verb;tun;to do;[tuːn];Was kann ich für Sie tun?;What can I do for you?;Action Verbs;general;76;8;3;tu;irregular;getan;;;;Often used in fixed phrases like `leid tun` (to be sorry) or `weh tun` (to hurt).
+V0338;verb;verdienen;to earn, to deserve;[fɛɐ̯ˈdiːnən];Er verdient viel Geld.;He earns a lot of money.;Action Verbs;work,finance;74;16;2;verdien;regular;verdient;;;;;
+V0339;verb;vereinbaren;to arrange, to agree upon;[fɛɐ̯ˈʔaɪ̯nbaːʁən];Wir müssen einen Termin vereinbaren.;We have to arrange an appointment.;Action Verbs;work,social;70;16;2;vereinbar;regular;vereinbart;;;;;
+V0340;verb;vorbereiten;to prepare;[ˈfoːɐ̯bəˌʁaɪ̯tn̩];Ich muss mich auf die Prüfung vorbereiten.;I have to prepare for the exam.;Separable Verbs;work,learning;73;14;2;bereit...vor;separable;vorbereitet;;;;Often reflexive: `sich vorbereiten`.
+V0341;verb;vorschlagen;to suggest;[ˈfoːɐ̯ˌʃlaːɡn̩];Was schlägst du vor?;What do you suggest?;Separable Verbs;communication,social;72;28;3;schlag...vor;separable;vorgeschlagen;;;;Vowel change a->ä.
+V0342;verb;sich vorstellen;to introduce oneself;[zɪç ˈfoːɐ̯ˌʃtɛlən];Darf ich mich vorstellen?;May I introduce myself?;Reflexive Verbs;social,introduction;78;1;2;stell...vor;reflexive;vorgestellt;;;;Also means `to imagine`.
+V0343;verb;wachsen;to grow;[ˈvaksn̩];Die Kinder wachsen so schnell.;The children grow so fast.;Action Verbs;nature,life;70;17;3;wachs/wächs;irregular;gewachsen;;;;Vowel change a->ä. Uses `sein` in Perfekt.
+V0344;verb;wandern;to hike;[ˈvandɐn];Am Wochenende gehen wir wandern.;We go hiking on the weekend.;Movement Verbs;leisure,sports;74;25;2;wander;regular;gewandert;;;;Uses `sein` in Perfekt.
+V0345;verb;wiederholen;to repeat;[viːdɐˈhoːlən];Können Sie das bitte wiederholen?;Can you please repeat that?;Communication Verbs;learning;79;1;2;wiederhol;regular;wiederholt;;;;Note: This is an inseparable verb.
+V0346;verb;zahlen;to pay;[ˈt͡saːlən];Ich zahle bar.;I'm paying cash.;Action Verbs;shopping,finance;80;22;2;zahl;regular;gezahlt;;;;;
+V0347;verb;zeichnen;to draw;[ˈt͡saɪ̯çnən];Sie kann sehr gut zeichnen.;She can draw very well.;Action Verbs;arts,leisure;70;23;2;zeichn;regular;gezeichnet;;;;;
+V0348;adverb;danke;thanks;[ˈdaŋkə];Danke für die Hilfe.;Thanks for the help.;Particles;polite,common;95;1;1;;;;;;;
+V0349;adverb;bitte;please;[ˈbɪtə];Eine Tasse Kaffee, bitte.;A cup of coffee, please.;Particles;polite,common;95;1;1;;;;;;;Also means 'you're welcome'.
+V0350;adverb;genau;exactly;[ɡəˈnaʊ̯];Genau! Das ist die Antwort.;Exactly! That is the answer.;Particles;spoken,agreement;85;8;1;;;;;;;Used to show agreement.
+V0351;adjective;lang;long;[laŋ];Der Film war zu lang.;The movie was too long.;Adjectives (Size);common;80;26;1;;;;länger;am längsten;;
+V0352;adjective;kurz;short;[kʊʁt͡s];Ich schreibe eine kurze Nachricht.;I'm writing a short message.;Adjectives (Size);common;79;29;1;;;;kürzer;am kürzesten;;
+V0353;adverb;davor;before that;[daˈfoːɐ̯];Wir gehen essen und davor trinken wir etwas.;We're going to eat, and before that we'll drink something.;Adverbs (Time);linking;70;15;2;;;;;;;
+V0354;adverb;danach;after that;[daˈnaːx];Was machen wir danach?;What are we doing after that?;Adverbs (Time);linking;71;15;2;;;;;;;
+V0355;adverb;deswegen;because of that, therefore;[ˈdɛsˌveːɡn̩];Ich bin müde, deswegen gehe ich ins Bett.;I'm tired, that's why I'm going to bed.;Adverbs (Causal);grammar;72;21;2;;;;;;;Inverts subject and verb: `deswegen gehe ich...`
+V0356;adverb;man;one, you (general);[man];In Deutschland isst man viel Brot.;In Germany, one eats a lot of bread.;Pronouns (Indefinite);common,spoken;85;5;1;;;;;;;Indefinite pronoun, always third-person singular.
+V0357;adjective;ganz;whole, quite;[ɡant͡s];Ich habe den ganzen Tag gewartet.;I waited the whole day.;Adjectives (Quantity);common;80;12;1;;;;;;;
+V0358;adjective;halb;half;[halp];Es ist halb vier.;It's half past three.;Adjectives (Quantity);common,time;80;10;1;;;;;;;
+V0359;adjective;beide;both;[ˈbaɪ̯də];Wir sind beide müde.;We are both tired.;Adjectives (Quantity);common;79;12;1;;;;;;;
+V0360;adjective;einige;some, a few;[ˈaɪ̯nɪɡə];Ich habe einige Fragen.;I have a few questions.;Adjectives (Quantity);common;78;15;1;;;;;;;
+V0361;adjective;wenige;few;[ˈveːnɪɡə];Nur wenige Leute sind gekommen.;Only a few people came.;Adjectives (Quantity);common;77;15;1;;;;weniger;am wenigsten;;
+V0362;adverb;so;so, such, this way;[zoː];Warum bist du so traurig?;Why are you so sad?;Adverbs (Degree);common;90;11;1;;;;;;;
+V0363;adverb;dann;then, next;[dan];Erst die Arbeit, dann das Vergnügen.;First the work, then the pleasure.;Adverbs (Time);common;89;5;1;;;;;;;
+V0364;adverb;da;there, here, since;[daː];Ich bin schon da.;I am already here.;Adverbs (Place/Time);common;88;5;1;;;;;;;Can also be a conjunction meaning 'since/because'.
+V0365;verb;abfahren;to depart;[ˈapˌfaːʁən];Der Zug fährt um 8 Uhr ab.;The train departs at 8 o'clock.;Separable Verbs;travel;75;7;3;fahr...ab;separable;abgefahren;;;;Uses `sein` in Perfekt. Vowel change a->ä.
+V0366;verb;ankommen;to arrive;[ˈanˌkɔmən];Wann kommt der Bus an?;When does the bus arrive?;Separable Verbs;travel;76;7;3;komm...an;separable;angekommen;;;;Uses `sein` in Perfekt.
+V0367;verb;einsteigen;to get on, to board;[ˈaɪ̯nˌʃtaɪ̯ɡn̩];Bitte schnell einsteigen!;Please board quickly!;Separable Verbs;travel,transport;77;7;3;steig...ein;separable;eingestiegen;;;;Uses `sein` in Perfekt.
+V0368;verb;aussteigen;to get off, to alight;[ˈaʊ̯sˌʃtaɪ̯ɡn̩];Wir müssen hier aussteigen.;We have to get off here.;Separable Verbs;travel,transport;78;7;3;steig...aus;separable;ausgestiegen;;;;Uses `sein` in Perfekt.
+V0369;verb;umsteigen;to change (trains, etc.);[ˈʊmˌʃtaɪ̯ɡn̩];In München müssen wir umsteigen.;We have to change in Munich.;Separable Verbs;travel,transport;79;7;3;steig...um;separable;umgestiegen;;;;Uses `sein` in Perfekt.
+V0370;verb;ändern;to change, to alter;[ˈɛndɐn];Ich möchte meinen Termin ändern.;I would like to change my appointment.;Action Verbs;general;75;16;2;änder;regular;geändert;;;;;
+V0371;verb;bauen;to build;[ˈbaʊ̯ən];Sie bauen ein neues Haus.;They are building a new house.;Action Verbs;work,home;74;5;2;bau;regular;gebaut;;;;;
+V0372;verb;bedeuten;to mean, signify;[bəˈdɔɪ̯tn̩];Was bedeutet dieses Wort?;What does this word mean?;Cognitive Verbs;learning,communication;78;2;2;bedeut;regular;bedeutet;;;;;
+V0373;verb;benutzen;to use;[bəˈnʊt͡sn̩];Welches Shampoo benutzt du?;Which shampoo do you use?;Action Verbs;daily;77;5;2;benutz;regular;benutzt;;;;;
+V0374;verb;berichten;to report;[bəˈʁɪçtn̩];Die Zeitung berichtet über den Unfall.;The newspaper is reporting about the accident.;Communication Verbs;media,work;70;15;2;bericht;regular;berichtet;;;;;
+V0375;verb;beschreiben;to describe;[bəˈʃʁaɪ̯bən];Kannst du das Bild beschreiben?;Can you describe the picture?;Communication Verbs;general;76;23;3;beschreib;irregular;beschrieben;;;;;
+V0376;verb;bestehen;to pass (an exam), consist of;[bəˈʃteːən];Ich habe die Prüfung bestanden.;I passed the exam.;Action Verbs;learning;75;9;3;besteh;irregular;bestanden;;;;;
+V0377;verb;besuchen;to visit;[bəˈzuːxn̩];Ich besuche meine Tante.;I am visiting my aunt.;Action Verbs;social;85;15;2;besuch;regular;besucht;;;;;
+V0378;verb;brauchen;to need;[ˈbʁaʊ̯xən];Ich brauche deine Hilfe.;I need your help.;Action Verbs;daily;86;8;2;brauch;regular;gebraucht;;;;;
+V0379;verb;dauern;to last, to take (time);[ˈdaʊ̯ɐn];Der Flug dauert 10 Stunden.;The flight takes 10 hours.;Positional Verbs;time;78;10;2;dauer;regular;gedauert;;;;;
+V0380;verb;dienen;to serve;[ˈdiːnən];Womit kann ich dienen?;How can I be of service?;Action Verbs;formal;65;1;2;dien;regular;gedient;;;;;
+V0381;verb;diskutieren;to discuss;[dɪskuˈtiːʁən];Wir diskutieren über Politik.;We are discussing politics.;Communication Verbs;social,work;74;15;2;diskutier;regular;diskutiert;;;;;
+V0382;verb;einfallen;to occur to someone;[ˈaɪ̯nˌfalən];Mir fällt sein Name nicht ein.;His name doesn't occur to me.;Separable Verbs;cognitive;70;15;3;fall...ein;separable;eingefallen;;;;Takes a dative object. Uses `sein` in Perfekt.
+V0383;verb;erhalten;to receive;[ɛɐ̯ˈhaltn̩];Sie haben eine E-Mail erhalten.;You have received an e-mail.;Action Verbs;formal,work;73;16;3;erhalt/erhält;irregular;erhalten;;;;More formal than `bekommen`.
+V0384;verb;erinnern (sich);to remember;[ɛɐ̯ˈʔɪnɐn];Ich erinnere mich nicht.;I don't remember.;Reflexive Verbs;cognitive;75;15;2;erinner;reflexive;erinnert;;;;`sich erinnern an` + Accusative.
+V0385;verb;erkennen;to recognize;[ɛɐ̯ˈkɛnən];Ich habe dich nicht erkannt.;I didn't recognize you.;Cognitive Verbs;social;74;15;3;erkenn;irregular;erkannt;;;;;
+V0386;verb;erreichen;to reach, to achieve;[ɛɐ̯ˈʁaɪ̯çn̩];Wir haben unser Ziel erreicht.;We have reached our goal.;Action Verbs;general,work;73;25;2;erreich;regular;erreicht;;;;;
+V0387;verb;erwarten;to expect;[ɛɐ̯ˈvaʁtn̩];Was erwartest du?;What do you expect?;Cognitive Verbs;social,work;74;16;2;erwart;regular;erwartet;;;;;
+V0388;verb;erzählen;to tell, to narrate;[ɛɐ̯ˈt͡sɛːlən];Er erzählt einen Witz.;He is telling a joke.;Communication Verbs;social;83;15;2;erzähl;regular;erzählt;;;;;
+V0389;verb;fehlen;to be missing;[ˈfeːlən];Ein Knopf fehlt an meinem Hemd.;A button is missing from my shirt.;Positional Verbs;general;76;9;2;fehl;regular;gefehlt;;;;;
+V0390;verb;folgen;to follow;[ˈfɔlɡn̩];Folgen Sie mir, bitte.;Follow me, please.;Movement Verbs;directions;75;28;2;folg;regular;gefolgt;;;;Takes a dative object. Uses `sein` in Perfekt.
+V0391;verb;frieren;to be freezing cold;[ˈfʁiːʁən];Ich friere.;I am freezing.;Sensory Verbs;weather;70;22;3;frier;irregular;gefroren;;;;;
+V0392;verb;gefallen;to be pleasing to;[ɡəˈfalən];Mir gefällt dein neues Kleid.;I like your new dress.;Sensory Verbs;opinions;79;12;3;gefall/gefäll;irregular;gefallen;;;;Takes a dative object. Vowel change a->ä.
+V0393;verb;gehören;to belong to;[ɡəˈhøːʁən];Wem gehört dieser Stift?;Who does this pen belong to?;Positional Verbs;possession;77;12;2;gehör;regular;gehört;;;;Takes a dative object.
+V0394;verb;genießen;to enjoy;[ɡəˈniːsn̩];Ich genieße die Sonne.;I am enjoying the sun.;Sensory Verbs;leisure,feelings;76;22;3;genieß;irregular;genossen;;;;;
+V0395;verb;glauben;to believe;[ˈɡlaʊ̯bən];Ich glaube, dass es regnen wird.;I believe that it will rain.;Cognitive Verbs;opinions;80;15;2;glaub;regular;geglaubt;;;;;
+V0396;verb;hoffen;to hope;[ˈhɔfn̩];Ich hoffe, du kommst bald.;I hope you come soon.;Cognitive Verbs;social;79;15;2;hoff;regular;gehofft;;;;;
+V0397;verb;holen;to get, to fetch;[ˈhoːlən];Ich hole die Getränke.;I'll get the drinks.;Action Verbs;daily;78;6;2;hol;regular;geholt;;;;;
+V0398;verb;kennenlernen;to get to know;[ˈkɛnənˌlɛʁnən];Ich möchte dich besser kennenlernen.;I would like to get to know you better.;Separable Verbs;social;77;11;2;lern...kennen;separable;kennengelernt;;;;;
+V0399;verb;klingen;to sound;[ˈklɪŋən];Das klingt gut!;That sounds good!;Sensory Verbs;opinions;76;15;3;kling;irregular;geklungen;;;;;
+V0400;verb;lassen;to let, to leave;[ˈlasn̩];Lass mich in Ruhe!;Leave me in peace!;Action Verbs;general;75;19;3;lass/läss;irregular;gelassen;;;;Vowel change a->ä.
+V0401;verb;leihen;to lend, borrow;[ˈlaɪ̯ən];Kannst du mir Geld leihen?;Can you lend me money?;Action Verbs;finance,social;74;9;3;leih;irregular;geliehen;;;;;
+V0402;verb;lieben;to love;[ˈliːbən];Ich liebe dich.;I love you.;Cognitive Verbs;feelings;84;11;2;lieb;regular;geliebt;;;;;
+V0403;verb;liefern;to deliver;[ˈliːfɐn];Die Pizza wird in 30 Minuten geliefert.;The pizza will be delivered in 30 minutes.;Action Verbs;shopping;73;22;2;liefer;regular;geliefert;;;;;
+V0404;verb;lügen;to lie (tell a falsehood);[ˈlyːɡn̩];Lüg mich nicht an!;Don't lie to me!;Communication Verbs;negative,social;72;11;3;lüg;irregular;gelogen;;;;;
+V0405;verb;meinen;to mean, think;[ˈmaɪ̯nən];Ich meine, das ist eine gute Idee.;I think that's a good idea.;Cognitive Verbs;opinions;78;15;2;mein;regular;gemeint;;;;;
+V0406;verb;merken;to notice, to realize;[ˈmɛʁkən];Ich habe nichts gemerkt.;I didn't notice anything.;Cognitive Verbs;general;71;15;2;merk;regular;gemerkt;;;;;
+V0407;verb;mitbringen;to bring along;[ˈmɪtˌbʁɪŋən];Soll ich etwas mitbringen?;Should I bring something along?;Separable Verbs;social;77;14;3;bring...mit;separable;mitgebracht;;;;;
+V0408;verb;mitnehmen;to take along/with;[ˈmɪtˌneːmən];Ich nehme einen Regenschirm mit.;I'm taking an umbrella with me.;Separable Verbs;daily;76;14;3;nehm...mit;separable;mitgenommen;;;;;
+V0409;verb;organisieren;to organize;[ɔʁɡaniˈziːʁən];Wir müssen die Party organisieren.;We have to organize the party.;Action Verbs;work,social;75;27;2;organisier;regular;organisiert;;;;;
+V0410;verb;planen;to plan;[ˈplaːnən];Was planst du für das Wochenende?;What are you planning for the weekend?;Action Verbs;work,leisure;74;29;2;plan;regular;geplant;;;;;
+V0411;verb;präsentieren;to present;[pʁɛzɛnˈtiːʁən];Er präsentiert die Ergebnisse.;He is presenting the results.;Communication Verbs;work;73;16;2;präsentier;regular;präsentiert;;;;;
+V0412;verb;raten;to guess, to advise;[ˈʁaːtn̩];Ich rate dir, vorsichtig zu sein.;I advise you to be careful.;Cognitive Verbs;social;72;13;3;rat/rät;irregular;geraten;;;;Vowel change a->ä.
+V0413;verb;reagieren;to react;[ʁeaˈɡiːʁən];Er hat nicht reagiert.;He didn't react.;Action Verbs;social;71;25;2;reagier;regular;reagiert;;;;;
+V0414;verb;reden;to talk, to speak;[ˈʁeːdn̩];Wir müssen reden.;We need to talk.;Communication Verbs;social;77;1;2;red;regular;geredet;;;;;
+V0415;verb;riechen;to smell;[ˈʁiːçn̩];Das riecht gut!;That smells good!;Sensory Verbs;food,general;76;6;3;riech;irregular;gerochen;;;;;
+V0416;verb;rufen;to call, to shout;[ˈʁuːfn̩];Ruf die Polizei!;Call the police!;Communication Verbs;general;75;28;3;ruf;irregular;gerufen;;;;For calling out, not for phones (`anrufen`).
+V0417;verb;sammeln;to collect, to gather;[ˈzamln̩];Ich sammle Briefmarken.;I collect stamps.;Action Verbs;leisure,hobby;70;26;2;sammel;regular;gesammelt;;;;;
+V0418;verb;schaffen;to manage, achieve;[ˈʃafn̩];Du schaffst das!;You can do it!;Action Verbs;general;75;16;2;schaff;regular;geschafft;;;;;
+V0419;verb;schauen;to look, to watch;[ˈʃaʊ̯ən];Schau mal hier!;Look here!;Sensory Verbs;daily;78;1;2;schau;regular;geschaut;;;;Often interchangeable with `sehen`.
+V0420;verb;scheinen;to seem, to shine;[ˈʃaɪ̯nən];Die Sonne scheint.;The sun is shining.;Positional Verbs;weather,state;74;22;3;schein;irregular;geschienen;;;;;
+V0421;verb;schlagen;to hit, to beat;[ˈʃlaːɡn̩];Mein Herz schlägt schnell.;My heart beats fast.;Action Verbs;general,sports;73;12;3;schlag/schläg;irregular;geschlagen;;;;Vowel change a->ä.
+V0422;verb;senden;to send;[ˈzɛndn̩];Ich sende Ihnen die Dokumente.;I am sending you the documents.;Action Verbs;work,communication;72;16;3;send;irregular;gesandt/gesendet;;;;Both past participles are used.
+V0423;verb;sparen;to save (money, time);[ˈʃpaːʁən];Ich spare für ein neues Auto.;I'm saving for a new car.;Action Verbs;finance;71;9;2;spar;regular;gespart;;;;;
+V0424;verb;stimmen;to be correct;[ˈʃtɪmən];Ja, das stimmt.;Yes, that's correct.;Core Verbs;spoken;80;8;2;stimm;regular;gestimmt;;;;;
+V0425;verb;streiten;to argue;[ˈʃtʁaɪ̯tn̩];Die Kinder streiten sich oft.;The children often argue.;Communication Verbs;social;70;11;3;streit;irregular;gestritten;;;;;
+V0426;verb;teilnehmen;to participate;[ˈtaɪ̯lˌneːmən];Möchtest du am Wettbewerb teilnehmen?;Do you want to participate in the competition?;Separable Verbs;social,events;69;26;3;nehm...teil;separable;teilgenommen;;;;;
+V0427;verb;töten;to kill;[ˈtøːtn̩];Die Spinne wurde getötet.;The spider was killed.;Action Verbs;negative;68;25;2;töt;regular;getötet;;;;;
+V0428;verb;träumen;to dream;[ˈtʁɔɪ̯mən];Ich träume von einem Urlaub.;I'm dreaming of a vacation.;Cognitive Verbs;feelings;73;25;2;träum;regular;geträumt;;;;Used with `von` + Dative.
+V0429;verb;trennen;to separate;[ˈtʁɛnən];Wir zahlen getrennt.;We're paying separately.;Action Verbs;general;72;22;2;trenn;regular;getrennt;;;;;
+V0430;verb;trocknen;to dry;[ˈtʁɔknən];Die Sonne trocknet die Wäsche.;The sun is drying the laundry.;Action Verbs;daily;71;22;2;trockn;regular;getrocknet;;;;;
+V0431;verb;überlegen;to consider, think over;[yːbɐˈleːɡn̩];Ich muss mir das überlegen.;I have to think it over.;Cognitive Verbs;decision;70;25;2;überleg;regular;überlegt;;;;Inseparable prefix `über-`.
+V0432;verb;übernachten;to stay overnight;[yːbɐˈnaxtn̩];Wir übernachten im Hotel.;We are staying overnight at the hotel.;Action Verbs;travel;75;29;2;übernacht;regular;übernachtet;;;;Inseparable prefix `über-`.
+V0433;verb;überprüfen;to check, to review;[yːbɐˈpʁyːfn̩];Bitte überprüfen Sie Ihre Angaben.;Please check your details.;Action Verbs;work,formal;74;16;2;überprüf;regular;überprüft;;;;;
+V0434;verb;übersetzen;to translate;[yːbɐˈzɛt͡sn̩];Kannst du diesen Satz übersetzen?;Can you translate this sentence?;Communication Verbs;learning;77;2;2;übersetz;regular;übersetzt;;;;Inseparable prefix `über-`.
+V0435;verb;überweisen;to transfer (money);[yːbɐˈvaɪ̯zn̩];Ich überweise dir das Geld morgen.;I'll transfer the money to you tomorrow.;Action Verbs;finance;73;9;3;überweis;irregular;überwiesen;;;;;
+V0436;verb;umbuchen;to rebook;[ˈʊmˌbuːxn̩];Ich möchte meinen Flug umbuchen.;I would like to rebook my flight.;Separable Verbs;travel;72;20;2;buch...um;separable;umgebucht;;;;;
+V0437;verb;umziehen;to move (house);[ˈʊmˌt͡siːən];Nächsten Monat ziehen wir um.;We are moving next month.;Separable Verbs;home;76;5;3;zieh...um;separable;umgezogen;;;;Uses `sein` in Perfekt.
+V0438;verb;sich unterhalten;to chat, to converse;[zɪç ʊntɐˈhaltn̩];Wir haben uns lange unterhalten.;We chatted for a long time.;Reflexive Verbs;social;75;15;3;unterhalt/unterhält;reflexive;unterhalten;;;;Vowel change a->ä.
+V0439;verb;unterschreiben;to sign;[ʊntɐˈʃʁaɪ̯bən];Bitte unterschreiben Sie hier.;Please sign here.;Action Verbs;work,formal;74;16;3;unterschreib;irregular;unterschrieben;;;;;
+V0440;verb;verändern;to change, alter;[fɛɐ̯ˈʔɛndɐn];Er hat sich sehr verändert.;He has changed a lot.;Action Verbs;general;73;25;2;veränder;regular;verändert;;;;Often reflexive.
+V0441;verb;verbinden;to connect;[fɛɐ̯ˈbɪndn̩];Können Sie mich mit Herrn Meier verbinden?;Can you connect me with Mr. Meier?;Action Verbs;tech,work;72;16;3;verbind;irregular;verbunden;;;;;
+V0442;verb;verbringen;to spend (time);[fɛɐ̯ˈbʁɪŋən];Wir verbringen das Wochenende am See.;We are spending the weekend at the lake.;Action Verbs;leisure,time;71;10;3;verbring;irregular;verbracht;;;;;
+V0443;verb;vergessen;to forget;[fɛɐ̯ˈɡɛsn̩];Ich habe meine Schlüssel vergessen.;I forgot my keys.;Cognitive Verbs;daily;82;15;3;vergess/vergiss;irregular;vergessen;;;;Vowel change e->i.
+V0444;verb;vergleichen;to compare;[fɛɐ̯ˈɡlaɪ̯çn̩];Man kann Äpfel nicht mit Birnen vergleichen.;You can't compare apples and oranges.;Cognitive Verbs;general;70;24;3;vergleich;irregular;verglichen;;;;;
+V0445;verb;verheiratet sein;to be married;[fɛɐ̯ˈhaɪ̯ʁaːtət zaɪ̯n];Sind Sie verheiratet?;Are you married?;Positional Verbs;social,family;78;11;2;;;;;;;;Common phrase.
+V0446;verb;verlassen;to leave, to abandon;[fɛɐ̯ˈlasn̩];Der Zug verlässt den Bahnhof.;The train is leaving the station.;Action Verbs;general;74;7;3;verlass/verläss;irregular;verlassen;;;;Vowel change a->ä.
+V0447;verb;sich verlieben;to fall in love;[zɪç fɛɐ̯ˈliːbən];Ich habe mich in dich verliebt.;I have fallen in love with you.;Reflexive Verbs;feelings;73;11;2;verlieb;reflexive;verliebt;;;;`sich verlieben in` + Accusative.
+V0448;verb;verpassen;to miss (a train, an opportunity);[fɛɐ̯ˈpasn̩];Ich habe den Bus verpasst.;I missed the bus.;Action Verbs;transport,daily;77;7;2;verpass;regular;verpasst;;;;;
+V0449;verb;versprechen;to promise;[fɛɐ̯ˈʃpʁɛçn̩];Du hast es versprochen!;You promised!;Communication Verbs;social;76;15;3;versprech/versprich;irregular;versprochen;;;;Vowel change e->i.
+V0450;verb;vorstellen (sich);to imagine;[ˈfoːɐ̯ˌʃtɛlən];Ich kann mir das nicht vorstellen.;I can't imagine that.;Reflexive Verbs;cognitive;75;25;2;stell...vor;reflexive;vorgestellt;;;;Dative reflexive: `sich (Dat) etwas vorstellen`.
+V0451;verb;warnen;to warn;[ˈvaʁnən];Ich warne dich.;I'm warning you.;Communication Verbs;social;70;25;2;warn;regular;gewarnt;;;;;
+V0452;verb;wechseln;to change, to exchange;[ˈvɛksl̩n];Ich möchte Geld wechseln.;I would like to exchange money.;Action Verbs;finance,general;74;9;2;wechsel;regular;gewechselt;;;;;
+V0453;verb;wecken;to wake someone up;[ˈvɛkən];Kannst du mich morgen wecken?;Can you wake me up tomorrow?;Action Verbs;daily;73;14;2;weck;regular;geweckt;;;;Different from `aufwachen` (to wake up oneself).
+V0454;verb;weh tun;to hurt, to ache;[ˈveː ˌtuːn];Mein Kopf tut weh.;My head hurts.;Separable Verbs;health;80;12;3;tu...weh;separable;wehgetan;;;;Takes a dative object: `Mir tut der Kopf weh.`
+V00455;verb;widersprechen;to contradict;[viːdɐˈʃpʁɛçn̩];Ich muss Ihnen widersprechen.;I have to contradict you.;Communication Verbs;formal;68;15;3;widersprech/widersprich;irregular;widersprochen;;;;Takes a dative object.
+V0456;verb;wissen;to know (a fact);[ˈvɪsn̩];Er weiß alles.;He knows everything.;Cognitive Verbs;common;95;15;4;weiß;irregular;gewusst;;;;`ich weiß, du weißt, er weiß`.
+V0457;verb;wundern (sich);to wonder, be surprised;[ˈvʊndɐn];Ich wundere mich über nichts mehr.;I'm not surprised by anything anymore.;Reflexive Verbs;cognitive;72;25;2;wunder;reflexive;gewundert;;;;;
+V0458;verb;wünschen;to wish;[ˈvʏnʃn̩];Ich wünsche dir alles Gute.;I wish you all the best.;Communication Verbs;social,events;77;27;2;wünsch;regular;gewünscht;;;;;
+V0459;verb;zählen;to count;[ˈt͡sɛːlən];Er kann bis hundert zählen.;He can count to one hundred.;Action Verbs;math;76;10;2;zähl;regular;gezählt;;;;;
+V0460;verb;zerstören;to destroy;[t͡sɛɐ̯ˈʃtøːʁən];Der Sturm hat das Haus zerstört.;The storm destroyed the house.;Action Verbs;negative;70;22;2;zerstör;regular;zerstört;;;;;
+V0461;adjective;abhängig;dependent;[ˈapˌhɛŋɪç];Er ist finanziell von seinen Eltern abhängig.;He is financially dependent on his parents.;Adjectives (State);social,finance;65;16;1;;;;;;;`abhängig von` + Dative.
+V0462;adjective;ähnlich;similar;[ˈɛːnlɪç];Wir haben ähnliche Interessen.;We have similar interests.;Adjectives (Quality);general;70;15;1;;;;;;;Takes a dative object: `Er ist seinem Bruder ähnlich.`
+V0463;adjective;aktuell;current, up-to-date;[aktuˈɛl];Das sind die aktuellen Nachrichten.;That is the current news.;Adjectives (Time);media,work;72;16;1;;;;;;;
+V0464;adjective;allgemein;general;[ˈalɡəˌmaɪ̯n];Das ist eine allgemeine Regel.;That is a general rule.;Adjectives (Type);general;71;2;1;;;;;;;
+V0G465;adjective;angenehm;pleasant;[ˈanɡəˌneːm];Die Atmosphäre war sehr angenehm.;The atmosphere was very pleasant.;Adjectives (Feelings);social;70;11;1;;;;angenehmer;am angenehmsten;;
+V0466;adjective;beruflich;professional, occupational;[bəˈʁuːflɪç];Ich bin beruflich viel unterwegs.;I travel a lot for work.;Adjectives (Type);work;68;16;1;;;;;;;
+V0467;adjective;besonder;special, particular;[bəˈzɔndɐ];Das ist ein besonderer Tag für mich.;That is a special day for me.;Adjectives (Quality);common;75;27;1;;;;;;;Often used as an adverb `besonders` (especially).
+V0468;adjective;bestimmt;certain, specific;[bəˈʃtɪmt];Ich suche ein bestimmtes Buch.;I'm looking for a specific book.;Adjectives (Quality);common;74;8;1;;;;;;;Also an adverb `bestimmt` (definitely).
+V0469;adjective;deutlich;clear, distinct;[ˈdɔɪ̯tlɪç];Sprechen Sie bitte deutlich!;Please speak clearly!;Adjectives (Quality);communication;73;1;1;;;;deutlicher;am deutlichsten;;
+V0470;adjective;direkt;direct;[diˈʁɛkt];Es gibt eine direkte Verbindung.;There is a direct connection.;Adjectives (Type);general;72;7;1;;;;;;;
+V0471;adjective;dringend;urgent;[ˈdʁɪŋənt];Ich muss dringend mit dir sprechen.;I need to speak with you urgently.;Adjectives (State);work,health;71;13;1;;;;;;;
+V0472;adjective;echt;real, genuine;[ɛçt];Ist der Ring echt?;Is the ring real?;Adjectives (Quality);common;75;9;1;;;;;;;Also an adverb/particle `echt?` (really?).
+V0473;adjective;ehemalig;former, previous;[ˈeːəˌmaːlɪç];Das ist der ehemalige Bürgermeister.;That is the former mayor.;Adjectives (Time);formal;65;25;1;;;;;;;
+V0474;adjective;eigen;own;[ˈaɪ̯ɡən];Ich habe mein eigenes Zimmer.;I have my own room.;Adjectives (Possession);common;78;5;1;;;;;;;
+V00475;adjective;eigentlich;actual, actually;[ˈaɪ̯ɡəntlɪç];Was willst du eigentlich?;What do you actually want?;Adjectives (Modality);spoken;80;7;1;;;;;;;Very common as a discourse particle.
+V0476;adjective;eindeutig;unambiguous, clear;[ˈaɪ̯nˌdɔɪ̯tɪç];Das Ergebnis ist eindeutig.;The result is clear.;Adjectives (Quality);formal;68;15;1;;;;;;;
+V0477;adjective;einzig;only, single;[ˈaɪ̯nt͡sɪç];Er war der einzige Gast.;He was the only guest.;Adjectives (Quantity);common;70;12;1;;;;;;;
+V0478;adjective;enorm;enormous;[eˈnɔʁm];Der Druck ist enorm.;The pressure is enormous.;Adjectives (Size);general;69;16;1;;;;;;;
+V0479;adjective;erfolgreich;successful;[ɛɐ̯ˈfɔlkʁaɪ̯ç];Sie ist eine erfolgreiche Managerin.;She is a successful manager.;Adjectives (Quality);work;72;16;1;;;;erfolgreicher;am erfolgreichsten;;
+V0480;adjective;erwachsen;adult, grown-up;[ɛɐ̯ˈvaksən];Er ist schon erwachsen.;He is already a grown-up.;Adjectives (Age);social;75;11;1;;;;;;;
+V0481;adjective;extra;extra;[ˈɛkstʁa];Möchten Sie eine Extra-Portion?;Would you like an extra portion?;Adjectives (Quantity);food,shopping;70;6;1;;;;;;;
+V0482;adjective;fähig;able, capable;[ˈfɛːɪç];Er ist fähig, das Problem zu lösen.;He is capable of solving the problem.;Adjectives (Quality);formal;68;25;1;;;;;;;
+V0483;adjective;fair;fair;[fɛːɐ̯];Das ist keine faire Entscheidung.;That is not a fair decision.;Adjectives (Quality);social;72;25;1;;;;fairer;am fairsten;;
+V0484;adjective;fantastisch;fantastic;[fanˈtastɪʃ];Das Konzert war fantastisch.;The concert was fantastic.;Adjectives (Quality);leisure;75;26;1;;;;;;;
+V0485;adjective;fest;firm, fixed;[fɛst];Wir haben einen festen Plan.;We have a firm plan.;Adjectives (State);general;74;29;1;;;;fester;am festesten;;
+V0486;adjective;flach;flat, shallow;[flax];Die Landschaft ist sehr flach.;The landscape is very flat.;Adjectives (Shape);nature,geography;70;22;1;;;;flacher;am flachsten;;
+V0487;adjective;flexibel;flexible;[flɛˈksiːbl̩];Ich bin zeitlich flexibel.;I am flexible with my time.;Adjectives (Quality);work;73;16;1;;;;;;;
+V0488;adjective;folgend;following;[ˈfɔlɡənt];Bitte beantworten Sie folgende Fragen.;Please answer the following questions.;Adjectives (Order);formal,learning;72;9;1;;;;;;;
+V0489;adjective;freiwillig;voluntary;[ˈfʁaɪ̯ˌvɪlɪç];Die Arbeit ist freiwillig.;The work is voluntary.;Adjectives (Type);social;69;16;1;;;;;;;
+V0490;adjective;freundlich;friendly;[ˈfʁɔɪ̯ntlɪç];Die Leute hier sind sehr freundlich.;The people here are very friendly.;Adjectives (Quality);social;80;3;1;;;;freundlicher;am freundlichsten;;
+V0491;adjective;fröhlich;cheerful, happy;[ˈfʁøːlɪç];Sie hat ein fröhliches Wesen.;She has a cheerful nature.;Adjectives (Feelings);feelings;75;11;1;;;;fröhlicher;am fröhlichsten;;
+V0492;adjective;furchtbar;terrible, awful;[ˈfʊʁçtbaːɐ̯];Das Wetter ist furchtbar.;The weather is awful.;Adjectives (Quality);negative;70;22;1;;;;;;;
+V0493;adjective;gemeinsam;common, together;[ɡəˈmaɪ̯nzaːm];Wir haben gemeinsame Interessen.;We have common interests.;Adjectives (Type);social;74;25;1;;;;;;;
+V0494;adjective;genug;enough;[ɡəˈnuːk];Ich habe genug Geld.;I have enough money.;Adverbs (Quantity);common;78;9;1;;;;;;;Used as an adverb.
+V0495;adjective;gering;low, small, slight;[ɡəˈʁɪŋ];Das Risiko ist gering.;The risk is low.;Adjectives (Quantity);formal;68;25;1;;;;geringer;am geringsten;;
+V0496;adjective;gesamt;total, entire;[ɡəˈzamt];Die gesamte Mannschaft hat gut gespielt.;The entire team played well.;Adjectives (Quantity);general;72;26;1;;;;;;;
+V0497;adjective;geschäftlich;business-related;[ɡəˈʃɛftlɪç];Ich bin geschäftlich in der Stadt.;I am in the city on business.;Adjectives (Type);work;71;16;1;;;;;;;
+V0498;adjective;gewiss;certain, sure;[ɡəˈvɪs];Ich bin mir da nicht so gewiss.;I'm not so sure about that.;Adjectives (State);formal;69;25;1;;;;;;;
+V0499;adjective;gewöhnlich;usual, common;[ɡəˈvøːnlɪç];Das ist ein ganz gewöhnlicher Tag.;That's a completely ordinary day.;Adjectives (Quality);common;70;1;1;;;;gewöhnlicher;am gewöhnlichsten;;
+V0500;adjective;glatt;smooth, slippery;[ɡlat];Die Straße ist glatt.;The street is slippery.;Adjectives (State);weather,appearance;73;22;1;;;;glatter;am glattesten;;
+V0501;adjective;herrlich;wonderful, glorious;[ˈhɛʁlɪç];Der Blick auf die Berge ist herrlich.;The view of the mountains is glorious.;Adjectives (Quality);positive,leisure;68;22;1;;;;herrlicher;am herrlichsten;;
+V0502;adjective;hervorragend;excellent, outstanding;[hɛɐ̯ˈfoːɐ̯ˌʁaːɡənt];Sie hat eine hervorragende Arbeit geleistet.;She did an outstanding job.;Adjectives (Quality);positive,work;65;16;2;;;;;;;
+V00503;adjective;ideal;ideal;[ideˈaːl];Das ist die ideale Lösung.;That is the ideal solution.;Adjectives (Quality);positive;67;25;1;;;;;;;
+V0504;adjective;intensiv;intensive;[ɪntɛnˈziːf];Wir hatten ein intensives Gespräch.;We had an intensive conversation.;Adjectives (Quality);general;66;15;1;;;;;;;
+V0505;adjective;jährlich;yearly, annual;[ˈjɛːɐ̯lɪç];Das Festival findet jährlich statt.;The festival takes place annually.;Adjectives (Time);events;68;8;1;;;;;;;
+V0506;adjective;klassisch;classic, classical;[ˈklasɪʃ];Ich höre gern klassische Musik.;I like listening to classical music.;Adjectives (Type);art,music;67;26;1;;;;;;;
+V0507;adjective;komplett;complete, completely;[kɔmˈplɛt];Die Serie ist jetzt komplett.;The series is now complete.;Adjectives (State);general;69;15;1;;;;;;;
+V0508;adjective;kompliziert;complicated;[kɔmpliˈt͡siːɐ̯t];Die Situation ist kompliziert.;The situation is complicated.;Adjectives (Difficulty);general;70;15;1;;;;komplizierter;am kompliziertesten;;
+V0509;adjective;konkret;concrete, specific;[kɔŋˈkʁeːt];Haben Sie einen konkreten Plan?;Do you have a specific plan?;Adjectives (Type);work,communication;68;29;1;;;;;;;
+V0510;adjective;kostenlos;free of charge;[ˈkɔstn̩ˌloːs];Der Eintritt ist kostenlos.;The admission is free.;Adjectives (Price);shopping,events;75;9;1;;;;;;;
+V0511;adjective;kreativ;creative;[kʁeaˈtiːf];Sie ist eine sehr kreative Person.;She is a very creative person.;Adjectives (Quality);art,work;70;23;1;;;;kreativer;am kreativsten;;
+V0512;adjective;kritisch;critical;[ˈkʁiːtɪʃ];Er ist sehr kritisch.;He is very critical.;Adjectives (Quality);work,social;67;16;1;;;;;;;
+V0513;adjective;kulturell;cultural;[kʊltuˈʁɛl];Das ist ein kulturelles Ereignis.;That is a cultural event.;Adjectives (Type);art,society;66;26;1;;;;;;;
+V0514;adjective;lebendig;lively, alive;[leˈbɛndɪç];Die Stadt ist sehr lebendig.;The city is very lively.;Adjectives (State);general,social;69;7;1;;;;;;;
+V0515;adjective;legal;legal;[leˈɡaːl];Was wir tun, ist legal.;What we are doing is legal.;Adjectives (State);society;68;25;1;;;;;;;
+V0516;adjective;lokal;local;[loˈkaːl];Ich kaufe gern lokale Produkte.;I like to buy local products.;Adjectives (Type);food,society;70;6;1;;;;;;;
+V0517;adjective;maximal;maximum;[maksiˈmaːl];Die maximale Geschwindigkeit beträgt 120 km/h.;The maximum speed is 120 km/h.;Adjectives (Quantity);general;67;18;1;;;;;;;
+V0518;adjective;menschlich;human;[ˈmɛnʃlɪç];Fehler zu machen ist menschlich.;To make mistakes is human.;Adjectives (Type);social;69;11;1;;;;;;;
+V0519;adjective;mindestens;at least;[ˈmɪndəstn̩s];Du musst mindestens 8 Stunden schlafen.;You have to sleep at least 8 hours.;Adverbs (Quantity);common;75;9;1;;;;;;;Functions as an adverb.
+V0520;adjective;minimal;minimal;[miniˈmaːl];Der Aufwand ist minimal.;The effort is minimal.;Adjectives (Quantity);general;66;16;1;;;;;;;
+V0521;adjective;mobil;mobile;[moˈbiːl];Mit dem Auto ist man mobil.;With a car, you are mobile.;Adjectives (State);transport;68;18;1;;;;;;;
+V0522;adjective;modern;modern;[moˈdɛʁn];Die Wohnung ist sehr modern eingerichtet.;The apartment is furnished very modernly.;Adjectives (Style);home,art;72;5;1;;;;moderner;am modernsten;;
+V0523;adjective;mutig;brave, courageous;[ˈmuːtɪç];Das war eine mutige Entscheidung.;That was a brave decision.;Adjectives (Quality);social;70;25;1;;;;mutiger;am mutigsten;;
+V0524;adjective;negativ;negative;[ˈneːɡatiːf];Ich habe ein negatives Ergebnis bekommen.;I received a negative result.;Adjectives (Quality);general;69;13;1;;;;;;;
+V0525;adjective;nervös;nervous;[nɛʁˈvøːs];Vor der Prüfung bin ich immer nervös.;Before an exam I am always nervous.;Adjectives (Feelings);feelings;73;9;1;;;;nervöser;am nervösesten;;
+V0526;adjective;nett;nice, kind;[nɛt];Deine Nachbarn sind sehr nett.;Your neighbors are very nice.;Adjectives (Quality);social;80;3;1;;;;netter;am nettesten;;
+V0527;adjective;neugierig;curious;[ˈnɔɪ̯ˌɡiːʁɪç];Kinder sind von Natur aus neugierig.;Children are curious by nature.;Adjectives (Quality);social;71;4;1;;;;;;;
+V0528;adjective;normal;normal;[nɔʁˈmaːl];Das ist ein ganz normaler Tag.;That is a completely normal day.;Adjectives (Quality);common;75;1;1;;;;;;;
+V0529;adjective;notwendig;necessary;[ˈnoːtˌvɛndɪç];Ist das wirklich notwendig?;Is that really necessary?;Adjectives (State);general;72;25;1;;;;;;;
+V0530;adjective;nützlich;useful;[ˈnʏt͡slɪç];Das ist eine sehr nützliche App.;That is a very useful app.;Adjectives (Quality);tech,general;74;10;1;;;;nützlicher;am nützlichsten;;
+V0531;adjective;offiziell;official;[ɔfiˈt͡si̯ɛl];Das ist die offizielle Webseite.;That is the official website.;Adjectives (Type);formal,work;70;1;1;;;;;;;
+V0532;adjective;offensichtlich;obvious;[ˈɔfn̩ˌzɪçtlɪç];Der Fehler ist offensichtlich.;The mistake is obvious.;Adjectives (Quality);general;68;15;1;;;;;;;
+V0533;adjective;optimistisch;optimistic;[ɔptiˈmɪstɪʃ];Ich bin optimistisch, dass wir das schaffen.;I am optimistic that we can do it.;Adjectives (Feelings);feelings;67;25;1;;;;;;;
+V0534;adjective;original;original;[oʁiɡiˈnaːl];Ist das ein Original oder eine Kopie?;Is that an original or a copy?;Adjectives (Type);art,general;69;23;1;;;;;;;
+V0535;adjective;perfekt;perfect;[pɛʁˈfɛkt];Dein Deutsch ist fast perfekt.;Your German is almost perfect.;Adjectives (Quality);positive;76;29;1;;;;;;;
+V0536;adjective;pessimistisch;pessimistic;[pɛsiˈmɪstɪʃ];Sei nicht so pessimistisch!;Don't be so pessimistic!;Adjectives (Feelings);feelings;66;25;1;;;;;;;
+V0537;adjective;plötzlich;sudden;[ˈplœt͡slɪç];Plötzlich fing es an zu regnen.;Suddenly it started to rain.;Adverbs (Time);general;70;22;1;;;;;;;More common as an adverb.
+V0538;adjective;politisch;political;[poˈliːtɪʃ];Das ist ein politisches Thema.;That is a political topic.;Adjectives (Type);politics,society;68;25;1;;;;;;;
+V0539;adjective;positiv;positive;[ˈpoːzitiːf];Denk positiv!;Think positive!;Adjectives (Quality);positive;72;25;1;;;;;;;
+V0540;adjective;praktisch;practical;[ˈpʁaktɪʃ];Das ist eine sehr praktische Lösung.;That is a very practical solution.;Adjectives (Quality);general;74;25;1;;;;;;;
+V0541;adjective;preiswert;good value, inexpensive;[ˈpʁaɪ̯sˌveːɐ̯t];Das Essen hier ist sehr preiswert.;The food here is good value.;Adjectives (Price);shopping,food;73;9;1;;;;;;;More positive connotation than 'billig'.
+V0542;adjective;professionell;professional;[pʁofɛsi̯oˈnɛl];Er arbeitet sehr professionell.;He works very professionally.;Adjectives (Quality);work;71;16;1;;;;;;;
+V0543;adjective;pünktlich;punctual, on time;[ˈpʏŋktlɪç];Der Zug ist pünktlich.;The train is on time.;Adjectives (Time);daily;79;7;1;;;;pünktlicher;am pünktlichsten;;Punctuality is a highly valued trait in German culture.
+V0544;adjective;realistisch;realistic;[ʁeaˈlɪstɪʃ];Sei realistisch!;Be realistic!;Adjectives (Quality);general;70;25;1;;;;;;;
+V0545;adjective;regelmäßig;regular, regularly;[ˈʁeːɡl̩ˌmɛːsɪç];Ich gehe regelmäßig ins Fitnessstudio.;I go to the gym regularly.;Adjectives (Frequency);daily;72;26;1;;;;;;;
+V0546;adjective;reich;rich, wealthy;[ʁaɪ̯ç];Er ist ein reicher Mann.;He is a rich man.;Adjectives (State);finance;69;16;1;;;;reicher;am reichsten;;
+V0547;adjective;arm;poor;[aʁm];Sie kommen aus einer armen Familie.;They come from a poor family.;Adjectives (State);finance;68;16;1;;;;ärmer;am ärmsten;;Also means 'arm' (`der Arm`).
+V0548;adjective;ruhig;quiet, calm;[ˈʁuːɪç];Bitte sei ruhig!;Please be quiet!;Adjectives (State);general;77;11;1;;;;ruhiger;am ruhigsten;;
+V0549;adjective;rund;round;[ʁʊnt];Der Tisch ist rund.;The table is round.;Adjectives (Shape);shape;73;3;1;;;;;;;
+V0550;adjective;scharf;sharp, spicy;[ʃaʁf];Das Messer ist scharf.;The knife is sharp.;Adjectives (Quality);food,objects;74;6;1;;;;schärfer;am schärfsten;;Also used for spicy food.
+V0551;adjective;schlank;slim, slender;[ʃlaŋk];Sie ist groß und schlank.;She is tall and slim.;Adjectives (Appearance);appearance;71;11;1;;;;;;;
+V0552;adjective;schmal;narrow;[ʃmaːl];Der Weg ist sehr schmal.;The path is very narrow.;Adjectives (Size);general;70;9;1;;;;schmaler;am schmalsten;;
+V0553;adjective;selbstverständlich;of course, self-evident;[ˈzɛlpstfɛɐ̯ˌʃtɛntlɪç];Selbstverständlich helfe ich dir.;Of course I will help you.;Adjectives (Modality);spoken;68;13;2;;;;;;;
+V0554;adjective;selten;rare, seldom;[ˈzɛltn̩];Ich sehe ihn nur noch selten.;I only see him seldomly.;Adjectives (Frequency);frequency;72;16;1;;;;seltener;am seltensten;;
+V0555;adjective;seriös;serious, reputable;[zeʁiˈøːs];Das ist eine seriöse Firma.;That is a reputable company.;Adjectives (Quality);work;67;16;1;;;;;;;
+V0556;adjective;sofort;immediately;[zoˈfɔʁt];Kommen Sie bitte sofort!;Please come immediately!;Adverbs (Time);urgent;79;19;1;;;;;;;
+V0557;adjective;sozial;social;[zoˈt͡si̯aːl];Der Mensch ist ein soziales Wesen.;The human is a social being.;Adjectives (Type);society;71;25;1;;;;;;;
+V0558;adjective;spannend;exciting, thrilling;[ˈʃpanənt];Das Buch ist sehr spannend.;The book is very exciting.;Adjectives (Quality);leisure,media;76;8;1;;;;spannender;am spannendsten;;
+V0559;adjective;speziell;special, specific;[ʃpeˈt͡si̯ɛl];Haben Sie einen speziellen Wunsch?;Do you have a special wish?;Adjectives (Type);general;73;25;1;;;;;;;
+V0560;adjective;sportlich;sporty, athletic;[ˈʃpɔʁtlɪç];Er ist sehr sportlich.;He is very athletic.;Adjectives (Quality);sports,leisure;75;26;1;;;;;;;
+V0561;adjective;staatlich;state-owned, public;[ˈʃtaːtlɪç];Das ist eine staatliche Schule.;That is a public school.;Adjectives (Type);society,politics;69;9;1;;;;;;;
+V0562;adjective;stolz;proud;[ʃtɔlt͡s];Ich bin stolz auf dich.;I am proud of you.;Adjectives (Feelings);feelings;72;25;1;;;;stolzer;am stolzesten;;
+V0563;adjective;streng;strict;[ʃtʁɛŋ];Mein Lehrer ist sehr streng.;My teacher is very strict.;Adjectives (Quality);work,learning;70;9;1;;;;strenger;am strengsten;;
+V0564;adjective;sympathisch;likeable, pleasant;[zʏmˈpaːtɪʃ];Ich finde sie sehr sympathisch.;I find her very likeable.;Adjectives (Quality);social;77;11;1;;;;;;;
+V0565;adjective;täglich;daily;[ˈtɛːklɪç];Ich lese täglich die Zeitung.;I read the newspaper daily.;Adjectives (Frequency);daily;78;1;1;;;;;;;
+V0566;adjective;tatsächlich;indeed, actually;[ˈtaːtˌzɛçlɪç];Er hat tatsächlich gewonnen.;He actually won.;Adverbs (Modality);spoken;71;25;2;;;;;;;
+V0567;adjective;technisch;technical;[ˈtɛçnɪʃ];Das ist ein technisches Problem.;That is a technical problem.;Adjectives (Type);tech,work;70;10;1;;;;;;;
+V0568;adjective;traditionell;traditional;[tʁadit͡si̯oˈnɛl];Das ist ein traditionelles deutsches Gericht.;That is a traditional German dish.;Adjectives (Style);food,society;73;6;1;;;;;;;
+V0569;adjective;typisch;typical;[ˈtyːpɪʃ];Das ist typisch für ihn.;That is typical for him.;Adjectives (Quality);general;75;15;1;;;;;;;
+V0570;adjective;unbedingt;absolutely, definitely;[ˈʊnbədɪŋt];Du musst unbedingt diesen Film sehen.;You absolutely must see this movie.;Adverbs (Modality);spoken;76;10;2;;;;;;;
+V0571;adjective;unabhängig;independent;[ˈʊnʔapˌhɛŋɪç];Sie ist finanziell unabhängig.;She is financially independent.;Adjectives (State);social,finance;69;16;1;;;;;;;
+V0572;adjective;unbekannt;unknown;[ˈʊnbəˌkant];Der Absender ist unbekannt.;The sender is unknown.;Adjectives (State);general;68;15;1;;;;;;;
+V0573;adjective;unglaublich;unbelievable, incredible;[ʊnˈɡlaʊ̯plɪç];Das ist eine unglaubliche Geschichte.;That is an unbelievable story.;Adjectives (Quality);positive,negative;72;25;1;;;;;;;
+V0574;adjective;ungewöhnlich;unusual;[ˈʊnɡəˌvøːnlɪç];Das ist sehr ungewöhnlich.;That is very unusual.;Adjectives (Quality);general;70;15;1;;;;;;;
+V0575;adjective;unterwegs;on the way, underway;[ʊntɐˈveːks];Ich bin gerade unterwegs.;I'm on my way right now.;Adverbs (Place);daily;77;28;2;;;;;;;
+V0576;adjective;verantwortlich;responsible;[fɛɐ̯ˈʔantvɔʁtlɪç];Wer ist dafür verantwortlich?;Who is responsible for that?;Adjectives (State);work,society;71;16;1;;;;;;;
+V0577;adjective;verboten;forbidden;[fɛɐ̯ˈboːtn̩];Hier ist Rauchen verboten.;Smoking is forbidden here.;Adjectives (State);rules;76;18;1;;;;;;;
+V0578;adjective;verschieden;different, various;[fɛɐ̯ˈʃiːdn̩];Wir haben verschiedene Meinungen.;We have different opinions.;Adjectives (Quality);general;75;15;1;;;;;;;
+V0579;adjective;verrückt;crazy;[fɛˈʁʏkt];Bist du verrückt?;Are you crazy?;Adjectives (Quality);negative,social;74;25;1;;;;;;;
+V0580;adjective;vorsichtig;careful, cautious;[ˈfoːɐ̯ˌzɪçtɪç];Sei vorsichtig!;Be careful!;Adjectives (Quality);general;73;19;1;;;;;;;
+V0581;adjective;wahr;true;[vaːɐ̯];Ist das wahr?;Is that true?;Adjectives (State);communication;72;11;1;;;;;;;
+V0582;adjective;wahrscheinlich;probable, probably;[vaːɐ̯ˈʃaɪ̯nlɪç];Wahrscheinlich kommt er später.;He'll probably come later.;Adverbs (Modality);spoken;71;21;2;;;;;;;
+V0583;adjective;weich;soft;[vaɪ̯ç];Das Kissen ist sehr weich.;The pillow is very soft.;Adjectives (Quality);home,materials;70;5;1;;;;weicher;am weichsten;;
+V0584;adjective;wertvoll;valuable;[ˈveːɐ̯tˌfɔl];Das ist ein sehr wertvolles Buch.;That is a very valuable book.;Adjectives (Quality);finance,art;69;8;1;;;;;;;
+V0585;adjective;wild;wild;[vɪlt];Im Wald leben wilde Tiere.;Wild animals live in the forest.;Adjectives (State);nature;68;22;1;;;;wilder;am wildesten;;
+V00586;adjective;wirklich;real, really;[ˈvɪʁklɪç];Ist das wirklich passiert?;Did that really happen?;Adverbs (Modality);spoken;77;25;1;;;;;;;
+V0587;adjective;wunderbar;wonderful;[ˈvʊndɐbaːɐ̯];Die Aussicht ist wunderbar.;The view is wonderful.;Adjectives (Quality);positive;76;22;1;;;;;;;
+V0588;adjective;zufrieden;satisfied, content;[t͡suˈfʁiːdn̩];Bist du mit deiner Arbeit zufrieden?;Are you satisfied with your work?;Adjectives (Feelings);feelings,work;75;16;1;;;;;;;
+V0589;adjective;zuständig;responsible, in charge;[ˈt͡suːˌʃtɛndɪç];Wer ist hier zuständig?;Who is in charge here?;Adjectives (State);work,formal;70;16;1;;;;;;;
+V0590;verb;anbieten;to offer;[ˈanˌbiːtn̩];Er hat mir einen Job angeboten.;He offered me a job.;Separable Verbs;work,social;70;22;3;biet...an;separable;angeboten;;;;;
+V0591;verb;ändern;to change;[ˈɛndɐn];Das ändert alles!;That changes everything!;Action Verbs;general;75;25;2;änder;regular;geändert;;;;;
+V0592;verb;atmen;to breathe;[ˈaːtmən];Vergiss nicht zu atmen.;Don't forget to breathe.;Action Verbs;health;69;12;2;atm;regular;geatmet;;;;;
+V0593;verb;auffallen;to be noticeable;[ˈaʊ̯fˌfalən];Sein Akzent fällt sofort auf.;His accent is immediately noticeable.;Separable Verbs;social;68;11;3;fall...auf;separable;aufgefallen;;;;Takes a dative object. Uses `sein` in Perfekt.
+V0594;verb;aufgeben;to give up;[ˈaʊ̯fˌɡeːbən];Gib niemals auf!;Never give up!;Separable Verbs;general;72;25;3;geb...auf;separable;aufgegeben;;;;;
+V0595;verb;ausgeben;to spend (money);[ˈaʊ̯sˌɡeːbən];Ich gebe zu viel Geld aus.;I spend too much money.;Separable Verbs;finance,shopping;75;9;3;geb...aus;separable;ausgegeben;;;;;
+V0S96;verb;auswählen;to choose, to select;[ˈaʊ̯sˌvɛːlən];Sie müssen eine Option auswählen.;You have to select an option.;Separable Verbs;general,shopping;73;9;2;wähl...aus;separable;ausgewählt;;;;;
+V0597;verb;bauen;to build;[ˈbaʊ̯ən];Wir bauen ein Haus.;We are building a house.;Action Verbs;work,home;74;5;2;bau;regular;gebaut;;;;;
+V0598;verb;bedeuten;to mean;[bəˈdɔɪ̯tn̩];Was bedeutet das?;What does that mean?;Cognitive Verbs;communication;78;2;2;bedeut;regular;bedeutet;;;;;
+V0599;verb;sich beeilen;to hurry;[zɪç bəˈʔaɪ̯lən];Wir müssen uns beeilen.;We have to hurry.;Reflexive Verbs;daily;76;7;2;beeil;reflexive;beeilt;;;;;
+V0600;verb;beenden;to end, finish;[bəˈʔɛndn̩];Ich beende meine Arbeit um 17 Uhr.;I finish my work at 5 PM.;Action Verbs;work,general;75;16;2;beend;regular;beendet;;;;;
+V0601;verb;begründen;to justify, give reasons for;[bəˈɡʁʏndn̩];Sie müssen Ihre Antwort begründen.;You must justify your answer.;Communication Verbs;work,formal;68;16;2;begründ;regular;begründet;;;;;
+V0602;verb;behalten;to keep;[bəˈhaltn̩];Du kannst das Buch behalten.;You can keep the book.;Action Verbs;general;72;8;3;behalt/behält;irregular;behalten;;;;;
+V0603;verb;behandeln;to treat, to deal with;[bəˈhandl̩n];Der Arzt behandelt den Patienten.;The doctor is treating the patient.;Action Verbs;health,work;71;13;2;behandel;regular;behandelt;;;;;
+V0604;verb;behaupten;to claim, to assert;[bəˈhaʊ̯ptn̩];Er behauptet, er war nicht da.;He claims he wasn't there.;Communication Verbs;social;69;15;2;behaupt;regular;behauptet;;;;;
+V0605;verb;beißen;to bite;[ˈbaɪ̯sn̩];Der Hund beißt nicht.;The dog doesn't bite.;Action Verbs;animals;67;11;3;beiß;irregular;gebissen;;;;;
+V0606;verb;beitragen;to contribute;[ˈbaɪ̯ˌtʁaːɡn̩];Jeder kann etwas beitragen.;Everyone can contribute something.;Separable Verbs;work,social;66;16;3;trag...bei;separable;beigetragen;;;;;
+V0607;verb;bekannt geben;to announce;[bəˈkant ˌɡeːbən];Die Ergebnisse werden morgen bekannt gegeben.;The results will be announced tomorrow.;Separable Verbs;formal,work;65;16;3;geb...bekannt;separable;bekannt gegeben;;;;;
+V0608;verb;bemerken;to notice;[bəˈmɛʁkən];Haben Sie etwas bemerkt?;Did you notice anything?;Cognitive Verbs;general;70;15;2;bemerk;regular;bemerkt;;;;;
+V0609;verb;beraten;to advise;[bəˈʁaːtn̩];Ich lasse mich gern von Ihnen beraten.;I'd be happy to let you advise me.;Communication Verbs;work,shopping;69;16;3;berat/berät;irregular;beraten;;;;;
+V0610;verb;berühren;to touch;[bəˈʁyːʁən];Bitte nicht berühren!;Please do not touch!;Action Verbs;general;68;23;2;berühr;regular;berührt;;;;;
+V0611;verb;beschäftigen (sich);to occupy oneself with;[bəˈʃɛftɪɡn̩];Womit beschäftigst du dich?;What do you occupy yourself with?;Reflexive Verbs;work,leisure;71;16;2;beschäftig;reflexive;beschäftigt;;;;;
+V0612;verb;beschweren (sich);to complain;[bəˈʃveːʁən];Der Gast beschwert sich über das Essen.;The guest is complaining about the food.;Reflexive Verbs;social,shopping;70;22;2;beschwer;reflexive;beschwert;;;;`sich beschweren über` + Acc.
+V0613;verb;besitzen;to own, to possess;[bəˈzɪt͡sn̩];Er besitzt drei Autos.;He owns three cars.;Positional Verbs;possession;69;6;3;besitz;irregular;besessen;;;;;
+V0614;verb;beten;to pray;[ˈbeːtn̩];Sie betet jeden Abend.;She prays every evening.;Action Verbs;religion;67;25;2;bet;regular;gebetet;;;;;
+V0615;verb;betonen;to emphasize, to stress;[bəˈtoːnən];Der Redner betont das wichtige Wort.;The speaker emphasizes the important word.;Communication Verbs;communication;66;15;2;beton;regular;betont;;;;;
+V0616;verb;betrügen;to cheat, to deceive;[bəˈtʁyːɡn̩];Er hat seine Frau betrogen.;He cheated on his wife.;Action Verbs;negative,social;65;11;3;betrüg;irregular;betrogen;;;;;
+V0617;verb;bewegen;to move;[bəˈveːɡn̩];Beweg dich nicht!;Don't move!;Action Verbs;general;72;12;2;beweg;regular;bewegt;;;;;
+V0618;verb;beweisen;to prove;[bəˈvaɪ̯zn̩];Kannst du das beweisen?;Can you prove that?;Cognitive Verbs;formal;68;15;3;beweis;irregular;bewiesen;;;;;
+V0619;verb;sich bewerben;to apply (for a job);[zɪç bəˈvɛʁbn̩];Ich bewerbe mich um die Stelle.;I'm applying for the position.;Reflexive Verbs;work;73;16;3;bewirb;reflexive;beworben;;;;`sich bewerben um` + Acc. Vowel change e->i.
+V0620;verb;beziehen (sich auf);to refer to;[bəˈt͡siːən];Meine Frage bezieht sich auf den Vertrag.;My question refers to the contract.;Reflexive Verbs;formal,work;67;16;3;bezieh;irregular;bezogen;;;;;
+V0621;verb;bieten;to offer, to bid;[ˈbiːtn̩];Was bietest du mir?;What do you offer me?;Action Verbs;work,shopping;71;9;3;biet;irregular;geboten;;;;;
+V0C622;verb;bilden;to form, to educate;[ˈbɪldn̩];Diese Wörter bilden einen Satz.;These words form a sentence.;Action Verbs;learning,general;70;2;2;bild;regular;gebildet;;;;;
+V0623;verb;binden;to tie, to bind;[ˈbɪndn̩];Kannst du mir die Schuhe binden?;Can you tie my shoes for me?;Action Verbs;daily;69;9;3;bind;irregular;gebunden;;;;;
+V0624;verb;bremsen;to brake;[ˈbʁɛmzn̩];Du musst jetzt bremsen!;You have to brake now!;Action Verbs;transport;70;18;2;brems;regular;gebremst;;;;;
+V0625;verb;braten;to fry, to roast;[ˈbʁaːtn̩];Ich brate ein Ei.;I'm frying an egg.;Action Verbs;food;72;6;3;brat/brät;irregular;gebraten;;;;Vowel change a->ä.
+V0626;verb;brechen;to break;[ˈbʁɛçn̩];Er hat sich den Arm gebrochen.;He broke his arm.;Action Verbs;health,negative;71;13;3;brech/brich;irregular;gebrochen;;;;Vowel change e->i.
+V0627;verb;brennen;to burn;[ˈbʁɛnən];Das Feuer brennt.;The fire is burning.;Action Verbs;general;70;28;3;brenn;irregular;gebrannt;;;;;
+V0628;verb;buchen;to book;[ˈbuːxn̩];Ich möchte ein Zimmer buchen.;I would like to book a room.;Action Verbs;travel;78;29;2;buch;regular;gebucht;;;;;
+V0629;verb;darstellen;to represent, to depict;[ˈdaːɐ̯ˌʃtɛlən];Das Bild stellt eine Landschaft dar.;The picture depicts a landscape.;Separable Verbs;art,formal;68;23;2;stell...dar;separable;dargestellt;;;;;
+V0630;verb;demonstrieren;to demonstrate;[dəmɔnˈstʁiːʁən];Die Leute demonstrieren für ihre Rechte.;The people are demonstrating for their rights.;Action Verbs;politics,society;67;25;2;demonstrier;regular;demonstriert;;;;;
+V0631;verb;dienen;to serve;[ˈdiːnən];Dieses Werkzeug dient vielen Zwecken.;This tool serves many purposes.;Action Verbs;general;69;25;2;dien;regular;gedient;;;;;
+V0632;verb;drohen;to threaten;[ˈdʁoːən];Er droht mir.;He is threatening me.;Communication Verbs;negative;66;25;2;droh;regular;gedroht;;;;Takes a dative object.
+V0633;verb;drucken;to print;[ˈdʁʊkən];Ich muss dieses Dokument drucken.;I have to print this document.;Action Verbs;work,tech;71;10;2;druck;regular;gedruckt;;;;;
+V0634;verb;duzen;to use 'du';[ˈduːt͡sn̩];Können wir uns duzen?;Can we use 'du' with each other?;Communication Verbs;social;75;1;2;duz;regular;geduzt;;;;The opposite of `siezen`.
+V0635;verb;einatmen;to inhale;[ˈaɪ̯nˌʔaːtmən];Atmen Sie tief ein!;Inhale deeply!;Separable Verbs;health;68;12;2;atm...ein;separable;eingeatmet;;;;;
+V0636;verb;ausatmen;to exhale;[ˈaʊ̯sˌʔaːtmən];Und jetzt langsam ausatmen.;And now exhale slowly.;Separable Verbs;health;68;12;2;atm...aus;separable;ausgeatmet;;;;;
+V0637;verb;einfallen;to occur to so.;[ˈaɪ̯nˌfalən];Mir ist eine gute Idee eingefallen.;A good idea occurred to me.;Separable Verbs;cognitive;70;15;3;fall...ein;separable;eingefallen;;;;Uses a dative object. Uses `sein` in Perfekt.
+V0638;verb;einführen;to introduce;[ˈaɪ̯nˌfyːʁən];Die Firma führt ein neues Produkt ein.;The company is introducing a new product.;Separable Verbs;work;69;16;2;führ...ein;separable;eingeführt;;;;;
+V0639;verb;einhalten;to adhere to, to keep;[ˈaɪ̯nˌhaltn̩];Sie müssen die Regeln einhalten.;You must adhere to the rules.;Separable Verbs;rules,formal;68;2;3;halt...ein;separable;eingehalten;;;;;
+V0640;verb;einstellen;to hire, to adjust;[ˈaɪ̯nˌʃtɛlən];Die Firma stellt neue Mitarbeiter ein.;The company is hiring new employees.;Separable Verbs;work;72;16;2;stell...ein;separable;eingestellt;;;;;
+V0641;verb;eintragen;to enter, to register;[ˈaɪ̯nˌtʁaːɡn̩];Bitte tragen Sie Ihren Namen hier ein.;Please enter your name here.;Separable Verbs;formal;71;1;3;trag...ein;separable;eingetragen;;;;;
+V0642;verb;eintreten;to enter;[ˈaɪ̯nˌtʁeːtn̩];Bitte treten Sie ein!;Please enter!;Separable Verbs;formal;70;5;3;tret...ein;separable;eingetreten;;;;Uses `sein` in Perfekt.
+V0643;verb;einverstanden sein;to agree;[ˈaɪ̯nfɛɐ̯ˌʃtandn̩ zaɪ̯n];Bist du damit einverstanden?;Do you agree with that?;Phrasal Verbs;communication;75;15;2;;;;;;;;Common phrase.
+V0644;verb;empfangen;to receive;[ɛmˈp͡faŋən];Wir empfangen Gäste.;We are receiving guests.;Action Verbs;formal;69;15;3;empfang/empfäng;irregular;empfangen;;;;Inseparable, vowel change a->ä.
+V0645;verb;entdecken;to discover;[ɛntˈdɛkən];Kolumbus hat Amerika entdeckt.;Columbus discovered America.;Action Verbs;general,history;72;25;2;entdeck;regular;entdeckt;;;;;
+V0646;verb;entfernen;to remove;[ɛntˈfɛʁnən];Bitte entfernen Sie den Müll.;Please remove the trash.;Action Verbs;general;71;5;2;entfern;regular;entfernt;;;;;
+V0647;verb;enthalten;to contain;[ɛntˈhaltn̩];Die Schokolade enthält Nüsse.;The chocolate contains nuts.;Positional Verbs;food;70;6;3;enthalt/enthält;irregular;enthalten;;;;;
+V0648;verb;entlassen;to dismiss, to fire;[ɛntˈlasn̩];Er wurde letzte Woche entlassen.;He was fired last week.;Action Verbs;work,negative;69;16;3;entlass/entläss;irregular;entlassen;;;;;
+V0649;verb;entscheiden (sich);to decide;[ɛntˈʃaɪ̯dn̩];Du musst dich jetzt entscheiden.;You have to decide now.;Reflexive Verbs;decision;75;25;3;entscheid;reflexive;entschieden;;;;;
+V0650;verb;entspannen (sich);to relax;[ɛntˈʃpanən];Am Wochenende entspanne ich mich gern.;I like to relax on the weekend.;Reflexive Verbs;leisure,health;74;26;2;entspann;reflexive;entspannt;;;;;
+V0651;verb;entstehen;to arise, originate;[ɛntˈʃteːən];Wie ist dieses Problem entstanden?;How did this problem arise?;Positional Verbs;formal;68;25;3;entsteh;irregular;entstanden;;;;Uses `sein` in Perfekt.
+V0652;verb;enttäuschen;to disappoint;[ɛntˈtɔɪ̯ʃn̩];Du hast mich enttäuscht.;You disappointed me.;Action Verbs;feelings,negative;73;11;2;enttäusch;regular;enttäuscht;;;;;
+V0653;verb;erfinden;to invent;[ɛɐ̯ˈfɪndn̩];Wer hat das Telefon erfunden?;Who invented the telephone?;Action Verbs;science,history;72;16;3;erfind;irregular;erfunden;;;;;
+V0654;verb;erfüllen;to fulfill;[ɛɐ̯ˈfʏlən];Ich hoffe, mein Wunsch wird erfüllt.;I hope my wish will be fulfilled.;Action Verbs;general;71;25;2;erfüll;regular;erfüllt;;;;;
+V0655;verb;ergänzen;to complete, to add to;[ɛɐ̯ˈɡɛnt͡sn̩];Bitte ergänzen Sie die fehlenden Wörter.;Please complete the missing words.;Action Verbs;learning;70;2;2;ergänz;regular;ergänzt;;;;;
+V0656;verb;erhöhen;to increase, to raise;[ɛɐ̯ˈhøːən];Die Firma hat die Preise erhöht.;The company has raised the prices.;Action Verbs;finance,work;69;9;2;erhöh;regular;erhöht;;;;;
+V0657;verb;sich erholen;to recover, to relax;[zɪç ɛɐ̯ˈhoːlən];Ich muss mich vom Stress erholen.;I have to recover from the stress.;Reflexive Verbs;health,leisure;74;13;2;erhol;reflexive;erholt;;;;;
+V0658;verb;erlauben;to allow, to permit;[ɛɐ̯ˈlaʊ̯bən];Ist das hier erlaubt?;Is that allowed here?;Action Verbs;rules;73;18;2;erlaub;regular;erlaubt;;;;;
+V0659;verb;erleben;to experience;[ɛɐ̯ˈleːbən];Wir haben viel zusammen erlebt.;We experienced a lot together.;Action Verbs;social,travel;72;20;2;erleb;regular;erlebt;;;;;
+V0660;verb;erledigen;to take care of, to get done;[ɛɐ̯ˈleːdɪɡn̩];Ich muss noch etwas erledigen.;I still have to get something done.;Action Verbs;work,daily;71;16;2;erledig;regular;erledigt;;;;;
+V0661;verb;erscheinen;to appear;[ɛɐ̯ˈʃaɪ̯nən];Ein Geist ist ihm erschienen.;A ghost appeared to him.;Positional Verbs;general;70;15;3;erschein;irregular;erschienen;;;;Uses `sein` in Perfekt.
+V0662;verb;erschrecken;to frighten, be frightened;[ɛɐ̯ˈʃʁɛkən];Erschreck mich nicht so!;Don't frighten me like that!;Action Verbs;feelings;69;11;3;erschreck/erschrick;irregular;erschrocken;;;;Can be regular (transitive) or irregular (intransitive, uses `sein`).
+V0663;verb;erwähnen;to mention;[ɛɐ̯ˈvɛːnən];Er hat deinen Namen nicht erwähnt.;He didn't mention your name.;Communication Verbs;communication;68;15;2;erwähn;regular;erwähnt;;;;;
+V0664;verb;erziehen;to raise, to bring up (children);[ɛɐ̯ˈt͡siːən];Sie hat ihre Kinder gut erzogen.;She raised her children well.;Action Verbs;social,family;67;4;3;erzieh;irregular;erzogen;;;;;
+V0665;verb;fliehen;to flee;[ˈfliːən];Sie mussten aus ihrem Land fliehen.;They had to flee from their country.;Movement Verbs;politics,negative;66;25;3;flieh;irregular;geflohen;;;;Uses `sein` in Perfekt.
+V0666;verb;fließen;to flow;[ˈfliːsn̩];Der Fluss fließt ins Meer.;The river flows into the sea.;Movement Verbs;nature;65;22;3;fließ;irregular;geflossen;;;;Uses `sein` in Perfekt.
+V0667;verb;fordern;to demand;[ˈfɔʁdɐn];Die Mitarbeiter fordern mehr Geld.;The employees are demanding more money.;Communication Verbs;work,politics;64;16;2;forder;regular;gefordert;;;;;
+V0668;verb;fotografieren;to photograph;[fotogʁaˈfiːʁən];Darf man hier fotografieren?;Is one allowed to take photos here?;Action Verbs;leisure,art;70;23;2;fotografier;regular;fotografiert;;;;;
+V0669;verb;fressen;to eat (for animals);[ˈfʁɛsn̩];Der Hund frisst sein Futter.;The dog is eating its food.;Action Verbs;animals;68;11;3;fress/friss;irregular;gefressen;;;;Vowel change e->i.
+V0670;verb;frieren;to freeze;[ˈfʁiːʁən];Mir frieren die Hände.;My hands are freezing.;Sensory Verbs;weather;70;22;3;frier;irregular;gefroren;;;;;
+V0671;verb;führen;to lead;[ˈfyːʁən];Der Weg führt zum See.;The path leads to the lake.;Action Verbs;general;72;18;2;führ;regular;geführt;;;;;
+V0672;verb;gelten;to be valid;[ˈɡɛltn̩];Diese Regel gilt für alle.;This rule is valid for everyone.;Positional Verbs;rules;69;2;3;gelt/gilt;irregular;gegolten;;;;Vowel change e->i.
+V0673;verb;genügen;to be enough, suffice;[ɡəˈnyːɡn̩];Das genügt, danke.;That's enough, thanks.;Positional Verbs;general;68;9;2;genüg;regular;genügt;;;;;
+V0674;verb;geschehen;to happen, occur;[ɡəˈʃeːən];Was ist geschehen?;What happened?;Positional Verbs;events;71;15;3;gescheh/geschieht;irregular;geschehen;;;;Uses `sein` in Perfekt.
+V0675;verb;gewöhnen (sich an);to get used to;[ɡəˈvøːnən];Ich muss mich an das Wetter gewöhnen.;I have to get used to the weather.;Reflexive Verbs;general;70;22;2;gewöhn;reflexive;gewöhnt;;;;`sich gewöhnen an` + Acc.
+V0676;verb;gießen;to pour, to water (plants);[ˈɡiːsn̩];Ich gieße die Blumen.;I'm watering the flowers.;Action Verbs;home,garden;69;22;3;gieß;irregular;gegossen;;;;;
+V0677;verb;graben;to dig;[ˈɡʁaːbn̩];Der Hund gräbt ein Loch.;The dog is digging a hole.;Action Verbs;general,garden;68;22;3;grab/gräb;irregular;gegraben;;;;Vowel change a->ä.
+V0678;verb;greifen;to grab, to seize;[ˈɡʁaɪ̯fn̩];Er greift nach meiner Hand.;He grabs for my hand.;Action Verbs;general;67;10;3;greif;irregular;gegriffen;;;;;
+V0679;verb;gründen;to found, to establish;[ˈɡʁʏndn̩];Er hat eine neue Firma gegründet.;He founded a new company.;Action Verbs;work;66;16;2;gründ;regular;gegründet;;;;;
+V0680;verb;grüßen;to greet;[ˈɡʁyːsn̩];Ich grüße dich.;I greet you.;Communication Verbs;social;72;1;2;grüß;regular;gegrüßt;;;;;
+V0681;verb;gucken;to look, to peek;[ˈɡʊkən];Guck mal!;Have a look!;Sensory Verbs;spoken,informal;75;1;2;guck;regular;geguckt;;;;Informal version of `schauen`.
+V0682;verb;halten;to hold, to stop;[ˈhaltn̩];Kannst du meine Tasche halten?;Can you hold my bag?;Action Verbs;general;74;7;3;halt/hält;irregular;gehalten;;;;Vowel change a->ä.
+V0683;verb;handeln;to act, to trade;[ˈhandl̩n];Wir müssen schnell handeln.;We have to act quickly.;Action Verbs;general,work;73;25;2;handel;regular;gehandelt;;;;;
+V0684;verb;hassen;to hate;[ˈhasn̩];Ich hasse Montage.;I hate Mondays.;Cognitive Verbs;feelings;71;8;2;hass;regular;gehasst;;;;;
+V0685;verb;heben;to lift, to raise;[ˈheːbn̩];Das ist zu schwer zu heben.;That is too heavy to lift.;Action Verbs;general;70;12;3;heb;irregular;gehoben;;;;;
+V0686;verb;heizen;to heat;[ˈhaɪ̯t͡sn̩];Im Winter müssen wir heizen.;In winter we have to heat.;Action Verbs;home,daily;72;5;2;heiz;regular;geheizt;;;;;
+V0687;verb;herstellen;to produce, to manufacture;[ˈheːɐ̯ˌʃtɛlən];Diese Firma stellt Autos her.;This company produces cars.;Separable Verbs;work;71;16;2;stell...her;separable;hergestellt;;;;;
+V0688;verb;herunterladen;to download;[hɛˈʁʊntɐˌlaːdn̩];Ich lade die Datei herunter.;I am downloading the file.;Separable Verbs;tech;74;10;3;lad...herunter;separable;heruntergeladen;;;;;
+V0689;verb;hochladen;to upload;[ˈhoːxˌlaːdn̩];Kannst du die Fotos hochladen?;Can you upload the photos?;Separable Verbs;tech;73;10;3;lad...hoch;separable;hochgeladen;;;;;
+V0690;verb;informieren;to inform;[ɪnfɔʁˈmiːʁən];Ich informiere mich im Internet.;I inform myself on the internet.;Communication Verbs;media,work;76;10;2;informier;regular;informiert;;;;Often reflexive `sich informieren`.
+V0691;verb;installieren;to install;[ɪnstaˈliːʁən];Ich installiere ein neues Programm.;I'm installing a new program.;Action Verbs;tech;75;10;2;installier;regular;installiert;;;;;
+V0692;verb;interpretieren;to interpret;[ɪntɐpʁeˈtiːʁən];Wie interpretieren Sie das?;How do you interpret that?;Cognitive Verbs;formal,art;68;23;2;interpretier;regular;interpretiert;;;;;
+V0693;verb;joggen;to jog;[ˈdʒɔɡn̩];Er joggt jeden Morgen im Park.;He jogs every morning in the park.;Movement Verbs;sports;72;26;2;jogg;regular;gejoggt;;;;Uses `sein` or `haben`.
+V0694;verb;kämpfen;to fight;[ˈkɛmp͡fn̩];Sie kämpfen für ihre Freiheit.;They are fighting for their freedom.;Action Verbs;sports,politics;71;25;2;kämpf;regular;gekämpft;;;;;
+V0695;verb;kennenlernen;to get to know;[ˈkɛnənˌlɛʁnən];Wir haben uns auf einer Party kennengelernt.;We got to know each other at a party.;Separable Verbs;social;77;11;2;lern...kennen;separable;kennengelernt;;;;;
+V0696;verb;klappen;to work out, to go well;[ˈklapn̩];Hat alles geklappt?;Did everything work out?;Positional Verbs;spoken;76;15;2;klapp;regular;geklappt;;;;;
+V0697;verb;klären;to clarify;[ˈklɛːʁən];Wir müssen diese Sache klären.;We have to clarify this matter.;Communication Verbs;work,social;75;15;2;klär;regular;geklärt;;;;;
+V0698;verb;kleben;to stick, to glue;[ˈkleːbən];Ich klebe ein Poster an die Wand.;I'm sticking a poster to the wall.;Action Verbs;general;70;23;2;kleb;regular;geklebt;;;;;
+V0699;verb;klettern;to climb;[ˈklɛtɐn];Affen können gut klettern.;Monkeys can climb well.;Movement Verbs;sports,nature;69;22;2;kletter;regular;geklettert;;;;Uses `sein` in Perfekt.
+V0700;verb;klingen;to sound;[ˈklɪŋən];Deine Idee klingt interessant.;Your idea sounds interesting.;Sensory Verbs;opinions;76;15;3;kling;irregular;geklungen;;;;;
+V0701;verb;klopfen;to knock;[ˈklɔp͡fn̩];Jemand klopft an die Tür.;Someone is knocking on the door.;Action Verbs;daily;73;5;2;klopf;regular;geklopft;;;;;
+V0702;verb;kombinieren;to combine;[kɔmbiˈniːʁən];Man kann diese Farben gut kombinieren.;You can combine these colors well.;Action Verbs;general;72;23;2;kombinier;regular;kombiniert;;;;;
+V0703;verb;sich konzentrieren;to concentrate;[zɪç kɔnt͡sɛnˈtʁiːʁən];Ich kann mich bei dem Lärm nicht konzentrieren.;I can't concentrate with this noise.;Reflexive Verbs;work,learning;74;9;2;konzentrier;reflexive;konzentriert;;;;`sich konzentrieren auf` + Acc.
+V0704;verb;kontrollieren;to control, to check;[kɔntʁɔˈliːʁən];Bitte kontrollieren Sie Ihr Ticket.;Please check your ticket.;Action Verbs;work,travel;75;20;2;kontrollier;regular;kontrolliert;;;;;
+V0705;verb;kopieren;to copy;[koˈpiːʁən];Ich muss dieses Dokument kopieren.;I have to copy this document.;Action Verbs;work,tech;74;10;2;kopier;regular;kopiert;;;;;
+V0706;verb;korrigieren;to correct;[kɔʁiˈɡiːʁən];Der Lehrer korrigiert die Fehler.;The teacher corrects the mistakes.;Action Verbs;learning;73;9;2;korrigier;regular;korrigiert;;;;;
+V0707;verb;kritisieren;to criticize;[kʁitiˈziːʁən];Er kritisiert immer alles.;He always criticizes everything.;Communication Verbs;social,work;70;16;2;kritisier;regular;kritisiert;;;;;
+V0708;verb;lächeln;to smile;[ˈlɛçl̩n];Sie hat mich angelächelt.;She smiled at me.;Action Verbs;social,feelings;76;11;2;lächel;regular;gelächelt;;;;;
+V0709;verb;laden;to load, to charge;[ˈlaːdn̩];Ich muss mein Handy laden.;I have to charge my phone.;Action Verbs;tech,transport;75;10;3;lad/läd;irregular;geladen;;;;Vowel change a->ä.
+V0710;verb;landen;to land;[ˈlandn̩];Das Flugzeug ist pünktlich gelandet.;The airplane landed on time.;Movement Verbs;travel;74;20;2;land;regular;gelandet;;;;Uses `sein` in Perfekt.
+V0711;verb;leiden;to suffer;[ˈlaɪ̯dn̩];Er leidet an einer Krankheit.;He is suffering from an illness.;Action Verbs;health,feelings;70;13;3;leid;irregular;gelitten;;;;;
+V0712;verb;leisten (sich);to afford;[ˈlaɪ̯stn̩];Das kann ich mir nicht leisten.;I can't afford that.;Reflexive Verbs;finance,shopping;73;9;2;leist;reflexive;geleistet;;;;Dative reflexive: `sich (Dat) etwas leisten`.
+V0713;verb;leiten;to lead, to manage;[ˈlaɪ̯tn̩];Sie leitet die Abteilung.;She manages the department.;Action Verbs;work;72;16;2;leit;regular;geleitet;;;;;
+V0714;verb;lösen;to solve;[ˈløːzn̩];Ich kann das Rätsel nicht lösen.;I can't solve the riddle.;Action Verbs;work,learning;75;15;2;lös;regular;gelöst;;;;;
+V0715;verb;lüften;to air out, to ventilate;[ˈlʏftn̩];Du solltest das Zimmer lüften.;You should air out the room.;Action Verbs;home,daily;74;5;2;lüft;regular;gelüftet;;;;;
+V0716;verb;markieren;to mark, to highlight;[maʁˈkiːʁən];Markieren Sie die richtige Antwort.;Mark the correct answer.;Action Verbs;learning;73;2;2;markier;regular;markiert;;;;;
+V0717;verb;meiden;to avoid;[ˈmaɪ̯dn̩];Ich meide große Menschenmengen.;I avoid large crowds.;Action Verbs;social;69;12;3;meid;irregular;gemieden;;;;;
+V0718;verb;melden;to report;[ˈmɛldn̩];Melden Sie den Diebstahl der Polizei.;Report the theft to the police.;Communication Verbs;formal;72;28;2;meld;regular;gemeldet;;;;;
+V0719;verb;messen;to measure;[ˈmɛsn̩];Ich messe die Temperatur.;I'm measuring the temperature.;Action Verbs;science,math;71;22;3;mess/miss;irregular;gemessen;;;;Vowel change e->i.
+V0720;verb;mitbringen;to bring with;[ˈmɪtˌbʁɪŋən];Ich bringe einen Salat zur Party mit.;I'm bringing a salad to the party.;Separable Verbs;social;77;14;3;bring...mit;separable;mitgebracht;;;;;
+V0721;verb;mitteilen;to inform, to communicate;[ˈmɪtˌtaɪ̯lən];Ich muss Ihnen etwas Wichtiges mitteilen.;I have to inform you of something important.;Separable Verbs;formal,communication;70;15;2;teil...mit;separable;mitgeteilt;;;;;
+V0722;verb;motivieren;to motivate;[motiˈviːʁən];Meine Freunde motivieren mich.;My friends motivate me.;Action Verbs;social,work;74;29;2;motivier;regular;motiviert;;;;;
+V0723;verb;nennen;to name, to call;[ˈnɛnən];Kannst du mir drei Gründe nennen?;Can you name me three reasons?;Communication Verbs;general;73;1;3;nenn;irregular;genannt;;;;;
+V0724;verb;nutzen;to use, to utilize;[ˈnʊt͡sn̩];Ich nutze die Gelegenheit.;I'm using the opportunity.;Action Verbs;general,work;75;25;2;nutz;regular;genutzt;;;;;
+V0725;verb;operieren;to operate (surgery);[opəˈʁiːʁən];Der Arzt hat ihn gestern operiert.;The doctor operated on him yesterday.;Action Verbs;health;70;13;2;operier;regular;operiert;;;;;
+V0726;verb;organisieren;to organize;[ɔʁɡaniˈziːʁən];Wer organisiert die Reise?;Who is organizing the trip?;Action Verbs;work,social;75;20;2;organisier;regular;organisiert;;;;;
+V0727;verb;prüfen;to check, to examine;[ˈpʁyːfn̩];Der Lehrer prüft die Hausaufgaben.;The teacher checks the homework.;Action Verbs;work,learning;74;9;2;prüf;regular;geprüft;;;;;
+V0728;verb;produzieren;to produce;[pʁoduˈt͡siːʁən];Diese Fabrik produziert Autoteile.;This factory produces car parts.;Action Verbs;work;73;16;2;produzier;regular;produziert;;;;;
+V0729;verb;profitieren;to profit, to benefit;[pʁofiˈtiːʁən];Wer profitiert davon?;Who profits from that?;Action Verbs;finance,work;72;16;2;profitier;regular;profitiert;;;;;
+V0730;verb;protestieren;to protest;[pʁotɛsˈtiːʁən];Sie protestieren gegen das neue Gesetz.;They are protesting against the new law.;Action Verbs;politics;71;25;2;protestier;regular;protestiert;;;;;
+V0731;verb;rechnen;to calculate, to count on;[ˈʁɛçnən];Ich kann gut im Kopf rechnen.;I can calculate well in my head.;Action Verbs;math,finance;70;9;2;rechn;regular;gerechnet;;;;;
+V0732;verb;retten;to save, to rescue;[ˈʁɛtn̩];Der Feuerwehrmann hat das Kind gerettet.;The firefighter saved the child.;Action Verbs;health,positive;74;28;2;rett;regular;gerettet;;;;;
+V0733;verb;riskieren;to risk;[ʁɪsˈkiːʁən];Ich will nichts riskieren.;I don't want to risk anything.;Action Verbs;general;73;25;2;riskier;regular;riskiert;;;;;
+V0734;verb;schaden;to harm, to damage;[ˈʃaːdn̩];Rauchen schadet der Gesundheit.;Smoking harms your health.;Action Verbs;negative,health;72;13;2;schad;regular;geschadet;;;;Takes a dative object.
+V0735;verb;schalten;to switch;[ˈʃaltn̩];Schalten Sie bitte Ihr Handy aus.;Please switch off your mobile phone.;Action Verbs;tech,daily;71;10;2;schalt;regular;geschaltet;;;;;
+V0736;verb;schätzen;to estimate, to appreciate;[ˈʃɛt͡sn̩];Ich schätze seine Arbeit sehr.;I appreciate his work very much.;Cognitive Verbs;work,social;70;16;2;schätz;regular;geschätzt;;;;;
+V0737;verb;schieben;to push, to shove;[ˈʃiːbən];Er schiebt das Fahrrad.;He is pushing the bicycle.;Action Verbs;general;69;18;3;schieb;irregular;geschoben;;;;;
+V0738;verb;schimpfen;to scold;[ˈʃɪmp͡fn̩];Die Mutter schimpft mit dem Kind.;The mother is scolding the child.;Communication Verbs;social,negative;68;11;2;schimpf;regular;geschimpft;;;;;
+V0739;verb;schneiden;to cut;[ˈʃnaɪ̯dn̩];Ich habe mich in den Finger geschnitten.;I cut my finger.;Action Verbs;daily;78;6;3;schneid;irregular;geschnitten;;;;;
+V0740;verb;schützen;to protect;[ˈʃʏt͡sn̩];Wir müssen die Umwelt schützen.;We must protect the environment.;Action Verbs;society,nature;73;22;2;schütz;regular;geschützt;;;;;
+V0741;verb;schweigen;to be silent;[ˈʃvaɪ̯ɡn̩];Warum schweigst du?;Why are you silent?;Communication Verbs;social;72;15;3;schweig;irregular;geschwiegen;;;;;
+V0742;verb;sinken;to sink;[ˈzɪŋkən];Das Schiff ist gesunken.;The ship sank.;Movement Verbs;negative;71;20;3;sink;irregular;gesunken;;;;Uses `sein` in Perfekt.
+V0743;verb;sorgen für;to care for, to ensure;[ˈzɔʁɡn̩ fyːɐ̯];Ich sorge für meine Familie.;I care for my family.;Phrasal Verbs;social;74;11;2;sorg;regular;gesorgt;;;;;
+V0744;verb;speichern;to save (data);[ˈʃpaɪ̯çɐn];Vergiss nicht, die Datei zu speichern.;Don't forget to save the file.;Action Verbs;tech;76;10;2;speicher;regular;gespeichert;;;;;
+V0745;verb;spenden;to donate;[ˈʃpɛndn̩];Er hat Geld für einen guten Zweck gespendet.;He donated money for a good cause.;Action Verbs;social,finance;70;25;2;spend;regular;gespendet;;;;;
+V0746;verb;starten;to start;[ˈʃtaʁtn̩];Lasst uns das Projekt starten.;Let's start the project.;Action Verbs;general,work;75;16;2;start;regular;gestartet;;;;Uses `sein` (for vehicles) or `haben` (for projects).
+V0747;verb;stattfinden;to take place;[ˈʃtatˌfɪndn̩];Wo findet das Konzert statt?;Where does the concert take place?;Separable Verbs;events;74;26;3;find...statt;separable;stattgefunden;;;;;
+V0748;verb;staunen;to be amazed;[ˈʃtaʊ̯nən];Die Kinder staunen über den Zauberer.;The children are amazed by the magician.;Cognitive Verbs;social;69;11;2;staun;regular;gestaunt;;;;;
+V0749;verb;stecken;to put, to be stuck;[ˈʃtɛkən];Ich stecke den Schlüssel ins Schloss.;I'm putting the key in the lock.;Action Verbs;general;73;9;2;steck;regular;gesteckt;;;;;
+V0750;verb;steigen;to climb, to rise;[ˈʃtaɪ̯ɡn̩];Die Preise steigen.;The prices are rising.;Movement Verbs;general,finance;72;9;3;steig;irregular;gestiegen;;;;Uses `sein` in Perfekt.
+V0751;verb;stinken;to stink;[ˈʃtɪŋkən];Der Müll stinkt.;The garbage stinks.;Sensory Verbs;negative;68;5;3;stink;irregular;gestunken;;;;;
+V0752;verb;stoßen;to push, to bump;[ˈʃtoːsn̩];Ich habe mich am Tisch gestoßen.;I bumped myself on the table.;Action Verbs;general;67;5;3;stoß/stöß;irregular;gestoßen;;;;Vowel change o->ö.
+V0753;verb;sich streiten;to argue;[zɪç ˈʃtʁaɪ̯tn̩];Streitet ihr euch schon wieder?;Are you arguing again?;Reflexive Verbs;social;70;11;3;streit;reflexive;gestritten;;;;;
+V0754;verb;tanzen;to dance;[ˈtant͡sn̩];Lass uns tanzen!;Let's dance!;Action Verbs;leisure,arts;75;11;2;tanz;regular;getanzt;;;;;
+V0755;verb;tanken;to refuel, get gas;[ˈtaŋkn̩];Ich muss noch tanken.;I still have to get gas.;Action Verbs;transport,daily;74;18;2;tank;regular;getankt;;;;;
+V0756;verb;tauschen;to exchange, to swap;[ˈtaʊ̯ʃn̩];Wollen wir Plätze tauschen?;Do we want to swap seats?;Action Verbs;social;73;7;2;tausch;regular;getauscht;;;;;
+V0757;verb;trennen (sich);to separate (from);[ˈtʁɛnən];Sie haben sich getrennt.;They have separated.;Reflexive Verbs;social;72;11;2;trenn;reflexive;getrennt;;;;;
+V0758;verb;treten;to step, to kick;[ˈtʁeːtn̩];Tritt nicht auf das Gras!;Don't step on the grass!;Action Verbs;general;71;22;3;tret/tritt;irregular;getreten;;;;Vowel change e->i. Uses `sein` in Perfekt.
+V0759;verb;trotzdem;nevertheless;[ˈtʁɔt͡sˌdeːm];Es regnete, aber trotzdem sind wir spazieren gegangen.;It rained, but we went for a walk nevertheless.;Adverbs (Causal);grammar;74;21;2;;;;;;;
+V0760;verb;überfahren;to run over;[yːbɐˈfaːʁən];Pass auf, dass du nicht überfahren wirst!;Be careful that you don't get run over!;Action Verbs;transport,negative;68;18;3;überfahr/überfähr;irregular;überfahren;;;;Inseparable verb.
+V0761;verb;überholen;to overtake;[yːbɐˈhoːlən];Man darf hier nicht überholen.;You are not allowed to overtake here.;Action Verbs;transport;69;18;2;überhol;regular;überholt;;;;Inseparable verb.
+V0762;verb;überlegen;to consider;[yːbɐˈleːɡn̩];Ich überlege, ob ich mitkomme.;I'm considering whether I should come along.;Cognitive Verbs;decision;70;25;2;überleg;regular;überlegt;;;;Inseparable verb.
+V0763;verb;übernehmen;to take over;[yːbɐˈneːmən];Sie übernimmt die Leitung des Projekts.;She is taking over the management of the project.;Action Verbs;work;71;16;3;übernehm/übernimm;irregular;übernommen;;;;Inseparable verb.
+V0764;verb;überraschen;to surprise;[yːbɐˈʁaʃn̩];Das überrascht mich nicht.;That doesn't surprise me.;Action Verbs;social;72;27;2;überrasch;regular;überrascht;;;;;
+V0765;verb;überreden;to persuade;[yːbɐˈʁeːdn̩];Er hat mich überredet, mitzukommen.;He persuaded me to come along.;Communication Verbs;social;67;14;2;überred;regular;überredet;;;;;
+V0766;verb;umarmen;to hug, to embrace;[ʊmˈʔaʁmən];Sie umarmten sich zum Abschied.;They hugged each other goodbye.;Action Verbs;social,feelings;73;11;2;umarm;regular;umarmt;;;;Inseparable verb.
+V0767;verb;umtauschen;to exchange (goods);[ˈʊmˌtaʊ̯ʃn̩];Ich möchte dieses Hemd umtauschen.;I would like to exchange this shirt.;Separable Verbs;shopping;74;9;2;tausch...um;separable;umgetauscht;;;;;
+V0768;verb;unterbrechen;to interrupt;[ʊntɐˈbʁɛçn̩];Unterbrich mich nicht!;Don't interrupt me!;Communication Verbs;social;70;15;3;unterbrech/unterbrich;irregular;unterbrochen;;;;Inseparable verb.
+V0769;verb;sich unterhalten;to chat;[zɪç ʊntɐˈhaltn̩];Wir unterhalten uns über das Wetter.;We are chatting about the weather.;Reflexive Verbs;social;75;15;3;unterhalt/unterhält;reflexive;unterhalten;;;;Vowel change a->ä.
+V0770;verb;unternehmen;to undertake, do;[ʊntɐˈneːmən];Was wollen wir am Wochenende unternehmen?;What do we want to do on the weekend?;Action Verbs;leisure;76;29;3;unternehm/unternimm;irregular;unternommen;;;;;
+V0771;verb;unterrichten;to teach, to instruct;[ʊntɐˈʁɪçtn̩];Sie unterrichtet Deutsch.;She teaches German.;Action Verbs;learning,work;77;9;2;unterricht;regular;unterrichtet;;;;;
+V0772;verb;unterscheiden;to distinguish;[ʊntɐˈʃaɪ̯dn̩];Man kann die beiden kaum unterscheiden.;You can hardly distinguish between the two.;Cognitive Verbs;general;71;15;3;unterscheid;irregular;unterschieden;;;;;
+V0773;verb;unterstützen;to support;[ʊntɐˈʃtʏt͡sn̩];Meine Familie unterstützt mich immer.;My family always supports me.;Action Verbs;social,work;78;11;2;unterstütz;regular;unterstützt;;;;;
+V0774;verb;untersuchen;to investigate, to examine;[ʊntɐˈzuːxn̩];Der Arzt untersucht den Patienten.;The doctor examines the patient.;Action Verbs;health,work;79;13;2;untersuch;regular;untersucht;;;;;
+V0775;verb;verabreden (sich);to arrange to meet;[fɛɐ̯ˈʔapˌʁeːdn̩];Wir sind für morgen verabredet.;We are arranged to meet tomorrow.;Reflexive Verbs;social;76;28;2;verabred;reflexive;verabredet;;;;;
+V0776;verb;verabschieden (sich);to say goodbye;[fɛɐ̯ˈʔapˌʃiːdn̩];Es ist Zeit, uns zu verabschieden.;It's time to say goodbye.;Reflexive Verbs;social;75;1;2;verabschied;reflexive;verabschiedet;;;;;
+V0777;verb;verbessern;to improve;[fɛɐ̯ˈbɛsɐn];Ich möchte mein Deutsch verbessern.;I want to improve my German.;Action Verbs;learning;77;24;2;verbesser;regular;verbessert;;;;;
+V0778;verb;verbieten;to forbid;[fɛɐ̯ˈbiːtn̩];Der Arzt hat ihm das Rauchen verboten.;The doctor forbade him from smoking.;Action Verbs;rules;74;18;3;verbiet;irregular;verboten;;;;;
+V0779;verb;verbrauchen;to consume, to use up;[fɛɐ̯ˈbʁaʊ̯xən];Dieses Auto verbraucht viel Benzin.;This car consumes a lot of gas.;Action Verbs;transport,finance;73;18;2;verbrauch;regular;verbraucht;;;;;
+V0780;verb;verbringen;to spend (time);[fɛɐ̯ˈbʁɪŋən];Ich verbringe viel Zeit mit meiner Familie.;I spend a lot of time with my family.;Action Verbs;leisure,time;71;10;3;verbring;irregular;verbracht;;;;;
+V0781;verb;vermuten;to assume, to suspect;[fɛɐ̯ˈmuːtn̩];Ich vermute, dass er nicht kommt.;I assume that he is not coming.;Cognitive Verbs;opinions;70;21;2;vermut;regular;vermutet;;;;;
+V0782;verb;veröffentlichen;to publish;[fɛɐ̯ˈʔœfntlɪçn̩];Das Buch wurde letztes Jahr veröffentlicht.;The book was published last year.;Action Verbs;media;68;8;2;veröffentlich;regular;veröffentlicht;;;;;
+V0783;verb;verraten;to reveal, to betray;[fɛɐ̯ˈʁaːtn̩];Verrat mir dein Geheimnis!;Tell me your secret!;Communication Verbs;social;69;11;3;verrat/verrät;irregular;verraten;;;;Vowel change a->ä.
+V0784;verb;verschieben;to postpone, to move;[fɛɐ̯ˈʃiːbən];Wir müssen den Termin verschieben.;We have to postpone the appointment.;Action Verbs;work;72;16;3;verschieb;irregular;verschoben;;;;;
+V0785;verb;verschwinden;to disappear;[fɛɐ̯ˈʃvɪndn̩];Meine Schlüssel sind verschwunden.;My keys have disappeared.;Movement Verbs;general;71;8;3;verschwind;irregular;verschwunden;;;;Uses `sein` in Perfekt.
+V0786;verb;versprechen;to promise;[fɛɐ̯ˈʃpʁɛçn̩];Versprich mir, vorsichtig zu sein.;Promise me to be careful.;Communication Verbs;social;76;15;3;versprech/versprich;irregular;versprochen;;;;Vowel change e->i.
+V0787;verb;verstecken;to hide;[fɛɐ̯ˈʃtɛkən];Die Kinder verstecken sich im Garten.;The children are hiding in the garden.;Action Verbs;leisure;70;4;2;versteck;regular;versteckt;;;;Often reflexive.
+V0788;verb;vertrauen;to trust;[fɛɐ̯ˈtʁaʊ̯ən];Ich vertraue dir.;I trust you.;Cognitive Verbs;social;75;11;2;vertrau;regular;vertraut;;;;Takes a dative object.
+V0789;verb;verursachen;to cause;[fɛɐ̯ˈʔuːɐ̯zaxn̩];Der Sturm hat große Schäden verursacht.;The storm caused great damage.;Action Verbs;general;68;22;2;verursach;regular;verursacht;;;;;
+V0790;verb;verwenden;to use;[fɛɐ̯ˈvɛndn̩];Welches Material verwenden Sie?;Which material do you use?;Action Verbs;general;73;16;3;verwend;irregular;verwendet/verwandt;;;;;
+V0791;verb;verzeihen;to forgive;[fɛɐ̯ˈt͡saɪ̯ən];Ich verzeihe dir.;I forgive you.;Communication Verbs;social;72;11;3;verzeih;irregular;verziehen;;;;Takes a dative object.
+V0792;verb;vorhaben;to plan, to intend;[ˈfoːɐ̯ˌhaːbn̩];Was hast du am Wochenende vor?;What do you have planned for the weekend?;Separable Verbs;leisure;77;29;3;hab...vor;separable;vorgehabt;;;;;
+V0793;verb;vorkommen;to occur, to seem;[ˈfoːɐ̯ˌkɔmən];Das kommt mir komisch vor.;That seems strange to me.;Separable Verbs;state;71;15;3;komm...vor;separable;vorgekommen;;;;Uses `sein` in Perfekt. Takes a dative object.
+V0794;verb;vorlesen;to read aloud;[ˈfoːɐ̯ˌleːzn̩];Kannst du mir eine Geschichte vorlesen?;Can you read a story aloud to me?;Separable Verbs;leisure,family;76;8;3;les...vor;separable;vorgelesen;;;;;
+V0795;verb;warnen;to warn;[ˈvaʁnən];Ich habe dich gewarnt.;I warned you.;Communication Verbs;social;70;25;2;warn;regular;gewarnt;;;;;
+V0796;verb;werfen;to throw;[ˈvɛʁfn̩];Er wirft den Ball.;He throws the ball.;Action Verbs;sports,general;75;26;3;werf/wirf;irregular;geworfen;;;;Vowel change e->i.
+V0797;verb;wiegen;to weigh;[ˈviːɡn̩];Wie viel wiegst du?;How much do you weigh?;Action Verbs;health;74;13;3;wieg;irregular;gewogen;;;;;
+V0798;verb;winken;to wave;[ˈvɪŋkən];Sie winkt mir zum Abschied.;She waves goodbye to me.;Action Verbs;social;73;1;2;wink;regular;gewinkt/gewunken;;;;;
+V0799;verb;zuhören;to listen to;[ˈt͡suːˌhøːʁən];Hör mir bitte zu!;Please listen to me!;Separable Verbs;communication;78;11;2;hör...zu;separable;zugehört;;;;Takes a dative object.
+V0800;verb;zustimmen;to agree with;[ˈt͡suːˌʃtɪmən];Ich stimme dir zu.;I agree with you.;Separable Verbs;communication;77;15;2;stimm...zu;separable;zugestimmt;;;;Takes a dative object.
+V0801;adverb;abends;in the evening(s);[ˈaːbənt͡s];Abends lese ich gern.;In the evenings, I like to read.;Adverbs (Time);daily;70;1;1;;;;;;;
+V0802;adverb;allerdings;however, admittedly;[ˈalɐˌdɪŋs];Es ist schön, allerdings auch sehr teuer.;It's nice, however also very expensive.;Adverbs (Concessive);linking;68;21;2;;;;;;;
+V0803;adverb;anders;different, differently;[ˈandɐs];Das sehe ich anders.;I see that differently.;Adverbs (Manner);general;75;15;1;;;;;;;
+V0804;adverb;automatisch;automatic, automatically;[aʊ̯toˈmaːtɪʃ];Die Tür schließt automatisch.;The door closes automatically.;Adverbs (Manner);tech;72;5;1;;;;;;;
+V0805;adverb;besonders;especially, particularly;[bəˈzɔndɐs];Mir gefällt besonders die Farbe.;I especially like the color.;Adverbs (Degree);common;78;23;1;;;;;;;
+V0806;adverb;bestimmt;definitely, certainly;[bəˈʃtɪmt];Er kommt bestimmt noch.;He will definitely still come.;Adverbs (Modality);spoken;77;29;1;;;;;;;
+V0807;adverb;damals;back then, at that time;[ˈdaːmaːls];Damals war alles anders.;Back then everything was different.;Adverbs (Time);history;70;15;1;;;;;;;
+V0808;adverb;damit;so that, with it;[ˈdaːmɪt];Ich beeile mich, damit wir pünktlich sind.;I'm hurrying so that we are on time.;Conjunctions (Subordinating);grammar;75;21;3;;;;;;;As a conjunction, it's subordinating.
+V0809;adverb;darin;in it, therein;[ˈdaːʁɪn];Was ist darin?;What is in it?;Adverbs (Place);general;69;5;1;;;;;;;
+V0810;adverb;darüber;about it, above it;[daˈʁyːbɐ];Wir haben darüber gesprochen.;We spoke about it.;Adverbs (Place/Topic);communication;74;15;1;;;;;;;
+V0811;adverb;darum;therefore, for that reason;[ˈdaːrʊm];Darum geht es nicht.;That's not the point.;Adverbs (Causal);grammar;73;7;2;;;;;;;
+V0812;adverb;dazu;in addition, to that;[daˈt͡suː];Möchten Sie noch etwas dazu?;Would you like anything else with that?;Adverbs (Manner);general;76;6;1;;;;;;;
+V0813;adverb;ebenfalls;also, as well, likewise;[ˈeːbm̩ˌfals];Schönes Wochenende! - Danke, ebenfalls!;Nice weekend! - Thanks, likewise!;Adverbs (Manner);polite,spoken;77;10;1;;;;;;;
+V0814;adverb;eher;rather, sooner;[ˈeːɐ];Ich würde eher zu Hause bleiben.;I would rather stay at home.;Adverbs (Manner);opinions;72;24;1;;;;;;;
+V0815;adverb;einmal;once, one time;[ˈaɪ̯nmaːl];Ich war einmal in Paris.;I was in Paris once.;Adverbs (Frequency);common;80;15;1;;;;;;;
+V0816;adverb;endlich;finally, at last;[ˈɛntlɪç];Endlich bist du da!;Finally you're here!;Adverbs (Time);spoken;78;15;1;;;;;;;
+V0817;adverb;entweder... oder;either... or;[ˈɛntˌveːdɐ ˈoːdɐ];Entweder wir gehen jetzt oder wir bleiben zu Hause.;Either we go now or we stay home.;Conjunctions (Correlative);grammar;70;21;2;;;;;;;
+V0818;adverb;erst;first, only;[eːɐ̯st];Er kommt erst morgen.;He's only coming tomorrow.;Adverbs (Time);common;79;14;1;;;;;;;Indicates something won't happen before a certain time.
+V0819;adverb;etwa;approximately, for example;[ˈɛtva];Das dauert etwa eine Stunde.;That takes approximately one hour.;Adverbs (Degree);general;75;10;1;;;;;;;
+V0820;adverb;fast;almost;[fast];Ich bin fast fertig.;I'm almost finished.;Adverbs (Degree);common;78;8;1;;;;;;;
+V0821;adverb;früher;earlier, formerly;[ˈfʁyːɐ];Früher war hier ein Kino.;Formerly, there was a cinema here.;Adverbs (Time);history;77;15;1;;;;;;;
+V0822;adverb;gar;at all;[ɡaːɐ̯];Ich habe gar keine Zeit.;I have no time at all.;Adverbs (Degree);spoken;76;2;2;;;;;;;Used to intensify a negation.
+V0823;adverb;gerade;just (now), straight;[ɡəˈʁaːdə];Ich habe gerade gegessen.;I just ate.;Adverbs (Time);spoken;80;5;1;;;;;;;
+V0824;adverb;hoffentlich;hopefully;[ˈhɔfntlɪç];Hoffentlich klappt es.;Hopefully it works out.;Adverbs (Modality);spoken;75;15;1;;;;;;;
+V0825;adverb;irgendwann;sometime, at some point;[ˈɪʁɡəntˌvan];Wir sehen uns irgendwann wieder.;We'll see each other again sometime.;Adverbs (Time);future;74;29;1;;;;;;;
+V0826;adverb;irgendwie;somehow;[ˈɪʁɡəntˌviː];Irgendwie schaffen wir das schon.;Somehow we'll manage.;Adverbs (Manner);spoken;73;16;1;;;;;;;
+V0827;adverb;irgendwo;somewhere;[ˈɪʁɡəntˌvoː];Meine Brille muss hier irgendwo sein.;My glasses must be here somewhere.;Adverbs (Place);daily;72;8;1;;;;;;;
+V0828;adverb;jemals;ever;[ˈjeːmaːls];Warst du jemals in den USA?;Have you ever been to the USA?;Adverbs (Frequency);question;70;15;1;;;;;;;
+V0829;adverb;kaum;hardly, barely;[kaʊ̯m];Ich kann es kaum glauben.;I can hardly believe it.;Adverbs (Degree);general;71;15;1;;;;;;;
+V0830;adverb;leider;unfortunately;[ˈlaɪ̯dɐ];Leider habe ich keine Zeit.;Unfortunately, I have no time.;Adverbs (Modality);spoken;78;2;1;;;;;;;
+V0831;adverb;mindestens;at least;[ˈmɪndəstn̩s];Das kostet mindestens 50 Euro.;That costs at least 50 Euros.;Adverbs (Quantity);common;75;9;1;;;;;;;
+V0832;adverb;mittags;at noon, in the afternoons;[ˈmɪtaːks];Mittags esse ich in der Kantine.;At noon I eat in the canteen.;Adverbs (Time);daily;70;1;1;;;;;;;
+V0833;adverb;nachts;at night;[naxts];Nachts sind alle Katzen grau.;At night all cats are gray (proverb).;Adverbs (Time);daily;72;1;1;;;;;;;
+V0834;adverb;nämlich;namely, you see;[ˈnɛːmlɪç];Ich kann nicht kommen, ich bin nämlich krank.;I can't come, you see I'm sick.;Adverbs (Causal);spoken;73;21;2;;;;;;;Used to provide a reason, but doesn't change word order.
+V0835;adverb;nirgends;nowhere;[ˈnɪʁɡn̩t͡s];Ich kann meine Schlüssel nirgends finden.;I can't find my keys anywhere.;Adverbs (Place);daily;71;8;1;;;;;;;
+V0836;adverb;normalerweise;normally, usually;[nɔʁˈmaːlɐˌvaɪ̯zə];Normalerweise stehe ich früher auf.;Normally I get up earlier.;Adverbs (Frequency);daily;74;14;1;;;;;;;
+V0837;adverb;obwohl;although;[ɔpˈvoːl];Ich gehe spazieren, obwohl es regnet.;I'm going for a walk although it's raining.;Conjunctions (Subordinating);grammar;70;21;3;;;;;;;Subordinating conjunction (kicks verb to the end).
+V0838;adverb;plötzlich;suddenly;[ˈplœt͡slɪç];Plötzlich ging das Licht aus.;Suddenly the light went out.;Adverbs (Time);general;70;5;1;;;;;;;
+V0839;adverb;regelmäßig;regularly;[ˈʁeːɡl̩ˌmɛːsɪç];Er geht regelmäßig zum Training.;He goes to training regularly.;Adverbs (Frequency);daily;72;26;1;;;;;;;
+V0840;adverb;sonst;otherwise, else;[zɔnst];Beeil dich, sonst verpassen wir den Zug.;Hurry up, otherwise we'll miss the train.;Adverbs (Causal);grammar;75;7;2;;;;;;;Inverts subject and verb: `sonst verpassen wir...`
+V0841;adverb;ständig;constantly;[ˈʃtɛndɪç];Das Telefon klingelt ständig.;The phone is ringing constantly.;Adverbs (Frequency);general;73;10;1;;;;;;;
+V0842;adverb;statt;instead of;[ʃtat];Er nimmt Tee statt Kaffee.;He's taking tea instead of coffee.;Prepositions (Genitive);a2-level,grammar;68;6;3;;;;;;genitive;Often used with dative in spoken German, but genitive is formally correct.
+V0843;adverb;tatsächlich;actually, in fact;[ˈtaːtˌzɛçlɪç];Er hat tatsächlich gewonnen.;He actually won.;Adverbs (Modality);spoken;71;25;2;;;;;;;
+V0844;adverb;trotz;despite;[tʁɔt͡s];Trotz des Regens gehen wir spazieren.;Despite the rain, we're going for a walk.;Prepositions (Genitive);a2-level,grammar;69;22;3;;;;;;genitive;Often used with dative in spoken German.
+V0845;adverb;übrigens;by the way;[ˈyːbʁɪɡəns];Übrigens, ich habe den Job bekommen.;By the way, I got the job.;Adverbs (Manner);spoken;76;16;1;;;;;;;
+V0846;adverb;unbedingt;definitely;[ˈʊnbədɪŋt];Du musst das unbedingt sehen.;You definitely have to see that.;Adverbs (Modality);spoken;76;10;2;;;;;;;
+V0847;adverb;ungefähr;approximately;[ˈʊnɡəˌfɛːɐ̯];Das dauert ungefähr eine Stunde.;That takes approximately one hour.;Adverbs (Degree);general;75;10;1;;;;;;;
+V0848;adverb;unterwegs;on the way;[ʊntɐˈveːks];Ich bin unterwegs und komme in 10 Minuten.;I'm on the way and will arrive in 10 minutes.;Adverbs (Place);daily;77;28;2;;;;;;;
+V0849;adverb;überall;everywhere;[ˈyːbɐˌʔal];Ich habe überall gesucht.;I've looked everywhere.;Adverbs (Place);daily;74;8;1;;;;;;;
+V0850;adverb;überhaupt;at all, generally;[yːbɐˈhaʊ̯pt];Ich habe überhaupt keine Ahnung.;I have no idea at all.;Adverbs (Degree);spoken;73;15;2;;;;;;;
+V0851;adverb;vor allem;above all, especially;[foːɐ̯ ˈaləm];Mir gefällt vor allem die Farbe.;I especially like the color.;Adverbs (Manner);opinions;72;23;1;;;;;;;
+V0852;adverb;vorher;beforehand;[ˈfoːɐ̯ˌheːɐ̯];Das hättest du mir vorher sagen sollen.;You should have told me that beforehand.;Adverbs (Time);linking;71;15;2;;;;;;;
+V0853;adverb;vorsichtig;carefully;[ˈfoːɐ̯ˌzɪçtɪç];Fahr vorsichtig!;Drive carefully!;Adverbs (Manner);general;73;19;1;;;;;;;
+V0854;adverb;weg;gone, away;[vɛk];Meine Schlüssel sind weg.;My keys are gone.;Adverbs (Place);daily;78;8;1;;;;;;;
+V0855;adverb;wenigstens;at least;[ˈveːnɪçstn̩s];Wenigstens haben wir es versucht.;At least we tried.;Adverbs (Quantity);spoken;70;15;1;;;;;;;
+V0856;adverb;weder... noch;neither... nor;[ˈveːdɐ nɔx];Ich mag weder Fisch noch Fleisch.;I like neither fish nor meat.;Conjunctions (Correlative);grammar;68;21;2;;;;;;;
+V0V857;adverb;wirklich;really;[ˈvɪʁklɪç];Bist du wirklich sicher?;Are you really sure?;Adverbs (Modality);spoken;77;25;1;;;;;;;
+V0858;adverb;ziemlich;quite, rather;[ˈt͡siːmlɪç];Das ist ziemlich teuer.;That is rather expensive.;Adverbs (Degree);common;76;9;1;;;;;;;
+V0859;adverb;zufällig;by chance, accidentally;[ˈt͡suːˌfɛlɪç];Ich habe ihn zufällig getroffen.;I met him by chance.;Adverbs (Manner);social;70;11;1;;;;;;;
+V0860;adverb;zurück;back;[t͡suˈʁʏk];Wann kommst du zurück?;When are you coming back?;Adverbs (Direction);daily;80;14;1;;;;;;;
+V0861;adverb;zuerst;first, at first;[t͡suˈʔeːɐ̯st];Zuerst trinken wir einen Kaffee.;First, we'll drink a coffee.;Adverbs (Time);linking;79;6;1;;;;;;;
+V0862;adverb;zuletzt;lastly, finally;[t͡suˈlɛt͡st];Zuletzt möchte ich mich bedanken.;Lastly, I would like to say thank you.;Adverbs (Time);linking;78;1;1;;;;;;;
+V0863;adverb;kaum;hardly;[kaʊ̯m];Ich habe kaum geschlafen.;I hardly slept.;Adverbs (Degree);daily;71;8;1;;;;;;;
+V0864;adjective;ledig;single, unmarried;[ˈleːdɪç];Sind Sie ledig oder verheiratet?;Are you single or married?;Adjectives (State);social,family;75;11;1;;;;;;;
+V0865;adjective;verwitwet;widowed;[fɛɐ̯ˈvɪtvət];Sie ist seit fünf Jahren verwitwet.;She has been widowed for five years.;Adjectives (State);social,family;65;11;1;;;;;;;
+V0866;adjective;geschieden;divorced;[ɡəˈʃiːdn̩];Meine Eltern sind geschieden.;My parents are divorced.;Adjectives (State);social,family;70;11;1;;;;;;;
+V0867;pronoun;manche;some;[ˈmançə];Manche Leute mögen das nicht.;Some people don't like that.;Pronouns (Indefinite);general;72;13;1;;;;;;;
+V0868;pronoun;niemand;nobody, no one;[ˈniːmant];Niemand war zu Hause.;Nobody was at home.;Pronouns (Indefinite);general;74;5;1;;;;;;;
+V0869;pronoun;jemand;somebody, someone;[ˈjeːmant];Ist jemand da?;Is anybody there?;Pronouns (Indefinite);general;73;5;1;;;;;;;
+V0870;pronoun;etwas;something;[ˈɛtvas];Ich möchte etwas essen.;I would like to eat something.;Pronouns (Indefinite);common;80;6;1;;;;;;;Often shortened to `was` in spoken German.
+V0871;pronoun;nichts;nothing;[nɪçt͡s];Ich habe nichts gesehen.;I saw nothing.;Pronouns (Indefinite);common;79;15;1;;;;;;;
+V0872;pronoun;alles;everything;[ˈaləs];Alles ist in Ordnung.;Everything is okay.;Pronouns (Indefinite);common;82;15;1;;;;;;;
+V0873;pronoun;alle;all, everyone;[ˈalə];Alle sind gekommen.;Everyone has come.;Pronouns (Indefinite);common;81;13;1;;;;;;;
+V0874;pronoun;welche, -r, -s;which;[ˈvɛlçə];Welches Buch liest du?;Which book are you reading?;Question Words;question;78;9;1;;;;;;;Takes adjective endings based on the noun's gender/case.
+V0875;pronoun;mein, dein, sein...;my, your, his...;[maɪ̯n];Das ist mein Auto.;That is my car.;Pronouns (Possessive);a1-essential;90;11;2;;;;;;;These are possessive articles; they can also stand alone as pronouns.
+V0876;q-word;woher;from where;[voˈheːɐ̯];Woher kommst du?;Where do you come from?;Question Words;question;85;1;1;;;;;;;
+V0877;q-word;wohin;to where;[voˈhɪn];Wohin gehst du?;Where are you going?;Question Words;question;84;18;1;;;;;;;
+V0878;q-word;wen;whom (accusative);[veːn];Wen hast du gesehen?;Whom did you see?;Question Words;question,grammar;70;6;2;;;;;;;Asks for the accusative object.
+V0879;q-word;wem;whom (dative);[veːm];Wem hast du das Buch gegeben?;To whom did you give the book?;Question Words;question,grammar;69;12;2;;;;;;;Asks for the dative object.
+V0880;q-word;wessen;whose;[ˈvɛsn̩];Wessen Tasche ist das?;Whose bag is this?;Question Words;question,grammar;65;24;3;;;;;;;Asks for the genitive object. (Advanced A2/B1).
+V0881;conjunction;bevor;before;[bəˈfoːɐ̯];Ich putze meine Zähne, bevor ich ins Bett gehe.;I brush my teeth before I go to bed.;Conjunctions (Subordinating);grammar;68;15;3;;;;;;;Subordinating conjunction.
+V0882;conjunction;während;while, during;[ˈvɛːʁənt];Während ich koche, höre ich Musik.;While I cook, I listen to music.;Conjunctions (Subordinating);grammar;67;15;3;;;;;;;Subordinating conjunction. Can also be a genitive preposition.
+V0883;conjunction;seitdem;since (that time);[zaɪ̯tˈdeːm];Seitdem er in Berlin wohnt, ist er glücklicher.;Since he has lived in Berlin, he is happier.;Conjunctions (Subordinating);grammar;66;15;3;;;;;;;Subordinating conjunction.
+V0884;conjunction;als;when (single past event);[als];Als ich ein Kind war, lebte ich in Hamburg.;When I was a child, I lived in Hamburg.;Conjunctions (Subordinating);grammar;72;15;3;;;;;;;Used for a specific point or period in the past. Not to be confused with `wenn`.
+V0885;conjunction;wenn;if, when (repeated/future);[vɛn];Wenn es regnet, bleibe ich zu Hause.;If it rains, I stay home.;Conjunctions (Subordinating);grammar;80;21;3;;;;;;;Used for conditions and repeated or future events.
+V0886;conjunction;ob;if, whether;[ɔp];Ich weiß nicht, ob er kommt.;I don't know if he is coming.;Conjunctions (Subordinating);grammar;75;21;3;;;;;;;Used for indirect yes/no questions.
+V0887;conjunction;sodass;so that;[zoˈdas];Er spricht langsam, sodass ich ihn verstehe.;He speaks slowly so that I understand him.;Conjunctions (Subordinating);grammar;65;21;3;;;;;;;
+V0888;conjunction;damit;so that;[ˈdaːmɪt];Ich gebe dir Geld, damit du das Ticket kaufen kannst.;I'm giving you money so that you can buy the ticket.;Conjunctions (Subordinating);grammar;75;21;3;;;;;;;
+V0889;conjunction;entweder... oder;either... or;[ˈɛntˌveːdɐ ˈoːdɐ];Du kannst entweder Tee oder Kaffee haben.;You can have either tea or coffee.;Conjunctions (Correlative);grammar;70;21;2;;;;;;;
+V0890;conjunction;weder... noch;neither... nor;[ˈveːdɐ nɔx];Er isst weder Fleisch noch Fisch.;He eats neither meat nor fish.;Conjunctions (Correlative);grammar;68;21;2;;;;;;;
+V0891;conjunction;zwar... aber;admittedly... but;[t͡svaːɐ̯ ˈaːbɐ];Der Film ist zwar lang, aber sehr gut.;Admittedly the film is long, but very good.;Conjunctions (Correlative);grammar;67;21;2;;;;;;;
+V0892;conjunction;sowohl... als auch;both... and;[zoˈvoːl als aʊ̯x];Ich mag sowohl Hunde als auch Katzen.;I like both dogs and cats.;Conjunctions (Correlative);grammar;66;21;2;;;;;;;
+V0893;number;eins;one;[aɪ̯ns];Eins, zwei, drei...;One, two, three...;Numbers;a1-essential;90;10;1;;;;;;;
+V0894;number;zwei;two;[t͡svaɪ̯];Ich habe zwei Brüder.;I have two brothers.;Numbers;a1-essential;90;10;1;;;;;;;
+V0895;number;drei;three;[dʁaɪ̯];Es ist drei Uhr.;It's three o'clock.;Numbers;a1-essential;90;10;1;;;;;;;
+V0896;number;vier;four;[fiːɐ̯];Ein Tisch hat vier Beine.;A table has four legs.;Numbers;a1-essential;90;10;1;;;;;;;
+V0897;number;fünf;five;[fʏnf];Gib mir fünf!;Give me five!;Numbers;a1-essential;90;10;1;;;;;;;
+V0898;number;sechs;six;[zɛks];Die Woche hat sechs Arbeitstage.;The week has six workdays.;Numbers;a1-essential;90;10;1;;;;;;;
+V0899;number;sieben;seven;[ˈziːbən];Sieben ist eine Glückszahl.;Seven is a lucky number.;Numbers;a1-essential;90;10;1;;;;;;;
+V0900;number;acht;eight;[axt];Achtung!;Attention!;Numbers;a1-essential;90;10;1;;;;;;;
+V0901;number;neun;nine;[nɔɪ̯n];Ich komme um neun.;I'll come at nine.;Numbers;a1-essential;90;10;1;;;;;;;
+V0902;number;zehn;ten;[t͡seːn];Ich habe zehn Finger.;I have ten fingers.;Numbers;a1-essential;90;10;1;;;;;;;
+V0903;number;elf;eleven;[ɛlf];Die Mannschaft hat elf Spieler.;The team has eleven players.;Numbers;a1-essential;88;10;1;;;;;;;
+V0904;number;zwölf;twelve;[t͡svœlf];Das Jahr hat zwölf Monate.;The year has twelve months.;Numbers;a1-essential;88;10;1;;;;;;;
+V0905;number;dreizehn;thirteen;[ˈdʁaɪ̯ˌt͡seːn];Dreizehn ist eine Unglückszahl.;Thirteen is an unlucky number.;Numbers;a2-level;85;10;1;;;;;;;
+V0906;number;vierzehn;fourteen;[ˈfɪʁˌt͡seːn];Sie ist vierzehn Jahre alt.;She is fourteen years old.;Numbers;a2-level;85;10;1;;;;;;;
+V0907;number;fünfzehn;fifteen;[ˈfʏnfˌt͡seːn];Der Bus kommt in fünfzehn Minuten.;The bus comes in fifteen minutes.;Numbers;a2-level;85;10;1;;;;;;;
+V0908;number;sechzehn;sixteen;[ˈzɛçˌt͡seːn];Es gibt sechzehn Bundesländer in Deutschland.;There are sixteen federal states in Germany.;Numbers;a2-level;85;10;1;;;;;;;
+V0909;number;siebzehn;seventeen;[ˈziːpˌt͡seːn];Ich bin siebzehn.;I am seventeen.;Numbers;a2-level;85;10;1;;;;;;;
+V0910;number;achtzehn;eighteen;[ˈaxˌt͡seːn];Mit achtzehn darf man Auto fahren.;At eighteen you are allowed to drive.;Numbers;a2-level;85;10;1;;;;;;;
+V0911;number;neunzehn;nineteen;[ˈnɔɪ̯nˌt͡seːn];Das war neunzehnhundertneunundneunzig.;That was nineteen ninety-nine.;Numbers;a2-level;85;10;1;;;;;;;
+V0912;number;zwanzig;twenty;[ˈt͡svant͡sɪç];Das kostet zwanzig Euro.;That costs twenty euros.;Numbers;a1-essential;88;10;1;;;;;;;
+V0913;number;einundzwanzig;twenty-one;[ˈaɪ̯nʊntˌt͡svant͡sɪç];Er ist einundzwanzig.;He is twenty-one.;Numbers;a1-essential;87;10;1;;;;;;;
+V0914;number;dreißig;thirty;[ˈdʁaɪ̯sɪç];Ich bin dreißig Jahre alt.;I am thirty years old.;Numbers;a1-essential;86;10;1;;;;;;;
+V0915;number;vierzig;forty;[ˈfɪʁt͡sɪç];Mein Vater ist über vierzig.;My father is over forty.;Numbers;a2-level;85;10;1;;;;;;;
+V0916;number;fünfzig;fifty;[ˈfʏnft͡sɪç];Das Ticket kostet fünfzig Euro.;The ticket costs fifty euros.;Numbers;a2-level;84;10;1;;;;;;;
+V0917;number;sechzig;sixty;[ˈzɛçt͡sɪç];Meine Oma ist sechzig.;My grandma is sixty.;Numbers;a2-level;83;10;1;;;;;;;
+V0918;number;siebzig;seventy;[ˈziːpt͡sɪç];Er wurde siebzig.;He turned seventy.;Numbers;a2-level;82;10;1;;;;;;;
+V0919;number;achtzig;eighty;[ˈaxt͡sɪç];Das Tempolimit ist achtzig.;The speed limit is eighty.;Numbers;a2-level;81;10;1;;;;;;;
+V0920;number;neunzig;ninety;[ˈnɔɪ̯nt͡sɪç];Sie ist fast neunzig Jahre alt.;She is almost ninety years old.;Numbers;a2-level;80;10;1;;;;;;;
+V0921;number;hundert;one hundred;[ˈhʊndɐt];Ich habe hundert Euro.;I have one hundred euros.;Numbers;a1-essential;85;10;1;;;;;;;
+V0922;number;tausend;one thousand;[ˈtaʊ̯zənt];Das kostet tausend Euro.;That costs one thousand euros.;Numbers;a2-level;80;10;1;;;;;;;
+V0923;ordinal;erste;first;[ˈeːɐ̯stə];Das ist das erste Mal.;That is the first time.;Ordinal Numbers;common;80;27;1;;;;;;;
+V0924;ordinal;zweite;second;[ˈt͡svaɪ̯tə];Ich wohne im zweiten Stock.;I live on the second floor.;Ordinal Numbers;common;79;27;1;;;;;;;
+V0925;ordinal;dritte;third;[ˈdʁɪtə];Er wurde Dritter.;He came in third.;Ordinal Numbers;common;78;27;1;;;;;;;
+V0926;ordinal;vierte;fourth;[ˈfɪʁtə];Nimm die vierte Tür links.;Take the fourth door on the left.;Ordinal Numbers;common;77;27;1;;;;;;;
+V0927;ordinal;letzte;last;[ˈlɛt͡stə];Das ist deine letzte Chance.;This is your last chance.;Ordinal Numbers;common;79;27;1;;;;;;;
+V0928;adverb;außerdem;besides, in addition;[ˈaʊ̯sɐˌdeːm];Außerdem ist es zu teuer.;Besides, it's too expensive.;Adverbs (Linking);grammar;65;21;2;;;;;;;
+V0929;adverb;eben;just, exactly;[ˈeːbən];So ist es eben.;That's just how it is.;Particles;spoken;68;15;2;;;;;;;Used to express resignation or obviousness.
+V0930;adverb;eigentlich;actually;[ˈaɪ̯ɡəntlɪç];Eigentlich wollte ich ins Kino gehen.;Actually, I wanted to go to the cinema.;Adverbs (Modality);spoken;80;7;1;;;;;;;
+V0931;adverb;einigermaßen;to some extent, somewhat;[ˈaɪ̯nɪɡɐˌmaːsn̩];Es geht mir einigermaßen gut.;I'm doing reasonably well.;Adverbs (Degree);formal;60;24;2;;;;;;;
+V0932;adverb;einverstanden;agreed;[ˈaɪ̯nfɛɐ̯ˌʃtandn̩];Bist du einverstanden? - Ja, einverstanden.;Do you agree? - Yes, agreed.;Particles;spoken;75;15;1;;;;;;;
+V0933;adverb;einzig;only;[ˈaɪ̯nt͡sɪç];Du bist der Einzige, der mir helfen kann.;You are the only one who can help me.;Adverbs (Degree);general;70;12;1;;;;;;;
+V0934;adverb;endlich;finally;[ˈɛntlɪç];Endlich ist der Sommer da!;Finally, summer is here!;Adverbs (Time);spoken;78;15;1;;;;;;;
+V0935;adverb;erfolglos;unsuccessful;[ɛɐ̯ˈfɔlˌkloːs];Die Suche war erfolglos.;The search was unsuccessful.;Adverbs (Manner);negative;65;16;1;;;;;;;
+V0936;adverb;erfolgreich;successfully;[ɛɐ̯ˈfɔlkʁaɪ̯ç];Sie hat das Projekt erfolgreich abgeschlossen.;She completed the project successfully.;Adverbs (Manner);positive;72;16;1;;;;;;;
+V0937;adverb;freiwillig;voluntarily;[ˈfʁaɪ̯ˌvɪlɪç];Er hat freiwillig geholfen.;He helped voluntarily.;Adverbs (Manner);social;69;16;1;;;;;;;
+V0938;adverb;froh;gladly;[fʁoː];Ich bin froh darüber.;I am glad about that.;Adverbs (Manner);feelings;75;11;1;;;;;;;
+V0939;adverb;gemeinsam;together, jointly;[ɡəˈmaɪ̯nzaːm];Wir haben das Projekt gemeinsam gemacht.;We did the project together.;Adverbs (Manner);social;74;25;1;;;;;;;
+V0940;adverb;gespannt;in suspense;[ɡəˈʃpant];Ich bin gespannt, was passiert.;I am curious what will happen.;Adverbs (Manner);feelings;70;26;1;;;;;;;
+V0941;adverb;gestern Abend;yesterday evening;[ˈɡɛstɐn ˈaːbənt];Gestern Abend waren wir im Theater.;Yesterday evening we were at the theater.;Adverbs (Time);daily;78;15;1;;;;;;;
+V0942;adverb;heute Morgen;this morning;[ˈhɔɪ̯tə ˈmɔʁɡn̩];Heute Morgen habe ich verschlafen.;This morning I overslept.;Adverbs (Time);daily;79;1;1;;;;;;;
+V0943;adverb;morgen früh;tomorrow morning;[ˈmɔʁɡn̩ ˈfʁyː];Wir müssen morgen früh aufstehen.;We have to get up early tomorrow morning.;Adverbs (Time);daily;78;14;1;;;;;;;
+V0944;adverb;höchstens;at most;[ˈhøːçstn̩s];Das dauert höchstens eine Stunde.;That will take an hour at most.;Adverbs (Quantity);general;68;10;1;;;;;;;
+V0945;adverb;hoffentlich;hopefully;[ˈhɔfntlɪç];Hoffentlich wird das Wetter besser.;Hopefully the weather will get better.;Adverbs (Modality);spoken;75;15;1;;;;;;;
+V0946;adverb;inzwischen;meanwhile, in the meantime;[ɪnˈt͡svɪʃn̩];Inzwischen habe ich meine Meinung geändert.;In the meantime I have changed my opinion.;Adverbs (Time);linking;67;25;2;;;;;;;
+V0947;adverb;irgendetwas;something or other;[ˈɪʁɡəntˌɛtvas];Irgendetwas stimmt hier nicht.;Something or other isn't right here.;Pronouns (Indefinite);spoken;65;15;1;;;;;;;
+V0948;adverb;je;ever, each;[jeː];Je mehr, desto besser.;The more, the better.;Adverbs (Quantity);grammar;66;24;2;;;;;;;
+V0949;adverb;jeweils;each, at a time;[ˈjeːvaɪ̯ls];Bitte nur jeweils eine Person.;Please only one person at a time.;Adverbs (Manner);formal;64;1;2;;;;;;;
+V0950;adverb;kaum;hardly;[kaʊ̯m];Ich habe ihn kaum erkannt.;I hardly recognized him.;Adverbs (Degree);common;71;15;1;;;;;;;
+V0951;adverb;keinesfalls;by no means, not at all;[ˈkaɪ̯nəsˌfals];Das ist keinesfalls akzeptabel.;That is by no means acceptable.;Adverbs (Degree);formal;63;25;2;;;;;;;
+V0952;adverb;kopfüber;headfirst, upside down;[kɔpfˈʔyːbɐ];Er sprang kopfüber ins Wasser.;He jumped headfirst into the water.;Adverbs (Manner);general;60;12;2;;;;;;;
+V0953;adverb;kurzfristig;short-term, at short notice;[ˈkʊʁt͡sˌfʁɪstɪç];Wir mussten den Plan kurzfristig ändern.;We had to change the plan at short notice.;Adverbs (Time);work;68;16;2;;;;;;;
+V0954;adverb;langfristig;long-term;[ˈlaŋˌfʁɪstɪç];Langfristig ist das eine gute Investition.;In the long term, that is a good investment.;Adverbs (Time);work,finance;67;16;2;;;;;;;
+V0955;adverb;meistens;mostly, usually;[ˈmaɪ̯stn̩s];Meistens trinke ich morgens Kaffee.;Mostly, I drink coffee in the morning.;Adverbs (Frequency);daily;75;1;1;;;;;;;
+V0956;adverb;miteinander;with each other;[mɪtʔaɪ̯ˈnandɐ];Wir müssen miteinander reden.;We must talk with each other.;Adverbs (Manner);social;74;15;1;;;;;;;
+V0957;adverb;möglicherweise;possibly;[ˈmøːklɪçɐˌvaɪ̯zə];Möglicherweise hat er es vergessen.;Possibly he forgot it.;Adverbs (Modality);formal;69;15;2;;;;;;;
+V0958;adverb;neulich;recently, the other day;[ˈnɔɪ̯lɪç];Ich habe sie neulich getroffen.;I met her the other day.;Adverbs (Time);spoken;70;15;1;;;;;;;
+V0959;adverb;nirgendwo;nowhere;[ˈnɪʁɡn̩tvo];Ich kann es nirgendwo finden.;I can't find it anywhere.;Adverbs (Place);daily;71;8;1;;;;;;;
+V0960;adverb;notfalls;if necessary, in an emergency;[ˈnoːtˌfals];Notfalls können wir ein Taxi nehmen.;If necessary, we can take a taxi.;Adverbs (Modality);general;68;25;2;;;;;;;
+V0961;adverb;offenbar;apparently, obviously;[ˈɔfn̩ˌbaːɐ̯];Er hat offenbar keine Ahnung.;He obviously has no idea.;Adverbs (Modality);spoken;72;15;2;;;;;;;
+V0962;adverb;quer;across, diagonally;[kveːɐ̯];Wir müssen quer durch die Stadt fahren.;We have to drive across the city.;Adverbs (Direction);transport;67;18;2;;;;;;;
+V0963;adverb;rückwärts;backwards;[ˈʁʏkvɛʁt͡s];Er kann rückwärts einparken.;He can park backwards.;Adverbs (Direction);transport;66;18;2;;;;;;;
+V0964;adverb;schließlich;finally, after all;[ˈʃliːslɪç];Schließlich haben wir es geschafft.;Finally, we did it.;Adverbs (Time);linking;73;15;2;;;;;;;
+V0965;adverb;schriftlich;in writing;[ˈʃʁɪftlɪç];Ich brauche das schriftlich.;I need that in writing.;Adverbs (Manner);work,formal;70;9;1;;;;;;;
+V0966;adverb;seitdem;since then;[zaɪ̯tˈdeːm];Seitdem habe ich nichts mehr von ihm gehört.;Since then I haven't heard from him.;Adverbs (Time);linking;66;15;2;;;;;;;
+V0967;adverb;selbst;oneself, even;[zɛlpst];Ich habe das selbst gemacht.;I did that myself.;Pronouns (Reflexive);common;79;16;1;;;;;;;Also used to mean 'even': `Selbst ich weiß das.`
+V0968;adverb;sogar;even;[zoˈɡaːɐ̯];Er hat sogar mein Geschenk vergessen.;He even forgot my present.;Adverbs (Degree);spoken;75;27;2;;;;;;;
+V0969;adverb;tagsüber;during the day;[ˈtaːksˌʔyːbɐ];Tagsüber arbeite ich.;During the day, I work.;Adverbs (Time);daily;74;1;1;;;;;;;
+V0970;adverb;teilweise;partly, in parts;[ˈtaɪ̯lˌvaɪ̯zə];Die Straße ist teilweise gesperrt.;The road is partly closed.;Adverbs (Degree);general;70;18;1;;;;;;;
+V0971;adverb;übermorgen;the day after tomorrow;[ˈyːbɐˌmɔʁɡn̩];Wir sehen uns übermorgen.;We'll see each other the day after tomorrow.;Adverbs (Time);daily;73;14;1;;;;;;;
+V0972;adverb;vorgestern;the day before yesterday;[ˈfoːɐ̯ˌɡɛstɐn];Ich bin vorgestern angekommen.;I arrived the day before yesterday.;Adverbs (Time);daily;72;15;1;;;;;;;
+V0973;adverb;vorwärts;forwards;[ˈfɔʁvɛʁt͡s];Immer nur vorwärts schauen!;Only ever look forwards!;Adverbs (Direction);general;71;18;1;;;;;;;
+V0974;adverb;wahnsinnig;insanely, crazy;[ˈvaːnˌzɪnɪç];Das ist wahnsinnig teuer.;That is insanely expensive.;Adverbs (Degree);spoken,informal;70;9;1;;;;;;;
+V0975;adverb;weltweit;worldwide;[ˈvɛltvaɪ̯t];Die Firma ist weltweit bekannt.;The company is known worldwide.;Adverbs (Place);general;69;16;1;;;;;;;
+V0976;adverb;wesentlich;essential, essentially;[ˈveːzn̩tlɪç];Das ist ein wesentlicher Punkt.;That is an essential point.;Adjectives (Quality);formal;68;15;2;;;;;;;
+V0977;adverb;wieso;why, how come;[viˈzoː];Wieso hast du das gemacht?;How come you did that?;Question Words;question,spoken;75;7;2;;;;;;;Informal synonym for `warum`.
+V0978;adverb;wirklich;really;[ˈvɪʁklɪç];Das ist wirklich unglaublich.;That is really unbelievable.;Adverbs (Degree);spoken;77;25;1;;;;;;;
+V0979;adverb;wodurch;through what, whereby;[voˈdʊʁç];Wodurch ist der Unfall passiert?;How did the accident happen?;Question Words;formal,grammar;65;18;3;;;;;;;
+V0980;adverb;woran;on what;[voˈʁan];Woran denkst du?;What are you thinking about?;Question Words;grammar;66;15;3;;;;;;;Da-compound, `an was`.
+V0981;adverb;worauf;on what;[voˈʁaʊ̯f];Worauf wartest du?;What are you waiting for?;Question Words;grammar;67;10;3;;;;;;;Da-compound, `auf was`.
+V0982;adverb;woraus;from what, out of what;[voˈʁaʊ̯s];Woraus ist das gemacht?;What is that made from?;Question Words;grammar;66;5;3;;;;;;;Da-compound, `aus was`.
+V0983;adverb;wovon;from what, about what;[voˈfɔn];Wovon sprecht ihr?;What are you talking about?;Question Words;grammar;65;15;3;;;;;;;Da-compound, `von was`.
+V0984;adverb;wovor;of what, before what;[voˈfoːɐ̯];Wovor hast du Angst?;What are you afraid of?;Question Words;grammar;64;11;3;;;;;;;Da-compound, `vor was`.
+V0985;adverb;wozu;for what purpose, why;[voˈt͡suː];Wozu brauchst du das?;What do you need that for?;Question Words;grammar;63;8;3;;;;;;;Da-compound, `zu was`.
+V0986;adverb;zunächst;first of all, initially;[t͡suˈnɛːçst];Zunächst möchte ich mich vorstellen.;First of all, I would like to introduce myself.;Adverbs (Time);formal,linking;70;1;2;;;;;;;
+V0987;adverb;zuvor;before, previously;[t͡suˈfoːɐ̯];Das habe ich noch nie zuvor gesehen.;I have never seen that before.;Adverbs (Time);formal;69;15;2;;;;;;;
+V0988;adverb;zwar;admittedly, indeed;[t͡svaːɐ̯];Er ist zwar reich, aber nicht glücklich.;Admittedly he is rich, but not happy.;Adverbs (Concessive);grammar;72;21;2;;;;;;;Often used in `zwar... aber` constructions.
+V0989;conjunction;beziehungsweise (bzw.);or rather, respectively;[bəˈt͡siːʊŋsˌvaɪ̯zə];Ich treffe ihn heute bzw. morgen.;I'm meeting him today, or rather tomorrow.;Conjunctions (Linking);formal;68;15;3;;;;;;;Abbreviated as `bzw.`
+V0990;conjunction;indem;by doing something;[ɪnˈdeːm];Man lernt, indem man Fehler macht.;One learns by making mistakes.;Conjunctions (Subordinating);grammar;67;2;3;;;;;;;Subordinating conjunction.
+V0991;conjunction;nachdem;after;[naxˈdeːm];Nachdem ich gegessen hatte, ging ich spazieren.;After I had eaten, I went for a walk.;Conjunctions (Subordinating);grammar;66;15;3;;;;;;;Subordinating conjunction. Often involves past perfect tense.
+V0992;conjunction;seit;since;[zaɪ̯t];Seit er hier arbeitet, ist er viel entspannter.;Since he has worked here, he is much more relaxed.;Conjunctions (Subordinating);grammar;65;16;3;;;;;;;Subordinating conjunction.
+V0993;conjunction;sobald;as soon as;[zoˈbalt];Ich rufe dich an, sobald ich zu Hause bin.;I'll call you as soon as I am home.;Conjunctions (Subordinating);grammar;64;14;3;;;;;;;
+V0994;conjunction;solange;as long as;[zoˈlaŋə];Solange du hier wohnst, gelten meine Regeln.;As long as you live here, my rules apply.;Conjunctions (Subordinating);grammar;63;2;3;;;;;;;
+V0995;conjunction;während;while;[ˈvɛːʁənt];Während du schläfst, arbeite ich.;While you sleep, I work.;Conjunctions (Subordinating);grammar;67;15;3;;;;;;;
+V0996;particle;ja;yes, you know;[jaː];Das ist ja unglaublich!;That is, you know, unbelievable!;Particles;spoken;80;15;2;;;;;;;As a particle, it adds emphasis or assumes shared knowledge.
+V0997;particle;halt;just, simply;[halt];So ist es halt.;That's just the way it is.;Particles;spoken,informal;70;15;2;;;;;;;Similar to `eben`, expresses resignation.
+V0998;particle;doch;yes (contradicting a negative);[dɔx];Kommst du nicht? - Doch!;Aren't you coming? - Yes, I am!;Particles;spoken;78;8;2;;;;;;;Used to contradict a negative statement or question.
+V0999;particle;schon;already, don't worry;[ʃoːn];Das wird schon wieder.;Don't worry, it'll be okay again.;Particles;spoken;75;15;2;;;;;;;As a particle, it can be reassuring.
+V1000;pronoun;man;one, you (general);[man];Man kann nie wissen.;One can never know.;Pronouns (Indefinite);common,spoken;85;5;1;;;;;;;Indefinite pronoun, always third-person singular.

@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { getGrammarQuestions } from "../../core/question-engine/questionBuilder";
-import { type Question } from "../../core/question-engine/questionTypes";
-import { shuffleArray } from "../../lib/utils";
+import { getGrammarQuestions } from "../../core/question-engine";
+import { type Question } from "../../core/question-engine/types";
+import { shuffleArray } from "../../pages/utils";
 import type {
   QuizResults,
   FlashcardSessionResult,
